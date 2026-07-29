@@ -1,0 +1,34 @@
+{
+  "accounts": {
+    "NIFTYBEES": {
+      "cash": 20000,
+      "units": 0.0,
+      "entry": null
+    },
+    "RELIANCE": {
+      "cash": 20000,
+      "units": 0.0,
+      "entry": null
+    },
+    "TCS": {
+      "cash": 20000,
+      "units": 0.0,
+      "entry": null
+    },
+    "HDFCBANK": {
+      "cash": 20000,
+      "units": 0.0,
+      "entry": null
+    },
+    "INFY": {
+      "cash": 20000,
+      "units": 0.0,
+      "entry": null
+    }
+  },
+  "pending": {
+    "NIFTYBEES": "BUY",
+    "HDFCBANK": "BUY"
+  },
+  "last_candle": "2026-07-17"
+}
