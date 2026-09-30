@@ -57,7 +57,23 @@ real money is at risk.
     python3 -m pytest               # full test suite (must be green)
     python3 run_experiments.py      # re-run core experiments, upsert leaderboard
     python3 -m uvicorn server:app --reload   # web UI at http://localhost:8000
-    python3 paper_bot.py            # daily paper-trading run
+    python3 paper_bot.py            # daily paper-trading run (replays missed days)
+    python3 update_intraday.py      # grow m15/h1 history (run every few weeks!)
+    python3 run_intraday.py RELIANCEm15.csv   # ORB vs open-to-close, dev/val/OOS
+
+## Intraday research (src/intraday/)
+
+- Strategy sees only bars up to the one that just closed; fills at the NEXT
+  bar's open; square-off at the 15:15 close; nothing is held overnight.
+- Costs: copy `config/intraday_costs.example.json` to
+  `config/intraday_costs.json` and fill in your broker's charge sheet. No
+  rates are hard-coded. Use `--gross` only as a labelled zero-cost reference.
+- Benchmark: buy at each session's open, sell at the 15:15 close.
+- Yahoo keeps only ~60 days of 15-min bars: anything not captured in time is
+  lost, so run `update_intraday.py` regularly.
+- The 1-hour data supports ORB-60 only. It is NOT the 15-min ORB-30 strategy.
+- The m30/h4 files sit on a 09:00 grid, not the 09:15 NSE session grid. They
+  are reported as misaligned and are not used for intraday research.
 
 ## Roadmap
 

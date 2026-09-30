@@ -1,6 +1,7 @@
 """Trading Lab backend - serves the engine to the web UI.
 Run with:  python3 -m uvicorn server:app"""
 
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -11,6 +12,12 @@ from src import leaderboard
 from src.config import DATA_DIR, CAPITAL
 from src.data_loader import load_csv
 from src.research import run_daily
+from src.intraday.costs import CostModel
+from src.intraday.data import load_intraday, timeframe_of
+from src.intraday.engine import EngineConfig, run_intraday, run_open_to_close_benchmark
+from src.intraday.metrics import daily_equity as intraday_daily_equity
+from src.intraday.orb import ORB
+from src.intraday.research import run_study
 
 app = FastAPI()
 
@@ -134,6 +141,50 @@ def save_to_leaderboard(file: str, kind: str = "ema", fast: int = 20, slow: int 
     _, _, r = _backtest(file, kind, fast, slow, trailing)
     leaderboard.save([r])
     return {"ok": True, "name": r["name"]}
+
+
+@app.get("/api/intraday/files")
+def intraday_files():
+    """Every m15/h1 file with its data-quality report."""
+    out = []
+    for p in sorted((DATA_DIR / "india").glob("*.csv")):
+        if not re.search(r"(m15|h1)\.csv$", p.name):
+            continue
+        try:
+            _, r = load_intraday(p.name)
+            out.append({"file": p.name, **{k: r[k] for k in ("symbol", "timeframe_min", "sessions",
+                        "start", "end", "warnings")}, "ok": True})
+        except ValueError as e:
+            out.append({"file": p.name, "ok": False, "warnings": [str(e)]})
+    return out
+
+
+@app.get("/api/intraday/run")
+def intraday_run(file: str, range_minutes: int = 30, cutoff: str = "14:30",
+                 short: bool = True, gross: bool = False):
+    """ORB vs open-to-close benchmark. Read-only; nothing is saved."""
+    if "/" in file or ".." in file:
+        raise HTTPException(400, "bad file name")
+    try:
+        costs = CostModel.zero() if gross else CostModel.load()
+    except (FileNotFoundError, TypeError, ValueError) as e:
+        raise HTTPException(409, f"Cost schedule not configured: {e}")
+    cfg = EngineConfig(entry_cutoff=cutoff, allow_short=short)
+    try:
+        st = run_study(file, costs, range_minutes, cfg, save=False)
+        full = run_intraday(load_intraday(file)[0], ORB(range_minutes, timeframe_of(file)), costs, cfg)
+        bench = run_open_to_close_benchmark(load_intraday(file)[0], costs, cfg)
+    except (ValueError, FileNotFoundError) as e:
+        raise HTTPException(400, str(e))
+    se = intraday_daily_equity(full["equity"])
+    be = intraday_daily_equity(bench["equity"])
+    dd = (se / se.cummax() - 1) * 100
+    t = full["trades"]
+    st["curve"] = {"dates": [str(d) for d in se.index], "equity": [round(float(v)) for v in se],
+                   "bench": [round(float(v)) for v in be.reindex(se.index).ffill()],
+                   "drawdown": [round(float(v), 2) for v in dd]}
+    st["trade_list"] = [] if t.empty else t.round(2).tail(60).to_dict(orient="records")
+    return st
 
 
 app.mount("/", StaticFiles(directory=Path(__file__).parent / "web", html=True), name="web")

@@ -38,7 +38,8 @@ class CostModel:
         return cls("zero-cost (GROSS - not realistic)", 0, 0, "flat", 0, 0, 0, 0, 0, 0)
 
     @classmethod
-    def load(cls, path=COST_FILE):
+    def load(cls, path=None):
+        path = path or COST_FILE
         if not path.exists():
             raise FileNotFoundError(
                 f"{path} missing. Copy config/intraday_costs.example.json to "

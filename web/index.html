@@ -278,7 +278,7 @@
             gap: 8px;
         }
         
-        #runBtn {
+        #runBtn, .runlike {
             background: var(--blue);
             color: #fff;
             border: none;
@@ -314,54 +314,54 @@
             color: var(--muted);
         }
         
-        #verdict {
+        #verdict, #iVerdict, #iWarn {
             border-left: 4px solid var(--muted);
             padding: 11px 16px;
             font-size: 13px;
             line-height: 1.55;
         }
         
-        #verdict.win {
+        #verdict.win, #iVerdict.win, #iWarn.win {
             border-color: var(--green);
             background: #effaf3;
         }
         
-        #verdict.win b {
+        #verdict.win b, #iVerdict.win b, #iWarn.win b {
             color: var(--green);
         }
         
-        #verdict.weak {
+        #verdict.weak, #iVerdict.weak, #iWarn.weak {
             border-color: #e6a817;
             background: var(--amber-bg);
         }
         
-        #verdict.weak b {
+        #verdict.weak b, #iVerdict.weak b, #iWarn.weak b {
             color: var(--amber);
         }
         
-        #verdict.lose {
+        #verdict.lose, #iVerdict.lose, #iWarn.lose {
             border-color: var(--red);
             background: #fdeeee;
         }
         
-        #verdict.lose b {
+        #verdict.lose b, #iVerdict.lose b, #iWarn.lose b {
             color: var(--red);
         }
         
-        #metrics {
+        #metrics, .metricsrow {
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
             padding: 13px 18px;
         }
         
-        #metrics small {
+        #metrics small, .metricsrow small {
             display: block;
             font-size: 10.5px;
             color: var(--muted);
         }
         
-        #metrics span {
+        #metrics span, .metricsrow span {
             font-size: 19px;
             font-weight: 500;
         }
@@ -470,9 +470,9 @@
         <div class="idx" id="idx1"><small>NIFTY 50</small><span class="num">—</span></div>
         <div class="idx" id="idx2"><small>SENSEX</small><span class="num">—</span></div>
         <nav>
-            <a class="active" href="#top">Workbench</a>
-            <a href="#trades">Trade log</a>
-            <a href="#board">Leaderboard</a>
+            <a class="active" id="navDaily" href="#top" onclick="showView('daily')">Daily research</a>
+            <a id="navIntra" href="#intra" onclick="showView('intra')">Intraday research</a>
+            <a href="#board" onclick="showView('daily')">Leaderboard</a>
             <div class="avatar">AA</div>
         </nav>
     </header>
@@ -523,8 +523,46 @@
             <div class="card tbl" id="board">
                 <div class="title">Leaderboard — every idea ever tested</div>
                 <table id="btable"></table>
-                <div class="foot">ranked by margin vs buy &amp; hold · every Run adds a row automatically</div>
+                <div class="foot">ranked by margin vs buy &amp; hold · a row is added only when you press Save</div>
             </div>
+        </main>
+    </div>
+
+    <div class="layout" id="intra" style="display:none;">
+        <aside>
+            <div class="tabs"><b>Intraday datasets</b></div>
+            <div class="card">
+                <div id="ifiles"></div>
+                <div class="foot">m15 = 15-min bars · h1 = 1-hour bars · grow history with update_intraday.py</div>
+            </div>
+        </aside>
+        <main>
+            <div class="card order">
+                <div class="head"><span id="iTitle">Opening Range Breakout</span><span id="iRange" class="num"></span></div>
+                <div class="body">
+                    <div class="field"><small>Opening range (min)</small><input id="iOR" type="number" value="30" min="15" step="15" /></div>
+                    <div class="field"><small>Entry cutoff</small><input id="iCut" value="14:30" /></div>
+                    <div class="field"><small>Shorts</small><select id="iShort"><option value="true">allowed</option><option value="false">long only</option></select></div>
+                    <div class="field"><small>Costs</small><select id="iGross"><option value="false">configured schedule</option><option value="true">GROSS (zero cost)</option></select></div>
+                    <div class="actions"><button id="iRunBtn" class="runlike" onclick="runIntra()">Run</button></div>
+                </div>
+                <div class="honesty">signal on completed bar close · fill at NEXT bar open · one trade/day · square-off at 15:15 close · never overnight · benchmark = buy open, sell 15:15 close daily</div>
+            </div>
+            <div id="iWarn" class="card" style="display:none;"></div>
+            <div id="iVerdict" class="card">Pick a dataset on the left.</div>
+            <div id="iMetrics" class="card metricsrow" style="display:none;"></div>
+            <div class="card tbl" id="iPeriods" style="display:none;"></div>
+            <div class="card chartcard" id="iChartCard" style="display:none;">
+                <div class="legend">
+                    <span><span class="swatch" style="background:var(--blue);"></span>ORB (session-end equity)</span>
+                    <span><span class="swatch" style="background:var(--muted);"></span>open-to-close benchmark</span>
+                </div>
+                <canvas id="iChart" height="240"></canvas>
+                <div class="legend"><span><span class="swatch" style="background:var(--red);"></span>strategy drawdown %</span></div>
+                <canvas id="iDD" height="110"></canvas>
+            </div>
+            <div class="card tbl" id="iCosts" style="display:none;"></div>
+            <div class="card tbl" id="iTrades" style="display:none;"></div>
         </main>
     </div>
 
@@ -695,6 +733,141 @@ async function addSym(symbol) {
 
 loadWatchlist().then(run);
 loadBoard();
+
+// ---------------- intraday research ----------------
+let IFILE = null;
+function showView(v) {
+  document.getElementById('top').style.display = v === 'daily' ? '' : 'none';
+  intra.style.display = v === 'intra' ? '' : 'none';
+  navDaily.classList.toggle('active', v === 'daily');
+  navIntra.classList.toggle('active', v === 'intra');
+  if (v === 'intra' && !ifiles.innerHTML) loadIntraFiles();
+}
+if (location.hash === '#intra') showView('intra');
+
+async function loadIntraFiles() {
+  const rows = await (await fetch('/api/intraday/files')).json();
+  ifiles.innerHTML = rows.map(r => `
+    <div class="row" onclick="pickIntra('${r.file}')" data-f="${r.file}">
+      <div><div class="sym">${r.file.replace('.csv', '')}</div>
+        <div class="sub">${r.ok ? `${r.sessions} sessions · ${r.start.slice(0, 10)} → ${r.end.slice(0, 10)}` : 'FAILED validation'}</div></div>
+      <div class="right">${r.warnings.length ? `<span class="tag" title="${r.warnings.join('\n').replace(/"/g, '&quot;')}">${r.warnings.length} warning${r.warnings.length > 1 ? 's' : ''}</span>` : ''}</div>
+    </div>`).join('');
+}
+
+function pickIntra(f) {
+  IFILE = f;
+  document.querySelectorAll('#ifiles .row').forEach(r => r.classList.toggle('sel', r.dataset.f === f));
+  iOR.value = f.includes('h1') ? 60 : 30;
+  runIntra();
+}
+
+const sgn = v => (v > 0 ? '+' : '') + v;
+const rs = v => (v < 0 ? '−₹' : '₹') + Math.abs(Math.round(v)).toLocaleString('en-IN');
+
+async function runIntra() {
+  if (!IFILE) return;
+  iRunBtn.textContent = 'Running…';
+  iVerdict.className = 'card';
+  iVerdict.textContent = 'Replaying every bar of ' + IFILE + ' …';
+  const qs = new URLSearchParams({ file: IFILE, range_minutes: iOR.value, cutoff: iCut.value,
+                                   short: iShort.value, gross: iGross.value });
+  try {
+    const r = await fetch('/api/intraday/run?' + qs);
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail);
+    renderIntra(d);
+  } catch (e) {
+    iVerdict.className = 'card lose';
+    iVerdict.innerHTML = '<b>Cannot run</b> — ' + e.message;
+    [iMetrics, iPeriods, iChartCard, iCosts, iTrades, iWarn].forEach(el => el.style.display = 'none');
+  }
+  iRunBtn.textContent = 'Run';
+}
+
+function renderIntra(d) {
+  const s = d.summary, b = d.benchmark, v = d.vs;
+  iTitle.textContent = `${d.strategy} · ${d.file.replace('.csv', '')}`;
+  iRange.textContent = `${s.start.slice(0, 10)} → ${s.end.slice(0, 10)}`;
+  iWarn.style.display = 'block';
+  iWarn.className = 'card weak';
+  iWarn.innerHTML = '<b>Limitations — read before trusting any number</b><ul style="margin:6px 0 0;padding-left:18px;">' +
+    d.limitations.map(l => `<li>${l}</li>`).join('') +
+    (d.costs.name.includes('GROSS') ? '<li><b>GROSS run: zero costs. Not a realistic result.</b></li>' : '') + '</ul>';
+  const beats = v.strategy_minus_benchmark > 0;
+  iVerdict.className = 'card ' + (beats ? 'weak' : 'lose');
+  iVerdict.innerHTML = `<b>${beats ? 'Ahead of' : 'Behind'} the open-to-close benchmark by ${sgn(v.strategy_minus_benchmark)} pts</b> — ` +
+    `net ${sgn(s.return_pct)}% vs ${sgn(b.return_pct)}% over ${s.sessions} sessions, costs ${d.costs.name}.`;
+  iMetrics.style.display = 'flex';
+  iMetrics.innerHTML = [
+    ['Capital', rs(s.initial_capital) + ' → ' + rs(s.final_capital), ''],
+    ['Net return', sgn(s.return_pct) + '%', s.return_pct >= 0 ? 'up' : 'dn'],
+    ['Benchmark', sgn(b.return_pct) + '%', ''],
+    ['CAGR', sgn(s.cagr) + '%', ''],
+    ['Sharpe', s.sharpe + ' (B ' + b.sharpe + ')', ''],
+    ['Max DD', s.max_dd + '%', ''],
+    ['Exposure', s.exposure_pct + '%', ''],
+    ['Trades', `${s.trades} (${s.long_trades}L/${s.short_trades}S)`, ''],
+    ['Win rate', s.win_rate + '%', ''],
+    ['Profit factor', s.profit_factor ?? '—', ''],
+  ].map(([k, val, c]) => `<div><small>${k}</small><span class="num ${c}">${val}</span></div>`).join('');
+
+  iPeriods.style.display = 'block';
+  iPeriods.innerHTML = '<div class="title">Chronological split — parameters were fixed before any period was seen</div><table>' +
+    '<tr><th>Period</th><th>Dates</th><th>Sessions</th><th>Strategy</th><th>Benchmark</th><th>Diff</th><th>Max DD</th></tr>' +
+    Object.entries(d.periods).map(([k, p]) => `<tr><td>${k.replace('_', ' ')}</td>
+      <td class="num">${(p.start || '').slice(0, 10)} → ${(p.end || '').slice(0, 10)}</td><td class="num">${p.sessions}</td>
+      <td class="num ${p.strategy.return_pct >= 0 ? 'up' : 'dn'}">${sgn(p.strategy.return_pct)}%</td>
+      <td class="num">${sgn(p.benchmark.return_pct)}%</td>
+      <td class="num ${p.vs.strategy_minus_benchmark >= 0 ? 'up' : 'dn'}">${sgn(p.vs.strategy_minus_benchmark)}</td>
+      <td class="num">${p.strategy.max_dd}%</td></tr>`).join('') + '</table>';
+
+  iChartCard.style.display = 'block';
+  lines(iChart, 240, [[d.curve.bench, '#9fa5ab', [5, 4]], [d.curve.equity, '#4184f3', []]], d.curve.dates, v => '₹' + Math.round(v / 1000) + 'k');
+  lines(iDD, 110, [[d.curve.drawdown, '#e5484d', []]], d.curve.dates, v => v.toFixed(1) + '%');
+
+  iCosts.style.display = 'block';
+  const c = d.costs;
+  iCosts.innerHTML = `<div class="title">P&amp;L and costs — ${c.name}</div><table>
+    <tr><th>Gross P&amp;L</th><th>Brokerage</th><th>STT</th><th>Exchange</th><th>SEBI</th><th>Stamp</th><th>GST</th><th>Slippage</th><th>Total costs</th><th>Net P&amp;L</th></tr>
+    <tr class="num"><td>${rs(s.gross_pnl)}</td><td>${rs(s.brokerage)}</td><td>${rs(s.stt)}</td><td>${rs(s.exchange)}</td><td>${rs(s.sebi)}</td>
+      <td>${rs(s.stamp)}</td><td>${rs(s.gst)}</td><td>${rs(s.total_slippage)}</td><td>${rs(s.total_costs)}</td>
+      <td class="${s.net_pnl >= 0 ? 'up' : 'dn'}">${rs(s.net_pnl)}</td></tr></table>
+    <div class="foot">avg trade ${rs(s.avg_trade)} · avg win ${rs(s.avg_win)} · avg loss ${rs(s.avg_loss)} · best ${rs(s.largest_win)} · worst ${rs(s.largest_loss)} ·
+      rates: brokerage ${c.brokerage_mode} of ₹${c.brokerage_flat} / ${(c.brokerage_pct * 100).toFixed(4)}% · STT sell ${(c.stt_sell_pct * 100).toFixed(4)}% ·
+      slippage ${c.slippage_bps} bps/side</div>`;
+
+  iTrades.style.display = 'block';
+  iTrades.innerHTML = `<div class="title">Trades <span style="color:var(--muted);font-weight:400;">(last ${d.trade_list.length} of ${s.trades})</span></div><table>
+    <tr><th>Entry</th><th>Side</th><th>Qty</th><th>Entry px</th><th>Exit</th><th>Exit px</th><th>Gross</th><th>Costs</th><th>Net</th><th>Reason</th></tr>` +
+    d.trade_list.slice().reverse().map(t => `<tr><td class="num">${t.entry_time.slice(0, 16)}</td><td>${t.side}</td><td class="num">${t.qty}</td>
+      <td class="num">${fmt(t.entry_price)}</td><td class="num">${t.exit_time.slice(11, 16)}</td><td class="num">${fmt(t.exit_price)}</td>
+      <td class="num">${rs(t.gross_pnl)}</td><td class="num">${rs(t.total_charges + t.slippage)}</td>
+      <td class="num ${t.net_pnl >= 0 ? 'up' : 'dn'}">${rs(t.net_pnl)}</td><td>${t.reason}</td></tr>`).join('') + '</table>';
+}
+
+function lines(c, H, series, dates, label) {
+  const x = c.getContext('2d'), W = 940, PL = 56, PB = 22;
+  c.width = W; c.height = H;
+  const all = series.flatMap(s => s[0]);
+  let hi = Math.max(...all), lo = Math.min(...all);
+  if (hi === lo) { hi += 1; lo -= 1; }
+  const n = series[0][0].length;
+  const X = i => PL + (W - PL - 10) * i / Math.max(1, n - 1);
+  const Y = v => 8 + (H - PB - 8) * (hi - v) / (hi - lo);
+  x.strokeStyle = '#e4e7ea'; x.fillStyle = '#9fa5ab'; x.font = '10px system-ui';
+  [hi, (hi + lo) / 2, lo].forEach(v => {
+    const y = Y(v); x.beginPath(); x.moveTo(PL, y); x.lineTo(W - 10, y); x.stroke();
+    x.fillText(label(v), 4, y + 3);
+  });
+  series.forEach(([arr, color, dash]) => {
+    x.strokeStyle = color; x.lineWidth = 2; x.setLineDash(dash); x.beginPath();
+    arr.forEach((v, i) => i ? x.lineTo(X(i), Y(v)) : x.moveTo(X(i), Y(v)));
+    x.stroke(); x.setLineDash([]);
+  });
+  x.fillText(dates[0], PL, H - 5);
+  x.fillText(dates[dates.length - 1], W - 70, H - 5);
+}
     </script>
 </body>
 
