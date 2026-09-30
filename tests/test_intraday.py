@@ -240,3 +240,16 @@ def test_summary_profit_factor_and_extremes():
     assert s["trades"] == 2 and s["win_rate"] == 50
     assert s["largest_win"] == pytest.approx(10_000) and s["largest_loss"] == pytest.approx(-5_500)
     assert s["profit_factor"] == pytest.approx(10_000 / 5_500, abs=0.01)
+
+
+# ---------------- research split ----------------
+
+def test_split_is_chronological_disjoint_and_complete():
+    from src.intraday.research import split_sessions
+    df = frame(*[day(str(d.date())) for d in pd.bdate_range("2026-01-05", periods=20)])
+    parts = split_sessions(df)
+    assert list(parts) == ["development", "validation", "final_oos"]
+    sess = [sorted(p["session"].unique()) for p in parts.values()]
+    assert [len(s) for s in sess] == [10, 5, 5]
+    assert sess[0][-1] < sess[1][0] and sess[1][-1] < sess[2][0]
+    assert sum(len(p) for p in parts.values()) == len(df)

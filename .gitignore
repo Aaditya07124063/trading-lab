@@ -27,3 +27,6 @@ dist/
 # intraday data backups (made before every update)
 data/**/backups/
 *.tmp
+
+# intraday run outputs are regenerable
+results/intraday/
