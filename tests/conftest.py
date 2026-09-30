@@ -1,5 +1,9 @@
+import os
+
 import pandas as pd
 import pytest
+
+os.environ["TRADING_LAB_NO_TRIAL_LOG"] = "1"      # tests must not inflate the trial count
 
 
 def make_daily(opens, closes=None, start="2024-01-01"):

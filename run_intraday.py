@@ -9,6 +9,7 @@ import argparse
 from src.intraday.costs import CostModel
 from src.intraday.engine import EngineConfig
 from src.intraday.research import format_study, run_study
+from src.registry.experiments import log_trial
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
@@ -22,5 +23,8 @@ if __name__ == "__main__":
     costs = CostModel.zero() if a.gross else CostModel.load()
     cfg = EngineConfig(entry_cutoff=a.cutoff, allow_short=not a.no_short)
     st = run_study(a.file, costs, a.range, cfg)
+    log_trial("intraday_orb", {"range_minutes": a.range, "cutoff": a.cutoff, "short": not a.no_short,
+                               "costs": costs.name}, a.file,
+              {"return_pct": st["summary"]["return_pct"], "vs_bench": st["vs"]["strategy_minus_benchmark"]}, "cli")
     print(format_study(st))
     print(f"\nSaved -> {st['output_dir']}")

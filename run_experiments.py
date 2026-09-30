@@ -3,6 +3,7 @@ This is the research loop: idea -> test -> verdict -> next idea."""
 
 from src.research import run_daily
 from src import leaderboard
+from src.registry.experiments import log_trial
 
 # (file to test on, indicator type, fast period, slow period)
 EXPERIMENTS = [
@@ -19,6 +20,8 @@ if __name__ == "__main__":
     for filename, kind, fast, slow in EXPERIMENTS:
         _, _, row = run_daily(filename, kind, fast, slow, quiet=False)
         rows.append(row)
+        log_trial("daily_crossover", {"kind": kind, "fast": fast, "slow": slow}, filename,
+                  {"return_pct": row["return_pct"], "bh_pct": row["bh_pct"]}, "cli")
         print()
 
     # upsert by name (the only score that matters is margin) and save

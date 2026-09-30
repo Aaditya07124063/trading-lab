@@ -9,7 +9,7 @@ LEADERBOARD_FILE = RESULTS_DIR / "leaderboard.csv"
 
 COLUMNS = ["name", "file", "kind", "fast", "slow", "stop_loss", "trailing_stop",
            "return_pct", "bh_pct", "margin", "cagr", "bh_cagr", "sharpe", "bh_sharpe",
-           "max_dd", "bh_dd", "exposure_pct", "trades", "win_rate", "final", "verdict"]
+           "max_dd", "bh_dd", "exposure_pct", "trades", "win_rate", "final", "verdict", "status"]
 
 
 def load():

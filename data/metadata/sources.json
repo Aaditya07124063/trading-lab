@@ -1,0 +1,53 @@
+{
+  "_note": "Provenance per raw file group. 'unknown' means not recorded at the time - never guessed.",
+  "yahoo_daily": {
+    "match": "india/*d1.csv",
+    "provider": "Yahoo Finance via yfinance (fetch_data.py, auto_adjust=False)",
+    "url": "https://finance.yahoo.com (unofficial API via yfinance)",
+    "retrieved": "2026-07-18 ~10:28 IST (file mtime observed 2026-09-30 audit; first committed 6ce8592)",
+    "timezone": "exchange date (IST), no time component",
+    "price_basis": "split/bonus-adjusted, NOT dividend-adjusted (verified: TCS NSE/Yahoo = 8.00 on 2005-07-27)",
+    "license": "Yahoo terms apply; suitability for publication/redistribution NOT established - exploratory use only",
+    "transformations": "none in file; loader renames Date->date, tick_volume->volume"
+  },
+  "yahoo_nifty_10y": {
+    "match": "NIFTY_10Y.csv",
+    "provider": "Yahoo Finance (^NSEI) via yfinance download (multi-header format)",
+    "url": "https://finance.yahoo.com/quote/%5ENSEI",
+    "retrieved": "unknown - earliest evidence: initial commit 6ce8592 (2026-07-29)",
+    "timezone": "exchange date (IST)",
+    "price_basis": "index level (price index, dividends excluded)",
+    "license": "Yahoo terms apply; publication suitability NOT established",
+    "transformations": "loader skips 2 header rows"
+  },
+  "intraday_mixed": {
+    "match": "india/*{m15,h1}.csv",
+    "provider": "rows <= 2026-07-15: MetaTrader-format export, provider UNKNOWN (user to confirm); rows > 2026-07-15: Yahoo via update_intraday.py",
+    "url": "unknown / https://finance.yahoo.com",
+    "retrieved": "MT export: file mtime 2026-07-17 21:31; Yahoo extension: 2026-09-30 22:48 IST (commit ccf061e)",
+    "timezone": "IST, bar START times",
+    "price_basis": "unadjusted intraday prices as delivered",
+    "license": "unknown (MT part); Yahoo terms (extension) - publication suitability NOT established",
+    "transformations": "append-only merge; every overlapping bar matched Yahoo within 0.1%"
+  },
+  "intraday_mt_offgrid": {
+    "match": "india/*{m30,h4}.csv",
+    "provider": "MetaTrader-format export, provider UNKNOWN",
+    "url": "unknown",
+    "retrieved": "file mtime 2026-07-17 21:31",
+    "timezone": "UNKNOWN - bars on a 09:00 grid, inconsistent with NSE 09:15 session",
+    "price_basis": "unknown",
+    "license": "unknown",
+    "transformations": "none"
+  },
+  "gold_mt": {
+    "match": "gold/*.csv",
+    "provider": "MetaTrader export (XAUUSD), broker UNKNOWN",
+    "url": "unknown",
+    "retrieved": "unknown - earliest evidence: initial commit 6ce8592",
+    "timezone": "UNKNOWN (MetaTrader server time, typically broker-specific)",
+    "price_basis": "broker quotes, stored x100",
+    "license": "unknown",
+    "transformations": "loader divides OHLC by 100"
+  }
+}

@@ -12,6 +12,7 @@ from src import leaderboard
 from src.config import DATA_DIR, CAPITAL
 from src.data_loader import load_csv
 from src.research import run_daily
+from src.registry.experiments import log_trial
 from src.intraday.costs import CostModel
 from src.intraday.data import load_intraday, timeframe_of
 from src.intraday.engine import EngineConfig, run_intraday, run_open_to_close_benchmark
@@ -114,6 +115,8 @@ def backtest(file: str, kind: str = "ema", fast: int = 20, slow: int = 50,
              trailing: float = 0.0):
     """Runs a backtest. Read-only: it never touches the leaderboard."""
     df, trades, r = _backtest(file, kind, fast, slow, trailing)
+    log_trial("daily_crossover", {"kind": kind, "fast": fast, "slow": slow, "trailing": trailing},
+              file, {"return_pct": r["return_pct"], "bh_pct": r["bh_pct"]}, "web")
 
     step = max(1, len(df) // 300)
     bh = df["close"] / df["open"].iloc[0] * CAPITAL
@@ -176,6 +179,9 @@ def intraday_run(file: str, range_minutes: int = 30, cutoff: str = "14:30",
         bench = run_open_to_close_benchmark(load_intraday(file)[0], costs, cfg)
     except (ValueError, FileNotFoundError) as e:
         raise HTTPException(400, str(e))
+    log_trial("intraday_orb", {"range_minutes": range_minutes, "cutoff": cutoff, "short": short,
+                               "costs": costs.name}, file,
+              {"return_pct": st["summary"]["return_pct"], "vs_bench": st["vs"]["strategy_minus_benchmark"]}, "web")
     se = intraday_daily_equity(full["equity"])
     be = intraday_daily_equity(bench["equity"])
     dd = (se / se.cummax() - 1) * 100

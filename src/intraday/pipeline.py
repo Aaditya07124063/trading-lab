@@ -63,6 +63,29 @@ def merge_bars(old, new, tf, symbol, now=None):
                     "start": str(merged["date"].min()), "end": str(merged["date"].max())}
 
 
+def snapshot_raw(df, provider, dataset, retrieved_at=None):
+    """Store one retrieval exactly as fetched - immutable, checksummed,
+    listed in data/raw/manifest.jsonl. Never overwritten."""
+    import hashlib
+    import json
+    from src.config import DATA_DIR
+    retrieved_at = retrieved_at or datetime.now().strftime("%Y%m%dT%H%M%S")
+    folder = DATA_DIR / "raw" / provider / dataset
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / f"{retrieved_at}.csv"
+    if path.exists():
+        raise FileExistsError(f"raw snapshot {path} already exists - refusing to overwrite")
+    df.to_csv(path, index=False)
+    sha = hashlib.sha256(path.read_bytes()).hexdigest()
+    rec = {"file": str(path.relative_to(DATA_DIR.parent)), "provider": provider, "dataset": dataset,
+           "retrieved_at": retrieved_at, "sha256": sha, "rows": len(df),
+           "start": str(df["date"].min()) if len(df) else None,
+           "end": str(df["date"].max()) if len(df) else None}
+    with open(DATA_DIR / "raw" / "manifest.jsonl", "a") as fh:
+        fh.write(json.dumps(rec) + "\n")
+    return rec
+
+
 def write_mt_csv(df, path):
     """Write in the file's original MetaTrader dialect, atomically, after a backup."""
     if path.exists():

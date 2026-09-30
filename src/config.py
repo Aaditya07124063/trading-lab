@@ -8,6 +8,11 @@ RESULTS_DIR = BASE_DIR / "results"
 
 CAPITAL = 100_000        # starting fake money (Rs 1 lakh)
 COST_PER_SIDE = 0.001    # 0.1% broker cost on every buy and every sell
+
+# Clean prospective holdout (RESEARCH_LOG 2026-09-30): intraday bars on/after
+# this date are hidden from every loader unless a FROZEN protocol explicitly
+# requests them. See docs/protocols/ORB_v1.md.
+HOLDOUT_START = "2026-10-01"
 # Yahoo tickers for the Indian instruments the lab tracks (no API key needed)
 YAHOO_SYMBOLS = {
     "NIFTY50":  "^NSEI",

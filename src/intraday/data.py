@@ -6,6 +6,7 @@ import re
 
 import pandas as pd
 
+from src.config import HOLDOUT_START
 from src.data_loader import load_csv
 
 SESSION_OPEN = "09:15"
@@ -35,7 +36,7 @@ def expected_times(tf, open_=SESSION_OPEN, close=SESSION_CLOSE):
     return out
 
 
-def validate(df, tf, symbol=""):
+def validate(df, tf, symbol="", session_grid=True):
     """df in raw file order. Returns dict: ok, errors (block research),
     warnings (limit trust), and the available range."""
     errors, warnings = [], []
@@ -68,14 +69,14 @@ def validate(df, tf, symbol=""):
     grid = expected_times(tf)
     times = df["date"].dt.strftime("%H:%M")
     off = ~times.isin(grid)
-    if off.any():
+    if session_grid and off.any():
         sample = sorted(times[off].unique())[:3]
         warnings.append(f"{off.sum()} bars off the {SESSION_OPEN} {tf}-min session grid "
                         f"(e.g. {', '.join(sample)}) - session alignment is wrong")
 
     days = df.assign(d=df["date"].dt.date, t=times)
     incomplete = []
-    for d, g in days.groupby("d"):
+    for d, g in days.groupby("d") if session_grid else []:
         missing = set(grid) - set(g["t"])
         if missing:
             incomplete.append((str(d), len(missing)))
@@ -95,11 +96,24 @@ def validate(df, tf, symbol=""):
     }
 
 
-def load_intraday(filename):
+class HoldoutLocked(Exception):
+    pass
+
+
+def load_intraday(filename, holdout_protocol=None):
     """Load + validate. Returns (clean sorted df with 'session' column, report).
-    Raises on hard errors so corrupted data can never reach a backtest."""
+    Raises on hard errors so corrupted data can never reach a backtest.
+    Bars on/after HOLDOUT_START are dropped unless `holdout_protocol` names a
+    protocol file whose status line reads FROZEN."""
     tf = timeframe_of(filename)
     raw = load_csv(filename, sort=False)
+    if holdout_protocol is None:
+        raw = raw[raw["date"] < pd.Timestamp(HOLDOUT_START)]
+    else:
+        from src.config import BASE_DIR
+        text = (BASE_DIR / holdout_protocol).read_text()
+        if "**Status:** FROZEN" not in text:
+            raise HoldoutLocked(f"{holdout_protocol} is not FROZEN - holdout stays locked")
     report = validate(raw, tf, symbol_of(filename))
     if not report["ok"]:
         raise ValueError(f"{filename} failed validation: {report['errors']}")

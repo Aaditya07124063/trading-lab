@@ -73,3 +73,30 @@ def test_write_roundtrip_with_backup(tmp_path, monkeypatch):
     assert len(list((tmp_path / "backups").glob("XYZm15.csv.*.bak"))) == 1
     back = load_csv("XYZm15.csv")
     pd.testing.assert_frame_equal(back, df, check_dtype=False)
+
+
+def test_raw_snapshot_is_immutable_and_manifested(tmp_path, monkeypatch):
+    import json
+    import src.config as cfg
+    from src.intraday.pipeline import snapshot_raw
+    monkeypatch.setattr(cfg, "DATA_DIR", tmp_path)
+    rec = snapshot_raw(bars("2026-01-05"), "yahoo", "XYZm15", retrieved_at="20260105T180000")
+    assert (tmp_path / "raw" / "yahoo" / "XYZm15" / "20260105T180000.csv").exists()
+    assert json.loads((tmp_path / "raw" / "manifest.jsonl").read_text())["sha256"] == rec["sha256"]
+    with pytest.raises(FileExistsError):
+        snapshot_raw(bars("2026-01-05"), "yahoo", "XYZm15", retrieved_at="20260105T180000")
+
+
+def test_holdout_is_locked_by_default(tmp_path, monkeypatch):
+    import src.intraday.data as d
+    df = bars("2026-09-30", "2026-10-01")
+    monkeypatch.setattr(d, "load_csv", lambda f, sort=True: df)
+    loaded, _ = d.load_intraday("XYZm15.csv")
+    assert loaded["date"].max() < pd.Timestamp("2026-10-01")
+    proto = tmp_path / "p.md"
+    proto.write_text("**Status:** DRAFT")
+    monkeypatch.setattr("src.config.BASE_DIR", tmp_path)
+    with pytest.raises(d.HoldoutLocked):
+        d.load_intraday("XYZm15.csv", holdout_protocol="p.md")
+    proto.write_text("**Status:** FROZEN")
+    assert d.load_intraday("XYZm15.csv", holdout_protocol="p.md")[0]["date"].max() >= pd.Timestamp("2026-10-01")
