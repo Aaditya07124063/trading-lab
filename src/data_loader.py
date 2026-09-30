@@ -13,7 +13,8 @@ def find_file(filename):
     return matches[0]
 
 
-def load_csv(filename):
+def load_csv(filename, sort=True):
+    """sort=False keeps the file's raw row order (for data validation)."""
     path = find_file(filename)
 
     # Peek at the first line to detect which format this is
@@ -47,5 +48,7 @@ def load_csv(filename):
 
     # Safety cleaning: drop broken rows, sort oldest-first
     df = df.dropna(subset=["open", "high", "low", "close"])
-    df = df.sort_values("date").reset_index(drop=True)
+    if sort:
+        df = df.sort_values("date")
+    df = df.reset_index(drop=True)
     return df
