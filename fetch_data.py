@@ -5,20 +5,11 @@ Add any stock to SYMBOLS and run again."""
 import pandas as pd
 import yfinance as yf
 
-from src.config import DATA_DIR
+from src.config import DATA_DIR, YAHOO_SYMBOLS
 
 OUT = DATA_DIR / "india"
 
-SYMBOLS = {
-    "NIFTY50":  "^NSEI",
-    "SENSEX":   "^BSESN",
-    "RELIANCE": "RELIANCE.NS",
-    "TCS":      "TCS.NS",
-    "HDFCBANK": "HDFCBANK.NS",
-    "INFY":     "INFY.NS",
-    # add more anytime, example:
-    # "TATAMOTORS": "TATAMOTORS.NS",
-}
+SYMBOLS = YAHOO_SYMBOLS      # add more in src/config.py
 
 for name, ticker in SYMBOLS.items():
     df = yf.Ticker(ticker).history(period="max", interval="1d", auto_adjust=False)

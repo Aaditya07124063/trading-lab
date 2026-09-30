@@ -1,0 +1,92 @@
+"""Safe intraday data updates: ADD new bars, never rewrite history.
+
+merge_bars() is pure and refuses (raises DataConflict) when:
+  * incoming data fails validation (dupes, disorder, bad OHLC, NaN);
+  * incoming bars sit on a different session grid than the file;
+  * an overlapping bar disagrees with the stored one (> tolerance) -
+    wrong instrument, or adjusted vs unadjusted prices;
+  * there is no overlap and the price jump across the gap is implausible.
+Existing bars always win; only NEW timestamps are added. Today's session
+is dropped while the market may still be open (bars can still change)."""
+
+import shutil
+from datetime import datetime
+
+import pandas as pd
+
+from src.intraday.data import expected_times, validate
+
+TOLERANCE = 0.002          # 0.2% max disagreement on overlapping bars
+MAX_GAP_JUMP = 0.25        # >25% close-to-open jump across a data gap = suspicious
+
+
+class DataConflict(Exception):
+    pass
+
+
+def merge_bars(old, new, tf, symbol, now=None):
+    now = now or pd.Timestamp.now()
+    rep = validate(new, tf, symbol)
+    if not rep["ok"]:
+        raise DataConflict(f"{symbol}: incoming data invalid: {rep['errors']}")
+
+    grid = set(expected_times(tf))
+    for label, d in (("stored", old), ("incoming", new)):
+        off = ~d["date"].dt.strftime("%H:%M").isin(grid)
+        if off.any():
+            raise DataConflict(f"{symbol}: {label} bars are not on the 09:15 {tf}-min grid - "
+                               f"({int(off.sum())} off-grid bars) - mixing grids would corrupt the file; not merging")
+
+    live = (new["date"].dt.date == now.date()) & (now.strftime("%H:%M") < "15:45")
+    new = new[~live]
+
+    both = old.merge(new, on="date", suffixes=("_old", "_new"))
+    if len(both):
+        diff = ((both["close_new"] / both["close_old"]) - 1).abs()
+        if (diff > TOLERANCE).any():
+            raise DataConflict(f"{symbol}: {int((diff > TOLERANCE).sum())} of {len(both)} "
+                               f"overlapping bars disagree by >{TOLERANCE:.1%} - wrong "
+                               "instrument or adjusted prices; not merging")
+    elif len(old) and len(new):
+        jump = abs(new["open"].iloc[0] / old["close"].iloc[-1] - 1)
+        if jump > MAX_GAP_JUMP:
+            raise DataConflict(f"{symbol}: no overlap and a {jump:.0%} jump across the gap - "
+                               "cannot confirm it is the same instrument")
+
+    added = new[~new["date"].isin(old["date"])]
+    merged = pd.concat([old, added]).sort_values("date").reset_index(drop=True)
+    gap = None
+    if len(old) and len(added) and not len(both):
+        gap = (str(old["date"].max()), str(added["date"].min()))
+    return merged, {"symbol": symbol, "added": len(added), "overlap_checked": len(both),
+                    "gap": gap, "dropped_live_bars": int(live.sum()),
+                    "start": str(merged["date"].min()), "end": str(merged["date"].max())}
+
+
+def write_mt_csv(df, path):
+    """Write in the file's original MetaTrader dialect, atomically, after a backup."""
+    if path.exists():
+        stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        backups = path.parent / "backups"
+        backups.mkdir(exist_ok=True)
+        shutil.copy2(path, backups / f"{path.name}.{stamp}.bak")
+    out = df[["date", "open", "high", "low", "close", "volume"]].copy()
+    out["date"] = out["date"].dt.strftime("%Y-%m-%d %H:%M")
+    out.columns = ["Date", "open", "high", "low", "close", "tick_volume"]
+    tmp = path.with_suffix(".tmp")
+    out.to_csv(tmp, index=False)
+    tmp.replace(path)
+
+
+def fetch_yahoo(ticker, tf):
+    """Free Yahoo intraday: 15m ~60 days back, 60m ~730 days back. No key needed."""
+    import yfinance as yf
+    interval, period = {15: ("15m", "60d"), 60: ("60m", "730d")}[tf]
+    h = yf.Ticker(ticker).history(period=period, interval=interval, auto_adjust=False)
+    if h is None or h.empty:
+        return pd.DataFrame(columns=["date", "open", "high", "low", "close", "volume"])
+    idx = h.index.tz_convert("Asia/Kolkata").tz_localize(None) if h.index.tz else h.index
+    df = pd.DataFrame({"date": idx, "open": h["Open"].values, "high": h["High"].values,
+                       "low": h["Low"].values, "close": h["Close"].values,
+                       "volume": h["Volume"].fillna(0).astype("int64").values})
+    return df.dropna(subset=["open", "high", "low", "close"]).round(2).reset_index(drop=True)

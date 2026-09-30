@@ -23,3 +23,7 @@ dist/
 
 # VS Code (optional)
 .vscode/ 
+
+# intraday data backups (made before every update)
+data/**/backups/
+*.tmp
