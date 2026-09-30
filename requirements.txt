@@ -3,3 +3,6 @@ yfinance
 scikit-learn
 fastapi
 uvicorn
+requests
+pytest
+httpx

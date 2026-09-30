@@ -22,6 +22,9 @@ actually make money, after costs, against simply buying and holding?**
 
 - **No look-ahead:** signals form at close, execute at the NEXT day's open.
 - **Transaction-cost model:** 0.1% per side on every fill; nothing trades free.
+- **Explicit saves only:** running a backtest (CLI or web) never writes the
+  leaderboard; the web UI's Save button / `POST /api/leaderboard/save` does.
+  Experiment names encode every parameter (e.g. `· trail 10%`), one row each.
 - **Benchmark-relative verdicts:** BEATS / WEAK EDGE / LOSES vs buy & hold -
   raw return is never reported alone.
 - **Walk-forward ML validation:** chronological 70/30 split, no shuffling.
@@ -51,8 +54,8 @@ real money is at risk.
 ## Quick start
 
     pip3 install -r requirements.txt
-    python3 test_loader.py          # data pipeline check
-    python3 run_experiments.py      # rebuild the leaderboard
+    python3 -m pytest               # full test suite (must be green)
+    python3 run_experiments.py      # re-run core experiments, upsert leaderboard
     python3 -m uvicorn server:app --reload   # web UI at http://localhost:8000
     python3 paper_bot.py            # daily paper-trading run
 

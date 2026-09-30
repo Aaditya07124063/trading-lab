@@ -14,6 +14,7 @@ def run_backtest(df, stop_loss=None, trailing_stop=None):
     cash = CAPITAL
     units = 0.0
     equity = []
+    in_market = []
     trades = []
     entry_price = None
     entry_date = None
@@ -50,6 +51,7 @@ def run_backtest(df, stop_loss=None, trailing_stop=None):
 
         close = df["close"].iloc[i]
         equity.append(cash + units * close)
+        in_market.append(1 if units > 0 else 0)
 
         # evening risk checks -> may schedule a sell for tomorrow's open
         if units > 0:
@@ -69,4 +71,5 @@ def run_backtest(df, stop_loss=None, trailing_stop=None):
         })
 
     df["equity"] = equity
+    df["in_market"] = in_market
     return df, trades

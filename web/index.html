@@ -289,6 +289,21 @@
             cursor: pointer;
         }
         
+        #saveBtn {
+            background: var(--panel);
+            color: var(--blue);
+            border: 1px solid var(--blue);
+            border-radius: 6px;
+            padding: 9px 18px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        #saveBtn:disabled {
+            opacity: .45;
+            cursor: default;
+        }
+        
         #runBtn:active {
             transform: scale(.98);
         }
@@ -482,7 +497,7 @@
                     <div class="field"><small>Fast period</small><input id="fast" type="number" value="20" min="2" /></div>
                     <div class="field"><small>Slow period</small><input id="slow" type="number" value="50" min="3" /></div>
                     <div class="field"><small>Trailing stop %</small><input id="trail" type="number" value="0" min="0" max="50" /></div>
-                    <div class="actions"><button id="runBtn" onclick="run()">Run</button></div>
+                    <div class="actions"><button id="runBtn" onclick="run()">Run</button> <button id="saveBtn" onclick="saveRun()" disabled title="Save this run to the leaderboard">Save</button></div>
                 </div>
                 <div class="honesty">0.1% cost per side · fills at next day's open · no look-ahead · dividends excluded</div>
             </div>
@@ -549,15 +564,26 @@ async function run() {
   verdict.className = 'card';
   verdict.textContent = `Replaying every candle of ${FILE.replace('.csv','')} …`;
   const qstr = `file=${FILE}&kind=${kind.value}&fast=${fast.value}&slow=${slow.value}&trailing=${trail.value}`;
+  saveBtn.disabled = true;
   try {
-    const d = await (await fetch('/api/backtest?' + qstr)).json();
-    render(d);
-    loadBoard();
+    const r = await fetch('/api/backtest?' + qstr);
+    if (!r.ok) throw new Error((await r.json()).detail);
+    render(await r.json());
+    LASTQ = qstr; saveBtn.disabled = false; saveBtn.textContent = 'Save';
   } catch (e) {
     verdict.className = 'card lose';
     verdict.innerHTML = '<b>Error</b> — is fast smaller than slow? Otherwise check the server terminal.';
   }
   runBtn.textContent = 'Run';
+}
+
+let LASTQ = null;
+async function saveRun() {
+  if (!LASTQ) return;
+  saveBtn.disabled = true;
+  const r = await fetch('/api/leaderboard/save?' + LASTQ, { method: 'POST' });
+  saveBtn.textContent = r.ok ? 'Saved' : 'Save failed';
+  loadBoard();
 }
 
 function render(d) {
@@ -572,7 +598,10 @@ function render(d) {
   metrics.innerHTML = [
     ['Strategy return', m.return_pct + '%', m.return_pct >= 0 ? 'up' : 'dn'],
     ['Buy & hold', m.bh_pct + '%', ''],
+    ['CAGR', m.cagr + '%', m.cagr >= 0 ? 'up' : 'dn'],
+    ['Sharpe', m.sharpe + ' (B&H ' + m.bh_sharpe + ')', ''],
     ['Worst fall', m.max_dd + '%', ''],
+    ['In market', m.exposure_pct + '%', ''],
     ['Win rate', m.win_rate + '%', ''],
     ['Trades', m.trades, ''],
     ['Final value', '₹' + fmt(m.final), ''],
@@ -665,6 +694,7 @@ async function addSym(symbol) {
 }
 
 loadWatchlist().then(run);
+loadBoard();
     </script>
 </body>
 

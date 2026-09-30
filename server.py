@@ -1,16 +1,16 @@
 """Trading Lab backend - serves the engine to the web UI.
 Run with:  python3 -m uvicorn server:app"""
 
+from pathlib import Path
+
 import pandas as pd
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 
-from src.config import DATA_DIR, RESULTS_DIR, CAPITAL
+from src import leaderboard
+from src.config import DATA_DIR, CAPITAL
 from src.data_loader import load_csv
-from src.indicators import add_ema, add_sma
-from src.signals import crossover_signal
-from src.backtest import run_backtest
-from src.metrics import report
+from src.research import run_daily
 
 app = FastAPI()
 
@@ -45,12 +45,9 @@ def watchlist():
 
 
 @app.get("/api/leaderboard")
-def leaderboard():
-    f = RESULTS_DIR / "leaderboard.csv"
-    if not f.exists():
-        return []
-    df = pd.read_csv(f).sort_values("margin", ascending=False)
-    return df.fillna("").to_dict(orient="records")
+def get_leaderboard():
+    df = leaderboard.load().sort_values("margin", ascending=False)
+    return df.astype(object).where(df.notna(), "").to_dict(orient="records")
 
 
 @app.get("/api/search")
@@ -95,23 +92,21 @@ def add_symbol(symbol: str):
     return {"ok": True, "file": f"{clean}d1.csv"}
 
 
+def _backtest(file, kind, fast, slow, trailing):
+    if "/" in file or "\\" in file or ".." in file:
+        raise HTTPException(400, "bad file name")
+    try:
+        return run_daily(file, kind, fast, slow,
+                         trailing_stop=trailing / 100 if trailing else None)
+    except (ValueError, FileNotFoundError) as e:
+        raise HTTPException(400, str(e))
+
+
 @app.get("/api/backtest")
 def backtest(file: str, kind: str = "ema", fast: int = 20, slow: int = 50,
              trailing: float = 0.0):
-    df = load_csv(file)
-    add = add_ema if kind == "ema" else add_sma
-    df = add(df, fast)
-    df = add(df, slow)
-    df = crossover_signal(df, f"{kind}_{fast}", f"{kind}_{slow}")
-    df, trades = run_backtest(df, trailing_stop=trailing / 100 if trailing else None)
-    r = report(df, trades, name=f"{kind.upper()} {fast}/{slow} · {file.replace('.csv', '')}")
-
-    # every run auto-saves to the leaderboard - the research diary grows itself
-    board_file = RESULTS_DIR / "leaderboard.csv"
-    row = pd.DataFrame([r])
-    if board_file.exists():
-        row = pd.concat([pd.read_csv(board_file), row])
-    row.drop_duplicates(subset="name", keep="last").to_csv(board_file, index=False)
+    """Runs a backtest. Read-only: it never touches the leaderboard."""
+    df, trades, r = _backtest(file, kind, fast, slow, trailing)
 
     step = max(1, len(df) // 300)
     bh = df["close"] / df["open"].iloc[0] * CAPITAL
@@ -132,4 +127,13 @@ def backtest(file: str, kind: str = "ema", fast: int = 20, slow: int = 50,
     }
 
 
-app.mount("/", StaticFiles(directory="web", html=True), name="web")
+@app.post("/api/leaderboard/save")
+def save_to_leaderboard(file: str, kind: str = "ema", fast: int = 20, slow: int = 50,
+                        trailing: float = 0.0):
+    """Explicit save: re-runs the experiment and upserts it by name."""
+    _, _, r = _backtest(file, kind, fast, slow, trailing)
+    leaderboard.save([r])
+    return {"ok": True, "name": r["name"]}
+
+
+app.mount("/", StaticFiles(directory=Path(__file__).parent / "web", html=True), name="web")
