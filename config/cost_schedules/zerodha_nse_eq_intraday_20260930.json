@@ -1,0 +1,12 @@
+{
+  "name": "Zerodha NSE equity intraday, published 2026-09-30",
+  "brokerage_flat": 20,
+  "brokerage_pct": 0.0003,
+  "brokerage_mode": "min",
+  "stt_sell_pct": 0.00025,
+  "exchange_pct": 3.07e-05,
+  "sebi_pct": 1e-06,
+  "stamp_buy_pct": 3e-05,
+  "gst_pct": 0.18,
+  "slippage_bps": 0
+}

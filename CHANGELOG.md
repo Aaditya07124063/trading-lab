@@ -12,3 +12,7 @@ Code/infrastructure changes by commit. Research findings go in
 - ccf061e data: extend m15/h1 intraday history to 2026-09-30
 - 46624f7 feat: intraday research runner with dev/validation/OOS split
 - f8aff70 feat: intraday research dashboard
+- e1b82fe research: master specification, research log, NSE evidence
+- 9dcee96 feat: data registry, experiment registry, daily validation, clean datasets, holdout lock, raw snapshots
+- 6849ea8 research: registry entries linked to registering commit
+- (next) research: cost sources, cost scenarios, literature review, ORB protocol v1 (DRAFT)

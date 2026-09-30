@@ -1,0 +1,35 @@
+{
+  "_doc": "Pre-specified cost/slippage grid for sensitivity (docs/protocols/ORB_v1.md). 'primary' is the headline scenario.",
+  "primary": "Z-5",
+  "scenarios": {
+    "GROSS": {
+      "schedule": null,
+      "slippage_bps": 0,
+      "note": "reference only - not realistic"
+    },
+    "Z-0": {
+      "schedule": "zerodha_nse_eq_intraday_20260930.json",
+      "slippage_bps": 0
+    },
+    "Z-2": {
+      "schedule": "zerodha_nse_eq_intraday_20260930.json",
+      "slippage_bps": 2
+    },
+    "Z-5": {
+      "schedule": "zerodha_nse_eq_intraday_20260930.json",
+      "slippage_bps": 5
+    },
+    "Z-10": {
+      "schedule": "zerodha_nse_eq_intraday_20260930.json",
+      "slippage_bps": 10
+    },
+    "Z-20": {
+      "schedule": "zerodha_nse_eq_intraday_20260930.json",
+      "slippage_bps": 20
+    },
+    "U-5": {
+      "schedule": "upstox_nse_eq_intraday_20260930.json",
+      "slippage_bps": 5
+    }
+  }
+}
