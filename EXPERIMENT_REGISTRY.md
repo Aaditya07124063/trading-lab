@@ -41,6 +41,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** no statistical inference; one of ~8 ideas tried (selection); label withdrawn
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-002 — EMA 9/21 crossover
 
@@ -57,6 +58,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** no statistical inference; one of ~8 ideas tried (selection); label withdrawn
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-003 — SMA 50/200 crossover
 
@@ -73,6 +75,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** no statistical inference; one of ~8 ideas tried (selection); label withdrawn
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-004 — SMA 50/200 crossover
 
@@ -89,6 +92,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** no statistical inference; one of ~8 ideas tried (selection); label withdrawn; gold source/timezone UNKNOWN (MetaTrader export)
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-005 — EMA 20/50 crossover
 
@@ -105,6 +109,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** raw data contains a vendor placeholder spike (2005-07-28) and a misplaced bonus adjustment (1997-10-27..11-04); see data/metadata/exclusions.csv
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-006 — EMA 20/50 + 5% trailing stop
 
@@ -121,6 +126,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** no statistical inference; verdict label from raw return margin (rule withdrawn 2026-09-30)
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-007 — RandomForest next-day direction (run_ml.py)
 
@@ -137,6 +143,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** target = close[t+1] > close[t] but the position is filled at open[t+1] and held to open[t+2]; single split; no significance test
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-008 — Momentum top-2 of 4 mega-caps, monthly (run_momentum.py)
 
@@ -153,6 +160,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** SURVIVORSHIP BIAS LIMITATION; common dates start 2002-08-12 because TCS raw data contains ~531 pre-listing rows (not TCS); rebalance fills at the ranking close; cost charged as 2x0.1% of total value on any change
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-009 — EMA 20/50 crossover
 
@@ -169,6 +177,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** exploratory web-UI run; no inference
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-010 — EMA 20/50 crossover
 
@@ -185,6 +194,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** raw data has 123 placeholder bars on non-trading days (excluded in clean version)
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-011 — EMA 20/50 crossover
 
@@ -201,6 +211,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** exploratory web-UI run; no inference
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-012 — EMA 20/50 crossover + 10% trailing stop
 
@@ -217,6 +228,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** exploratory web-UI run; no inference
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-013 — EMA 20/50 crossover + 10% trailing stop
 
@@ -233,6 +245,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** raw data has 123 placeholder bars on non-trading days (excluded in clean version)
 - **code:** `unknown - ` · python unknown
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-014 — ORB 30m on 15m bars
 
@@ -249,6 +262,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** zero costs; small sample; long/short vs long-only benchmark mismatch
 - **code:** `46624f7/f8` (dirty) · python 3.13.5
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### LEGACY-015 — ORB 60m on 60m bars
 
@@ -265,6 +279,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** zero costs; small sample; long/short vs long-only benchmark mismatch
 - **code:** `46624f7/f8` (dirty) · python 3.13.5
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### EXP-20260930-001 — EMA 20/50 crossover
 
@@ -281,6 +296,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** exclusions reviewed by agent, pending user review; still no inference; cash earns 0%; dividends excluded
 - **code:** `e1b82fee14` (dirty) · python 3.13.5
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
 
 ### EXP-20260930-002 — EMA 20/50 crossover
 
@@ -297,3 +313,4 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **statistical_tests:** none
 - **limitations:** exclusions reviewed by agent, pending user review; still no inference; cash earns 0%; dividends excluded
 - **code:** `e1b82fee14` (dirty) · python 3.13.5
+- **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
