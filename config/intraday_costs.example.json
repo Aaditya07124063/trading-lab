@@ -1,0 +1,12 @@
+{
+  "name": "FILL ME: broker + segment + date of charge sheet",
+  "brokerage_flat": null,
+  "brokerage_pct": null,
+  "brokerage_mode": "min",
+  "stt_sell_pct": null,
+  "exchange_pct": null,
+  "sebi_pct": null,
+  "stamp_buy_pct": null,
+  "gst_pct": null,
+  "slippage_bps": null
+}
