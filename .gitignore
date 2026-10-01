@@ -34,3 +34,6 @@ results/intraday/
 # raw download snapshots (large; preserved locally, checksums in data/raw/manifest.jsonl)
 data/raw/yahoo/
 logs/
+
+# third-party literature PDFs (copyrighted; kept locally, checksums in the literature records)
+docs/literature/*.pdf
