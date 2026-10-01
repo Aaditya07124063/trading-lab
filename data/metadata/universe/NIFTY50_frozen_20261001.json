@@ -1,0 +1,620 @@
+{
+ "universe_id": "NIFTY50-frozen-20261001",
+ "version": "1.0",
+ "purpose": "prospective holdout universe for ORB v1 (from 2026-10-01); NOT the historical research universe",
+ "source": "NSE public constituent file",
+ "source_url": "https://nsearchives.nseindia.com/content/indices/ind_nifty50list.csv",
+ "source_last_modified": "Wed, 30 Sep 2026 11:00:49 GMT",
+ "retrieved_at": "2026-10-01T08:26:07+05:30",
+ "raw_file": "data/metadata/universe/ind_nifty50list_20261001T082607+0530.csv",
+ "raw_sha256": "f5ba4027d935ae72879d5c24bbebf0e8439ec8ed504ffdf4175fde69206244b3",
+ "n_constituents": 50,
+ "rules": [
+  "frozen before any holdout bar existed (retrieved 08:26 IST, before the 09:15 open on 2026-10-01)",
+  "membership is never updated from future index changes",
+  "instruments that cannot be collected are recorded as missing, never substituted"
+ ],
+ "missing_at_freeze": [],
+ "constituents": [
+  {
+   "symbol": "ADANIENT",
+   "company": "Adani Enterprises Ltd.",
+   "industry": "Metals & Mining",
+   "series": "EQ",
+   "isin": "INE423A01024",
+   "yahoo": "ADANIENT.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 123,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "ADANIPORTS",
+   "company": "Adani Ports and Special Economic Zone Ltd.",
+   "industry": "Services",
+   "series": "EQ",
+   "isin": "INE742F01042",
+   "yahoo": "ADANIPORTS.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "APOLLOHOSP",
+   "company": "Apollo Hospitals Enterprise Ltd.",
+   "industry": "Healthcare",
+   "series": "EQ",
+   "isin": "INE437A01024",
+   "yahoo": "APOLLOHOSP.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 123,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "ASIANPAINT",
+   "company": "Asian Paints Ltd.",
+   "industry": "Consumer Durables",
+   "series": "EQ",
+   "isin": "INE021A01026",
+   "yahoo": "ASIANPAINT.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "AXISBANK",
+   "company": "Axis Bank Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE238A01034",
+   "yahoo": "AXISBANK.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "BSE",
+   "company": "BSE Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE118H01025",
+   "yahoo": "BSE.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "BAJAJ-AUTO",
+   "company": "Bajaj Auto Ltd.",
+   "industry": "Automobile and Auto Components",
+   "series": "EQ",
+   "isin": "INE917I01010",
+   "yahoo": "BAJAJ-AUTO.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 122,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "BAJFINANCE",
+   "company": "Bajaj Finance Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE296A01032",
+   "yahoo": "BAJFINANCE.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "BAJAJFINSV",
+   "company": "Bajaj Finserv Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE918I01026",
+   "yahoo": "BAJAJFINSV.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "BEL",
+   "company": "Bharat Electronics Ltd.",
+   "industry": "Capital Goods",
+   "series": "EQ",
+   "isin": "INE263A01024",
+   "yahoo": "BEL.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "BHARTIARTL",
+   "company": "Bharti Airtel Ltd.",
+   "industry": "Telecommunication",
+   "series": "EQ",
+   "isin": "INE397D01024",
+   "yahoo": "BHARTIARTL.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "CIPLA",
+   "company": "Cipla Ltd.",
+   "industry": "Healthcare",
+   "series": "EQ",
+   "isin": "INE059A01026",
+   "yahoo": "CIPLA.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "COALINDIA",
+   "company": "Coal India Ltd.",
+   "industry": "Oil Gas & Consumable Fuels",
+   "series": "EQ",
+   "isin": "INE522F01014",
+   "yahoo": "COALINDIA.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "DRREDDY",
+   "company": "Dr. Reddy's Laboratories Ltd.",
+   "industry": "Healthcare",
+   "series": "EQ",
+   "isin": "INE089A01031",
+   "yahoo": "DRREDDY.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "EICHERMOT",
+   "company": "Eicher Motors Ltd.",
+   "industry": "Automobile and Auto Components",
+   "series": "EQ",
+   "isin": "INE066A01021",
+   "yahoo": "EICHERMOT.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "ETERNAL",
+   "company": "Eternal Ltd.",
+   "industry": "Consumer Services",
+   "series": "EQ",
+   "isin": "INE758T01015",
+   "yahoo": "ETERNAL.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 123,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "GRASIM",
+   "company": "Grasim Industries Ltd.",
+   "industry": "Construction Materials",
+   "series": "EQ",
+   "isin": "INE047A01021",
+   "yahoo": "GRASIM.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "HCLTECH",
+   "company": "HCL Technologies Ltd.",
+   "industry": "Information Technology",
+   "series": "EQ",
+   "isin": "INE860A01027",
+   "yahoo": "HCLTECH.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "HDFCBANK",
+   "company": "HDFC Bank Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE040A01034",
+   "yahoo": "HDFCBANK.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "HDFCLIFE",
+   "company": "HDFC Life Insurance Company Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE795G01014",
+   "yahoo": "HDFCLIFE.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "HINDALCO",
+   "company": "Hindalco Industries Ltd.",
+   "industry": "Metals & Mining",
+   "series": "EQ",
+   "isin": "INE038A01020",
+   "yahoo": "HINDALCO.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "HINDUNILVR",
+   "company": "Hindustan Unilever Ltd.",
+   "industry": "Fast Moving Consumer Goods",
+   "series": "EQ",
+   "isin": "INE030A01027",
+   "yahoo": "HINDUNILVR.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "ICICIBANK",
+   "company": "ICICI Bank Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE090A01021",
+   "yahoo": "ICICIBANK.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 122,
+    "last": "2026-09-30 15:00:00+05:30"
+   }
+  },
+  {
+   "symbol": "ITC",
+   "company": "ITC Ltd.",
+   "industry": "Fast Moving Consumer Goods",
+   "series": "EQ",
+   "isin": "INE154A01025",
+   "yahoo": "ITC.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "INFY",
+   "company": "Infosys Ltd.",
+   "industry": "Information Technology",
+   "series": "EQ",
+   "isin": "INE009A01021",
+   "yahoo": "INFY.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "INDIGO",
+   "company": "InterGlobe Aviation Ltd.",
+   "industry": "Services",
+   "series": "EQ",
+   "isin": "INE646L01027",
+   "yahoo": "INDIGO.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:00:00+05:30"
+   }
+  },
+  {
+   "symbol": "JSWSTEEL",
+   "company": "JSW Steel Ltd.",
+   "industry": "Metals & Mining",
+   "series": "EQ",
+   "isin": "INE019A01038",
+   "yahoo": "JSWSTEEL.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "JIOFIN",
+   "company": "Jio Financial Services Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE758E01017",
+   "yahoo": "JIOFIN.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "KOTAKBANK",
+   "company": "Kotak Mahindra Bank Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE237A01036",
+   "yahoo": "KOTAKBANK.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 123,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "LT",
+   "company": "Larsen & Toubro Ltd.",
+   "industry": "Construction",
+   "series": "EQ",
+   "isin": "INE018A01030",
+   "yahoo": "LT.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "M&M",
+   "company": "Mahindra & Mahindra Ltd.",
+   "industry": "Automobile and Auto Components",
+   "series": "EQ",
+   "isin": "INE101A01026",
+   "yahoo": "M&M.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "MARUTI",
+   "company": "Maruti Suzuki India Ltd.",
+   "industry": "Automobile and Auto Components",
+   "series": "EQ",
+   "isin": "INE585B01010",
+   "yahoo": "MARUTI.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 122,
+    "last": "2026-09-30 15:00:00+05:30"
+   }
+  },
+  {
+   "symbol": "MAXHEALTH",
+   "company": "Max Healthcare Institute Ltd.",
+   "industry": "Healthcare",
+   "series": "EQ",
+   "isin": "INE027H01010",
+   "yahoo": "MAXHEALTH.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "NTPC",
+   "company": "NTPC Ltd.",
+   "industry": "Power",
+   "series": "EQ",
+   "isin": "INE733E01010",
+   "yahoo": "NTPC.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "NESTLEIND",
+   "company": "Nestle India Ltd.",
+   "industry": "Fast Moving Consumer Goods",
+   "series": "EQ",
+   "isin": "INE239A01024",
+   "yahoo": "NESTLEIND.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "ONGC",
+   "company": "Oil & Natural Gas Corporation Ltd.",
+   "industry": "Oil Gas & Consumable Fuels",
+   "series": "EQ",
+   "isin": "INE213A01029",
+   "yahoo": "ONGC.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "POWERGRID",
+   "company": "Power Grid Corporation of India Ltd.",
+   "industry": "Power",
+   "series": "EQ",
+   "isin": "INE752E01010",
+   "yahoo": "POWERGRID.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 123,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "RELIANCE",
+   "company": "Reliance Industries Ltd.",
+   "industry": "Oil Gas & Consumable Fuels",
+   "series": "EQ",
+   "isin": "INE002A01018",
+   "yahoo": "RELIANCE.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "SBILIFE",
+   "company": "SBI Life Insurance Company Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE123W01016",
+   "yahoo": "SBILIFE.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 121,
+    "last": "2026-09-30 15:00:00+05:30"
+   }
+  },
+  {
+   "symbol": "SHRIRAMFIN",
+   "company": "Shriram Finance Ltd.",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE721A01047",
+   "yahoo": "SHRIRAMFIN.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 123,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "SBIN",
+   "company": "State Bank of India",
+   "industry": "Financial Services",
+   "series": "EQ",
+   "isin": "INE062A01020",
+   "yahoo": "SBIN.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "SUNPHARMA",
+   "company": "Sun Pharmaceutical Industries Ltd.",
+   "industry": "Healthcare",
+   "series": "EQ",
+   "isin": "INE044A01036",
+   "yahoo": "SUNPHARMA.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TCS",
+   "company": "Tata Consultancy Services Ltd.",
+   "industry": "Information Technology",
+   "series": "EQ",
+   "isin": "INE467B01029",
+   "yahoo": "TCS.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TATACONSUM",
+   "company": "Tata Consumer Products Ltd.",
+   "industry": "Fast Moving Consumer Goods",
+   "series": "EQ",
+   "isin": "INE192A01025",
+   "yahoo": "TATACONSUM.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TMPV",
+   "company": "Tata Motors Passenger Vehicles Ltd.",
+   "industry": "Automobile and Auto Components",
+   "series": "EQ",
+   "isin": "INE155A01022",
+   "yahoo": "TMPV.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 125,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TATASTEEL",
+   "company": "Tata Steel Ltd.",
+   "industry": "Metals & Mining",
+   "series": "EQ",
+   "isin": "INE081A01020",
+   "yahoo": "TATASTEEL.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TECHM",
+   "company": "Tech Mahindra Ltd.",
+   "industry": "Information Technology",
+   "series": "EQ",
+   "isin": "INE669C01036",
+   "yahoo": "TECHM.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TITAN",
+   "company": "Titan Company Ltd.",
+   "industry": "Consumer Durables",
+   "series": "EQ",
+   "isin": "INE280A01028",
+   "yahoo": "TITAN.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 124,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "TRENT",
+   "company": "Trent Ltd.",
+   "industry": "Consumer Services",
+   "series": "EQ",
+   "isin": "INE849A01020",
+   "yahoo": "TRENT.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 122,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  },
+  {
+   "symbol": "ULTRACEMCO",
+   "company": "UltraTech Cement Ltd.",
+   "industry": "Construction Materials",
+   "series": "EQ",
+   "isin": "INE481G01011",
+   "yahoo": "ULTRACEMCO.NS",
+   "yahoo_15m_check": {
+    "bars_5d": 122,
+    "last": "2026-09-30 15:15:00+05:30"
+   }
+  }
+ ]
+}
