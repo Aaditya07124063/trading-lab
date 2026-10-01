@@ -113,6 +113,11 @@ This section is our analysis, not the authors' claims.
    - The uniform p ≈ 0.45–0.50 across all variants and blocks is the signature of this error.
    - **Caveat:** this is inferred from the prose; the notebooks were not checked.
    - The paper therefore provides **no evidence for or against** significance.
+   - **Verified 2026-10-01** (`docs/protocols/ORB_v1_verification_20261001.md` Part 2; `scripts/verify_ssrn5198458_bootstrap.py`; synthetic data only):
+     - Setup: 4 data-generating processes (normal, t3, AR(1), paper-like) and true effects of −1 %, −0.2 %, 0, +0.2 %, +0.5 % and +1 % per day.
+     - Result: the described procedure gave a mean p of 0.50 (90 % range 0.48–0.52) and a 0 % rejection rate in every case.
+     - A valid one-sided test of the reported mean Diff would give p ≈ 0.02–0.06 at sd = 2 %/day. A valid p of 0.45 would need sd ≈ 25–31 %/day.
+     - The low power of a one-stock, one-year sample is a separate, genuine limitation.
 2. **The benchmark difference is dominated by BH drift.**
    - BH fell about 37 %, roughly −0.18 % per day (log).
    - The reported Diff of 0.19–0.24 %/day therefore leaves a stand-alone ORB mean of only about 0.0–0.06 %/day gross.
