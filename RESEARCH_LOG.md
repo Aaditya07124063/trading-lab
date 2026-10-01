@@ -109,3 +109,34 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
 - Three candidate exit definitions (X1 CTS close, X2 fixed 15:00, X3 auction close via bhavcopy) were documented; **none selected**.
 - **SSRN 5198458 bootstrap verified by synthetic simulation:** the described procedure yields p ≈ 0.50 (90 % range 0.48–0.52) for true effects of −1 % to +1 %/day under four data-generating processes. Cause: the bootstrap is centred on the observed mean, not under H0. The criticism stands, with precise wording in `docs/protocols/ORB_v1_verification_20261001.md`.
 - No ORB or benchmark return was computed. The holdout was not read. Protocol, universe, collector and engine are unchanged.
+
+## 2026-10-01 - ORB v1 approved decisions implemented; pre-holdout validation (protocol NOT frozen)
+- **User approvals (2026-10-01):**
+  - exit X2 (open of the 15:00 bar);
+  - H1 = mean daily net portfolio return > 0, one-sided α = 0.05;
+  - cost model unchanged (Rs 1 lakh, 5 bps/side; grid 0/2/5/10/20; Rs 10 lakh sensitivity);
+  - dependence-aware null-centred inference;
+  - random baselines retained;
+  - ORB entry rules unchanged.
+- **Engine (a9a8f7f):**
+  - X2 exit; the 15:00 high/low/close and the 15:15 bar are never used;
+  - complete-session rule (all 09:15..15:00 bars must exist, no synthetic prices);
+  - fixed-notional sizing;
+  - benchmark A uses the same exit;
+  - `legacy_v0()` keeps LEGACY-014/015 reproducible.
+- **Inference, portfolio, baselines, regimes (7cfad45):**
+  - R_t = Σ net P&L / (50 × Rs 1 lakh);
+  - stationary bootstrap with Politis–White block length;
+  - guard test against the SSRN uncentred construction;
+  - E sign-flip; D random entry in the ORB-feasible window 10:00–14:30 (draft said 09:45; flagged).
+- **Pre-holdout validation (41a7a30, ORBV1-20261001-001, DIAGNOSTIC):**
+  - Sample: 42 sessions × 50 stocks (2026-08-03..09-30). All 2,100 stock-sessions complete; 1,810 trades.
+  - Invariants: all hold. Engine and vectorised P&L agree to 1e-12. Reproducible bit-for-bit.
+  - Descriptive dev numbers (NOT evidence, NOT used for any decision):
+    - gross −0.7 bps/day;
+    - net −16.3 bps/day at Z-5 (label NEGATIVE on this dev sample);
+    - E p = 0.68, D p = 0.70;
+    - break-even slippage: none ≥ 0.
+  - Power: long-run sd 16 bps/day; MDE 2.5 bps/day at n = 250.
+  - No protocol element was changed in response.
+- **Open items before freeze:** OPEN-1..12 in `docs/protocols/ORB_v1_final_review_20261001.md`.

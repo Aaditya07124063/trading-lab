@@ -18,3 +18,7 @@ Code/infrastructure changes by commit. Research findings go in
 - (next) research: cost sources, cost scenarios, literature review, ORB protocol v1 (DRAFT)
 - (docs) literature stage: SSRN 5198458 record, ORB literature review v1, SSRN-vs-ORB v1 comparison, gap analysis, ORB v1 proposed revisions (not applied); literature PDFs git-ignored
 - (docs/scripts) verification: CAS exit-bar semantics and SSRN bootstrap check (synthetic); evidence in docs/evidence/cas_2026; memo/proposal corrections
+- a9a8f7f feat: ORB v1 exit X2 (15:00 bar open), complete-session rule, fixed-notional sizing; legacy_v0 for old runs
+- 7cfad45 feat: ORB v1 inference (stationary bootstrap, PW block length), portfolio aggregation, baselines D/E, regime labels
+- 41a7a30 research: ORB v1 pre-holdout implementation validation (DIAGNOSTIC)
+- (docs) ORB v1 final protocol review (proposed, not frozen)
