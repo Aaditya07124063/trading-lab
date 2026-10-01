@@ -1,17 +1,60 @@
 {
-  "RELIANCE": {"type": "equity", "exchange": "NSE", "nse_symbol": "RELIANCE", "yahoo": "RELIANCE.NS",
-               "listing_date": null,
-               "corporate_actions_noted": ["1:1 bonus, ex-date 1997-11-05 (NSE bhavcopy 04/05NOV1997: 354.15 -> 182.65)"]},
-  "TCS": {"type": "equity", "exchange": "NSE", "nse_symbol": "TCS", "yahoo": "TCS.NS",
-          "listing_date": "2004-08-25",
-          "listing_evidence": "absent from NSE bhavcopy 24AUG2004, present 25AUG2004 (docs/evidence)"},
-  "INFY": {"type": "equity", "exchange": "NSE", "nse_symbol": "INFY (INFOSYSTCH in 2005)", "yahoo": "INFY.NS",
-           "listing_date": null},
-  "HDFCBANK": {"type": "equity", "exchange": "NSE", "nse_symbol": "HDFCBANK", "yahoo": "HDFCBANK.NS",
-               "listing_date": null,
-               "corporate_actions_noted": ["merger with HDFC Ltd in 2023 - not yet verified against an exchange source"]},
-  "NIFTY50": {"type": "index", "yahoo": "^NSEI", "listing_date": null},
-  "NIFTY_10Y": {"type": "index", "yahoo": "^NSEI", "listing_date": null},
-  "SENSEX": {"type": "index", "yahoo": "^BSESN", "listing_date": null},
-  "XAUUSD": {"type": "commodity", "source_note": "MetaTrader export, broker unknown", "listing_date": null}
+  "RELIANCE": {
+    "type": "equity",
+    "exchange": "NSE",
+    "nse_symbol": "RELIANCE",
+    "yahoo": "RELIANCE.NS",
+    "listing_date": null,
+    "corporate_actions_noted": [
+      "1:1 bonus, ex-date 1997-11-05 (NSE bhavcopy 04/05NOV1997: 354.15 -> 182.65)"
+    ]
+  },
+  "TCS": {
+    "type": "equity",
+    "exchange": "NSE",
+    "nse_symbol": "TCS",
+    "yahoo": "TCS.NS",
+    "listing_date": "2004-08-25",
+    "listing_evidence": "absent from NSE bhavcopy 24AUG2004, present 25AUG2004 (docs/evidence)",
+    "known_issues": [
+      "Yahoo daily volume on 2004-08-25 is 1/1000 of NSE (adjusted) volume - row kept, volume unusable that day"
+    ]
+  },
+  "INFY": {
+    "type": "equity",
+    "exchange": "NSE",
+    "nse_symbol": "INFY (INFOSYSTCH in 2005)",
+    "yahoo": "INFY.NS",
+    "listing_date": null
+  },
+  "HDFCBANK": {
+    "type": "equity",
+    "exchange": "NSE",
+    "nse_symbol": "HDFCBANK",
+    "yahoo": "HDFCBANK.NS",
+    "listing_date": null,
+    "corporate_actions_noted": [
+      "merger with HDFC Ltd in 2023 - not yet verified against an exchange source"
+    ]
+  },
+  "NIFTY50": {
+    "type": "index",
+    "yahoo": "^NSEI",
+    "listing_date": null
+  },
+  "NIFTY_10Y": {
+    "type": "index",
+    "yahoo": "^NSEI",
+    "listing_date": null
+  },
+  "SENSEX": {
+    "type": "index",
+    "yahoo": "^BSESN",
+    "listing_date": null
+  },
+  "XAUUSD": {
+    "type": "commodity",
+    "source_note": "MetaTrader export, broker unknown",
+    "listing_date": null
+  }
 }
