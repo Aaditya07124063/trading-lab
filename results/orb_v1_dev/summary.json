@@ -1,0 +1,145 @@
+{
+  "generated_at": "2026-10-01T11:16:45",
+  "purpose": "PRE-HOLDOUT IMPLEMENTATION VALIDATION - descriptive, not evidence, not used for tuning",
+  "holdout_start": "2026-10-01",
+  "window": [
+    "2026-08-03",
+    "2026-09-30"
+  ],
+  "sessions": 42,
+  "universe_n": 50,
+  "capital_per_stock": 100000,
+  "primary_scenario": "Z-5",
+  "costs_primary": {
+    "name": "Zerodha NSE equity intraday, published 2026-09-30",
+    "brokerage_flat": 20,
+    "brokerage_pct": 0.0003,
+    "brokerage_mode": "min",
+    "stt_sell_pct": 0.00025,
+    "exchange_pct": 3.07e-05,
+    "sebi_pct": 1e-06,
+    "stamp_buy_pct": 3e-05,
+    "gst_pct": 0.18,
+    "slippage_bps": 5
+  },
+  "data_completeness": {
+    "non_tradable_stock_sessions": 0,
+    "stock_sessions": 2100,
+    "examples": {}
+  },
+  "trades": {
+    "n": 1810,
+    "long": 735,
+    "short": 1075,
+    "stock_sessions_with_trade_pct": 86.2,
+    "entry_time_counts": {
+      "10:00": 447,
+      "10:15": 277,
+      "10:30": 197,
+      "10:45": 152,
+      "11:00": 108,
+      "11:15": 108,
+      "11:30": 84,
+      "11:45": 65,
+      "12:00": 76,
+      "12:15": 51,
+      "12:30": 29,
+      "12:45": 38,
+      "13:00": 39,
+      "13:15": 26,
+      "13:30": 29,
+      "13:45": 18,
+      "14:00": 28,
+      "14:15": 24,
+      "14:30": 14
+    }
+  },
+  "engine_vs_vectorised_max_abs_diff_rs": 9.094947017729282e-13,
+  "primary_inference_bps": {
+    "n": 42,
+    "mean": -16.301,
+    "sd": 16.318,
+    "se_bootstrap": 2.474,
+    "t_bootstrap": -6.58806067196656,
+    "p_one_sided": 1.0,
+    "alpha": 0.05,
+    "lower_1s_95": -20.59,
+    "upper_1s_95": -12.549,
+    "sharpe_annual": -15.857956728897172,
+    "long_run_sd": 16.035,
+    "block_length": 1.0,
+    "B": 10000,
+    "seed": 20261001,
+    "method": "null-centred stationary bootstrap (Politis-Romano), one-sided",
+    "ci95_two_sided": [
+      -21.583,
+      -11.881
+    ]
+  },
+  "reporting_label_on_dev_sample": "NEGATIVE",
+  "block_length_dev_politis_white": 1.0,
+  "block_sensitivity_p": {
+    "half": 1.0,
+    "double": 1.0
+  },
+  "baselines": {
+    "E_sign_flip": {
+      "p": 0.6764323567643236,
+      "draws_mean_bps": -15.614
+    },
+    "D_random_entry": {
+      "p": 0.7041295870412959,
+      "draws_mean_bps": -15.636
+    },
+    "holm": {
+      "E_sign_flip": 1.0,
+      "D_random_entry": 1.0
+    }
+  },
+  "cost_grid_mean_net_bps": {
+    "GROSS": -0.708,
+    "Z-0": -7.797,
+    "Z-2": -11.199,
+    "Z-5": -16.301,
+    "Z-10": -24.804,
+    "Z-20": -41.829,
+    "U-5": -16.301
+  },
+  "gross_mean_bps": -0.702,
+  "cost_components_rs": {
+    "brokerage": 72400.0,
+    "stt": 44662.19,
+    "exchange": 10974.97,
+    "sebi": 357.49,
+    "stamp": 5365.27,
+    "gst": 15071.84,
+    "slippage": 178745.51
+  },
+  "break_even_slippage_bps_per_side": null,
+  "long_only_B_mean_net_bps": -10.468,
+  "benchmark_A_mean_net_bps": -38.441,
+  "capital_10_lakh_mean_net_bps": -12.795,
+  "per_stock_exploratory": {
+    "n_raw_p_lt_0.05": 0,
+    "n_holm_p_lt_0.05": 0
+  },
+  "power": {
+    "long_run_sd_bps": 16.035,
+    "mde_bps_per_day_80pct_power": {
+      "125": 3.566,
+      "250": 2.522,
+      "500": 1.783
+    }
+  },
+  "regimes_provisional_proxy": {
+    "vol": {
+      "LOW": 40,
+      "HIGH": 2
+    },
+    "trend": {
+      "DOWN": 25,
+      "UP": 17
+    }
+  },
+  "runtime_s": 28.9
+}

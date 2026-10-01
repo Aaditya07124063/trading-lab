@@ -2,7 +2,7 @@
 
 _Generated from `registry/experiments.jsonl` (append-only) by `python3 -m src.registry.experiments` - do not edit by hand._
 
-Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials log started 2026-09-30; earlier casual runs were not logged).
+Registered experiments: 18 · logged trials (every run, incl. casual): 2 (trials log started 2026-09-30; earlier casual runs were not logged).
 
 | ID | status | strategy | data | period | OOS status | viewed before final | headline |
 |---|---|---|---|---|---|---|---|
@@ -23,6 +23,7 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 | LEGACY-015 | **DIAGNOSTIC** | ORB 60m on 60m bars | `RELIANCEh1@ed0cd3d253a3 (exact file used; commit ccf061e)` | 2023-08-02 → 2026-09-30 | EXPOSED — VIEWED FOR RESEARCH/DIAGNOSTIC PURPOSES; NO PARAMETER TUNING PERFORMED. | yes - all three periods displayed 2026-09-30 | gross diagnostic run; numbers deliberately not used as findings |
 | EXP-20260930-001 | **EXPLORATORY** | EMA 20/50 crossover | `RELIANCEd1.clean@995b7a380080` | 1996-01-01 → 2026-07-17 | none - full-sample backtest | yes | 822.2% vs B&H 18031.1% (clean) |
 | EXP-20260930-002 | **EXPLORATORY** | EMA 20/50 crossover | `HDFCBANKd1.clean@19cb6ee50f25` | 1996-01-01 → 2026-07-17 | none - full-sample backtest | yes | 2460.3% vs B&H 54178.1% (clean) |
+| ORBV1-20261001-001 | **DIAGNOSTIC** | ORB 30m on 15m bars, long/short, exit 15:00 bar OPEN (X2) | `data/india/<SYMBOL>m15.csv x50, rows < 2026-10-01 only` | 2026-08-03 → 2026-09-30 | development data; holdout not loaded | yes - development data viewed during implementation validation; no parameter, cost, exit, test or rule changed in response | DEV SANITY ONLY: mean net -16.301 bps/day (Z-5), label NEGATIVE; gross -0.702 bps/day; not evidence |
 
 ## Details
 
@@ -314,3 +315,19 @@ Registered experiments: 17 · logged trials (every run, incl. casual): 0 (trials
 - **limitations:** exclusions reviewed by agent, pending user review; still no inference; cash earns 0%; dividends excluded
 - **code:** `e1b82fee14` (dirty) · python 3.13.5
 - **amended 2026-09-30T23:50:33:** registration/reproduction code committed in 9dcee96 (records were written from the uncommitted working tree)
+
+### ORBV1-20261001-001 — ORB 30m on 15m bars, long/short, exit 15:00 bar OPEN (X2)
+
+- **research_question:** Implementation validation of the ORB v1 pipeline (X2 exit, portfolio aggregation, inference, baselines) - not a research test
+- **hypothesis:** n/a (diagnostic); protocol H1 = mean daily net portfolio return > 0
+- **null_hypothesis:** n/a (diagnostic); protocol H0 = mean daily net portfolio return <= 0
+- **dataset_stage:** development (pre-holdout)
+- **parameters:** {'range_minutes': 30, 'entry_cutoff': '14:30', 'max_entries_per_day': 1, 'exit': '15:00 open', 'sizing': 'fixed_notional Rs 1 lakh'}
+- **cost_model:** Zerodha NSE equity intraday 2026-09-30 (grid GROSS,Z-0,Z-2,Z-5,Z-10,Z-20,U-5)
+- **slippage:** primary 5 bps/side
+- **benchmark:** A open-to-close long (09:15 open -> 15:00 open), context only
+- **cash_treatment:** idle capital 0%
+- **dividends:** n/a intraday
+- **statistical_tests:** null-centred stationary bootstrap (PW block), sign-flip E, random-entry D, Holm
+- **limitations:** 42 sessions; descriptive implementation check; results must not be used to modify the protocol
+- **code:** `7cfad45b9c` (dirty) · python 3.13.5
