@@ -66,3 +66,29 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
 - launchd schedule test FAILED (exit 126): macOS privacy protection blocks
   launchd from ~/Desktop. Job unloaded; awaiting user decision. Yahoo retains
   ~60 days of 15m bars, so no holdout data is lost if resolved before ~2026-11-28.
+
+## 2026-10-01 - literature stage: SSRN 5198458 and ORB v1 review (documentation only)
+- **SSRN 5198458 (Wang & Gangwar) read in full.** All text plus the 5 figures. Notebooks not opened.
+  - Design: Tata Motors only, 5-min bars, about 2023-12 → 2025-01, zero costs.
+  - Method: i.i.d. bootstrap of the daily ORB−BH difference.
+  - Our assessment: the p-value procedure as described is centred on the observed mean, so p ≈ 0.5 by construction. A simulation confirms this: p = 0.50 even at a true 1 %/day edge.
+  - The ORB−BH gap is mostly BH's −37 % drift.
+  - The N = 2/3/5 holding-period curves are identical (the parameter is apparently not implemented).
+  - The volume filter uses whole-day volume (look-ahead).
+  - Record: `docs/literature/SSRN_5198458_record.md`.
+- **Additional literature (targeted search):**
+  - Holmberg et al. 2013 (FRL);
+  - Tsai et al. 2019 (IEEE Access);
+  - Zarattini & Aziz 2023;
+  - Zarattini, Barbon & Aziz 2024 (read in full; unfiltered 5-min ORB Sharpe 0.48, 30-min + relative-volume Sharpe 0.21, commission only, no slippage);
+  - Gao et al. 2018 (JFE); Baltussen et al. 2021 (JFE);
+  - Motwani et al. 2024 (India, listing only); Singh & Gangwar 2018 (NIFTY futures volatility);
+  - the SEBI 2024 intraday P&L study (press only).
+  - Review: `docs/literature/ORB_literature_review.md`.
+- **Comparison and gap analysis:** `docs/literature/SSRN_5198458_vs_ORB_v1.md` (33 dimensions, classified) and `docs/literature/ORB_research_gap_analysis.md`.
+  - "Multi-stock" and "survivorship-aware" ORB are not novel in general (US: Zarattini et al.).
+  - For the NSE, none was found in a targeted search, which does not establish absence.
+- **Code/protocol issue found (not fixed):** the engine exits at the 15:15 bar close (≈ 15:29:59), which is after Zerodha's 15:25 MIS auto-square-off. Proposal R7.
+- **Proposals (NOT applied):** `docs/protocols/ORB_v1_proposed_revisions.md`, items R1–R19 and 15 decisions for the user. ORB v1 remains DRAFT. Stage 2 not started.
+- **Holdout:** no observation dated ≥ 2026-10-01 was opened. No ORB performance (development or holdout) was used to justify any proposal.
+- The SSRN PDF is kept locally and not committed (copyright; repo has a GitHub remote). SHA-256 is in the record. `docs/literature/*.pdf` added to `.gitignore`.

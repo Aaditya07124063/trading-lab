@@ -16,3 +16,4 @@ Code/infrastructure changes by commit. Research findings go in
 - 9dcee96 feat: data registry, experiment registry, daily validation, clean datasets, holdout lock, raw snapshots
 - 6849ea8 research: registry entries linked to registering commit
 - (next) research: cost sources, cost scenarios, literature review, ORB protocol v1 (DRAFT)
+- (docs) literature stage: SSRN 5198458 record, ORB literature review v1, SSRN-vs-ORB v1 comparison, gap analysis, ORB v1 proposed revisions (not applied); literature PDFs git-ignored
