@@ -7,10 +7,10 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/aadityaadhikari/Desktop/trading-lab/scripts/collect_intraday.sh</string>
+        <string>/Users/aadityaadhikari/Projects/trading-lab/scripts/collect_intraday.sh</string>
     </array>
     <key>WorkingDirectory</key>
-    <string>/Users/aadityaadhikari/Desktop/trading-lab</string>
+    <string>/Users/aadityaadhikari/Projects/trading-lab</string>
     <!-- Weekdays 18:30 local (IST) - after NSE close. If the Mac is asleep, launchd runs it once on wake. -->
     <key>StartCalendarInterval</key>
     <array>
@@ -23,8 +23,8 @@
     <key>RunAtLoad</key>
     <false/>
     <key>StandardOutPath</key>
-    <string>/Users/aadityaadhikari/Desktop/trading-lab/logs/launchd.out.log</string>
+    <string>/Users/aadityaadhikari/Projects/trading-lab/logs/launchd.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/aadityaadhikari/Desktop/trading-lab/logs/launchd.err.log</string>
+    <string>/Users/aadityaadhikari/Projects/trading-lab/logs/launchd.err.log</string>
 </dict>
 </plist>
