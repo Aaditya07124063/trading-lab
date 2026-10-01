@@ -12,7 +12,8 @@ from src.intraday.orb import ORB
 
 GRID = expected_times(15)                    # 09:15 ... 15:15 (25 bars)
 ZERO = CostModel.zero()
-CFG = EngineConfig(capital=100_000)
+CFG = EngineConfig(capital=100_000)                  # ORB v1 / X2: exit at 15:00 OPEN
+LEGACY = EngineConfig.legacy_v0(capital=100_000)     # pre-v1: exit at 15:15 CLOSE (reproduction only)
 
 
 def day(date, over=None, base=100.0, drop=()):
@@ -118,10 +119,10 @@ def test_entry_cutoff_blocks_late_fills():
     assert orb_run(frame(day("2026-01-05", over)))["trades"].empty
 
 
-def test_square_off_at_1515_close_and_never_overnight():
+def test_legacy_v0_squares_off_at_1515_close_and_never_overnight():
     over = {**RANGE, "09:45": (100, 102, 100, 101.5), "15:15": (103, 104, 102.5, 103.3)}
     df = frame(day("2026-01-05", over), day("2026-01-06", RANGE))
-    r = orb_run(df)
+    r = orb_run(df, cfg=LEGACY)
     t = r["trades"]
     assert t.exit_time[0] == "2026-01-05 15:15:00"
     assert t.exit_price[0] == 103.3 and t.reason[0] == "square_off"
@@ -130,9 +131,9 @@ def test_square_off_at_1515_close_and_never_overnight():
     assert (eq.loc[eq.date.dt.strftime("%H:%M") == "15:15", "position"] == 0).all()
 
 
-def test_session_without_1515_bar_is_skipped_not_force_closed():
+def test_legacy_v0_session_without_1515_bar_is_skipped_not_force_closed():
     partial = day("2026-01-06", {**RANGE, "09:45": (100, 102, 100, 101.5)})[:10]
-    r = orb_run(frame(day("2026-01-05"), partial))
+    r = orb_run(frame(day("2026-01-05"), partial), cfg=LEGACY)
     assert r["trades"].empty and r["skipped_sessions"] == ["2026-01-06"]
 
 
@@ -148,7 +149,8 @@ def test_strategy_never_sees_a_future_bar():
             return None
     spy = Spy()
     run_intraday(frame(day("2026-01-05")), spy, ZERO, CFG)
-    assert spy.seen == [(i + 1, t) for i, t in enumerate(GRID[:-1])]
+    before_exit = [t for t in GRID if t < "15:00"]       # X2: the 15:00 bar is never shown
+    assert spy.seen == [(i + 1, t) for i, t in enumerate(before_exit)]
 
 
 def test_gap_after_signal_gives_no_free_profit():
@@ -196,7 +198,7 @@ def test_charges_by_hand():
 
 def test_trade_net_equals_gross_minus_all_costs():
     over = {**RANGE, "09:45": (100, 102, 100, 101.5), "10:00": (102, 102, 102, 102),
-            "15:15": (104, 104, 104, 104)}
+            "15:00": (104, 105, 103, 104.5)}                  # X2 exit = 15:00 OPEN = 104
     slipped = CostModel(**{**SCHED.describe(), "slippage_bps": 10})
     r = orb_run(frame(day("2026-01-05", over)), costs=slipped)
     t = r["trades"].iloc[0]
@@ -223,23 +225,37 @@ def test_sizing_never_spends_more_than_equity():
 
 # ---------------- benchmark & metrics ----------------
 
-def test_open_to_close_benchmark():
+def test_legacy_v0_open_to_close_benchmark():
     df = frame(day("2026-01-05", {"09:15": (100, 100, 100, 100), "15:15": (110, 110, 110, 110)}),
                day("2026-01-06", {"09:15": (110, 110, 110, 110), "15:15": (99, 99, 99, 99)}))
-    s = summarize(run_open_to_close_benchmark(df, ZERO, CFG), 100_000)
+    s = summarize(run_open_to_close_benchmark(df, ZERO, LEGACY), 100_000)
     assert s["trades"] == 2
     assert s["return_pct"] == pytest.approx(-1.0, abs=0.01)     # 1000 shares: +10k, then -11k
 
 
+def test_open_to_close_benchmark_uses_x2_exit_and_fixed_notional():
+    df = frame(day("2026-01-05", {"09:15": (100, 100, 100, 100), "15:00": (110, 112, 90, 95),
+                                  "15:15": (500, 500, 500, 500)}),
+               day("2026-01-06", {"09:15": (110, 110, 110, 110), "15:00": (99, 120, 80, 100),
+                                  "15:15": (1, 1, 1, 1)}))
+    r = run_open_to_close_benchmark(df, ZERO, CFG)
+    t = r["trades"]
+    assert list(t.exit_time) == ["2026-01-05 15:00:00", "2026-01-06 15:00:00"]
+    assert list(t.exit_price) == [110, 99]                       # 15:00 OPENs, not 15:15
+    assert list(t.qty) == [1000, 909]                            # sized on Rs 1 lakh each day
+    assert t.net_pnl.sum() == pytest.approx(1000 * 10 + 909 * -11)
+
+
 def test_summary_profit_factor_and_extremes():
     over_w = {**RANGE, "09:45": (100, 102, 100, 101.5), "10:00": (100, 100, 100, 100),
-              "15:15": (110, 110, 110, 110)}
+              "15:00": (110, 110, 110, 110)}
     over_l = {**RANGE, "09:45": (100, 102, 100, 101.5), "10:00": (100, 100, 100, 100),
-              "15:15": (95, 95, 95, 95)}
+              "15:00": (95, 95, 95, 95)}
     s = summarize(orb_run(frame(day("2026-01-05", over_w), day("2026-01-06", over_l))), 100_000)
     assert s["trades"] == 2 and s["win_rate"] == 50
-    assert s["largest_win"] == pytest.approx(10_000) and s["largest_loss"] == pytest.approx(-5_500)
-    assert s["profit_factor"] == pytest.approx(10_000 / 5_500, abs=0.01)
+    # fixed-notional sizing: 1000 shares both days (profit is not reinvested)
+    assert s["largest_win"] == pytest.approx(10_000) and s["largest_loss"] == pytest.approx(-5_000)
+    assert s["profit_factor"] == pytest.approx(10_000 / 5_000, abs=0.01)
 
 
 # ---------------- research split ----------------
