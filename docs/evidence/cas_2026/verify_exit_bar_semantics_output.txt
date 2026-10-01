@@ -1,0 +1,15 @@
+1. Frozen constituents with NSE derivatives (CAS-eligible): 50/50
+
+2. Bar presence per stock-session (mean across stocks)
+   pre-CAS : stocks=4 sessions/stock=69 has_1500=1.000 has_1515=1.000 (min 1.000) all_25_bars=1.000
+   post-CAS: stocks=50 sessions/stock=42 has_1500=1.000 has_1515=0.779 (min 0.476) all_25_bars=0.779
+
+3. Median volume ratio 15:15 bar / 15:00 bar (4 long-history stocks)
+   RELIANCE  pre-CAS 0.91   post-CAS 0.58
+   HDFCBANK  pre-CAS 0.76   post-CAS 0.45
+   INFY      pre-CAS 0.94   post-CAS 0.47
+   TCS       pre-CAS 1.13   post-CAS 0.34
+
+4. Yahoo end-of-day bars vs NSE official close (bhavcopy ClsPric)
+   pre-CAS : days=4 stock-days=16 has_1515=1.00 close(15:15 bar)==official close: 0.31; official close==last price: 0.00; |close(15:00 bar) - official close| median 3.5 bps, p90 14.9 bps
+   post-CAS: days=14 stock-days=700 has_1515=0.83 close(15:15 bar)==official close: 1.00; official close==last price: 1.00; |close(15:00 bar) - official close| median 21.9 bps, p90 64.3 bps

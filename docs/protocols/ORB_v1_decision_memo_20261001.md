@@ -7,6 +7,22 @@
 - Stage 2 has **not started**.
 - The holdout boundary is unchanged: 2026-10-01.
 
+## Corrections after focused verification (2026-10-01, later the same day)
+
+Source: `ORB_v1_verification_20261001.md`. The protocol is unchanged.
+
+1. **Exit timing (R7).**
+   - **Original claim:** Zerodha's MIS cut-off is 15:25.
+   - **Correct for our universe:** 15:25 applies only to non-CAS stocks. All 50 frozen stocks are F&O and therefore CAS stocks:
+     - Zerodha squares off at **15:12**, Upstox at **15:10**;
+     - continuous trading ends at **15:15** (SEBI CAS circular, effective 2026-08-03).
+   - **Current rule:** since 2026-08-03 the "15:15 bar close" is the closing-auction price, not a 15:29:59 trade, and Yahoo omits that bar in about 22 % of stock-sessions.
+   - **Recommendation withdrawn:** the "15:15 open" recommendation in R7 is withdrawn. Three candidate definitions (X1–X3) are presented instead, none selected.
+2. **Missing bars (R17).**
+   - **Original claim:** Yahoo omits isolated bars.
+   - **Correct:** after 2026-08-03 the only missing bar is the 15:15 auction bar.
+3. **SSRN p-value criticism.** Verified by synthetic simulation across 4 data-generating processes and true effects of −1 % to +1 %/day: the described procedure gives p ≈ 0.50 (90 % range 0.48–0.52) regardless of effect. Use the precise wording in the verification document §2.4. The criticism rests on the paper's text; the notebooks were not inspected.
+
 **Supporting documents:**
 - `docs/literature/`: `SSRN_5198458_record.md`, `ORB_literature_review.md`, `SSRN_5198458_vs_ORB_v1.md`, `ORB_research_gap_analysis.md`
 - `docs/protocols/ORB_v1_proposed_revisions.md`

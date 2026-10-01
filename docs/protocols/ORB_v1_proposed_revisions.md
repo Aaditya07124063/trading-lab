@@ -18,6 +18,14 @@
 - **CHANGE** — rule, test or benchmark change; needs approval.
 - **ADD** — new pre-specified element; needs approval.
 
+> **Correction (verification, 2026-10-01):** R7's evidence and recommendation are superseded by `ORB_v1_verification_20261001.md` Part 1.
+> - All 50 frozen stocks are CAS (F&O) stocks.
+> - Continuous trading ends at 15:15.
+> - The broker MIS cut-offs are 15:10 (Upstox) and 15:12 (Zerodha), not 15:25.
+> - The current "15:15 bar close" is the closing-auction price since 2026-08-03.
+>
+> R17's "isolated missing bars" are in fact missing 15:15 auction bars (about 22 % of stock-sessions). No option is selected.
+
 ## 1. Item-by-item review
 
 Every item follows the same five steps: current rule → evidence → proposal → scientific reason → consequence for interpretation.

@@ -92,3 +92,20 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
 - **Proposals (NOT applied):** `docs/protocols/ORB_v1_proposed_revisions.md`, items R1–R19 and 15 decisions for the user. ORB v1 remains DRAFT. Stage 2 not started.
 - **Holdout:** no observation dated ≥ 2026-10-01 was opened. No ORB performance (development or holdout) was used to justify any proposal.
 - The SSRN PDF is kept locally and not committed (copyright; repo has a GitHub remote). SHA-256 is in the record. `docs/literature/*.pdf` added to `.gitignore`.
+
+## 2026-10-01 - focused verification: exit timing (CAS) and SSRN bootstrap (no protocol change)
+- **NSE Closing Auction Session (SEBI circular 16 Jan 2026, effective 2026-08-03).**
+  - For stocks with derivatives, continuous trading ends at 15:15; the auction runs 15:15–15:35 and sets the official close.
+  - All 50 frozen constituents are F&O stocks, so all are CAS stocks.
+  - The pre-open session changed from 2026-09-07; CTS still starts at 09:15.
+- **Yahoo 15-min data, pre-holdout only:**
+  - Since 2026-08-03 the `15:15` bar, when present, closes exactly at NSE's official close, i.e. the auction price (700 stock-days, 14 dates, 100 %).
+  - The bar is missing in about 22 % of stock-sessions.
+  - Every other bar is present 100 %.
+  - **Correction** to the 2026-10-01 collector entry above: the "isolated missing bars" were all missing auction bars.
+  - Last continuous price (`15:00` bar close) vs official close: median 22 bps.
+- **Consequence:** the current engine rule ("15:15 bar close", sessions without it skipped) means a CTS trade at about 15:29:59 before 2026-08-03 and the auction price after it. It also drops about 22 % of post-CAS sessions for a vendor reason.
+- **Correction to the decision memo / R7:** for CAS stocks the broker MIS cut-offs are 15:12 (Zerodha) and 15:10 (Upstox). The memo's 15:25 applies to non-CAS stocks only.
+- Three candidate exit definitions (X1 CTS close, X2 fixed 15:00, X3 auction close via bhavcopy) were documented; **none selected**.
+- **SSRN 5198458 bootstrap verified by synthetic simulation:** the described procedure yields p ≈ 0.50 (90 % range 0.48–0.52) for true effects of −1 % to +1 %/day under four data-generating processes. Cause: the bootstrap is centred on the observed mean, not under H0. The criticism stands, with precise wording in `docs/protocols/ORB_v1_verification_20261001.md`.
+- No ORB or benchmark return was computed. The holdout was not read. Protocol, universe, collector and engine are unchanged.
