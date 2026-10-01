@@ -48,3 +48,21 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
   exists and must be read before defining the contribution.
 - **ORB protocol v1** drafted (`docs/protocols/ORB_v1.md`), status DRAFT; clean
   holdout = 15-min data from 2026-10-01, locked in code.
+
+## 2026-10-01 - universe freeze, exclusion review, collector
+- 08:26 IST (before the first holdout session): NIFTY 50 constituent file
+  retrieved from NSE (last-modified 2026-09-30) and frozen as the prospective
+  holdout universe (`data/metadata/universe/NIFTY50_frozen_20261001.json`,
+  commit fc3b26d). All 50 available on Yahoo 15m at freeze. Historical
+  research universe (RELIANCE, TCS, HDFCBANK, INFY, NIFTY50, SENSEX) is distinct.
+- Six hand-written exclusions reviewed individually: wording corrected for the
+  2005-07-28 RELIANCE/TCS placeholders (inconsistently adjusted, not
+  unadjusted); RELIANCE 1997 block verified date by date; TCS listing-day volume
+  flagged. No exclusion decision changed.
+- Collector (`update_intraday.py`, `scripts/collect_intraday.sh`) run manually
+  08:29 IST: 58 datasets OK, 46 new holdout-universe m15 files (2026-08-03 ..
+  2026-09-30, pre-holdout). Yahoo omits isolated bars in ~4-15 of 42 sessions
+  per stock - logged; affects tradable session counts.
+- launchd schedule test FAILED (exit 126): macOS privacy protection blocks
+  launchd from ~/Desktop. Job unloaded; awaiting user decision. Yahoo retains
+  ~60 days of 15m bars, so no holdout data is lost if resolved before ~2026-11-28.

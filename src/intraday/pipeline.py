@@ -25,7 +25,7 @@ class DataConflict(Exception):
 
 
 def merge_bars(old, new, tf, symbol, now=None):
-    now = now or pd.Timestamp.now()
+    now = now or pd.Timestamp.now(tz="Asia/Kolkata").tz_localize(None)   # NSE clock, not the Mac's
     rep = validate(new, tf, symbol)
     if not rep["ok"]:
         raise DataConflict(f"{symbol}: incoming data invalid: {rep['errors']}")
@@ -101,11 +101,20 @@ def write_mt_csv(df, path):
     tmp.replace(path)
 
 
-def fetch_yahoo(ticker, tf):
-    """Free Yahoo intraday: 15m ~60 days back, 60m ~730 days back. No key needed."""
+MAX_LOOKBACK_DAYS = {15: 59, 60: 729}     # Yahoo's intraday history limits
+
+
+def fetch_yahoo(ticker, tf, since=None):
+    """Free Yahoo intraday (no key). since=None -> as far back as Yahoo allows;
+    otherwise from `since` (capped at Yahoo's limit). Raises on transport errors."""
     import yfinance as yf
-    interval, period = {15: ("15m", "60d"), 60: ("60m", "730d")}[tf]
-    h = yf.Ticker(ticker).history(period=period, interval=interval, auto_adjust=False)
+    interval = {15: "15m", 60: "60m"}[tf]
+    today = pd.Timestamp.now(tz="Asia/Kolkata").normalize().tz_localize(None)
+    earliest = today - pd.Timedelta(days=MAX_LOOKBACK_DAYS[tf])
+    start = earliest if since is None else max(pd.Timestamp(since).normalize(), earliest)
+    h = yf.Ticker(ticker).history(start=start.strftime("%Y-%m-%d"),
+                                  end=(today + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
+                                  interval=interval, auto_adjust=False, raise_errors=True)
     if h is None or h.empty:
         return pd.DataFrame(columns=["date", "open", "high", "low", "close", "volume"])
     idx = h.index.tz_convert("Asia/Kolkata").tz_localize(None) if h.index.tz else h.index

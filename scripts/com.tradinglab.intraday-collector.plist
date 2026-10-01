@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.tradinglab.intraday-collector</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/aadityaadhikari/Desktop/trading-lab/scripts/collect_intraday.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/aadityaadhikari/Desktop/trading-lab</string>
+    <!-- Weekdays 18:30 local (IST) - after NSE close. If the Mac is asleep, launchd runs it once on wake. -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+    </array>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/aadityaadhikari/Desktop/trading-lab/logs/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/aadityaadhikari/Desktop/trading-lab/logs/launchd.err.log</string>
+</dict>
+</plist>

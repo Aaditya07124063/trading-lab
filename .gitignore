@@ -30,3 +30,7 @@ data/**/backups/
 
 # intraday run outputs are regenerable
 results/intraday/
+
+# raw download snapshots (large; preserved locally, checksums in data/raw/manifest.jsonl)
+data/raw/yahoo/
+logs/
