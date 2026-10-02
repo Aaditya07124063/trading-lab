@@ -13,7 +13,7 @@ from src.intraday.orb import ORB
 from src.intraday.portfolio import (entry_candidates, portfolio_daily, random_entry_baseline,
                                     sign_flip_baseline, trade_net_pnl)
 from src.intraday.regimes import regime_labels
-from tests.test_intraday import RANGE, day, frame
+from tests.test_intraday import GRID, RANGE, day, frame
 
 SCHED = CostModel("test", 20, 0.0003, "min", 0.00025, 0.00003, 0.000001, 0.00003, 0.18, 5)
 
@@ -244,3 +244,52 @@ def test_holdout_evaluation_refuses_unfrozen_protocol_and_has_no_tuning_options(
     h = subprocess.run([sys.executable, "evaluate_orb_v1.py", "--help"], cwd=BASE_DIR,
                        capture_output=True, text=True).stdout
     assert {w for w in h.split() if w.startswith("--")} == {"--help", "--dry-run-dev"}
+
+
+# ------------------------------------------- malformed data, regimes source
+
+def _raw(rows):
+    return pd.DataFrame(rows, columns=["date", "open", "high", "low", "close", "volume"]).assign(
+        date=lambda d: pd.to_datetime(d["date"], errors="coerce"))
+
+
+def test_malformed_data_marks_only_the_affected_stock_session():
+    from src.intraday.data import split_defective
+    good = [(f"2026-08-03 {t}", 100, 101, 99, 100, 1) for t in GRID] + \
+           [(f"2026-08-05 {t}", 100, 101, 99, 100, 1) for t in GRID]
+    dup = [(f"2026-08-04 {t}", 100, 101, 99, 100, 1) for t in GRID] + [("2026-08-04 10:00", 100, 101, 99, 100, 1)]
+    raw = _raw(good[:25] + dup + good[25:] + [("not a date", 1, 1, 1, 1, 1),
+                                              ("2026-08-06 10:07", 100, 101, 99, 100, 1),
+                                              ("2026-08-07 10:00", 100, 99, 101, 100, 1),
+                                              ("2026-08-10 10:00", None, 101, 99, 100, 1)])
+    before = raw.copy()
+    keep, why, n_bad = split_defective(raw, 15)
+    assert why == {"2026-08-04": ["duplicate timestamp", "out-of-order timestamp"], "2026-08-06": ["bar off the session grid"],
+                   "2026-08-07": ["impossible OHLC"], "2026-08-10": ["missing OHLC"]}
+    assert n_bad == 1
+    assert set(keep["date"].dt.date.astype(str)) == {"2026-08-03", "2026-08-05"}
+    pd.testing.assert_frame_equal(raw, before)                       # source untouched
+    df = keep.assign(session=keep["date"].dt.date, time=keep["date"].dt.strftime("%H:%M"))
+    r = run_intraday(df.reset_index(drop=True), ORB(30, 15), SCHED, EngineConfig(capital=100_000))
+    assert r["missing_bars"] == []                                   # remaining sessions unaffected
+
+
+def test_out_of_order_rows_flag_their_session_only():
+    from src.intraday.data import split_defective
+    rows = [(f"2026-08-03 {t}", 100, 101, 99, 100, 1) for t in GRID] + \
+           [(f"2026-08-04 {t}", 100, 101, 99, 100, 1) for t in GRID]
+    rows[30], rows[31] = rows[31], rows[30]
+    _, why, _ = split_defective(_raw(rows), 15)
+    assert why == {"2026-08-04": ["out-of-order timestamp"]}
+
+
+def test_regime_source_is_stored_official_nse_close():
+    from src.intraday.regimes import HISTORY, official_closes
+    s, fetched = official_closes(["2026-09-30"])                     # no fetch needed (pre-holdout)
+    assert fetched == {} and len(s) == 184 and s.index.max() == pd.Timestamp("2026-09-30")
+    assert "nifty50_official_close_2026.csv" in str(HISTORY)
+
+
+def test_deflated_sharpe_does_not_crash_on_zero_variance():
+    from src.intraday.inference import deflated_sharpe
+    assert deflated_sharpe(np.zeros(250), 3)["dsr"] is None

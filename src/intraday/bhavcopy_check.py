@@ -13,9 +13,10 @@ NOT checked: the 09:15 open. NSE's OpnPric is the pre-open call-auction price
 and legitimately differs from Yahoo's first-bar open (dev median 12 bps).
 
 A discrepancy is LOGGED (one row: session, symbol, check, detail) and saved
-with the evaluation artifacts. Prices are never changed and no observation is
-removed from the primary analysis; the only use is a pre-specified
-sensitivity analysis that treats flagged stock-sessions as non-tradable.
+with the evaluation artifacts; an unavailable bhavcopy is logged as
+C0_UNAVAILABLE. Flags NEVER modify, exclude, repair or alter any observation
+or any performance calculation (frozen 2026-10-01: tolerance 1 bp, volume
+ratio 0.50-1.05).
 """
 
 import io

@@ -1,0 +1,125 @@
+{
+  "mode": "DRY RUN on pre-holdout development data - NOT the holdout evaluation",
+  "protocol_file": "docs/protocols/ORB_v1.md",
+  "protocol_sha256": "9fdff6dcdabd529dc6066eb517f601a8105023966500e7ef6dc0ac288d7455cd",
+  "sessions": {
+    "n": 42,
+    "first": "2026-08-03",
+    "last": "2026-09-30"
+  },
+  "primary": {
+    "label": "NEGATIVE",
+    "mean_bps": -16.3006,
+    "se_bps": 2.4743,
+    "t_bootstrap": -6.58806067196656,
+    "p_one_sided": 1.0,
+    "lower_1s_95_bps": -20.5905,
+    "upper_1s_95_bps": -12.549,
+    "ci95_two_sided_bps": [
+      -21.583,
+      -11.8805
+    ],
+    "sd_bps": 16.3176,
+    "sharpe_annual": -15.857956728897172,
+    "block_length": 1.0,
+    "n": 42,
+    "B": 10000,
+    "seed": 20261001,
+    "method": "null-centred stationary bootstrap (Politis-Romano), one-sided"
+  },
+  "data_limited": false,
+  "non_tradable": {
+    "stock_sessions": 0,
+    "share": 0.0,
+    "of_which_malformed": 0,
+    "unparseable_timestamp_rows_by_stock": {}
+  },
+  "usable_stock_sessions": 2100,
+  "family2_random_baselines": {
+    "raw": {
+      "E_random_direction": 0.6764323567643236,
+      "D_random_entry": 0.7041295870412959
+    },
+    "holm": {
+      "E_random_direction": 1.0,
+      "D_random_entry": 1.0
+    },
+    "draw_means_bps": {
+      "E": -15.6139,
+      "D": -15.6361
+    }
+  },
+  "family3_per_stock_exploratory": {
+    "raw_lt_0.05": 0,
+    "holm_lt_0.05": 0
+  },
+  "economic": {
+    "gross_mean_bps": -0.7017,
+    "net_mean_bps": -16.3006,
+    "break_even_slippage_bps_per_side": null,
+    "cost_components_rs": {
+      "brokerage": 72400.0,
+      "stt": 44662.19,
+      "exchange": 10974.97,
+      "sebi": 357.49,
+      "stamp": 5365.27,
+      "gst": 15071.84,
+      "slippage": 178745.51
+    }
+  },
+  "deflated_sharpe_reporting_only": {
+    "dsr": 0.0014084347572660366,
+    "sr_per_period": -0.9989573763401247,
+    "sr0_per_period": 0.1331856863193713,
+    "n_trials": 3,
+    "sr_var": 0.024390243902439025,
+    "skew": 2.1744454313523667,
+    "kurtosis": 11.89329791030619,
+    "T": 42,
+    "note": "reporting only; not used for the verdict"
+  },
+  "sensitivity": {
+    "cost_grid_net_bps": {
+      "GROSS": -0.7083,
+      "Z-0": -7.7969,
+      "Z-2": -11.1992,
+      "Z-5": -16.3006,
+      "Z-10": -24.8045,
+      "Z-20": -41.8286,
+      "U-5": -16.3006
+    },
+    "capital_10_lakh_net_bps": -12.7954,
+    "block_half_p": 1.0,
+    "block_double_p": 1.0
+  },
+  "context": {
+    "long_only_B_net_bps": -10.4678,
+    "open_to_close_A_net_bps": -38.4408
+  },
+  "trades": {
+    "n": 1810,
+    "long": 735,
+    "short": 1075
+  },
+  "bhavcopy_flags_data_quality_only": {
+    "n": 0,
+    "by_check": {}
+  },
+  "regimes_exploratory": {
+    "vol_regime=LOW": {
+      "n": 42,
+      "mean_bps": -16.3006,
+      "se_bps": 2.5179
+    },
+    "trend_regime=DOWN": {
+      "n": 25,
+      "mean_bps": -16.2645,
+      "se_bps": 3.6672
+    },
+    "trend_regime=UP": {
+      "n": 17,
+      "mean_bps": -16.3537,
+      "se_bps": 3.2357
+    }
+  }
+}

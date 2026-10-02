@@ -13,8 +13,10 @@ def find_file(filename):
     return matches[0]
 
 
-def load_csv(filename, sort=True):
-    """sort=False keeps the file's raw row order (for data validation)."""
+def load_csv(filename, sort=True, coerce=False):
+    """sort=False keeps the file's raw row order (for data validation).
+    coerce=True (ORB v1 per-session defect handling): unparseable dates/prices
+    become NaT/NaN and NO row is dropped, so defects stay visible to the caller."""
     path = find_file(filename)
 
     # Peek at the first line to detect which format this is
@@ -41,13 +43,18 @@ def load_csv(filename, sort=True):
         df.columns = [c.lower() for c in df.columns]
 
     # Dates: handles both "2012-11-14" and "15-05-2012 08:00"
-    df["date"] = pd.to_datetime(df["date"], format="mixed", dayfirst=True)
+    df["date"] = pd.to_datetime(df["date"], format="mixed", dayfirst=True,
+                                errors="coerce" if coerce else "raise")
 
     # Keep only the columns we need, in our standard order
     df = df[["date", "open", "high", "low", "close", "volume"]]
 
-    # Safety cleaning: drop broken rows, sort oldest-first
-    df = df.dropna(subset=["open", "high", "low", "close"])
+    if coerce:
+        for col in ("open", "high", "low", "close", "volume"):
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+    else:
+        # Safety cleaning: drop broken rows, sort oldest-first
+        df = df.dropna(subset=["open", "high", "low", "close"])
     if sort:
         df = df.sort_values("date")
     df = df.reset_index(drop=True)

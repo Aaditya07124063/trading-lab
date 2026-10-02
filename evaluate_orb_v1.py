@@ -32,6 +32,7 @@ from src.intraday.data import load_intraday
 from src.intraday.engine import EngineConfig, run_intraday, run_open_to_close_benchmark, tradable_sessions
 from src.intraday.inference import (deflated_sharpe, holm, mean_inference, randomisation_p, verdict)
 from src.intraday.orb import ORB
+from src.intraday.regimes import official_closes, regime_labels
 from src.intraday.portfolio import (UNIVERSE_FILE, entry_candidates, portfolio_daily,
                                     random_entry_baseline, sign_flip_baseline, trade_net_pnl)
 from src.registry.experiments import EXPERIMENTS, environment, log_trial, record
@@ -86,7 +87,7 @@ def run(mode):
     if not dry:
         if "**Status:** FROZEN" not in proto_text:
             raise SystemExit(f"{PROTOCOL_FILE} is not FROZEN - holdout evaluation refused")
-        if git("status", "--porcelain", "--", "src", "*.py", "config", "docs/protocols"):
+        if git("status", "--porcelain", "--", "src", "*.py", "config", "docs/protocols", "docs/evidence"):
             raise SystemExit("working tree has uncommitted code/config/protocol changes - refused")
     sessions = (standard_sessions(DEV_START, DEV_SESSIONS) if dry
                 else standard_sessions(HOLDOUT_START, HOLDOUT_SESSIONS))
@@ -94,14 +95,23 @@ def run(mode):
     syms, scen = universe(), scenarios()
     sset = set(sessions)
 
-    data, data_sha = {}, {}
+    data, data_sha, defects, unparseable = {}, {}, {}, {}
     for s in syms:
         f = f"{s}m15.csv"
-        df, _ = load_intraday(f) if dry else load_intraday(f, holdout_protocol=PROTOCOL_FILE)
-        if not dry and df["session"].astype(str).max() < sessions[-1]:
-            raise SystemExit(f"{s}: data ends before session {HOLDOUT_SESSIONS} ({sessions[-1]}) - too early")
+        df, rep_ = (load_intraday(f, session_errors=True) if dry else
+                    load_intraday(f, holdout_protocol=PROTOCOL_FILE, session_errors=True))
         data[s] = df[df["session"].astype(str).isin(sset)].reset_index(drop=True)
+        defects[s] = {k: v for k, v in rep_["defective_sessions"].items() if k in sset}
+        unparseable[s] = rep_["unparseable_timestamp_rows"]
         data_sha[f] = sha(BASE_DIR / "data" / "india" / f)
+    # "250 sessions collected" is a UNIVERSE-level condition (the collector reached
+    # session 250); individual stock-sessions may still be untradable (rules below).
+    last = max((d["session"].astype(str).max() for d in data.values() if len(d)), default="")
+    collected = max(last, max((max(v) for v in defects.values() if v), default=""))
+    if not dry and collected < sessions[-1]:
+        raise SystemExit(f"collection has not reached session {HOLDOUT_SESSIONS} ({sessions[-1]}) - too early")
+
+    bps = lambda v: None if v is None else round(float(v) * 1e4, 4)
 
     # ---- strategy (primary) + cost grid + capital sensitivity
     def strat(c, cfg=CFG, short=True):
@@ -114,18 +124,30 @@ def run(mode):
     x = pp["net_ret"].to_numpy()
 
     # ---- missing data (bar existence only)
-    tradable = {s: {str(t) for t in tradable_sessions(d, CFG)[0]} if len(d) else set() for s, d in data.items()}
-    non_trad = [(s, ss) for s in syms for ss in sessions if ss not in tradable[s]]
+    non_trad = []
+    for s, d in data.items():
+        ok, miss = tradable_sessions(d, CFG) if len(d) else (set(), [])
+        ok, miss = {str(x) for x in ok}, dict(miss)
+        for ss in sessions:
+            if ss in ok:
+                continue
+            why = ("malformed data: " + "; ".join(defects[s][ss]) if ss in defects[s] else
+                   "missing bars: " + " ".join(miss[ss]) if ss in miss else "no data")
+            non_trad.append((s, ss, why))
     share_nt = len(non_trad) / (N_UNIVERSE * len(sessions))
 
     # ---- primary + secondary statistics
     prim = mean_inference(x, mean_block=None, b=B, seed=SEED_PRIMARY)       # automatic block length
     obs = float(x.mean())
-    e = sign_flip_baseline(trades, len(sessions), N_UNIVERSE, K, B, SEED_BASELINES)
-    cands, exits = zip(*[entry_candidates(data[s], r["trades"]) for s, r in rp.items() if len(r["trades"])])
-    d = random_entry_baseline(np.vstack(cands), np.concatenate(exits), scen[PRIMARY],
-                              len(sessions), N_UNIVERSE, K, B, SEED_BASELINES)
-    fam2 = {"E_random_direction": randomisation_p(obs, e), "D_random_entry": randomisation_p(obs, d)}
+    if len(trades):
+        e = sign_flip_baseline(trades, len(sessions), N_UNIVERSE, K, B, SEED_BASELINES)
+        cands, exits = zip(*[entry_candidates(data[s], r["trades"]) for s, r in rp.items() if len(r["trades"])])
+        d = random_entry_baseline(np.vstack(cands), np.concatenate(exits), scen[PRIMARY],
+                                  len(sessions), N_UNIVERSE, K, B, SEED_BASELINES)
+        fam2 = {"E_random_direction": randomisation_p(obs, e), "D_random_entry": randomisation_p(obs, d)}
+    else:                                                     # no ORB trade at all: baselines undefined
+        e = d = np.array([np.nan])
+        fam2 = {"E_random_direction": 1.0, "D_random_entry": 1.0}
     per = {}
     for s, r in rp.items():
         daily = pd.Series(0.0, index=sessions)
@@ -139,7 +161,7 @@ def run(mode):
     def mean_at(bps):
         c = CostModel(**{**scen[PRIMARY].describe(), "slippage_bps": bps})
         return trade_net_pnl(trades["entry_price"], trades["exit_price"], sign, c, K).sum() / (N_UNIVERSE * K * len(sessions))
-    be = optimize.brentq(mean_at, 0.0, 500.0) if mean_at(0.0) > 0 > mean_at(500.0) else None
+    be = optimize.brentq(mean_at, 0.0, 500.0) if len(trades) and mean_at(0.0) > 0 > mean_at(500.0) else None
     long_only = portfolio_daily(strat(scen[PRIMARY], short=False), sessions, N_UNIVERSE, K)
     bench = portfolio_daily({s: run_open_to_close_benchmark(dd, scen[PRIMARY], CFG) for s, dd in data.items()},
                             sessions, N_UNIVERSE, K)
@@ -159,14 +181,21 @@ def run(mode):
                            f"BhavCopy_NSE_CM_0_0_0_{ss.replace('-', '')}_F_0000.csv.zip")
         bars = {s: dd[dd["session"].astype(str) == ss] for s, dd in data.items()}
         flags += bhav_check(bars, bh, ss, syms)
-    flagged = {(f["session"], f["symbol"]) for f in flags}
-    keep = ~trades.apply(lambda r: (r["session"], r["symbol"]) in flagged, axis=1) if len(trades) else []
-    x_excl = pd.Series(0.0, index=sessions)
-    if len(trades):
-        g = trades[keep].groupby("session")["net_pnl"].sum() / (N_UNIVERSE * K)
-        x_excl.loc[g.index] = g
 
-    bps = lambda v: None if v is None else round(float(v) * 1e4, 4)
+    # ---- regimes: EXPLORATORY, official NSE close only, labels use data up to t-1
+    try:
+        closes, close_sha = official_closes(sessions)
+        lab = regime_labels(closes)
+        lab.index = lab.index.strftime("%Y-%m-%d")
+        lab = lab.reindex(sessions)
+        regimes = {}
+        for col in ("vol_regime", "trend_regime"):
+            for k, g in pp["net_ret"].groupby(lab[col].fillna("UNLABELLED")):
+                regimes[f"{col}={k}"] = {"n": int(len(g)), "mean_bps": bps(g.mean()),
+                                         "se_bps": bps(g.std(ddof=1) / np.sqrt(len(g))) if len(g) > 1 else None}
+    except Exception as ex:                                                   # no substitute source
+        regimes, close_sha = f"NOT RUN - official NSE close unavailable: {repr(ex)[:120]}", {}
+
     summary = {
         "mode": "DRY RUN on pre-holdout development data - NOT the holdout evaluation" if dry
                 else "PROSPECTIVE HOLDOUT EVALUATION (single, pre-registered)",
@@ -179,7 +208,10 @@ def run(mode):
                     "sharpe_annual": prim["sharpe_annual"], "block_length": prim["block_length"],
                     "n": prim["n"], "B": B, "seed": SEED_PRIMARY, "method": prim["method"]},
         "data_limited": share_nt > DATA_LIMITED_SHARE,
-        "non_tradable": {"stock_sessions": len(non_trad), "share": round(share_nt, 4)},
+        "non_tradable": {"stock_sessions": len(non_trad), "share": round(share_nt, 4),
+                         "of_which_malformed": sum(r[2].startswith("malformed") for r in non_trad),
+                         "unparseable_timestamp_rows_by_stock": {k: v for k, v in unparseable.items() if v}},
+        "usable_stock_sessions": N_UNIVERSE * len(sessions) - len(non_trad),
         "family2_random_baselines": {"raw": fam2, "holm": holm(fam2),
                                      "draw_means_bps": {"E": bps(e.mean()), "D": bps(d.mean())}},
         "family3_per_stock_exploratory": {"raw_lt_0.05": sum(p < .05 for p in per.values()),
@@ -191,14 +223,14 @@ def run(mode):
         "deflated_sharpe_reporting_only": deflated_sharpe(x, orb_trial_count()),
         "sensitivity": {"cost_grid_net_bps": {k: bps(v["net_ret"].mean()) for k, v in port.items()},
                         "capital_10_lakh_net_bps": bps(cap10["net_ret"].mean()),
-                        "block_half_p": half["p_one_sided"], "block_double_p": double["p_one_sided"],
-                        "excluding_bhavcopy_flags_net_bps": bps(x_excl.mean())},
+                        "block_half_p": half["p_one_sided"], "block_double_p": double["p_one_sided"]},
         "context": {"long_only_B_net_bps": bps(long_only["net_ret"].mean()),
                     "open_to_close_A_net_bps": bps(bench["net_ret"].mean())},
         "trades": {"n": len(trades), "long": int((trades.side == "LONG").sum()),
                    "short": int((trades.side == "SHORT").sum())},
-        "bhavcopy_flags": len(flags),
-        "regimes": "NOT RUN - index daily-close source not yet approved (OPEN-3)",
+        "bhavcopy_flags_data_quality_only": {"n": len(flags),
+                                             "by_check": pd.Series([f["check"] for f in flags]).value_counts().to_dict()},
+        "regimes_exploratory": regimes,
     }
 
     stamp = datetime.now().strftime("%Y%m%dT%H%M%S")
@@ -206,19 +238,21 @@ def run(mode):
     out.mkdir(parents=True, exist_ok=False)                                   # never overwrite
     files = {"summary.json": json.dumps(summary, indent=2, default=str),
              "portfolio_daily.csv": pp.to_csv(), "trades.csv": trades.to_csv(index=False),
-             "non_tradable.csv": pd.DataFrame(non_trad, columns=["symbol", "session"]).to_csv(index=False),
+             "non_tradable.csv": pd.DataFrame(non_trad, columns=["symbol", "session", "reason"]).to_csv(index=False),
              "bhavcopy_flags.csv": pd.DataFrame(flags, columns=["session", "symbol", "check", "detail"]).to_csv(index=False)}
     for name, text in files.items():
         (out / name).write_text(text)
     manifest = {
         "created": stamp, "mode": summary["mode"], "git_commit": git("rev-parse", "HEAD"),
-        "git_dirty": bool(git("status", "--porcelain", "--", "src", "*.py", "config", "docs/protocols")),
+        "git_dirty": bool(git("status", "--porcelain", "--", "src", "*.py", "config", "docs/protocols", "docs/evidence")),
         "environment": environment(), "protocol_sha256": summary["protocol_sha256"],
         "inputs": {"universe": sha(UNIVERSE_FILE), "cost_scenarios": sha(BASE_DIR / "config" / "cost_scenarios.json"),
                    **{f"cost_schedule/{p.name}": sha(p) for p in (BASE_DIR / "config" / "cost_schedules").glob("*.json")},
                    **{f"calendar/{p.name}": sha(p) for p in CAL_DIR.glob("*.json")},
                    **{f"data/{k}": v for k, v in data_sha.items()},
-                   **{f"bhavcopy/{k}": v for k, v in bhav_sha.items()}},
+                   **{f"bhavcopy/{k}": v for k, v in bhav_sha.items()},
+                   "nse_index_history": sha(BASE_DIR / "docs" / "evidence" / "nse_index" / "nifty50_official_close_2026.csv"),
+                   **{f"nse_index/{k}": v for k, v in close_sha.items()}},
         "outputs": {n: hashlib.sha256((out / n).read_bytes()).hexdigest() for n in files},
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2, default=str))

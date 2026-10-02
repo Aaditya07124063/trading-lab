@@ -100,13 +100,44 @@ class HoldoutLocked(Exception):
     pass
 
 
-def load_intraday(filename, holdout_protocol=None):
+def split_defective(raw, tf):
+    """ORB v1 rule (approved 2026-10-01): malformed data makes ONLY the affected
+    stock-session untradable. raw = rows in FILE order. Returns (rows of
+    unaffected sessions, {session: [reasons]}, n rows with unparseable
+    timestamps). Nothing is repaired; the source file is never touched.
+    Defects: unparseable timestamp (row has no session; counted), missing
+    OHLC, impossible OHLC, duplicate timestamp, out-of-order timestamp,
+    bar off the session grid."""
+    d = raw.copy()
+    bad_time = d["date"].isna()
+    d = d[~bad_time]
+    sess = d["date"].dt.date.astype(str)
+    reasons = {}
+
+    def flag(mask, why):
+        for s in sorted(set(sess[mask])):
+            reasons.setdefault(s, []).append(why)
+
+    px = d[["open", "high", "low", "close"]]
+    flag(px.isna().any(axis=1), "missing OHLC")
+    flag((d["high"] < px.max(axis=1)) | (d["low"] > px.min(axis=1)) | (px <= 0).any(axis=1),
+         "impossible OHLC")
+    flag(d["date"].duplicated(keep=False), "duplicate timestamp")
+    flag(d["date"] < d["date"].cummax().shift(1), "out-of-order timestamp")
+    flag(~d["date"].dt.strftime("%H:%M").isin(expected_times(tf)), "bar off the session grid")
+    keep = d[~sess.isin(reasons)]
+    return keep, reasons, int(bad_time.sum())
+
+
+def load_intraday(filename, holdout_protocol=None, session_errors=False):
     """Load + validate. Returns (clean sorted df with 'session' column, report).
-    Raises on hard errors so corrupted data can never reach a backtest.
+    Raises on hard errors so corrupted data can never reach a backtest - or,
+    with session_errors=True (ORB v1), removes ONLY the affected sessions from
+    the returned frame and lists them with reasons in report["defective_sessions"].
     Bars on/after HOLDOUT_START are dropped unless `holdout_protocol` names a
     protocol file whose status line reads FROZEN."""
     tf = timeframe_of(filename)
-    raw = load_csv(filename, sort=False)
+    raw = load_csv(filename, sort=False, coerce=session_errors)
     if holdout_protocol is None:
         raw = raw[raw["date"] < pd.Timestamp(HOLDOUT_START)]
     else:
@@ -114,8 +145,12 @@ def load_intraday(filename, holdout_protocol=None):
         text = (BASE_DIR / holdout_protocol).read_text()
         if "**Status:** FROZEN" not in text:
             raise HoldoutLocked(f"{holdout_protocol} is not FROZEN - holdout stays locked")
+    if session_errors:                     # ORB v1: isolate defects per stock-session
+        raw, defects, n_bad_time = split_defective(raw, tf)
     report = validate(raw, tf, symbol_of(filename))
-    if not report["ok"]:
+    if session_errors:
+        report |= {"defective_sessions": defects, "unparseable_timestamp_rows": n_bad_time}
+    elif not report["ok"]:
         raise ValueError(f"{filename} failed validation: {report['errors']}")
     df = raw.sort_values("date").reset_index(drop=True)
     df["session"] = df["date"].dt.date

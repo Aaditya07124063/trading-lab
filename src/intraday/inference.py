@@ -176,6 +176,8 @@ def deflated_sharpe(x, n_trials, sr_var=None):
     x = np.asarray(x, dtype=float)
     t = len(x)
     sd = x.std(ddof=1)
+    if not sd > 0:
+        return {"dsr": None, "n_trials": int(n_trials), "T": t, "note": "undefined: zero variance"}
     sr = x.mean() / sd
     z = (x - x.mean()) / x.std(ddof=0)
     skew, kurt = float(np.mean(z ** 3)), float(np.mean(z ** 4))

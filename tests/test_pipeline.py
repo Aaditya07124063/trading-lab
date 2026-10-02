@@ -90,7 +90,7 @@ def test_raw_snapshot_is_immutable_and_manifested(tmp_path, monkeypatch):
 def test_holdout_is_locked_by_default(tmp_path, monkeypatch):
     import src.intraday.data as d
     df = bars("2026-09-30", "2026-10-01")
-    monkeypatch.setattr(d, "load_csv", lambda f, sort=True: df)
+    monkeypatch.setattr(d, "load_csv", lambda f, sort=True, coerce=False: df)
     loaded, _ = d.load_intraday("XYZm15.csv")
     assert loaded["date"].max() < pd.Timestamp("2026-10-01")
     proto = tmp_path / "p.md"
