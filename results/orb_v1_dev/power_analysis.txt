@@ -1,0 +1,5 @@
+dev: n=42 sd=16.32 bps, PW block=1.00, long-run sd=16.04 bps, sd 90% CI [13.85, 19.99] bps, skew=2.17, kurtosis=11.89
+n=250: analytical MDE=2.52 bps/day (sd-CI range 2.18-3.14); normal: simulated power at MDE=0.78, size at 0=0.053
+n=250: analytical MDE=2.52 bps/day (sd-CI range 2.18-3.14); dev-resampled: simulated power at MDE=0.82, size at 0=0.027
+n=500: analytical MDE=1.78 bps/day (sd-CI range 1.54-2.22); normal: simulated power at MDE=0.77, size at 0=0.043
+n=500: analytical MDE=1.78 bps/day (sd-CI range 1.54-2.22); dev-resampled: simulated power at MDE=0.78, size at 0=0.050

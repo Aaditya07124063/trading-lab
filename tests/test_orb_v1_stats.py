@@ -194,3 +194,53 @@ def test_regime_labels_use_only_past_data():
     b = regime_labels(shocked)
     pd.testing.assert_frame_equal(a.iloc[:201], b.iloc[:201])   # label at t ignores t and later
     assert a.vol_regime.iloc[:21].isna().all()
+
+
+# ------------------------------------------------- calendar, bhavcopy, DSR, lock
+
+def test_calendar_counts_standard_sessions_only():
+    from src.intraday.calendar import standard_sessions
+    s = standard_sessions("2026-10-01", 61)
+    assert s[0] == "2026-10-01" and s[-1] == "2026-12-31"
+    for holiday in ("2026-10-02", "2026-10-20", "2026-11-10", "2026-11-24", "2026-12-25"):
+        assert holiday not in s
+    assert "2026-11-08" not in s                         # Muhurat (Sunday) excluded
+    assert all(pd.Timestamp(d).dayofweek < 5 for d in s)
+    with pytest.raises(FileNotFoundError):               # 2027 list not stored -> no guessing
+        standard_sessions("2026-10-01", 62)
+
+
+def test_bhavcopy_check_flags_but_never_alters():
+    from src.intraday.bhavcopy_check import check
+    bh = pd.DataFrame({"HghPric": [110.0, 110.0, 50.0], "LwPric": [90.0, 90.0, 40.0],
+                       "TtlTradgVol": [1000, 1000, 0]}, index=["OK", "BAD", "GONE"])
+    ok = pd.DataFrame({"high": [105.0], "low": [95.0], "volume": [900]})
+    bad = pd.DataFrame({"high": [111.0], "low": [95.0], "volume": [100]})
+    before = bad.copy()
+    f = check({"OK": ok, "BAD": bad, "GONE": ok, "NONE": None}, bh, "2026-08-03", ["OK", "BAD", "GONE", "NONE"])
+    got = {(r["symbol"], r["check"]) for r in f}
+    assert got == {("BAD", "C1_RANGE"), ("BAD", "C3_VOLUME"), ("GONE", "C2_PRESENCE")}
+    pd.testing.assert_frame_equal(bad, before)
+
+
+def test_deflated_sharpe_is_psr_for_one_trial_and_penalises_more_trials():
+    from src.intraday.inference import deflated_sharpe
+    x = np.random.default_rng(4).normal(0.08, 1, 250)
+    one, many = deflated_sharpe(x, 1), deflated_sharpe(x, 20)
+    assert one["sr0_per_period"] == 0 and 0 < many["dsr"] < one["dsr"] < 1
+
+
+def test_holdout_evaluation_refuses_unfrozen_protocol_and_has_no_tuning_options(tmp_path, monkeypatch):
+    """Never launches the real holdout path: points the evaluator at a temporary
+    DRAFT protocol (safe even after ORB_v1.md is frozen)."""
+    import subprocess, sys
+    import evaluate_orb_v1 as ev
+    from src.config import BASE_DIR
+    draft = tmp_path / "protocol.md"
+    draft.write_text("**Status:** DRAFT\n")
+    monkeypatch.setattr(ev, "PROTOCOL_FILE", str(draft))
+    with pytest.raises(SystemExit, match="not FROZEN"):
+        ev.run("holdout")
+    h = subprocess.run([sys.executable, "evaluate_orb_v1.py", "--help"], cwd=BASE_DIR,
+                       capture_output=True, text=True).stdout
+    assert {w for w in h.split() if w.startswith("--")} == {"--help", "--dry-run-dev"}

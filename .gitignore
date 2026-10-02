@@ -37,3 +37,6 @@ logs/
 
 # third-party literature PDFs (copyrighted; kept locally, checksums in the literature records)
 docs/literature/*.pdf
+
+# NSE bhavcopy raw zips (fetched by the cross-check; checksums in evaluation manifests)
+data/raw/nse_bhavcopy/

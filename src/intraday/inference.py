@@ -157,3 +157,34 @@ def minimum_detectable_effect(long_run_sd, n, alpha=ALPHA, power=0.80):
     """Smallest true mean detectable with `power` by a one-sided level-alpha
     test, normal approximation with a dependence-adjusted (long-run) sd."""
     return (stats.norm.isf(alpha) + stats.norm.ppf(power)) * long_run_sd / math.sqrt(n)
+
+
+# ------------------------------------------------- deflated Sharpe (REPORTING ONLY)
+
+def deflated_sharpe(x, n_trials, sr_var=None):
+    """Deflated Sharpe Ratio (Bailey & Lopez de Prado 2014) - REPORTING ONLY,
+    never part of the verdict.
+
+    Question: given that the best of `n_trials` independent strategy
+    configurations was selected, what is the probability that the true
+    (per-period) Sharpe ratio of this one exceeds the Sharpe a lucky
+    zero-skill selection would show? Assumptions: trials independent;
+    returns i.i.d. (no autocorrelation) but possibly skewed/fat-tailed;
+    `sr_var` = variance of Sharpe estimates across trials - unknown here, so
+    by default the null sampling variance 1/(T-1) of a per-period Sharpe.
+    n_trials = 1 reduces to the Probabilistic Sharpe Ratio against 0."""
+    x = np.asarray(x, dtype=float)
+    t = len(x)
+    sd = x.std(ddof=1)
+    sr = x.mean() / sd
+    z = (x - x.mean()) / x.std(ddof=0)
+    skew, kurt = float(np.mean(z ** 3)), float(np.mean(z ** 4))
+    v = 1.0 / (t - 1) if sr_var is None else sr_var
+    g = 0.5772156649015329                                       # Euler-Mascheroni
+    sr0 = 0.0 if n_trials <= 1 else math.sqrt(v) * (
+        (1 - g) * stats.norm.ppf(1 - 1 / n_trials) + g * stats.norm.ppf(1 - 1 / (n_trials * math.e)))
+    denom = math.sqrt(max(1 - skew * sr + (kurt - 1) / 4 * sr ** 2, 1e-12))
+    return {"dsr": float(stats.norm.cdf((sr - sr0) * math.sqrt(t - 1) / denom)),
+            "sr_per_period": float(sr), "sr0_per_period": float(sr0), "n_trials": int(n_trials),
+            "sr_var": v, "skew": skew, "kurtosis": kurt, "T": t,
+            "note": "reporting only; not used for the verdict"}
