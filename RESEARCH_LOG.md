@@ -140,3 +140,26 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
   - Power: long-run sd 16 bps/day; MDE 2.5 bps/day at n = 250.
   - No protocol element was changed in response.
 - **Open items before freeze:** OPEN-1..12 in `docs/protocols/ORB_v1_final_review_20261001.md`.
+
+## 2026-10-02 - ORB v1 pre-freeze audit (protocol NOT frozen)
+- **Approved 2026-10-01:**
+  - holdout = first 250 standard NSE sessions from 2026-10-01;
+  - automatic Politis–White block length on the evaluated series;
+  - random-entry window 10:00–14:30;
+  - NEGATIVE = upper bound < 0;
+  - deflated Sharpe reporting-only;
+  - fair-coin E;
+  - NSE calendar storage;
+  - holdout-file registration at freeze;
+  - bhavcopy check (validation only);
+  - locked evaluation script.
+- **Implemented (8d21e3e):**
+  - `evaluate_orb_v1.py` (no tuning options; refuses unless FROZEN, the tree is clean and all 250 sessions are collected);
+  - `calendar.py` (NSE CM holiday master 2026 stored; 61 sessions in 2026; the 2027 list must be stored when published);
+  - `bhavcopy_check.py` (C1 range / C2 presence / C3 volume, flag-only; the 09:15 open is not compared because NSE's open is the pre-open auction price);
+  - deflated Sharpe;
+  - power script.
+- **Dry run on development data** (ORBV1-20261002-001): identical to the previous validation; 0 bhavcopy flags; 120 tests pass.
+- **Power:** MDE 2.52 bps/day at n = 250 (one-sided α = 0.05, 80 % target). The simulated power of the actual test is 0.78–0.82 under development-derived variance and no detected dependence.
+- **Remaining for the user:** regime index source; 2027 calendar (procedural); rule for hard validation errors; bhavcopy tolerances. See `docs/protocols/ORB_v1_pre_freeze_audit_20261001.md` §I.
+- The collector appended 2026-10-01/02 bars to the data files (uncommitted, not read by any analysis).
