@@ -40,3 +40,6 @@ docs/literature/*.pdf
 
 # NSE bhavcopy raw zips (fetched by the cross-check; checksums in evaluation manifests)
 data/raw/nse_bhavcopy/
+
+# NSE index-close raw files (checksums in docs/evidence/nse_index and evaluation manifests)
+data/raw/nse_index/

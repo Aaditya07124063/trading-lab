@@ -23,3 +23,4 @@ Code/infrastructure changes by commit. Research findings go in
 - 41a7a30 research: ORB v1 pre-holdout implementation validation (DIAGNOSTIC)
 - (docs) ORB v1 final protocol review (proposed, not frozen)
 - 8d21e3e feat: locked evaluation pipeline, NSE calendar, bhavcopy check, deflated Sharpe (reporting), power script; (docs) pre-freeze audit
+- 13e4664 feat: official NSE regime source, per-session malformed-data rule, flag-only bhavcopy; (docs) final pre-freeze audit

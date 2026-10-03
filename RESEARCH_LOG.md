@@ -163,3 +163,19 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
 - **Power:** MDE 2.52 bps/day at n = 250 (one-sided α = 0.05, 80 % target). The simulated power of the actual test is 0.78–0.82 under development-derived variance and no detected dependence.
 - **Remaining for the user:** regime index source; 2027 calendar (procedural); rule for hard validation errors; bhavcopy tolerances. See `docs/protocols/ORB_v1_pre_freeze_audit_20261001.md` §I.
 - The collector appended 2026-10-01/02 bars to the data files (uncommitted, not read by any analysis).
+
+## 2026-10-02/03 - ORB v1 final pre-freeze audit: READY FOR EXPLICIT FREEZE APPROVAL (not frozen)
+- **Approved 2026-10-02:**
+  - official NSE NIFTY 50 close as the regime source;
+  - 2027 holiday rule (store the list when published);
+  - malformed data makes only the affected stock-session untradable;
+  - bhavcopy tolerances 1 bp and 50–105 %, flags only.
+- **Implemented (13e4664):**
+  - Regime source: `ind_close_all` archive. 2026 history = 184 standard sessions, which match the stored calendar exactly; per-file SHA-256 stored.
+  - `split_defective` for malformed data, with an opt-in `load_csv(coerce=True)`.
+  - The bhavcopy exclusion sensitivity is removed.
+  - Universe-level "collected" check, and usable stock-sessions reported with reasons.
+  - Edge-case guards.
+- **Dry run** ORBV1-20261002-002 (DIAGNOSTIC): primary numbers identical; regimes ran. 124 tests pass.
+- **Audit** (`docs/protocols/ORB_v1_pre_freeze_audit_20261001.md`): 30 PASS, 0 FAIL, 0 UNRESOLVED. Two freeze actions are pending the user's approval (replace the `ORB_v1.md` body and set FROZEN; register the 46 files).
+- The holdout is untouched. `ORB_v1.md` is still DRAFT.
