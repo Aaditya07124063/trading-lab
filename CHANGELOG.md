@@ -24,3 +24,4 @@ Code/infrastructure changes by commit. Research findings go in
 - (docs) ORB v1 final protocol review (proposed, not frozen)
 - 8d21e3e feat: locked evaluation pipeline, NSE calendar, bhavcopy check, deflated Sharpe (reporting), power script; (docs) pre-freeze audit
 - 13e4664 feat: official NSE regime source, per-session malformed-data rule, flag-only bhavcopy; (docs) final pre-freeze audit
+- (phase 1) feat: central access boundary (research cutoff 2026-09-30, holdout authorization artifact + single-use guard), dashboard cutoff, operational status field list, frozen-methodology hash tests

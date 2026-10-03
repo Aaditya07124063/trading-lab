@@ -98,5 +98,6 @@ def test_holdout_is_locked_by_default(tmp_path, monkeypatch):
     monkeypatch.setattr("src.config.BASE_DIR", tmp_path)
     with pytest.raises(d.HoldoutLocked):
         d.load_intraday("XYZm15.csv", holdout_protocol="p.md")
-    proto.write_text("**Status:** FROZEN")
-    assert d.load_intraday("XYZm15.csv", holdout_protocol="p.md")[0]["date"].max() >= pd.Timestamp("2026-10-01")
+    proto.write_text("**Status:** FROZEN")          # Phase 1: FROZEN alone is NOT enough
+    with pytest.raises(d.HoldoutLocked, match="authorization"):
+        d.load_intraday("XYZm15.csv", holdout_protocol="p.md")

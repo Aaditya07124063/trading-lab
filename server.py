@@ -10,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 
 from src import leaderboard
 from src.config import DATA_DIR, CAPITAL
-from src.data_loader import load_csv
+from src.access import RESEARCH_CUTOFF, research_load_csv
 from src.research import run_daily
 from src.registry.experiments import log_trial
 from src.intraday.costs import CostModel
@@ -31,7 +31,7 @@ def watchlist():
         if not (p.name.endswith("d1.csv") or "10Y" in p.name):
             continue
         try:
-            df = load_csv(p.name)
+            df = research_load_csv(p.name)          # nothing after 2026-09-30
         except Exception:
             continue
         if len(df) < 2:
@@ -91,6 +91,7 @@ def add_symbol(symbol: str):
     out = df[["Open", "High", "Low", "Close", "Volume"]].copy()
     out.columns = ["open", "high", "low", "close", "tick_volume"]
     out = out.dropna(subset=["open", "close"]).round(2)
+    out = out[out.index <= RESEARCH_CUTOFF]                # never save post-cutoff data
     out["tick_volume"] = out["tick_volume"].fillna(0).astype("int64")
     out.index = out.index.strftime("%Y-%m-%d")
     out.index.name = "Date"

@@ -3,7 +3,9 @@ parameter below is the frozen protocol; there are no tuning options.
 
     python3 evaluate_orb_v1.py               # THE holdout evaluation (once, after session 250;
                                              # refuses unless ORB_v1.md is FROZEN, the tree is
-                                             # clean and all 250 sessions are collected)
+                                             # clean, a committed authorization artifact matches
+                                             # the protocol hash (src/access.py), no evaluation
+                                             # exists yet, and all 250 sessions are collected)
     python3 evaluate_orb_v1.py --dry-run-dev # same pipeline on pre-holdout development data
 
 Steps: protocol -> universe -> sessions -> data + validation -> strategy -> costs
@@ -23,6 +25,7 @@ import numpy as np
 import pandas as pd
 from scipy import optimize
 
+from src.access import HoldoutLocked, final_evaluation_unused, holdout_authorized
 from src.config import BASE_DIR, HOLDOUT_START
 from src.datasets import file_sha256
 from src.intraday.bhavcopy_check import check as bhav_check, load_bhavcopy
@@ -89,6 +92,11 @@ def run(mode):
             raise SystemExit(f"{PROTOCOL_FILE} is not FROZEN - holdout evaluation refused")
         if git("status", "--porcelain", "--", "src", "*.py", "config", "docs/protocols", "docs/evidence"):
             raise SystemExit("working tree has uncommitted code/config/protocol changes - refused")
+        try:                                   # Phase 1 gate: explicit authorization + single use
+            holdout_authorized(BASE_DIR / PROTOCOL_FILE)
+            final_evaluation_unused()
+        except HoldoutLocked as ex:
+            raise SystemExit(f"holdout evaluation refused: {ex}")
     sessions = (standard_sessions(DEV_START, DEV_SESSIONS) if dry
                 else standard_sessions(HOLDOUT_START, HOLDOUT_SESSIONS))
     assert (sessions[-1] < HOLDOUT_START) if dry else (sessions[0] == HOLDOUT_START)

@@ -5,12 +5,12 @@ Golden rule of ML on markets: train on the PAST, test on the FUTURE - never shuf
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-from src.data_loader import load_csv
+from src.access import research_load_csv   # cutoff 2026-09-30
 from src.indicators import add_ema
 from src.backtest import run_backtest
 from src.metrics import report
 
-df = load_csv("NIFTY_10Y.csv")
+df = research_load_csv("NIFTY_10Y.csv")
 df = add_ema(df, 20)
 df = add_ema(df, 50)
 

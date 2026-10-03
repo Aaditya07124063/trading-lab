@@ -96,8 +96,7 @@ def validate(df, tf, symbol="", session_grid=True):
     }
 
 
-class HoldoutLocked(Exception):
-    pass
+from src.access import HoldoutLocked, holdout_authorized   # noqa: E402  (re-exported)
 
 
 def split_defective(raw, tf):
@@ -135,16 +134,15 @@ def load_intraday(filename, holdout_protocol=None, session_errors=False):
     with session_errors=True (ORB v1), removes ONLY the affected sessions from
     the returned frame and lists them with reasons in report["defective_sessions"].
     Bars on/after HOLDOUT_START are dropped unless `holdout_protocol` names a
-    protocol file whose status line reads FROZEN."""
+    FROZEN protocol AND a valid, committed authorization artifact exists
+    (src.access.holdout_authorized) - FROZEN alone is not enough."""
     tf = timeframe_of(filename)
     raw = load_csv(filename, sort=False, coerce=session_errors)
     if holdout_protocol is None:
         raw = raw[raw["date"] < pd.Timestamp(HOLDOUT_START)]
-    else:
+    else:                                  # ORB v1 final evaluation ONLY (src/access.py)
         from src.config import BASE_DIR
-        text = (BASE_DIR / holdout_protocol).read_text()
-        if "**Status:** FROZEN" not in text:
-            raise HoldoutLocked(f"{holdout_protocol} is not FROZEN - holdout stays locked")
+        holdout_authorized(BASE_DIR / holdout_protocol)
     if session_errors:                     # ORB v1: isolate defects per stock-session
         raw, defects, n_bad_time = split_defective(raw, tf)
     report = validate(raw, tf, symbol_of(filename))

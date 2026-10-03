@@ -4,7 +4,7 @@ Opponent: buying all four equally and sleeping."""
 
 import pandas as pd
 
-from src.data_loader import load_csv
+from src.access import research_load_csv   # cutoff 2026-09-30
 from src.config import CAPITAL, COST_PER_SIDE
 
 FILES = {"RELIANCE": "RELIANCEd1.csv", "TCS": "TCSd1.csv",
@@ -14,7 +14,7 @@ HOLD = 21          # ~1 month before re-ranking
 TOP_N = 2
 
 # one aligned table of closing prices (only dates ALL four have)
-prices = pd.DataFrame({name: load_csv(f).set_index("date")["close"]
+prices = pd.DataFrame({name: research_load_csv(f).set_index("date")["close"]
                        for name, f in FILES.items()}).dropna()
 print(f"Universe: {list(FILES)} | {len(prices):,} common days "
       f"({prices.index[0].date()} -> {prices.index[-1].date()})\n")

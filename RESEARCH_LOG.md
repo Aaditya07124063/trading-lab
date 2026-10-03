@@ -179,3 +179,25 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
 - **Dry run** ORBV1-20261002-002 (DIAGNOSTIC): primary numbers identical; regimes ran. 124 tests pass.
 - **Audit** (`docs/protocols/ORB_v1_pre_freeze_audit_20261001.md`): 30 PASS, 0 FAIL, 0 UNRESOLVED. Two freeze actions are pending the user's approval (replace the `ORB_v1.md` body and set FROZEN; register the 46 files).
 - The holdout is untouched. `ORB_v1.md` is still DRAFT.
+
+## 2026-10-03 - Phase 1: data-access boundary + dashboard cutoff (no ORB change)
+- `src/access.py`: research cutoff 2026-09-30 (`research_load_csv`, `research_load_clean`, `research_frame`).
+  - The holdout gate now needs a FROZEN protocol **and** a committed, unmodified authorization artifact (`docs/protocols/ORB_v1_holdout_authorization.md`, created only when the user authorises the run). The artifact must carry the protocol SHA-256, "sessions: 250", authorized_by and date.
+  - Single-use guard: the evaluator refuses if a holdout result directory exists or a FINAL ORB v1 record is registered.
+- The FROZEN status alone no longer opens the holdout. The old test asserting that behaviour was updated.
+- Collector (tier W) is unchanged and still reads and writes through the raw loader. Status (tier O) now has a fixed field list and restricted imports.
+- Research tier routed through the cutoff:
+  - `run_daily` (/api/backtest), `/api/watchlist`;
+  - `/api/add`, which truncates at 2026-09-30 before saving;
+  - `run_momentum.py`, `run_ml.py`;
+  - intraday endpoints, which already used the cut loader.
+- Tests (38 new):
+  - gate tests on temporary git repositories;
+  - single-use guard;
+  - collector merge with October rows;
+  - dashboard cutoff with poisoned October values (mutation-checked);
+  - code scan blocking raw market-data reads outside the allowed modules;
+  - only the evaluator may request holdout rows;
+  - status field list and imports;
+  - frozen-methodology SHA-256 pins (15 files).
+- 162 tests pass. ORB_v1.md SHA-256 is unchanged (9c9cc1fc…). No holdout data read, no performance computed, Stage 2 not started.
