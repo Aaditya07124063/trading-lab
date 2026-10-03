@@ -4,7 +4,7 @@
 **Version:** 1.0 · frozen 2026-10-03 on the explicit approval of Aaditya Adhikari (2026-10-03).
 **Body:** §1–9 copied verbatim from `docs/protocols/ORB_v1_pre_freeze_audit_20261001.md` (audit commit `dcd323e`, code audited at `13e4664`).
 **Freeze rule:** this file is never edited after freezing (apart from the one-time annotation of the freeze commit on the line below); any change creates `ORB_v2.md`. The superseded DRAFT of 2026-09-30 is preserved in git history.
-**Freeze commit:** (recorded in the follow-up commit)
+**Freeze commit:** `d6556441fd061c63a964f4a2f41bbc581b06540d` ("freeze: ORB v1 protocol", 2026-10-03)
 
 The holdout (first 250 standard NSE sessions from 2026-10-01) may be evaluated only once, with `python3 evaluate_orb_v1.py`, after explicit authorisation.
 
