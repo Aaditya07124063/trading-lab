@@ -43,3 +43,8 @@ data/raw/nse_bhavcopy/
 
 # NSE index-close raw files (checksums in docs/evidence/nse_index and evaluation manifests)
 data/raw/nse_index/
+
+# Stage 2 raw NSE archive (checksums in data/stage2/raw_manifest.jsonl)
+data/raw/nse_archive/
+# Stage 2 generated datasets (rebuildable; manifests committed in data/stage2/manifests)
+data/stage2/datasets/

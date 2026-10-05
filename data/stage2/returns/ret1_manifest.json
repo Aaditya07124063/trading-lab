@@ -1,0 +1,185 @@
+{
+ "methodology_version": "RET-1",
+ "cutoff": "2026-09-30",
+ "verified_start": "2011-06-22",
+ "generated_at": "2026-10-05T10:31:45+05:30",
+ "datasets": {
+  "data/stage2/datasets/ret1/ret1_2011.parquet": "a164bab61f7c20cb1ee13730b9b2dcb0470ecad8ad6d3f5ea4df1348caf5b517",
+  "data/stage2/datasets/ret1/ret1_2012.parquet": "0c80f2b266c2a1367331de19b01108ea051e8870cf55906a0676583be0e77bf4",
+  "data/stage2/datasets/ret1/ret1_2013.parquet": "850c8ad3ee05d7d1984580197f35e19fd0edaf4ded46e66f3511338af5471c20",
+  "data/stage2/datasets/ret1/ret1_2014.parquet": "69081aaa3f1a4fe710471a69be8cac385120b5ebe2d2af52037c4c8587c6a3ce",
+  "data/stage2/datasets/ret1/ret1_2015.parquet": "3693cae19b8f41d45d1152f30da6a9ab06caa87b0bbe2b9a7fd586fcd4c0e37a",
+  "data/stage2/datasets/ret1/ret1_2016.parquet": "064a66d39fbb67e507817d08c0f48f67116a3803bb039dccd10cbfe0bbe7b600",
+  "data/stage2/datasets/ret1/ret1_2017.parquet": "ee86d4f226d2261cbaddfa4910799019c2d6e310448dab967970fdb8235490a5",
+  "data/stage2/datasets/ret1/ret1_2018.parquet": "b739d6183b1337aef1c3491cfc77ada8f9137307c7dc7d8cf4074c5c31b28207",
+  "data/stage2/datasets/ret1/ret1_2019.parquet": "98a9499bcaab5ed44729c267938cc688f1202732e14cdddfa2f0909a5660ad8c",
+  "data/stage2/datasets/ret1/ret1_2020.parquet": "c9369453dfb47eae66248e4f355d85545c786b4a73231f5dcbd196fc106f2ed1",
+  "data/stage2/datasets/ret1/ret1_2021.parquet": "f7bcf3035d3c303a7f559fa06c3593b248347c9ac132a8e75cacc2c6a3f173d7",
+  "data/stage2/datasets/ret1/ret1_2022.parquet": "4a9896673180257d86a98cd9f60ab1763afe47df7911892f598133585d568d77",
+  "data/stage2/datasets/ret1/ret1_2023.parquet": "c4eac9806f0dee3a14da50f49f69ef8ecf3215ca4ae3a29ff55dd02229206c2d",
+  "data/stage2/datasets/ret1/ret1_2024.parquet": "35e236150bb04822411a6be9d26f0e94cf47895cb135380bb7b6f0439a7c52a5",
+  "data/stage2/datasets/ret1/ret1_2025.parquet": "14dd410216f979f54f1e650c37f71b8018befb1e4baf4e24ebce12d029e6880c",
+  "data/stage2/datasets/ret1/ret1_2026.parquet": "76f4dd825f20835d55b9bc9844bba6e8ee75323672a14c045d4f718ae49cba9d"
+ },
+ "inputs": {
+  "raw_manifest_sha256": "d75b4cf6ca88b8cdc65bcf1904ee03b6cd28f641a385fc3c829147eee63e4c82",
+  "identity": {
+   "id1_segments.csv": "5c4b43fcd8727718b637449372cab50e9195fc6d06cc5485ddfcd0baa32369fd",
+   "id1_links.csv": "e2da739efb8ba004739eeb9a429a384866ac879b9f15aa3d3064de78dadf708a"
+  },
+  "identity_methodology": "ID-1",
+  "corporate_action_methodology": "CA-2",
+  "universe": "UNIV-1 (unchanged; not used to build returns)"
+ },
+ "code": {
+  "git_head": "43068d6888a3ba66fa34b1a7ec33e57faae4b624",
+  "files_sha256": {
+   "src/stage2/returns.py": "5c0bcf54485cc0f12999e717190861e7b077cdb3d3d4c43931a7be573ff23199",
+   "src/stage2/corporate_actions.py": "e9ef2e9c281d18cdc7c8cd631fe46654229e14ab458bba443cdf52314b1ad8f3",
+   "src/stage2/identity.py": "7b5f339cb8fba29417e8e49a287bc1c4c43a9a93e27436e0506f81256e44485e",
+   "src/stage2/panel.py": "d8d5794d0a35f1054438000134d7ce879c55ec577ef608a755d8c3de1e2d5a9a"
+  }
+ },
+ "stats": {
+  "rows": 6115762,
+  "entities": 3683,
+  "first": "2011-06-22",
+  "last": "2026-09-30",
+  "status_counts": {
+   "OK": 6068693,
+   "MULTI_SESSION_GAP": 41283,
+   "FIRST_OBSERVATION": 3683,
+   "UNEXPLAINED_JUMP": 914,
+   "ADJUSTED_VALIDATED": 825,
+   "EVENT_UNADJUSTABLE": 316,
+   "EVENT_INCONCLUSIVE": 44,
+   "EVENT_DISCREPANT": 4
+  },
+  "research_grade_rows": 6069518,
+  "identity_transition_rows": 934,
+  "dividend_exdate_rows": 19310,
+  "entities_by_quality": {
+   "NO_UNRESOLVED_DISCONTINUITY": 3299,
+   "HAS_UNRESOLVED_DISCONTINUITY": 384
+  },
+  "by_year": [
+   {
+    "date": 2011,
+    "rows": 187658,
+    "entities": 1544,
+    "research_grade": 184182,
+    "share": 0.9815
+   },
+   {
+    "date": 2012,
+    "rows": 351865,
+    "entities": 1590,
+    "research_grade": 347094,
+    "share": 0.9864
+   },
+   {
+    "date": 2013,
+    "rows": 328958,
+    "entities": 1585,
+    "research_grade": 319061,
+    "share": 0.9699
+   },
+   {
+    "date": 2014,
+    "rows": 323812,
+    "entities": 1568,
+    "research_grade": 318885,
+    "share": 0.9848
+   },
+   {
+    "date": 2015,
+    "rows": 355279,
+    "entities": 1595,
+    "research_grade": 351073,
+    "share": 0.9882
+   },
+   {
+    "date": 2016,
+    "rows": 369146,
+    "entities": 1637,
+    "research_grade": 365415,
+    "share": 0.9899
+   },
+   {
+    "date": 2017,
+    "rows": 368537,
+    "entities": 1679,
+    "research_grade": 366003,
+    "share": 0.9931
+   },
+   {
+    "date": 2018,
+    "rows": 367880,
+    "entities": 1660,
+    "research_grade": 366007,
+    "share": 0.9949
+   },
+   {
+    "date": 2019,
+    "rows": 367105,
+    "entities": 1688,
+    "research_grade": 364942,
+    "share": 0.9941
+   },
+   {
+    "date": 2020,
+    "rows": 376705,
+    "entities": 1730,
+    "research_grade": 374813,
+    "share": 0.995
+   },
+   {
+    "date": 2021,
+    "rows": 389770,
+    "entities": 1893,
+    "research_grade": 388568,
+    "share": 0.9969
+   },
+   {
+    "date": 2022,
+    "rows": 438894,
+    "entities": 2014,
+    "research_grade": 438002,
+    "share": 0.998
+   },
+   {
+    "date": 2023,
+    "rows": 445186,
+    "entities": 2122,
+    "research_grade": 444136,
+    "share": 0.9976
+   },
+   {
+    "date": 2024,
+    "rows": 461929,
+    "entities": 2287,
+    "research_grade": 460744,
+    "share": 0.9974
+   },
+   {
+    "date": 2025,
+    "rows": 529758,
+    "entities": 2507,
+    "research_grade": 528578,
+    "share": 0.9978
+   },
+   {
+    "date": 2026,
+    "rows": 453280,
+    "entities": 2926,
+    "research_grade": 452015,
+    "share": 0.9972
+   }
+  ]
+ },
+ "limitations": [
+  "NSE corporate-action records are incomplete: adjusted series are reliable only where events validate; universally reliable adjusted/total-return history cannot be claimed",
+  "Price returns only: dividends NOT included (19,310 ex-dividend rows flagged)",
+  "Rights, schemes/demergers, consolidations, unparsed/non-equity bonuses are not adjusted (flagged)"
+ ]
+}

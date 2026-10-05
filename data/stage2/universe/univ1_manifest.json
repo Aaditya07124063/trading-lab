@@ -1,0 +1,226 @@
+{
+ "dataset": "data/stage2/universe/univ1_pit_universe.parquet",
+ "methodology_version": "UNIV-1",
+ "parameters": {
+  "verified_start": "2011-06-22",
+  "window_sessions": 63,
+  "min_valid_sessions": 50,
+  "top_n": 200,
+  "rebalance": "last session of each calendar month",
+  "series": "EQ"
+ },
+ "cutoff": "2026-09-30",
+ "generated_at": "2026-10-05T10:03:40+05:30",
+ "dataset_sha256": "2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42",
+ "sources": {
+  "bhavcopy_files_used": 181,
+  "bhavcopy_sha256_list_digest": "f79424b65cf49f08b5b3e9be70644177368280780fef016191a4f2e1c715b42d",
+  "raw_manifest_sha256": "d75b4cf6ca88b8cdc65bcf1904ee03b6cd28f641a385fc3c829147eee63e4c82",
+  "identity": {
+   "id1_segments.csv": "5c4b43fcd8727718b637449372cab50e9195fc6d06cc5485ddfcd0baa32369fd",
+   "id1_links.csv": "e2da739efb8ba004739eeb9a429a384866ac879b9f15aa3d3064de78dadf708a",
+   "id1_entities.csv": "0d6c3f94661ae4a337783829c298516e096694a75638d816cbdd8426552db671",
+   "id1_flags.csv": "bdfdd575f174d52ae4518bae47831b0f3f70d3f8b88d5a29bb73c77d80927483"
+  },
+  "identity_methodology": "ID-1",
+  "corporate_action_methodology": "CA-2 (not used for selection)"
+ },
+ "code": {
+  "git_head": "43068d6888a3ba66fa34b1a7ec33e57faae4b624",
+  "files_sha256": {
+   "src/stage2/universe.py": "f76989d9c78ed35c010fd5215e1dc9ff54f255f9e0cdee08aefefc4a8c80abce",
+   "src/stage2/identity.py": "7b5f339cb8fba29417e8e49a287bc1c4c43a9a93e27436e0506f81256e44485e",
+   "src/stage2/panel.py": "d8d5794d0a35f1054438000134d7ce879c55ec577ef608a755d8c3de1e2d5a9a",
+   "src/stage2/corporate_actions.py": "e9ef2e9c281d18cdc7c8cd631fe46654229e14ab458bba443cdf52314b1ad8f3",
+   "src/stage2/archive.py": "4439e4d23f4b0a1b8ecee9bdfe0e8260911124a7997ada19f47f9c9a567f21c1"
+  }
+ },
+ "stats": {
+  "rows": 318208,
+  "selection_dates": 181,
+  "first_selection": "2011-09-30",
+  "last_selection": "2026-09-30",
+  "member_entities": 687,
+  "status_counts": {
+   "ELIGIBLE_NOT_SELECTED": 219303,
+   "EXCLUDED": 62705,
+   "MEMBER": 36200
+  },
+  "reason_counts": {
+   "BELOW_TOP_N": 219303,
+   "TOP_N_LIQUIDITY": 36200,
+   "NOT_TRADED_ON_SELECTION_DATE": 23580,
+   "INSUFFICIENT_HISTORY": 19684,
+   "FUND_UNIT": 18915,
+   "NON_EQUITY_ISIN": 526
+  },
+  "member_entities_by_end_status": {
+   "ACTIVE_AT_CUTOFF": 561,
+   "ENDED_UNEXPLAINED": 105,
+   "DELISTED_EVIDENCED": 21
+  },
+  "by_year": [
+   {
+    "year": 2011,
+    "selection_dates": 4,
+    "distinct_member_entities": 223,
+    "avg_eligible_per_date": 1348.0,
+    "fund_unit_rows": 120,
+    "insufficient_history_rows": 276,
+    "not_traded_rows": 289,
+    "non_equity_isin_rows": 14
+   },
+   {
+    "year": 2012,
+    "selection_dates": 12,
+    "distinct_member_entities": 259,
+    "avg_eligible_per_date": 1290.0,
+    "fund_unit_rows": 374,
+    "insufficient_history_rows": 1113,
+    "not_traded_rows": 1502,
+    "non_equity_isin_rows": 48
+   },
+   {
+    "year": 2013,
+    "selection_dates": 12,
+    "distinct_member_entities": 268,
+    "avg_eligible_per_date": 1155.0,
+    "fund_unit_rows": 387,
+    "insufficient_history_rows": 1568,
+    "not_traded_rows": 2574,
+    "non_equity_isin_rows": 48
+   },
+   {
+    "year": 2014,
+    "selection_dates": 12,
+    "distinct_member_entities": 273,
+    "avg_eligible_per_date": 1138.0,
+    "fund_unit_rows": 434,
+    "insufficient_history_rows": 1863,
+    "not_traded_rows": 1944,
+    "non_equity_isin_rows": 48
+   },
+   {
+    "year": 2015,
+    "selection_dates": 12,
+    "distinct_member_entities": 266,
+    "avg_eligible_per_date": 1342.0,
+    "fund_unit_rows": 486,
+    "insufficient_history_rows": 614,
+    "not_traded_rows": 857,
+    "non_equity_isin_rows": 48
+   },
+   {
+    "year": 2016,
+    "selection_dates": 12,
+    "distinct_member_entities": 259,
+    "avg_eligible_per_date": 1400.0,
+    "fund_unit_rows": 567,
+    "insufficient_history_rows": 625,
+    "not_traded_rows": 709,
+    "non_equity_isin_rows": 48
+   },
+   {
+    "year": 2017,
+    "selection_dates": 12,
+    "distinct_member_entities": 267,
+    "avg_eligible_per_date": 1352.0,
+    "fund_unit_rows": 606,
+    "insufficient_history_rows": 925,
+    "not_traded_rows": 1316,
+    "non_equity_isin_rows": 45
+   },
+   {
+    "year": 2018,
+    "selection_dates": 12,
+    "distinct_member_entities": 249,
+    "avg_eligible_per_date": 1355.0,
+    "fund_unit_rows": 715,
+    "insufficient_history_rows": 958,
+    "not_traded_rows": 1125,
+    "non_equity_isin_rows": 37
+   },
+   {
+    "year": 2019,
+    "selection_dates": 12,
+    "distinct_member_entities": 247,
+    "avg_eligible_per_date": 1358.0,
+    "fund_unit_rows": 827,
+    "insufficient_history_rows": 871,
+    "not_traded_rows": 1247,
+    "non_equity_isin_rows": 36
+   },
+   {
+    "year": 2020,
+    "selection_dates": 12,
+    "distinct_member_entities": 274,
+    "avg_eligible_per_date": 1309.0,
+    "fund_unit_rows": 971,
+    "insufficient_history_rows": 1355,
+    "not_traded_rows": 1602,
+    "non_equity_isin_rows": 33
+   },
+   {
+    "year": 2021,
+    "selection_dates": 12,
+    "distinct_member_entities": 276,
+    "avg_eligible_per_date": 1342.0,
+    "fund_unit_rows": 1208,
+    "insufficient_history_rows": 1594,
+    "not_traded_rows": 1877,
+    "non_equity_isin_rows": 29
+   },
+   {
+    "year": 2022,
+    "selection_dates": 12,
+    "distinct_member_entities": 280,
+    "avg_eligible_per_date": 1526.0,
+    "fund_unit_rows": 1615,
+    "insufficient_history_rows": 1374,
+    "not_traded_rows": 1286,
+    "non_equity_isin_rows": 30
+   },
+   {
+    "year": 2023,
+    "selection_dates": 12,
+    "distinct_member_entities": 279,
+    "avg_eligible_per_date": 1549.0,
+    "fund_unit_rows": 2024,
+    "insufficient_history_rows": 1176,
+    "not_traded_rows": 1812,
+    "non_equity_isin_rows": 22
+   },
+   {
+    "year": 2024,
+    "selection_dates": 12,
+    "distinct_member_entities": 289,
+    "avg_eligible_per_date": 1523.0,
+    "fund_unit_rows": 2498,
+    "insufficient_history_rows": 1819,
+    "not_traded_rows": 2277,
+    "non_equity_isin_rows": 19
+   },
+   {
+    "year": 2025,
+    "selection_dates": 12,
+    "distinct_member_entities": 285,
+    "avg_eligible_per_date": 1729.0,
+    "fund_unit_rows": 3143,
+    "insufficient_history_rows": 1875,
+    "not_traded_rows": 1709,
+    "non_equity_isin_rows": 12
+   },
+   {
+    "year": 2026,
+    "selection_dates": 9,
+    "distinct_member_entities": 263,
+    "avg_eligible_per_date": 1966.0,
+    "fund_unit_rows": 2940,
+    "insufficient_history_rows": 1678,
+    "not_traded_rows": 1454,
+    "non_equity_isin_rows": 9
+   }
+  ]
+ },
+ "note": "Selection uses only data on/before each selection date; 2005-2011-06-21 data preserved but outside the verified universe."
+}

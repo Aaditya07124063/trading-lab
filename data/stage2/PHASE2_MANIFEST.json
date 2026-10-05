@@ -1,0 +1,91 @@
+{
+ "phase": "Stage 2 / Phase 2 data foundation",
+ "generated_at": "2026-10-05T12:32:42+05:30",
+ "cutoff": "2026-09-30",
+ "verified_period": [
+  "2011-06-22",
+  "2026-09-30"
+ ],
+ "methodology_versions": {
+  "panel": "PANEL-1",
+  "corporate_actions": "CA-2",
+  "identity": "ID-1",
+  "universe": "UNIV-1 (approved/frozen 2026-10-05)",
+  "returns": "RET-1"
+ },
+ "raw_archive": {
+  "manifest": "data/stage2/raw_manifest.jsonl",
+  "sha256": "d75b4cf6ca88b8cdc65bcf1904ee03b6cd28f641a385fc3c829147eee63e4c82",
+  "location": "data/raw/nse_archive (outside git)"
+ },
+ "generated_datasets_outside_git": {
+  "panel1": {
+   "data/stage2/datasets/panel1/panel1_2005.parquet": "9a22d26c02484ad1622e33bb470cd9c1110492b0a8dcd89d9ef0c477a8ea4558",
+   "data/stage2/datasets/panel1/panel1_2006.parquet": "af3df21b696deef6744233b58d0fc53df93a3d501658955356411f73c3f8c8dd",
+   "data/stage2/datasets/panel1/panel1_2007.parquet": "df95c898020061697925699873ec01042696ea5edc4a3339caece792318c812d",
+   "data/stage2/datasets/panel1/panel1_2008.parquet": "8e9eed25c89190de198de96bd254a07919296d6bf3b66b848a974adec697599c",
+   "data/stage2/datasets/panel1/panel1_2009.parquet": "b9d8ec4147fb0b9b8106dd3275a9cba952001caeb8cd682d8ed3142a2d4adc4f",
+   "data/stage2/datasets/panel1/panel1_2010.parquet": "da5191c7c7a339e706063040ec4bdc91924ac3e1a5da7086e78c6eda76fde569",
+   "data/stage2/datasets/panel1/panel1_2011.parquet": "0b1dc4a83481e40215c1f3fd4dc3eb92ca27c208cfb570b0285ead53726a7822",
+   "data/stage2/datasets/panel1/panel1_2012.parquet": "5817ee8a65e4c9274e623043767703a319da77ebd5b37b8e0c1e7db67540842e",
+   "data/stage2/datasets/panel1/panel1_2013.parquet": "8b8af59ae748d841273fd451b38b51ae4d9a7574cb702b02463e0c99d42a97c6",
+   "data/stage2/datasets/panel1/panel1_2014.parquet": "5fad8b400c8289778a0300ca300ffa3bfe0009811e292aedb498ae4cf7db139a",
+   "data/stage2/datasets/panel1/panel1_2015.parquet": "a1eb3a371d2f39b20a1e050a1da0426338fe89e091094d35e91afc75cfc8e3e5",
+   "data/stage2/datasets/panel1/panel1_2016.parquet": "7ae40ea43f89555fb5b4ae95c9b5e9abf8284d631cf2c08b261b414288d6f85c",
+   "data/stage2/datasets/panel1/panel1_2017.parquet": "9f33f547a9d18699927667ebf240a3cef129a69eb076e5480b5ad9a15af49486",
+   "data/stage2/datasets/panel1/panel1_2018.parquet": "63bd3fd484447d2041cd75d6304b53c153c49dbc7cfee1ad8a51a1f511ace7cc",
+   "data/stage2/datasets/panel1/panel1_2019.parquet": "777cd31b552ebb3396493560ace0c488ea44535fd8f180edab46f5b1158df19e",
+   "data/stage2/datasets/panel1/panel1_2020.parquet": "c0ef99fc01a1cc451df1b1776b32348884862d679c439b332d677faf2c25a3e8",
+   "data/stage2/datasets/panel1/panel1_2021.parquet": "00f68c1014f9e2b769905d032bcc87af08ecf08b826bb2201bbc7020c47842f0",
+   "data/stage2/datasets/panel1/panel1_2022.parquet": "f223626e6407434e0ca9ce2e6c97eb663fc18d760106b6ceb4a70f20a0d0b355",
+   "data/stage2/datasets/panel1/panel1_2023.parquet": "9411b8adc8ef888a9a4d76b92ba442c564b8a0563424abe75777ef249b761ba5",
+   "data/stage2/datasets/panel1/panel1_2024.parquet": "1bad19cd81895b598849bfda5617466d22509e4f9d2c3489a6d877bc398f9156",
+   "data/stage2/datasets/panel1/panel1_2025.parquet": "60278ae04052d56dfecd8742ab56f6833856abf3d0b8b78b142e2dc70daa4cf9",
+   "data/stage2/datasets/panel1/panel1_2026.parquet": "50b58a5b315cdc45aa6cc9aa9e4428b0ab1c95759ae78a0983b588be39ce4cb9"
+  },
+  "ret1": {
+   "data/stage2/datasets/ret1/ret1_2011.parquet": "a164bab61f7c20cb1ee13730b9b2dcb0470ecad8ad6d3f5ea4df1348caf5b517",
+   "data/stage2/datasets/ret1/ret1_2012.parquet": "0c80f2b266c2a1367331de19b01108ea051e8870cf55906a0676583be0e77bf4",
+   "data/stage2/datasets/ret1/ret1_2013.parquet": "850c8ad3ee05d7d1984580197f35e19fd0edaf4ded46e66f3511338af5471c20",
+   "data/stage2/datasets/ret1/ret1_2014.parquet": "69081aaa3f1a4fe710471a69be8cac385120b5ebe2d2af52037c4c8587c6a3ce",
+   "data/stage2/datasets/ret1/ret1_2015.parquet": "3693cae19b8f41d45d1152f30da6a9ab06caa87b0bbe2b9a7fd586fcd4c0e37a",
+   "data/stage2/datasets/ret1/ret1_2016.parquet": "064a66d39fbb67e507817d08c0f48f67116a3803bb039dccd10cbfe0bbe7b600",
+   "data/stage2/datasets/ret1/ret1_2017.parquet": "ee86d4f226d2261cbaddfa4910799019c2d6e310448dab967970fdb8235490a5",
+   "data/stage2/datasets/ret1/ret1_2018.parquet": "b739d6183b1337aef1c3491cfc77ada8f9137307c7dc7d8cf4074c5c31b28207",
+   "data/stage2/datasets/ret1/ret1_2019.parquet": "98a9499bcaab5ed44729c267938cc688f1202732e14cdddfa2f0909a5660ad8c",
+   "data/stage2/datasets/ret1/ret1_2020.parquet": "c9369453dfb47eae66248e4f355d85545c786b4a73231f5dcbd196fc106f2ed1",
+   "data/stage2/datasets/ret1/ret1_2021.parquet": "f7bcf3035d3c303a7f559fa06c3593b248347c9ac132a8e75cacc2c6a3f173d7",
+   "data/stage2/datasets/ret1/ret1_2022.parquet": "4a9896673180257d86a98cd9f60ab1763afe47df7911892f598133585d568d77",
+   "data/stage2/datasets/ret1/ret1_2023.parquet": "c4eac9806f0dee3a14da50f49f69ef8ecf3215ca4ae3a29ff55dd02229206c2d",
+   "data/stage2/datasets/ret1/ret1_2024.parquet": "35e236150bb04822411a6be9d26f0e94cf47895cb135380bb7b6f0439a7c52a5",
+   "data/stage2/datasets/ret1/ret1_2025.parquet": "14dd410216f979f54f1e650c37f71b8018befb1e4baf4e24ebce12d029e6880c",
+   "data/stage2/datasets/ret1/ret1_2026.parquet": "76f4dd825f20835d55b9bc9844bba6e8ee75323672a14c045d4f718ae49cba9d"
+  },
+  "univ1": {
+   "data/stage2/universe/univ1_pit_universe.parquet": "2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42"
+  }
+ },
+ "committed_files_sha256": {
+  "data/stage2/identity/id1_entities.csv": "0d6c3f94661ae4a337783829c298516e096694a75638d816cbdd8426552db671",
+  "data/stage2/identity/id1_flags.csv": "bdfdd575f174d52ae4518bae47831b0f3f70d3f8b88d5a29bb73c77d80927483",
+  "data/stage2/identity/id1_links.csv": "e2da739efb8ba004739eeb9a429a384866ac879b9f15aa3d3064de78dadf708a",
+  "data/stage2/identity/id1_segments.csv": "5c4b43fcd8727718b637449372cab50e9195fc6d06cc5485ddfcd0baa32369fd",
+  "data/stage2/panel/panel1_manifest.json": "19a35b73f25f2ec693eefb7cf24ae6682fc3b2ef0d33a12eeb9244553489c0b8",
+  "data/stage2/raw_manifest.jsonl": "d75b4cf6ca88b8cdc65bcf1904ee03b6cd28f641a385fc3c829147eee63e4c82",
+  "data/stage2/returns/ret1_entity_quality.csv": "fa59929dd7807131d01a4e92860f4646d216258ffca5722039278c3021ac0b4b",
+  "data/stage2/returns/ret1_manifest.json": "7f06dcb6ff5a3e6b591bbf82bb0ed2172b11aa64b1ce277793bea3a47693dcd6",
+  "data/stage2/returns/ret1_member_entities_with_unresolved_discontinuities.csv": "b2d2bd1befe075c2394da9a61f6b37205ad270f0412fa032ecc98717c4dc10b8",
+  "data/stage2/returns/ret1_unresolved_discontinuities.csv": "ca4f451af9809ca5b61b1e252613c2fc629f9f9313a3a4c19c2f644c2d399ab5",
+  "data/stage2/universe/univ1_manifest.json": "57431340a662671fc66e41b7c19a8d2b0af34e15fd0be037171cf7b4b3cc69ef",
+  "data/stage2/universe/univ1_pit_universe.parquet": "2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42",
+  "data/stage2/validation/ca2_event_validation.csv": "3045c35821fb2fee7edb0a72cbc03f62d6d8a131d4afa51576fe536b35eedf8e",
+  "data/stage2/validation/ca2_unexplained_jumps.csv": "b0db620ec0d02ec555d14848431e0bfdf0306b59fcd955ef885e048df43bfe77",
+  "data/stage2/validation/id1_jump_identity_review.csv": "1ab0ac398fd82d132420cea9a1b9af2f2fee7c9b76a7f6cb05c6b9c38b733bce",
+  "data/stage2/validation/id1_later_symbol_ca_resolution.csv": "47a9be8f8b0fb3b26198fa01edcfd866831877dbbbcee3babb3a1e6d32fcf618"
+ },
+ "rebuild": [
+  "python3 -m src.stage2.archive bhavcopy 2005-01-01 2026-09-30 (resumes; never overwrites)",
+  "python3 -m src.stage2.archive corporate-actions 1995 2026; python3 -m src.stage2.archive lists",
+  "src.stage2.panel.build_dataset -> identity (ID-1) -> universe.build (UNIV-1) -> returns.build (RET-1)"
+ ]
+}

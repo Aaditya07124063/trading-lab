@@ -201,3 +201,28 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
   - status field list and imports;
   - frozen-methodology SHA-256 pins (15 files).
 - 162 tests pass. ORB_v1.md SHA-256 is unchanged (9c9cc1fc…). No holdout data read, no performance computed, Stage 2 not started.
+
+## 2026-10-03..05 - Stage 2 Phase 2: historical data foundation (no experiments)
+- **Source audit (2A):**
+  - NSE legacy CM bhavcopy 1995 → 2024-07-05; UDiFF from 2024-01-01; ISIN from 2011-06-22.
+  - Corporate-action API comprehensive only from 2006.
+  - Index closes from 2012-02-21; India VIX from 2014-05.
+- **Raw archive (2B):** 5,494 daily files (2005 → 2026-09-30) plus corporate actions and identity lists, outside git, append-only manifest.
+- **PANEL-1 (2C/2I):** 7,824,095 EQ rows. QA clean apart from 3 ISIN-only legacy/UDiFF differences on split days (documented).
+- **CA-2 (2D):**
+  - 1,082 of 1,375 bonus/split events validated, plus 104 after identity resolution.
+  - NSE PREVCLOSE is unadjusted on ex-dates (1,131 of 1,140).
+  - **The NSE corporate-action source is incomplete** (HEG, TIPSINDLTD and others).
+- **ID-1 (2E):**
+  - 2,960 evidence-only identity links.
+  - 89 unexplained ISIN changes and 1,892 pre-2011 gaps unresolved.
+  - ETF/fund units identified by INF ISIN.
+- **UNIV-1 (2F):** verified period from 2011-06-22; monthly top-200 by 63-session median traded value; at least 50 of 63 valid sessions. **Approved and frozen 2026-10-05.**
+- **RET-1 (2G):**
+  - 99.24% research-grade price-return rows.
+  - Adjustments only for validated bonuses/splits.
+  - No dividends (price returns only).
+  - Rights and demergers flagged.
+  - A universally reliable adjusted or total-return history **cannot** be claimed.
+- **Disk cleanup (user-approved, outside the project):** npm cache and `brew cleanup -s`. Free space went from 5.5 GB to 10.85 GB. The uv prune was blocked by a running chroma-mcp server and skipped.
+- No data after 2026-09-30 read; no holdout data read; ORB v1 unchanged; no ML; no experiments.

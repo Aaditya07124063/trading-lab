@@ -258,6 +258,8 @@ RAW_ACCESS_ALLOWED = {
     "src/intraday/regimes.py": "stored pre-cutoff official index closes (evidence)",
     "scripts/orb_v1_power.py": "reads pre-holdout development results",
     "scripts/verify_exit_bar_semantics.py": "filters Date < HOLDOUT_START itself",
+    "src/stage2/panel.py": "Stage 2 NSE raw-archive parser (never the holdout files); refuses sessions after RESEARCH_CUTOFF",
+    "src/stage2/identity.py": "NSE identity/listing snapshots only (no market prices); rows dated after RESEARCH_CUTOFF dropped",
 }
 FORBIDDEN_CALLS = {"load_csv", "read_csv", "load_clean"}
 
