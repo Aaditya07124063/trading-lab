@@ -237,3 +237,52 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
 - **Review decisions (approved 2026-10-05):** 10% residual threshold fixed as a predefined diagnostic rule; span rows stay excluded; weekday special sessions left unclassified for lack of archived NSE calendar evidence; 2012-11-11 kept. "Research-grade" = passes predefined data-quality rules, not error-free history.
 - Details: `docs/stage2/data/phase2_1_fixes_20261005.md`.
 - No data after 2026-09-30 read; no holdout data read; ORB v1 unchanged; no ML; no experiments.
+
+## 2026-10-05 - Phase 3A: momentum study protocol S2-MOM-v1 (DRAFT; no experiment run)
+- Wrote `docs/research/phase3a_momentum_protocol.md`: literature-gap assessment and a 28-item protocol. Status DRAFT, not frozen, not registered.
+- **No return was computed and no performance result was seen.** Only structural counts were read from UNIV-1 (selection dates, eligible-stock counts, rank coverage).
+- Literature finding: Indian momentum is established (Agarwalla–Jacob–Varma 2013/2017; Chui et al. 2023; Raju & Chandrasekaran 2019; Das & Barai 2016; Garg & Varshney 2015). The study is framed as a pre-registered replication plus a backtest-shortcut bias decomposition, not as a new anomaly.
+- Primary specification: 12-1 formation, one-month skip, one-month holding, top/bottom 30%, equal weight, UNIV-1 members, 170 months (Jul 2012 – Aug 2026), Newey–West t-test.
+- Open decisions D1–D4 and four blockers (index history, delivery cost schedule, full-text reading of two papers, slippage source) are listed in §29 of the protocol.
+- No code or dataset changed; UNIV-1 and ORB v1 unchanged; no data after 2026-09-30 read; no holdout data read.
+
+## 2026-10-05 - Phase 3A revision 2: protocol reframed around bias decomposition (DRAFT; no experiment run)
+- `docs/research/phase3a_momentum_protocol.md` rewritten after review (rated 8.6/10, not approved for freezing).
+- **Primary question is now:** how much do backtesting shortcuts distort measured momentum in Indian equities. Momentum existence, liquidity and long-only results are treated as replication, not as new.
+- **Bias ladder fixed in advance:** A survivor-style baseline → B point-in-time liquidity → C survivorship and identity → D corporate-action and data-quality (RET-1.1 research-grade) → E costs.
+- **`SPECIAL_SESSION_SPAN` stays excluded from the primary analysis;** the raw two-session return is a sensitivity analysis only. RET-1.1 unchanged.
+- **Temporal design:** primary historical sample Jul 2012 – Dec 2021 (114 months); confirmation Jan 2022 – Aug 2026 (56 months); pooled 170 months descriptive only.
+- **Costs:** evidenced statutory charges separated from assumed slippage scenarios (0/5/10/25/50 bps); break-even always reported.
+- **One primary regime:** NIFTY 50 24-month market state from the NSE index archive; regime analysis starts Mar 2014.
+- **Not frozen.** Blockers: index files not archived; delivery cost schedule not evidenced; papers 2–7 verified at abstract level only; reference effect size to check; four reviewer decisions.
+- No return computed; no performance seen; no code or dataset changed; UNIV-1 and ORB v1 unchanged; no data after 2026-09-30 and no holdout data read.
+
+## 2026-10-05 - Phase 3A revision 3: statistical and reproducibility fixes (DRAFT; not frozen; no experiment run)
+- **Primary estimand stated exactly:** δ(t) = WML_A(t) − WML_D(t); H1 is that its mean differs from zero (two-sided).
+- **Power:** the earlier Sharpe-based figure was wrong for H1 and now applies only to the secondary existence test. For δ(t) the standard deviation is unknown before results, so the protocol gives a precision table and states that adequate power is **not** claimed. A blinded precision step (standard deviation only, before any mean) is fixed for Phase 3B.
+- **Practical-significance bound:** ±0.10% per month kept as an ex-ante bound, with three independent anchors (transaction-tax scale, published Indian survivorship bias, share of the reported premium).
+- **Steps A and B defined operationally:** survivor pool P, the function Top200(pool, date), exact return and corporate-action rules. B changes only the date on which liquidity is evaluated.
+- **Temporal design explained:** Dec 2021 boundary; 2022–2026 is a chronological out-of-sample period, not an independently designed experiment.
+- **Regimes:** now secondary and exploratory; the March 2014 start is conditional on the unarchived NSE index files.
+- **Literature:** Ranse (2025) read in full — equal-weight survivor comparison, no momentum, names strategy-specific bias as future work. Jain (2026) and Raju & Chandrasekaran (2019) remain UNVERIFIED on the key points (access refused).
+- No return computed; no performance seen; no code or dataset changed; UNIV-1, RET-1.1 and ORB v1 unchanged; no data after 2026-09-30 and no holdout data read.
+
+## 2026-10-05 - Phase 3A revision 4: final wording corrections (DRAFT; not frozen; no experiment run)
+- **Sequential decomposition:** A → E is stated as a sequential decomposition, not an identification of independent causal effects. Step sizes depend on order and interactions; the reverse-order ladder is robustness only; no factorial or Shapley analysis.
+- **Raju & Chandrasekaran (2019):** literature table updated from reviewer-supplied evidence (Refinitiv data, delisted stocks included, month-end NIFTY 100 constituents, IIMA survivorship-adjusted factors). Exact historical-constituent construction not claimed as verified.
+- **Jain (2026):** kept unresolved on whether it contains a momentum-specific experiment. No exclusive novelty is claimed against it.
+- **Positioning:** Indian momentum is established; survivorship-adjusted momentum analysis exists; the contribution is the controlled sequential measurement of how several data and backtest corrections alter one fixed momentum design.
+- **Threshold:** ±0.10% per month reworded as an ex-ante economically meaningful reference threshold, not a universal minimum.
+- **Corporate actions:** event date, source availability date and research use separated; the information builds historical returns and data-quality classes and is never a trading signal; no availability date is invented.
+- **Regime analysis removed** from the study; the NSE index archive is no longer a blocker.
+- Unchanged: research question, δ = WML_A − WML_D, two-sided H1, sample dates, 12-1, skip month, one-month holding, delayed entry, 30%, equal weight, RET-1.1 returns, special-session exclusion, Newey–West lag 4, bootstrap, cost scenarios, leakage tests, A–E ladder.
+- No return computed; no performance seen; no code or dataset changed; UNIV-1, RET-1.1 and ORB v1 unchanged; no data after 2026-09-30 and no holdout data read.
+
+## 2026-10-05 - Phase 3A protocol S2-MOM-v1 FROZEN (revision 4; no experiment run)
+- **Frozen file:** `docs/research/phase3a_momentum_protocol.md`, status FROZEN, approved by the reviewer as written.
+- **Protocol SHA-256:** `f1abd954f698307f7aafe234c5d5c9f1681ccc5aadb9cb21e9f8e34d47abd838`
+- **Freeze commit:** the commit that adds this entry, subject "freeze: Phase 3A protocol S2-MOM-v1 (revision 4)", parent `d0b4a77`. A commit cannot contain its own hash; find it with `git log --grep "freeze: Phase 3A protocol"`.
+- The research design was not changed at the freeze. Only status wording changed (DRAFT → FROZEN; decisions marked approved).
+- Open items carried into Phase 3B, to be closed before any return is computed: delivery cost evidence; full-text literature checks; references cited from memory; registration in `registry/`.
+- No experiment run; no portfolio return, Sharpe ratio, p-value, drawdown, turnover or out-of-sample result computed.
+- No dataset changed; UNIV-1, RET-1.1 and ORB v1 unchanged; collector-written files under `data/india/` and `data/raw/` not touched and not committed.
