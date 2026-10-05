@@ -6,6 +6,7 @@ committed manifest data/stage2/raw_manifest.jsonl. Datasets are always rebuilt
 from these raw files. Nothing dated after src.access.RESEARCH_CUTOFF is fetched.
 
     python3 -m src.stage2.archive bhavcopy 2005-01-01 2026-09-30
+    python3 -m src.stage2.archive bhavcopy-weekends 2005-01-01 2026-09-30   # special sessions
     python3 -m src.stage2.archive corporate-actions 1995 2026
     python3 -m src.stage2.archive lists
 """
@@ -76,6 +77,8 @@ def fetch(url, rel, kind, session=None, opener=None, known=None):
             blob = (opener or urllib.request.build_opener()).open(
                 urllib.request.Request(url, headers=UA), timeout=60).read()
         except urllib.error.HTTPError as e:
+            if e.code >= 500 or e.code == 429:          # transient server error: never recorded,
+                raise                                   # caller retries; a rerun resumes
             rec |= {"status": e.code}
             _append(rec)
             known[url] = rec
@@ -98,10 +101,20 @@ def weekdays(start, end):
         d += timedelta(days=1)
 
 
-def archive_bhavcopy(start, end, pause=0.15):
+def weekend_days(start, end):
+    """Saturdays/Sundays: NSE occasionally holds special sessions (budget day, Muhurat,
+    disaster-recovery tests). Most return 404 (no session) and are recorded as such."""
+    d = start
+    while d <= end:
+        if d.weekday() >= 5:
+            yield d
+        d += timedelta(days=1)
+
+
+def archive_bhavcopy(start, end, pause=0.15, weekends=False):
     end = min(end, date.fromisoformat(RESEARCH_CUTOFF))
     known, n = manifest(), 0
-    for d in weekdays(start, end):
+    for d in (weekend_days if weekends else weekdays)(start, end):
         jobs = []
         if d <= LEGACY_LAST:
             jobs.append((legacy_url(d), f"legacy_cm/{d:%Y}/cm{d:%Y%m%d}bhav.csv.zip", "legacy_cm"))
@@ -110,14 +123,15 @@ def archive_bhavcopy(start, end, pause=0.15):
         for url, rel, kind in jobs:
             if url in known:
                 continue
-            for attempt in range(3):
+            for attempt in range(4):
                 try:
                     fetch(url, rel, kind, d, known=known)
                     break
-                except (urllib.error.URLError, TimeoutError, ConnectionError) as e:   # transient
-                    if attempt == 2:
-                        print(f"{d} {kind}: giving up this run ({e}); rerun resumes", flush=True)
-                    time.sleep(5 * (attempt + 1))
+                except (urllib.error.URLError, TimeoutError, ConnectionError) as e:   # transient (incl. 5xx)
+                    if attempt == 3:
+                        print(f"{d} {kind}: giving up this run ({e}); not recorded - rerun resumes", flush=True)
+                    else:
+                        time.sleep(5 * (attempt + 1))
             n += 1
             time.sleep(pause)
         if d.day == 1:
@@ -154,6 +168,8 @@ if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "bhavcopy":
         archive_bhavcopy(date.fromisoformat(sys.argv[2]), date.fromisoformat(sys.argv[3]))
+    elif cmd == "bhavcopy-weekends":
+        archive_bhavcopy(date.fromisoformat(sys.argv[2]), date.fromisoformat(sys.argv[3]), weekends=True)
     elif cmd == "corporate-actions":
         archive_corporate_actions(int(sys.argv[2]), int(sys.argv[3]))
     elif cmd == "lists":

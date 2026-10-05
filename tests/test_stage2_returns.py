@@ -135,3 +135,36 @@ def test_cutoff_and_verified_start():
     seg = segments(early[["date", "symbol", "isin"]])
     r = build(early, seg, pd.DataFrame(columns=["from_segment", "to_segment", "evidence"]), NOEV)
     assert r["date"].min() == pd.Timestamp("2011-06-22")
+
+
+# ------------------------------------------------------------- RET-1.1 (Phase 2.1)
+
+def run11(panel, ev=NOEV, special=()):
+    seg = segments(panel[["date", "symbol", "isin"]])
+    lk, _ = links(seg, NO_SC, ev)
+    return build(panel, seg, lk, ev, special_sessions=pd.to_datetime(list(special)), large_residual=rm.LARGE_RESIDUAL)
+
+
+def test_validated_adjustment_with_large_residual_is_flagged_not_research_grade():
+    # bonus 1:1 validates (raw 0.56 vs factor 0.5) but leaves an adjusted move of +12% > 10%
+    p = stock("AAA", "INE000A01011", [100, 100, 56.0, 56])
+    ev = events(("AAA", SESS[2], "BONUS", 0.5, "Bonus 1:1"))
+    x = row(run11(p, ev), "AAA", SESS[2])
+    assert x["return_status"] == "VALIDATED_LARGE_RESIDUAL" and not x["research_grade"]
+    assert x["ret_adj"] == pytest.approx(0.12) and np.isnan(x["ret_research"]) and x["close"] == 56.0
+    assert row(run(p, ev), "AAA", SESS[2])["return_status"] == "ADJUSTED_VALIDATED"          # RET-1 unchanged
+    small = row(run11(stock("AAA", "INE000A01011", [100, 100, 52.0, 52]), ev), "AAA", SESS[2])   # +4%: clean
+    assert small["return_status"] == "ADJUSTED_VALIDATED" and small["research_grade"]
+
+
+def test_return_spanning_a_special_session_is_flagged():
+    p = stock("AAA", "INE000A01011", [100, 101, 102, 103, 104, 105, 106])      # Mon 2012-01-02 ...
+    sat = pd.Timestamp("2012-01-07")                                             # special Saturday session
+    r = run11(p, special=[sat])
+    x = row(r, "AAA", "2012-01-09")                                              # Fri -> Mon spans Saturday
+    assert x["return_status"] == "SPECIAL_SESSION_SPAN" and not x["research_grade"] and x["spans_special_session"]
+    assert r.loc[r["date"] != pd.Timestamp("2012-01-09"), "return_status"].isin(["OK", "FIRST_OBSERVATION"]).all()
+    assert (r["date"] != sat).all()                                              # never a return endpoint
+    assert row(run(p), "AAA", "2012-01-09")["return_status"] == "OK"             # RET-1 unchanged
+    assert "spans_special_session" not in run(p).columns and set(run(p)["methodology"]) == {"RET-1"}
+    assert set(r["methodology"]) == {"RET-1.1"}

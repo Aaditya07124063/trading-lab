@@ -1,0 +1,480 @@
+{
+ "code_sha256": {
+  "src/stage2/archive.py": "0235b410c6850a1e8200ee1ff2139c0a47b82a890a7de7252551ba837dd2bf33",
+  "src/stage2/panel.py": "088fffdcfddab62bfbed2d8327b192cb1c4b9874915b38e604bf1f6d7a32c782"
+ },
+ "cutoff": "2026-09-30",
+ "definition": "PANEL-1 + weekend (Saturday/Sunday) special sessions; session_type STANDARD | SPECIAL_WEEKEND; rows with session_type == STANDARD are byte-identical to PANEL-1",
+ "files": [
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2005.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 186025,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 186025,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 186025,
+   "sessions": 251,
+   "sha256": "fef25e255a2c166482c8e50c7c40f6d7516450cca82f15ab505c8459c25b4681",
+   "special_rows": 1461,
+   "special_sessions": 2,
+   "year": 2005
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2006.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 211516,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 211516,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 211516,
+   "sessions": 250,
+   "sha256": "b2ade070444088e005cee321568538083c7f36ba694a020d19ef7d6b0d0c4106",
+   "special_rows": 2543,
+   "special_sessions": 3,
+   "year": 2006
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2007.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 260550,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 260550,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 260550,
+   "sessions": 249,
+   "sha256": "fe97cc307435fce85e5cc0d8def63148dbaf301fc67d053ee4d23ad67ddea1d0",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2007
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2008.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 286960,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 286960,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 286960,
+   "sessions": 246,
+   "sha256": "b33242dafbc70effa5260fa53a597bbb7a51073cbbde39429bb3739c0c4cf693",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2008
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2009.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 278542,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 278542,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 278542,
+   "sessions": 243,
+   "sha256": "519b066dbc482656a4afd72db210aa5efc1bddfc5f90eedee433aacbcf241476",
+   "special_rows": 1133,
+   "special_sessions": 1,
+   "year": 2009
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2010.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 328017,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 328017,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 328017,
+   "sessions": 253,
+   "sha256": "96baf7a033412b52ec932a1673f48130d0546836c0ceaa8ee53cda0aa055967b",
+   "special_rows": 1127,
+   "special_sessions": 2,
+   "year": 2010
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2011.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 162987,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 350645,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 350645,
+   "sessions": 247,
+   "sha256": "d47b830a2b179bf22e9cd533bf5fa6f6378fbbddc224d988a5afd9938459971d",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2011
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2012.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 357092,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 357092,
+   "sessions": 252,
+   "sha256": "35e11da975e63dc751bce3e9850d6ec5797e0acf464f3754740e16c50baef7ef",
+   "special_rows": 5227,
+   "special_sessions": 5,
+   "year": 2012
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2013.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 331315,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 331315,
+   "sessions": 250,
+   "sha256": "ac3d5a3ab1c2746288f8c0175947c7b684d4b031ee4f358a2675ad63a88ffa36",
+   "special_rows": 2357,
+   "special_sessions": 2,
+   "year": 2013
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2014.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 325090,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 325090,
+   "sessions": 244,
+   "sha256": "fc3809e2390492adcbf8a32d65ae2cc32e898a1c29d69ddbaafc89665eae9d79",
+   "special_rows": 1278,
+   "special_sessions": 1,
+   "year": 2014
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2015.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 356689,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 356689,
+   "sessions": 248,
+   "sha256": "f0021cc7231b1a7fe3a8c4796c27804e947ff79dac69158b4be810800742824f",
+   "special_rows": 1410,
+   "special_sessions": 1,
+   "year": 2015
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2016.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 370662,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 370662,
+   "sessions": 247,
+   "sha256": "9e8ec5fb35b2355989200a52c8c4fad2c6dd811a803d15fa400acc94c7a16241",
+   "special_rows": 1516,
+   "special_sessions": 1,
+   "year": 2016
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2017.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 368537,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 368537,
+   "sessions": 248,
+   "sha256": "235368e7ab590f8d563cf25c66698071bb55850c17cf7291783092a17bcb7a36",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2017
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2018.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 367880,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 367880,
+   "sessions": 246,
+   "sha256": "0fd7ce162b80bde1925e93eaf21f8612f9c6be6d5ebae0f69cd903e724d8ae6e",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2018
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2019.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 368578,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 368578,
+   "sessions": 245,
+   "sha256": "5d97e6cb5511cf704cd5eb822a69d38c2b05aa6d3437bf336bf61957f9b5de65",
+   "special_rows": 1473,
+   "special_sessions": 1,
+   "year": 2019
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2020.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 379782,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 379782,
+   "sessions": 252,
+   "sha256": "ccf824ff402298856ceb355ce7253b7746e057d35c47d5e09e39b51a2515b394",
+   "special_rows": 3077,
+   "special_sessions": 2,
+   "year": 2020
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2021.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 389770,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 389770,
+   "sessions": 248,
+   "sha256": "93b7e2876e526bad7370ff1c578e072297fd19bf6e4c648245c26f38fc14282c",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2021
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2022.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 438894,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 438894,
+   "sessions": 248,
+   "sha256": "79f77fce0f3d2ebb7588ff9a7eee1ec8769a46524c828e00eb864d395610c440",
+   "special_rows": 0,
+   "special_sessions": 0,
+   "year": 2022
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2023.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 446991,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 446991,
+   "sessions": 246,
+   "sha256": "96cb2ce73972e0f884a091f450fbe39c465d7dfcdf7af322f48293da37bacd41",
+   "special_rows": 1805,
+   "special_sessions": 1,
+   "year": 2023
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2024.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 467396,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 467396,
+   "sessions": 249,
+   "sha256": "b4d38373aa05aec7b031d8f5c5f218ad2de61e92207d4d5e665abada234f54c5",
+   "special_rows": 5467,
+   "special_sessions": 3,
+   "year": 2024
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2025.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 531765,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 531765,
+   "sessions": 249,
+   "sha256": "9cd3e4dfb16860940deb8661a96fc2141c26e0ba65a91ddc7d594bde33de5095",
+   "special_rows": 2007,
+   "special_sessions": 1,
+   "year": 2025
+  },
+  {
+   "file": "data/stage2/datasets/panel1_1/panel1_1_2026.parquet",
+   "qa": {
+    "duplicate_symbol_date": 0,
+    "impossible_ohlc": 0,
+    "isin_on_two_symbols_same_day": 0,
+    "missing_isin_rows": 0,
+    "missing_price": 0,
+    "negative_or_missing_volume": 0,
+    "negative_value": 0,
+    "non_positive_price": 0,
+    "rows": 455691,
+    "symbol_with_two_isins_same_day": 0
+   },
+   "rows": 455691,
+   "sessions": 185,
+   "sha256": "c792f3e12f793420e05334243d99355860f7e2fe57fd8dab0cb1f5fc08d4c45b",
+   "special_rows": 2411,
+   "special_sessions": 1,
+   "year": 2026
+  }
+ ],
+ "methodology_version": "PANEL-1.1",
+ "special_sessions": 27,
+ "weekend_calendar_2005_to_cutoff": {
+  "never_attempted": [],
+  "non_trading_weekdays_404": 2243,
+  "sessions": 27,
+  "weekdays": 2270
+ }
+}

@@ -37,6 +37,8 @@ from src.access import RESEARCH_CUTOFF
 from src.stage2.corporate_actions import classify, combined_events
 
 METHOD_VERSION = "RET-1"
+METHOD_VERSION_1_1 = "RET-1.1"      # + special-session spans, + large-residual flag (Phase 2.1)
+LARGE_RESIDUAL = 0.10               # RET-1.1: validated adjustment leaving |adjusted return| > 10%
 VERIFIED_START = pd.Timestamp("2011-06-22")
 CUT = pd.Timestamp(RESEARCH_CUTOFF)
 JUMP = 1.4
@@ -80,9 +82,14 @@ def _events_on_rows(rows, ev, ent_syms):
     return m
 
 
-def build(panel, segs, links, events):
-    """panel: EQ rows (date, symbol, isin, series, open, high, low, close, last, prevclose,
-    volume, value[, source_sha256]); segs/links: 2E; events: 2D load_events() output."""
+def build(panel, segs, links, events, special_sessions=None, large_residual=None):
+    """panel: STANDARD-session EQ rows (date, symbol, isin, series, open, high, low, close, last,
+    prevclose, volume, value[, source_sha256]); segs/links: 2E; events: 2D load_events() output.
+    special_sessions / large_residual both None -> RET-1 exactly. RET-1.1 passes the set of
+    special-session dates (weekend sessions, never used as return endpoints) and the residual
+    threshold: a return whose (prev_date, date) window contains a special session is
+    SPECIAL_SESSION_SPAN; a validated adjustment leaving |ret_adj| > threshold is
+    VALIDATED_LARGE_RESIDUAL. Neither is research-grade."""
     p = panel.copy()
     p["date"] = pd.to_datetime(p["date"])
     if p["date"].max() > CUT:
@@ -132,22 +139,37 @@ def build(panel, segs, links, events):
     ratio = np.where(validated, p["ret_adj"] + 1, p["ret_raw"] + 1).astype(float)
     jump = np.abs(np.log(np.where(ratio > 0, ratio, np.nan))) > math.log(JUMP)
 
+    v11 = special_sessions is not None or large_residual is not None
+    if v11:
+        sp = np.array(sorted(pd.to_datetime(list([] if special_sessions is None else special_sessions))), dtype="datetime64[ns]")
+        lo = np.searchsorted(sp, p["prev_date"].to_numpy(dtype="datetime64[ns]"), side="right")
+        hi = np.searchsorted(sp, p["date"].to_numpy(dtype="datetime64[ns]"), side="left")
+        p["spans_special_session"] = p["prev_date"].notna().to_numpy() & (hi > lo)
+        thr = math.log(1 + (large_residual if large_residual is not None else LARGE_RESIDUAL))
+        big = validated & (np.abs(np.log((p["ret_adj"] + 1).where(p["ret_adj"] + 1 > 0))) > thr)
+    else:
+        p["spans_special_session"] = False
+        big = pd.Series(False, index=p.index)
     conds = [p["prev_date"].isna(),
              ~((p["close"] > 0) & (p["prev_close"] > 0)),
              p["gap_sessions"] > 0,
+             p["spans_special_session"],
              p["event_status"] == "DISCREPANT",
              p["event_status"] == "INCONCLUSIVE",
              unadj,
              jump,
+             big,
              validated]
-    names = ["FIRST_OBSERVATION", "MISSING_PRICE", "MULTI_SESSION_GAP", "EVENT_DISCREPANT", "EVENT_INCONCLUSIVE",
-             "EVENT_UNADJUSTABLE", "UNEXPLAINED_JUMP", "ADJUSTED_VALIDATED"]
+    names = ["FIRST_OBSERVATION", "MISSING_PRICE", "MULTI_SESSION_GAP", "SPECIAL_SESSION_SPAN", "EVENT_DISCREPANT",
+             "EVENT_INCONCLUSIVE", "EVENT_UNADJUSTABLE", "UNEXPLAINED_JUMP", "VALIDATED_LARGE_RESIDUAL",
+             "ADJUSTED_VALIDATED"]
     p["return_status"] = np.select(conds, names, default="OK")
     p["research_grade"] = p["return_status"].isin(["OK", "ADJUSTED_VALIDATED"])
     p["ret_research"] = np.where(p["research_grade"], np.where(validated, p["ret_adj"], p["ret_raw"]), np.nan)
-    p["methodology"] = METHOD_VERSION
+    p["methodology"] = METHOD_VERSION_1_1 if v11 else METHOD_VERSION
     keep = ["entity_id", "segment_id", "symbol", "isin", "series", "date", "open", "high", "low", "close", "last",
             "prevclose", "volume", "value", "prev_date", "prev_close", "gap_sessions", "identity_transition",
+            *(["spans_special_session"] if v11 else []),
             "ret_raw", "event_factor", "event_kind", "event_status", "event_subject", "other_events",
             "dividend_exdate", "ret_adj", "return_status", "research_grade", "ret_research", "methodology"]
     if "source_sha256" in p:
@@ -157,7 +179,8 @@ def build(panel, segs, links, events):
 
 def entity_quality(r):
     """Per entity: rows, research-grade share, and counts of unresolved discontinuities."""
-    bad = ["EVENT_DISCREPANT", "EVENT_INCONCLUSIVE", "EVENT_UNADJUSTABLE", "UNEXPLAINED_JUMP"]
+    bad = ["EVENT_DISCREPANT", "EVENT_INCONCLUSIVE", "EVENT_UNADJUSTABLE", "UNEXPLAINED_JUMP",
+           "VALIDATED_LARGE_RESIDUAL"]
     q = r.groupby("entity_id").agg(rows=("date", "size"), first=("date", "min"), last=("date", "max"),
                                    research_grade=("research_grade", "sum"),
                                    unresolved=("return_status", lambda s: int(s.isin(bad).sum())),

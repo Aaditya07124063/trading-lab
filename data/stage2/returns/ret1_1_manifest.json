@@ -1,0 +1,59 @@
+{
+ "code_sha256": {
+  "src/stage2/corporate_actions.py": "e9ef2e9c281d18cdc7c8cd631fe46654229e14ab458bba443cdf52314b1ad8f3",
+  "src/stage2/identity.py": "7b5f339cb8fba29417e8e49a287bc1c4c43a9a93e27436e0506f81256e44485e",
+  "src/stage2/panel.py": "088fffdcfddab62bfbed2d8327b192cb1c4b9874915b38e604bf1f6d7a32c782",
+  "src/stage2/returns.py": "2bcf561f77ff6516ec02dcdb661c17d5fabff59f23f8a0e37dcf73d1f9d4f99c"
+ },
+ "cutoff": "2026-09-30",
+ "datasets": {
+  "data/stage2/datasets/ret1_1/ret1_1_2011.parquet": "14aca07e8d5b922c8dbb236ca084870ac76d4d0d511d84f14115629e699edeaf",
+  "data/stage2/datasets/ret1_1/ret1_1_2012.parquet": "0a4aab286564363958ebade8240c96b6a145aaa4a5530110b7327b67d4a9faba",
+  "data/stage2/datasets/ret1_1/ret1_1_2013.parquet": "2b24a4e83378675f97ca935627aa99e826418e269ce9d6d80ce15f1326880a1d",
+  "data/stage2/datasets/ret1_1/ret1_1_2014.parquet": "26b6c17a075f779150122ed778b964a1268a9651991fbd09948c1a47a3026136",
+  "data/stage2/datasets/ret1_1/ret1_1_2015.parquet": "d1a86756b742f0d5eb422a341fd7734e90206774297483332e6a8cb0d74a89dd",
+  "data/stage2/datasets/ret1_1/ret1_1_2016.parquet": "d4c2e874e6af8acaa5d756820141967b3cf6227e6c8e879a9e6063dc9b2d7441",
+  "data/stage2/datasets/ret1_1/ret1_1_2017.parquet": "82b2484fa7c031160eaf6807d2403a2ed19b0ef4afb6d997f16354309b755f0d",
+  "data/stage2/datasets/ret1_1/ret1_1_2018.parquet": "1974aac8ff9b688c41042cd5e17d1c9b9d8d9f6cfc9bb5baffcd5489896ac568",
+  "data/stage2/datasets/ret1_1/ret1_1_2019.parquet": "9b84b3eaafb02db8301b268865d447398d719917008d34a1009d462c1a8f6bed",
+  "data/stage2/datasets/ret1_1/ret1_1_2020.parquet": "3fee0b74b3bcca9a80690ec38c1f82e1325edecda6c1206b2296f7988547badd",
+  "data/stage2/datasets/ret1_1/ret1_1_2021.parquet": "a680e53b7d95563c1b92bc77111742fc4e0cf8a09a4077f2f74c5d477e50bb58",
+  "data/stage2/datasets/ret1_1/ret1_1_2022.parquet": "9f5e97d0faa0250a13cff733464f2e22d8e1dc9893ed06917e6e94e2d4989ae2",
+  "data/stage2/datasets/ret1_1/ret1_1_2023.parquet": "0e7915adcf0c34a55342bf302d03d6a89fb74f6117e5adfbf451cc8d355faf43",
+  "data/stage2/datasets/ret1_1/ret1_1_2024.parquet": "bc5b6a7277cca08f6c025db052fc49bf21279a7dca586e98ffb969cfba6274cf",
+  "data/stage2/datasets/ret1_1/ret1_1_2025.parquet": "00724c623606b4b1456303385cb233e5d08513e82a059c1720e75cd2058e7743",
+  "data/stage2/datasets/ret1_1/ret1_1_2026.parquet": "0f4a735ce4beb569f63edd7dd57799087cf8fb80cd24879792030d4e1b4176a4"
+ },
+ "methodology_version": "RET-1.1",
+ "parameters": {
+  "jump": 1.4,
+  "large_residual": 0.1,
+  "special_sessions": "data/stage2/panel/special_sessions.csv (never return endpoints)"
+ },
+ "stats": {
+  "entities": 3683,
+  "research_grade_rows": 6039311,
+  "rows": 6115762,
+  "rows_spanning_a_special_session": 32742,
+  "spanning_rows_by_status": {
+   "MULTI_SESSION_GAP": 2633,
+   "SPECIAL_SESSION_SPAN": 30109
+  },
+  "status_counts": {
+   "ADJUSTED_VALIDATED": 718,
+   "EVENT_DISCREPANT": 4,
+   "EVENT_INCONCLUSIVE": 44,
+   "EVENT_UNADJUSTABLE": 316,
+   "FIRST_OBSERVATION": 3683,
+   "MULTI_SESSION_GAP": 41283,
+   "OK": 6038593,
+   "SPECIAL_SESSION_SPAN": 30109,
+   "UNEXPLAINED_JUMP": 906,
+   "VALIDATED_LARGE_RESIDUAL": 106
+  },
+  "univ1_member_rows": 36200,
+  "univ1_members_unchanged_sha256": "2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42",
+  "validated_large_residual_rows": 106
+ },
+ "verified_start": "2011-06-22"
+}

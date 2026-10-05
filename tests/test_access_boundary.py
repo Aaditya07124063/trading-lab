@@ -260,6 +260,7 @@ RAW_ACCESS_ALLOWED = {
     "scripts/verify_exit_bar_semantics.py": "filters Date < HOLDOUT_START itself",
     "src/stage2/panel.py": "Stage 2 NSE raw-archive parser (never the holdout files); refuses sessions after RESEARCH_CUTOFF",
     "src/stage2/identity.py": "NSE identity/listing snapshots only (no market prices); rows dated after RESEARCH_CUTOFF dropped",
+    "scripts/build_stage2.py": "Stage 2 rebuild/verify: re-reads its own in-memory CSV outputs (StringIO), never market files",
 }
 FORBIDDEN_CALLS = {"load_csv", "read_csv", "load_clean"}
 

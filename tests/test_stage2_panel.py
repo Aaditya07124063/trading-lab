@@ -87,3 +87,32 @@ def test_post_cutoff_session_refused_by_builder(tmp_path, monkeypatch):
     monkeypatch.setattr(pm, "BASE_DIR", tmp_path)
     with pytest.raises(ValueError, match="cutoff"):
         pm.build_year(2026, [{"kind": "legacy_cm", "status": 200, "session": "2026-10-01", "path": "x.zip", "sha256": "x"}])
+
+
+# ------------------------------------------------------------- special sessions (Phase 2.1)
+
+def test_session_type():
+    assert pm.session_type("2024-01-20") == "SPECIAL_WEEKEND" and pm.session_type("2024-01-21") == "SPECIAL_WEEKEND"
+    assert pm.session_type("2024-01-19") == "STANDARD"
+
+
+def test_weekend_calendar_check():
+    recs = [{"kind": "legacy_cm", "status": 200, "session": "2020-02-01"},     # budget-day Saturday
+            {"kind": "legacy_cm", "status": 404, "session": "2020-02-02"},
+            {"kind": "legacy_cm", "status": 200, "session": "2020-02-03"}]    # weekday: ignored here
+    c = calendar_check(recs, "2020-02-01", "2020-02-09", weekends=True)
+    assert c["weekdays"] == 4 and c["sessions"] == 1 and c["non_trading_weekdays_404"] == 1
+    assert c["never_attempted"] == ["2020-02-08", "2020-02-09"]
+
+
+def test_special_sessions_excluded_from_panel1_and_labelled_in_panel1_1(tmp_path, monkeypatch):
+    (tmp_path / "f.zip").write_bytes(_zip(LEGACY_HDR + "A,EQ,10,11,9,10,10,9.5,100,1000,31-JAN-2020,5,INE1\n"))
+    (tmp_path / "s.zip").write_bytes(_zip(LEGACY_HDR + "A,EQ,10,12,9,11,11,10,100,1000,01-FEB-2020,5,INE1\n"))
+    monkeypatch.setattr(pm, "BASE_DIR", tmp_path)
+    files = [{"kind": "legacy_cm", "status": 200, "session": "2020-01-31", "path": "f.zip", "sha256": "F"},
+             {"kind": "legacy_cm", "status": 200, "session": "2020-02-01", "path": "s.zip", "sha256": "S"}]
+    std, _ = pm.build_year(2020, files)
+    assert list(std["date"].dt.day) == [31] and "session_type" not in std
+    sp, _ = pm.build_year(2020, files, include_special=True)
+    assert list(sp["session_type"]) == ["STANDARD", "SPECIAL_WEEKEND"]
+    pd.testing.assert_frame_equal(sp[sp.session_type == "STANDARD"].drop(columns="session_type"), std)

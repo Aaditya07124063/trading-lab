@@ -65,12 +65,21 @@ def parse(blob, kind, session):
     return df.reset_index(drop=True)
 
 
-def build_year(year, files):
-    """All EQ rows of one calendar year + overlap comparison records."""
+def session_type(d):
+    """STANDARD = Monday-Friday session; SPECIAL_WEEKEND = Saturday/Sunday session (budget day,
+    Muhurat, disaster-recovery tests). Weekday special sessions (e.g. Muhurat on a weekday
+    holiday) cannot be identified without historical NSE holiday circulars and stay STANDARD."""
+    return "SPECIAL_WEEKEND" if pd.Timestamp(d).weekday() >= 5 else "STANDARD"
+
+
+def build_year(year, files, include_special=False):
+    """All EQ rows of one calendar year + overlap comparison records.
+    include_special=False reproduces PANEL-1 exactly (standard sessions only);
+    True adds weekend special sessions and a `session_type` column (PANEL-1.1)."""
     by = {}
     for r in files:
         s = date.fromisoformat(r["session"])
-        if s.year == year:
+        if s.year == year and (include_special or s.weekday() < 5):
             by.setdefault(s, {})[r["kind"]] = r
     out, overlap = [], []
     for s in sorted(by):
@@ -90,7 +99,10 @@ def build_year(year, files):
             diff = {f: int((a.loc[common, f].astype(str) != b.loc[common, f].astype(str)).sum()) for f in fields}
             overlap.append({"session": str(s), "udiff_rows": len(a), "legacy_rows": len(b),
                             "common": len(common), "field_mismatches": diff})
-    return (pd.concat(out, ignore_index=True) if out else pd.DataFrame(columns=COLS)), overlap
+    df = pd.concat(out, ignore_index=True) if out else pd.DataFrame(columns=COLS)
+    if include_special:
+        df["session_type"] = np.where(df["date"].dt.weekday >= 5, "SPECIAL_WEEKEND", "STANDARD")
+    return df, overlap
 
 
 def qa(df):
@@ -122,11 +134,12 @@ def qa_conflicts(df):
     }
 
 
-def calendar_check(manifest_records, start, end, holidays=None):
-    """Every weekday in [start, end] must be either a downloaded session (200) or a recorded
-    404 (no NSE file = non-trading day). `holidays`: optional set of NSE holiday dates to
-    cross-check 404 weekdays against (only years with a stored NSE holiday list)."""
-    days = pd.bdate_range(start, end)
+def calendar_check(manifest_records, start, end, holidays=None, weekends=False):
+    """Every weekday (weekends=True: every Saturday/Sunday) in [start, end] must be either a
+    downloaded session (200) or a recorded 404 (no NSE file = no session). `holidays`: optional
+    set of NSE holiday dates to cross-check 404 weekdays against."""
+    days = pd.date_range(start, end)
+    days = days[days.weekday >= 5] if weekends else days[days.weekday < 5]
     ok = {r["session"] for r in manifest_records if r["status"] == 200 and r["kind"] in ("legacy_cm", "udiff_cm")}
     miss = {r["session"] for r in manifest_records if r["status"] == 404 and r["kind"] in ("legacy_cm", "udiff_cm")} - ok
     iso = [d.date().isoformat() for d in days]
@@ -141,21 +154,22 @@ def calendar_check(manifest_records, start, end, holidays=None):
     return out
 
 
-def build_dataset(out_dir, years=range(2005, 2027)):
-    """Write one parquet per year (EQ rows, raw values) + return manifest entries."""
+def build_dataset(out_dir, years=range(2005, 2027), include_special=False, prefix="panel1"):
+    """Write one parquet per year (EQ rows, raw values) + return manifest entries.
+    include_special=False -> PANEL-1; True -> PANEL-1.1 (adds weekend special sessions)."""
     import hashlib
     out_dir = BASE_DIR / out_dir
     out_dir.mkdir(parents=True, exist_ok=True)
     files, entries, overlaps = raw_files(), [], []
     for y in years:
-        df, ov = build_year(y, files)
+        df, ov = build_year(y, files, include_special)
         if df.empty:
             continue
-        f = out_dir / f"panel1_{y}.parquet"
+        f = out_dir / f"{prefix}_{y}.parquet"
         if f.exists():
             raise FileExistsError(f"{f} exists - generated datasets are never overwritten")
         df.to_parquet(f, index=False)
-        entries.append({"file": str(f.relative_to(BASE_DIR)), "sha256": hashlib.sha256(f.read_bytes()).hexdigest(),
+        entries.append({"file": str(f.relative_to(BASE_DIR)) if f.is_relative_to(BASE_DIR) else str(f), "sha256": hashlib.sha256(f.read_bytes()).hexdigest(),
                         "year": y, "sessions": int(df["date"].nunique()), "symbols": int(df["symbol"].nunique()),
                         "first": str(df["date"].min().date()), "last": str(df["date"].max().date()),
                         "qa": qa(df) | qa_conflicts(df)})

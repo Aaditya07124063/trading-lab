@@ -26,3 +26,4 @@ Code/infrastructure changes by commit. Research findings go in
 - 13e4664 feat: official NSE regime source, per-session malformed-data rule, flag-only bhavcopy; (docs) final pre-freeze audit
 - (phase 1) feat: central access boundary (research cutoff 2026-09-30, holdout authorization artifact + single-use guard), dashboard cutoff, operational status field list, frozen-methodology hash tests
 - (stage2 phase2) data foundation: NSE raw archive + manifest, PANEL-1, CA-2, ID-1, UNIV-1, RET-1, tests (233 pass), docs/stage2/data reports
+- (stage2 phase2.1) fixes: weekend special sessions archived (27) with 5xx retries, session_type + weekend calendar QA (PANEL-1.1), RET-1.1 (SPECIAL_SESSION_SPAN, VALIDATED_LARGE_RESIDUAL), scripts/build_stage2.py deterministic rebuild/verify, UNIV-1 tracking statement corrected; UNIV-1, RET-1 and ORB v1 unchanged

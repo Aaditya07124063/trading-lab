@@ -1,5 +1,9 @@
 # Stage 2 — Phase 2 data foundation: final report (2026-10-05)
 
+> **Phase 2.1 (2026-10-05):** special sessions, reproducibility and large residuals were addressed in `phase2_1_fixes_20261005.md`. That document supersedes the calendar statements in §2–3 and the RET-1 status table in §8 for RET-1.1. RET-1 itself is unchanged.
+>
+> **Approved decisions (2026-10-05):** large-residual threshold fixed at 10% (predefined diagnostic rule); `SPECIAL_SESSION_SPAN` rows stay outside research-grade; weekday special sessions are left unclassified (calendar-source limitation); the 2012-11-11 file is kept. "Research-grade" means passing predefined data-quality rules, not proof that the market history is error-free. See the "Review decisions" section of that document.
+
 **Scope:** data foundation only. No strategy experiments, no ML, no performance studies. Nothing after 2026-09-30 was read, and no ORB holdout file was read.
 
 **Detailed reports:**
@@ -130,7 +134,8 @@
 
 All in `data/stage2/PHASE2_MANIFEST.json`:
 - the raw manifest SHA-256;
-- 22 PANEL-1, 16 RET-1 and 1 UNIV-1 generated files (outside git; rebuildable);
+- 22 PANEL-1 and 16 RET-1 generated files (outside git; rebuildable);
+- the UNIV-1 dataset, which is **tracked in git** as the frozen universe (corrected in Phase 2.1; the original text wrongly said outside git);
 - 16 committed metadata files.
 
 **UNIV-1 dataset SHA-256:** `2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42`.

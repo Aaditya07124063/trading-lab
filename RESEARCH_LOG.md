@@ -226,3 +226,14 @@ and [DATA_REGISTRY.md](DATA_REGISTRY.md).
   - A universally reliable adjusted or total-return history **cannot** be claimed.
 - **Disk cleanup (user-approved, outside the project):** npm cache and `brew cleanup -s`. Free space went from 5.5 GB to 10.85 GB. The uv prune was blocked by a running chroma-mcp server and skipped.
 - No data after 2026-09-30 read; no holdout data read; ORB v1 unchanged; no ML; no experiments.
+
+## 2026-10-05 - Stage 2 Phase 2.1: three review fixes (no experiments)
+- **Special sessions (B1):** all 2,270 weekend days 2005 → 2026-09-30 requested; 27 NSE weekend sessions archived (19 in the verified period). PANEL-1.1 adds `session_type`. UNIV-1 keeps its standard-session definition and is unchanged.
+- **RET-1.1:** 30,109 returns that span a special session are flagged `SPECIAL_SESSION_SPAN` and are not research-grade.
+- **Large residuals (I1):** 106 validated bonus/split rows with an adjusted return beyond 10% are flagged `VALIDATED_LARGE_RESIDUAL` and are not research-grade. No new adjustments; raw prices unchanged.
+- Research-grade share: 99.24% (RET-1) → 98.75% (RET-1.1).
+- **Reproducibility (B2):** `scripts/build_stage2.py` rebuilds ID-1, CA-2, UNIV-1, RET-1 and the validation outputs from the raw archive and matches every Phase 2 hash.
+- Not classified: weekday special sessions (Muhurat on a weekday holiday) stay `STANDARD`.
+- **Review decisions (approved 2026-10-05):** 10% residual threshold fixed as a predefined diagnostic rule; span rows stay excluded; weekday special sessions left unclassified for lack of archived NSE calendar evidence; 2012-11-11 kept. "Research-grade" = passes predefined data-quality rules, not error-free history.
+- Details: `docs/stage2/data/phase2_1_fixes_20261005.md`.
+- No data after 2026-09-30 read; no holdout data read; ORB v1 unchanged; no ML; no experiments.

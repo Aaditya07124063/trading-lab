@@ -16,3 +16,13 @@ Legacy experiments (IDs `LEGACY-*`) predate version control of their inputs;
 their registry entries state exactly what could and could not be reproduced.
 Environment at registration: python and package versions are stored in each
 record (`environment`).
+
+## Stage 2 data foundation
+
+    python3 scripts/build_stage2.py                 # ~7 min, ~10 GB RAM; exit 0 = every hash matches
+
+Rebuilds PANEL-1, CA-2, ID-1, UNIV-1, RET-1, PANEL-1.1 and RET-1.1 from the raw NSE
+archive (`data/raw/nse_archive`, checksums in `data/stage2/raw_manifest.jsonl`) and
+compares SHA-256 hashes with `data/stage2/PHASE2_MANIFEST.json` and the per-dataset
+manifests. The raw archive is outside git; refetch it with the `src.stage2.archive`
+commands listed under `rebuild` in that manifest (resumes, never overwrites).
