@@ -1,0 +1,359 @@
+{
+ "statement": "Costs were specified (Addendum 1, Supplements 1-3) after the gross A-D, sensitivity and confirmation results were known and before any cost, turnover or net return was computed. Step E changes no A-D result. S1-S4 are pre-specified cost scenarios, not estimates. Every figure for L and every net WML is HYPOTHETICAL: L is costed as a long Rs 1 crore portfolio; hypothetical net WML = gross WML - cost of W - cost of L; it is not tested and is not an implementable long-short return. Each sample starts from cash (a full purchase, also at the confirmation boundary) and has no terminal liquidation. Orders above UNIV-1 rank 500 or unranked take the 201-500 slippage rate as an assumption. No break-even and no H4 for the confirmation sample (narrows the frozen \u00a713 'always reported' line). A flat per-stock sell-side charge weighs more on the benchmark than on W (Addendum 1 \u00a75). Schedule fallbacks and assumptions are listed per order in the ledger.",
+ "inputs_sha256": {
+  "results/s2_mom_v1/primary_holdings.csv": "3887995763861a2ed17e280f1f975c6fd716dab4923c954d3ca70b91c2d93748",
+  "results/s2_mom_v1/primary_monthly.csv": "f7c8d3ab5a0ef7a08b6a0ca8a12bf26a1f901006c21637cf7886e297b97bb372",
+  "results/s2_mom_v1/confirmation_holdings.csv": "96bb174ed2942e7b93630ae445d11817551a44e15b90e5454272ddb79aa825b0",
+  "results/s2_mom_v1/confirmation_monthly.csv": "4d88f385375ad681f85be739b292097e2e898acb6acb71013230c67415a43ce3",
+  "data/stage2/universe/univ1_pit_universe.parquet": "2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42"
+ },
+ "schedule_sha256": "47a9bad407b87b781c3584986b76b23216c2af33eb2b2f9986d23f710098a10f",
+ "samples": {
+  "primary": {
+   "sample": "PRIMARY",
+   "months": 114,
+   "H3": {
+    "n": 114,
+    "mean_pct": 0.9247563780185803,
+    "se_nw_pct": 0.4629359717018239,
+    "t": 1.9975902382764372,
+    "lag": 4,
+    "p_one_sided": 0.022880551213537603,
+    "alpha": 0.05,
+    "supported": true
+   },
+   "gross_mean": {
+    "W": 0.01738183013483202,
+    "L": 0.008134266354646213,
+    "BM": 0.011777874870205103,
+    "WML": 0.009247563780185805
+   },
+   "scenarios": {
+    "S0": {
+     "slippage_bps": {
+      "1-200": 0,
+      "201-500": 0
+     },
+     "cost_W": 0.0006559844378363767,
+     "cost_BM": 0.000377562674208441,
+     "hypothetical_cost_L": 0.0006531284243698698,
+     "net_W": 0.016725845696995645,
+     "net_BM": 0.01140031219599666,
+     "hypothetical_net_L": 0.007481137930276337,
+     "hypothetical_net_WML": 0.007938450917979555,
+     "net_excess_W_over_BM": 0.005325533500998982
+    },
+    "S1": {
+     "slippage_bps": {
+      "1-200": 5,
+      "201-500": 15
+     },
+     "cost_W": 0.0009614469086415842,
+     "cost_BM": 0.0005013907472348348,
+     "hypothetical_cost_L": 0.0009473519945313965,
+     "net_W": 0.016420383226190435,
+     "net_BM": 0.011276484122970267,
+     "hypothetical_net_L": 0.0071869143601148095,
+     "hypothetical_net_WML": 0.007338764877012824,
+     "net_excess_W_over_BM": 0.005143899103220167
+    },
+    "S2": {
+     "slippage_bps": {
+      "1-200": 10,
+      "201-500": 30
+     },
+     "cost_W": 0.0012669093794467914,
+     "cost_BM": 0.0006252188202612286,
+     "hypothetical_cost_L": 0.0012415755646929235,
+     "net_W": 0.016114920755385228,
+     "net_BM": 0.011152656049943878,
+     "hypothetical_net_L": 0.006892690789953286,
+     "hypothetical_net_WML": 0.00673907883604609,
+     "net_excess_W_over_BM": 0.004962264705441353
+    },
+    "S3": {
+     "slippage_bps": {
+      "1-200": 25,
+      "201-500": 75
+     },
+     "cost_W": 0.0021832967918624132,
+     "cost_BM": 0.00099670303934041,
+     "hypothetical_cost_L": 0.002124246275177504,
+     "net_W": 0.015198533342969611,
+     "net_BM": 0.010781171830864694,
+     "hypothetical_net_L": 0.006010020079468705,
+     "hypothetical_net_WML": 0.004940020713145887,
+     "net_excess_W_over_BM": 0.004417361512104914
+    },
+    "S4": {
+     "slippage_bps": {
+      "1-200": 50,
+      "201-500": 150
+     },
+     "cost_W": 0.0037106091458884508,
+     "cost_BM": 0.0016158434044723788,
+     "hypothetical_cost_L": 0.003595364125985137,
+     "net_W": 0.013671220988943572,
+     "net_BM": 0.010162031465732727,
+     "hypothetical_net_L": 0.004538902228661069,
+     "hypothetical_net_WML": 0.0019415905083122172,
+     "net_excess_W_over_BM": 0.0035091895232108442
+    }
+   },
+   "mean_one_way_turnover": {
+    "W": 0.2526936001079573,
+    "L": 0.25172690275663956,
+    "BM": 0.08333902892457995
+   },
+   "H4": {
+    "n": 114,
+    "mean_pct": 0.5325533500998982,
+    "se_nw_pct": 0.19587066236469772,
+    "t": 2.718903094881665,
+    "lag": 4,
+    "p_one_sided": 0.0032749397016062593,
+    "alpha": 0.05,
+    "supported": true
+   },
+   "break_even": {
+    "x_mean_net_excess_S0": 0.005325533500998982,
+    "d_mean_traded_value_W_minus_BM": 0.33870914236675465,
+    "break_even_one_way_cost_bps": 157.2302850695565,
+    "status": "OK"
+   },
+   "orders_by_band": [
+    {
+     "portfolio": "BM",
+     "band": "1-200",
+     "fallback_above_500_or_unranked": false,
+     "orders": 21484,
+     "traded_value_rs": 143855475.67197454
+    },
+    {
+     "portfolio": "BM",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": false,
+     "orders": 853,
+     "traded_value_rs": 44134011.304696344
+    },
+    {
+     "portfolio": "BM",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": true,
+     "orders": 41,
+     "traded_value_rs": 2023498.971371414
+    },
+    {
+     "portfolio": "L",
+     "band": "1-200",
+     "fallback_above_500_or_unranked": false,
+     "orders": 7549,
+     "traded_value_rs": 525491137.44356674
+    },
+    {
+     "portfolio": "L",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": false,
+     "orders": 270,
+     "traded_value_rs": 47122354.63545385
+    },
+    {
+     "portfolio": "L",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": true,
+     "orders": 8,
+     "traded_value_rs": 1323846.206117585
+    },
+    {
+     "portfolio": "W",
+     "band": "1-200",
+     "fallback_above_500_or_unranked": false,
+     "orders": 7494,
+     "traded_value_rs": 515984895.6512775
+    },
+    {
+     "portfolio": "W",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": false,
+     "orders": 325,
+     "traded_value_rs": 55781475.03790572
+    },
+    {
+     "portfolio": "W",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": true,
+     "orders": 26,
+     "traded_value_rs": 4375037.556959399
+    }
+   ]
+  },
+  "confirmation": {
+   "sample": "OOS",
+   "months": 56,
+   "H3": {
+    "n": 56,
+    "mean_pct": 0.33731115153805186,
+    "se_nw_pct": 0.5075766425755858,
+    "t": 0.6645521547769432,
+    "lag": 3,
+    "p_one_sided": 0.25316848997375496,
+    "alpha": 0.05,
+    "supported": false
+   },
+   "gross_mean": {
+    "W": 0.015126512728124143,
+    "L": 0.011753401212743634,
+    "BM": 0.012949170151973197,
+    "WML": 0.003373111515380518
+   },
+   "scenarios": {
+    "S0": {
+     "slippage_bps": {
+      "1-200": 0,
+      "201-500": 0
+     },
+     "cost_W": 0.0006585336710896679,
+     "cost_BM": 0.00035635063972048873,
+     "hypothetical_cost_L": 0.0006311962945164375,
+     "net_W": 0.014467979057034477,
+     "net_BM": 0.012592819512252709,
+     "hypothetical_net_L": 0.011122204918227194,
+     "hypothetical_net_WML": 0.002083381549774413,
+     "net_excess_W_over_BM": 0.0018751595447817663
+    },
+    "S1": {
+     "slippage_bps": {
+      "1-200": 5,
+      "201-500": 15
+     },
+     "cost_W": 0.000991542505087874,
+     "cost_BM": 0.0005032823285583941,
+     "hypothetical_cost_L": 0.0009449894989719984,
+     "net_W": 0.014134970223036267,
+     "net_BM": 0.012445887823414803,
+     "hypothetical_net_L": 0.01080841171377163,
+     "hypothetical_net_WML": 0.0014365795113206444,
+     "net_excess_W_over_BM": 0.0016890823996214659
+    },
+    "S2": {
+     "slippage_bps": {
+      "1-200": 10,
+      "201-500": 30
+     },
+     "cost_W": 0.0013245513390860806,
+     "cost_BM": 0.0006502140173962994,
+     "hypothetical_cost_L": 0.0012587827034275594,
+     "net_W": 0.013801961389038065,
+     "net_BM": 0.0122989561345769,
+     "hypothetical_net_L": 0.010494618509316071,
+     "hypothetical_net_WML": 0.000789777472866879,
+     "net_excess_W_over_BM": 0.0015030052544611654
+    },
+    "S3": {
+     "slippage_bps": {
+      "1-200": 25,
+      "201-500": 75
+     },
+     "cost_W": 0.0023235778410806993,
+     "cost_BM": 0.0010910090839100159,
+     "hypothetical_cost_L": 0.002200162316794242,
+     "net_W": 0.012802934887043446,
+     "net_BM": 0.011858161068063183,
+     "hypothetical_net_L": 0.00955323889594939,
+     "hypothetical_net_WML": -0.001150628642494423,
+     "net_excess_W_over_BM": 0.000944773818980263
+    },
+    "S4": {
+     "slippage_bps": {
+      "1-200": 50,
+      "201-500": 150
+     },
+     "cost_W": 0.00398862201107173,
+     "cost_BM": 0.0018256675280995428,
+     "hypothetical_cost_L": 0.003769128339072047,
+     "net_W": 0.011137890717052413,
+     "net_BM": 0.011123502623873658,
+     "hypothetical_net_L": 0.007984272873671584,
+     "hypothetical_net_WML": -0.00438463883476326,
+     "net_excess_W_over_BM": 1.4388093178757468e-05
+    }
+   },
+   "mean_one_way_turnover": {
+    "W": 0.27147175245709565,
+    "L": 0.2594970234022214,
+    "BM": 0.09392173666243071
+   },
+   "H4": {
+    "status": "NOT RUN: H3 is not supported in this sample (frozen \u00a717, ruling 13)"
+   },
+   "break_even": {
+    "status": "NOT RUN: H3 is not supported in this sample (frozen \u00a717, ruling 13)"
+   },
+   "orders_by_band": [
+    {
+     "portfolio": "BM",
+     "band": "1-200",
+     "fallback_above_500_or_unranked": false,
+     "orders": 10517,
+     "traded_value_rs": 75506771.84365654
+    },
+    {
+     "portfolio": "BM",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": false,
+     "orders": 557,
+     "traded_value_rs": 29327282.731707193
+    },
+    {
+     "portfolio": "BM",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": true,
+     "orders": 8,
+     "traded_value_rs": 358290.486558656
+    },
+    {
+     "portfolio": "L",
+     "band": "1-200",
+     "fallback_above_500_or_unranked": false,
+     "orders": 3697,
+     "traded_value_rs": 260230804.82061785
+    },
+    {
+     "portfolio": "L",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": false,
+     "orders": 170,
+     "traded_value_rs": 30174878.530138586
+    },
+    {
+     "portfolio": "L",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": true,
+     "orders": 2,
+     "traded_value_rs": 230982.85973153898
+    },
+    {
+     "portfolio": "W",
+     "band": "1-200",
+     "fallback_above_500_or_unranked": false,
+     "orders": 3691,
+     "traded_value_rs": 269587597.08892524
+    },
+    {
+     "portfolio": "W",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": false,
+     "orders": 195,
+     "traded_value_rs": 33797821.438182555
+    },
+    {
+     "portfolio": "W",
+     "band": "201-500",
+     "fallback_above_500_or_unranked": true,
+     "orders": 4,
+     "traded_value_rs": 662944.224839373
+    }
+   ]
+  }
+ }
+}

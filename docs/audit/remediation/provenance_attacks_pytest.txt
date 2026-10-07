@@ -1,0 +1,25 @@
+tests/test_provenance_chain.py::test_intact_chain_verifies PASSED
+tests/test_provenance_chain.py::test_modified_input_with_unchanged_manifest_fails PASSED
+tests/test_provenance_chain.py::test_rewritten_manifest_with_modified_input_fails PASSED
+tests/test_provenance_chain.py::test_modified_manifest_with_unchanged_registry_hash_fails[<lambda>0] PASSED
+tests/test_provenance_chain.py::test_modified_manifest_with_unchanged_registry_hash_fails[<lambda>1] PASSED
+tests/test_provenance_chain.py::test_modified_manifest_with_unchanged_registry_hash_fails[<lambda>2] PASSED
+tests/test_provenance_chain.py::test_missing_manifest_and_missing_anchor_fail PASSED
+tests/test_provenance_chain.py::test_duplicate_manifest_entry_fails_even_when_the_registry_names_that_manifest PASSED
+tests/test_provenance_chain.py::test_path_traversal_or_unexpected_path_fails[../../../outside.csv] PASSED
+tests/test_provenance_chain.py::test_path_traversal_or_unexpected_path_fails[/etc/passwd] PASSED
+tests/test_provenance_chain.py::test_path_traversal_or_unexpected_path_fails[primary/../../secret.csv] PASSED
+tests/test_provenance_chain.py::test_path_traversal_or_unexpected_path_fails[research/extra.csv] PASSED
+tests/test_provenance_chain.py::test_path_traversal_or_unexpected_path_fails[primary\\calendar.csv] PASSED
+tests/test_provenance_chain.py::test_path_traversal_or_unexpected_path_fails[] PASSED
+tests/test_provenance_chain.py::test_missing_manifest_entry_deleted_input_and_extra_file_fail PASSED
+tests/test_provenance_chain.py::test_an_input_replaced_by_a_symlink_to_identical_bytes_fails PASSED
+tests/test_provenance_chain.py::test_stage2_inputs_code_and_check_files_are_part_of_the_chain[<lambda>-univ1_pit_universe.parquet does not match] PASSED
+tests/test_provenance_chain.py::test_stage2_inputs_code_and_check_files_are_part_of_the_chain[<lambda>-missing input] PASSED
+tests/test_provenance_chain.py::test_stage2_inputs_code_and_check_files_are_part_of_the_chain[<lambda>-ret1_1_2012.parquet does not match] PASSED
+tests/test_provenance_chain.py::test_stage2_inputs_code_and_check_files_are_part_of_the_chain[<lambda>-dataset folder differs] PASSED
+tests/test_provenance_chain.py::test_stage2_inputs_code_and_check_files_are_part_of_the_chain[<lambda>-ladder.py does not match] PASSED
+tests/test_provenance_chain.py::test_stage2_inputs_code_and_check_files_are_part_of_the_chain[<lambda>-pre_run_checks_primary.json does not match] PASSED
+tests/test_provenance_chain.py::test_registry_record_and_manifest_must_name_the_same_protocol_and_universe PASSED
+tests/test_provenance_chain.py::test_the_real_chain_is_anchored_in_the_registry_and_verifies PASSED
+============================== 24 passed in 0.43s ==============================

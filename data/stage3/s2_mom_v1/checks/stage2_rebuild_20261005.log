@@ -1,0 +1,167 @@
+1. raw manifest (append-only)
+  OK   Phase 2 raw records unchanged
+  OK   no record after the research cutoff
+  OK   raw files present
+  OK   raw file SHA-256 == manifest
+2. PANEL-1 (standard sessions)
+  OK   panel1_2005.parquet
+  OK   panel1_2005 qa
+  OK   panel1_2006.parquet
+  OK   panel1_2006 qa
+  OK   panel1_2007.parquet
+  OK   panel1_2007 qa
+  OK   panel1_2008.parquet
+  OK   panel1_2008 qa
+  OK   panel1_2009.parquet
+  OK   panel1_2009 qa
+  OK   panel1_2010.parquet
+  OK   panel1_2010 qa
+  OK   panel1_2011.parquet
+  OK   panel1_2011 qa
+  OK   panel1_2012.parquet
+  OK   panel1_2012 qa
+  OK   panel1_2013.parquet
+  OK   panel1_2013 qa
+  OK   panel1_2014.parquet
+  OK   panel1_2014 qa
+  OK   panel1_2015.parquet
+  OK   panel1_2015 qa
+  OK   panel1_2016.parquet
+  OK   panel1_2016 qa
+  OK   panel1_2017.parquet
+  OK   panel1_2017 qa
+  OK   panel1_2018.parquet
+  OK   panel1_2018 qa
+  OK   panel1_2019.parquet
+  OK   panel1_2019 qa
+  OK   panel1_2020.parquet
+  OK   panel1_2020 qa
+  OK   panel1_2021.parquet
+  OK   panel1_2021 qa
+  OK   panel1_2022.parquet
+  OK   panel1_2022 qa
+  OK   panel1_2023.parquet
+  OK   panel1_2023 qa
+  OK   panel1_2024.parquet
+  OK   panel1_2024 qa
+  OK   panel1_2025.parquet
+  OK   panel1_2025 qa
+  OK   panel1_2026.parquet
+  OK   panel1_2026 qa
+3. CA-2 validation outputs
+  OK   validation/ca2_event_validation.csv
+  OK   validation/ca2_unexplained_jumps.csv
+  events 1375 {'VALIDATED': 1082, 'NO_PRICES:NO_SESSION_BEFORE_EX': 139, 'NO_PRICES:NO_SESSION_AFTER_EX': 93, 'INCONCLUSIVE': 47, 'NO_PRICES:SYMBOL_NOT_IN_PANEL': 3, 'DISCREPANT': 11} | unexplained jumps 3747
+4. ID-1 identity outputs
+  OK   identity/id1_segments.csv
+  OK   identity/id1_entities.csv
+  OK   identity/id1_links.csv
+  OK   identity/id1_flags.csv
+  segments 8408 | links 2960 | entities 5861
+5. ID-1 review outputs
+  OK   validation/id1_later_symbol_ca_resolution.csv
+  OK   validation/id1_jump_identity_review.csv
+6. UNIV-1 (frozen; standard sessions)
+  OK   univ1_pit_universe.parquet == frozen SHA-256
+  OK   univ1_pit_universe.parquet == committed file
+  rows 318208 | selection dates 181 | distinct members 687
+7. RET-1
+  OK   ret1_2011.parquet
+  OK   ret1_2012.parquet
+  OK   ret1_2013.parquet
+  OK   ret1_2014.parquet
+  OK   ret1_2015.parquet
+  OK   ret1_2016.parquet
+  OK   ret1_2017.parquet
+  OK   ret1_2018.parquet
+  OK   ret1_2019.parquet
+  OK   ret1_2020.parquet
+  OK   ret1_2021.parquet
+  OK   ret1_2022.parquet
+  OK   ret1_2023.parquet
+  OK   ret1_2024.parquet
+  OK   ret1_2025.parquet
+  OK   ret1_2026.parquet
+  OK   ret1 status counts
+  OK   returns/ret1_entity_quality.csv
+  OK   returns/ret1_unresolved_discontinuities.csv
+  OK   returns/ret1_member_entities_with_unresolved_discontinuities.csv
+8. PANEL-1.1 (standard + weekend special sessions)
+  OK   data/stage2/datasets/panel1_1/panel1_1_2005.parquet (rebuild identical)
+  OK   panel1_1_2005 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2006.parquet (rebuild identical)
+  OK   panel1_1_2006 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2007.parquet (rebuild identical)
+  OK   panel1_1_2007 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2008.parquet (rebuild identical)
+  OK   panel1_1_2008 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2009.parquet (rebuild identical)
+  OK   panel1_1_2009 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2010.parquet (rebuild identical)
+  OK   panel1_1_2010 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2011.parquet (rebuild identical)
+  OK   panel1_1_2011 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2012.parquet (rebuild identical)
+  OK   panel1_1_2012 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2013.parquet (rebuild identical)
+  OK   panel1_1_2013 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2014.parquet (rebuild identical)
+  OK   panel1_1_2014 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2015.parquet (rebuild identical)
+  OK   panel1_1_2015 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2016.parquet (rebuild identical)
+  OK   panel1_1_2016 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2017.parquet (rebuild identical)
+  OK   panel1_1_2017 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2018.parquet (rebuild identical)
+  OK   panel1_1_2018 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2019.parquet (rebuild identical)
+  OK   panel1_1_2019 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2020.parquet (rebuild identical)
+  OK   panel1_1_2020 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2021.parquet (rebuild identical)
+  OK   panel1_1_2021 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2022.parquet (rebuild identical)
+  OK   panel1_1_2022 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2023.parquet (rebuild identical)
+  OK   panel1_1_2023 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2024.parquet (rebuild identical)
+  OK   panel1_1_2024 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2025.parquet (rebuild identical)
+  OK   panel1_1_2025 standard rows == PANEL-1
+  OK   data/stage2/datasets/panel1_1/panel1_1_2026.parquet (rebuild identical)
+  OK   panel1_1_2026 standard rows == PANEL-1
+  OK   data/stage2/panel/special_sessions.csv (rebuild identical)
+  OK   every weekend day 2005..cutoff attempted
+  OK   data/stage2/panel/panel1_1_manifest.json (rebuild identical)
+  special sessions: 27
+9. RET-1.1 (special-session spans, large-residual flag)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2011.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2012.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2013.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2014.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2015.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2016.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2017.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2018.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2019.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2020.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2021.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2022.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2023.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2024.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2025.parquet (rebuild identical)
+  OK   data/stage2/datasets/ret1_1/ret1_1_2026.parquet (rebuild identical)
+  OK   data/stage2/returns/ret1_1_large_residuals.csv (rebuild identical)
+  OK   data/stage2/returns/ret1_1_entity_quality.csv (rebuild identical)
+  OK   data/stage2/returns/ret1_1_manifest.json (rebuild identical)
+  {'OK': 6038593, 'MULTI_SESSION_GAP': 41283, 'SPECIAL_SESSION_SPAN': 30109, 'FIRST_OBSERVATION': 3683, 'UNEXPLAINED_JUMP': 906, 'ADJUSTED_VALIDATED': 718, 'EVENT_UNADJUSTABLE': 316, 'VALIDATED_LARGE_RESIDUAL': 106, 'EVENT_INCONCLUSIVE': 44, 'EVENT_DISCREPANT': 4}
+10. Phase 2.1 files == PHASE2_MANIFEST
+  OK   raw manifest (Phase 2 + weekend records)
+  OK   data/stage2/panel/panel1_1_manifest.json
+  OK   data/stage2/panel/special_sessions.csv
+  OK   data/stage2/returns/ret1_1_entity_quality.csv
+  OK   data/stage2/returns/ret1_1_large_residuals.csv
+  OK   data/stage2/returns/ret1_1_manifest.json
+
+RESULT: ALL CHECKS PASSED

@@ -1,0 +1,47 @@
+# search log, 2026-10-06T01:36:22+0530 - every attempt, including failures
+## service tax / GST official notifications
+CBIC_st14-2015.pdf | https://www.cbic.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st14-2015.pdf | 000 0 
+   -> discarded
+CBIC_st14-2015.pdf | https://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st14-2015.pdf | 000 0 
+   -> discarded
+CBIC_st14-2015.pdf | https://taxinformation.cbic.gov.in/content/html/tax_repository/servicetax/st-notifications/st-notifications-2015/st14-2015.pdf | 000 0 
+   -> discarded
+WB_CBEC_st14-2015.pdf | https://web.archive.org/web/2016id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st14-2015.pdf | 200 6938 application/pdf
+WB_CBEC_st21-2015.pdf | https://web.archive.org/web/2016id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st21-2015.pdf | 404 4801 text/html
+   -> discarded
+WB_CBEC_st22-2015.pdf | https://web.archive.org/web/2016id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st22-2015.pdf | 404 4801 text/html
+   -> discarded
+WB_CBEC_st27-2016.pdf | https://web.archive.org/web/2017id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2016/st27-2016.pdf | 200 67621 application/pdf
+WB_CBEC_st28-2016.pdf | https://web.archive.org/web/2017id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2016/st28-2016.pdf | 200 8245 application/pdf
+WB_CBEC_gst_notfctn-11-central-tax-rate.pdf | https://web.archive.org/web/2018id_/http://www.cbec.gov.in/resources//htdocs-cbec/gst/Notification11-CGST.pdf | 200 128595 text/html;charset=UTF-8
+CBIC_gst_notfctn-11-central-tax-rate.pdf | https://cbic-gst.gov.in/pdf/central-tax-rate/notfctn-11-central-tax-rate-english.pdf | 404 258 text/html; charset=iso-8859-1
+   -> discarded
+## Finance Acts (enacted)
+GOI_FinanceAct2012_indiacode.pdf | https://www.indiacode.nic.in/bitstream/123456789/2113/1/A2012-23.pdf | 000 0 
+   -> discarded
+GOI_FinanceAct2012_egazette_wb.pdf | https://web.archive.org/web/2014id_/http://indiabudget.nic.in/ub2012-13/fb/bill.pdf | 404 4640 text/html
+   -> discarded
+GOI_FinanceBill2012_bill.pdf | https://www.indiabudget.gov.in/budget2012-2013/ub2012-13/fb/bill.pdf | 404 1245 text/html
+   -> discarded
+GOI_FinanceAct2012_incometax.pdf | https://incometaxindia.gov.in/Acts/Finance%20Acts/2012/102120000000007191.htm | 403 450 text/html
+   -> discarded
+## SEBI fee instruments
+SEBI_payment_of_fees_amendment_2014.pdf | https://www.sebi.gov.in/sebi_data/attachdocs/1401083990702.pdf | 404 5200 text/html; charset=UTF-8
+   -> discarded
+SEBI_feestructure_page.html | https://www.sebi.gov.in/commreport/feestructure.html | 200 43388 text/html; charset=UTF-8
+## earlier Zerodha pages (brokerage Jul-Sep 2012; depository charge before Oct 2016)
+CDX url=zerodha.com/pricing&from=2010&to=20120926&limit=6
+   -> Internet Archive index answered 'Temporarily Offline' (service outage; NOT a negative search result)
+CDX url=zerodha.com/charges&from=2015&to=20161008&limit=6
+   -> Internet Archive index answered 'Temporarily Offline' (service outage; NOT a negative search result)
+CDX url=zerodha.com/open-account&from=2012&to=2016&collapse=timestamp:4&limit=6
+   -> Internet Archive index answered 'Temporarily Offline' (service outage; NOT a negative search result)
+CDX url=zerodha.com/z-connect/tradezerodha/account-related/charges-explained*&limit=4
+CDX url=zerodha.com/z-connect/*dp-charges*&limit=6&collapse=urlkey
+CDX url=zerodha.com/z-connect/*demat*&from=2012&to=2016&limit=8&collapse=urlkey
+   -> Internet Archive index answered 'Temporarily Offline' (service outage; NOT a negative search result)
+
+## after review
+WB_CBEC_gst_notfctn-11-central-tax-rate.pdf -> discarded: the body was an HTML page, not the notification
+SEBI_feestructure_page.html -> discarded: an older fee proposal, not relevant to 2012-2026
+## outcome: the Internet Archive index was offline for every query about earlier Zerodha pages; those searches are INCOMPLETE, not negative

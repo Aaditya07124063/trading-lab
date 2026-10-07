@@ -261,6 +261,11 @@ RAW_ACCESS_ALLOWED = {
     "src/stage2/panel.py": "Stage 2 NSE raw-archive parser (never the holdout files); refuses sessions after RESEARCH_CUTOFF",
     "src/stage2/identity.py": "NSE identity/listing snapshots only (no market prices); rows dated after RESEARCH_CUTOFF dropped",
     "scripts/build_stage2.py": "Stage 2 rebuild/verify: re-reads its own in-memory CSV outputs (StringIO), never market files",
+    "src/stage3/data.py": "S2-MOM-v1 inputs: ID-1 identity metadata and its own data/stage3 CSV outputs; market rows only via RET-1.1 with an explicit cutoff",
+    "scripts/run_s2_mom_step_e.py": "S2-MOM-v1 step E (Supplement 3, ruling 19): read-only, exactly five SHA-256-pinned registered inputs (saved step D holdings and monthly files of both samples, UNIV-1), all hash-checked before any read; no raw market data",
+    "src/registry/integrity.py": "release-side validation (remediation 2026-10-07): reads only the hash-anchored data/stage3 inputs and ID-1 metadata, read-only, after the registry -> manifest chain; no intraday, collector or holdout file",
+    "scripts/reproduce_s2_mom_v1.py": "read-only reproduction (remediation 2026-10-07): reads only SHA-256-registered S2-MOM-v1 result files (monthly, delta, holdings, step E) after verifying every hash against the registry; writes nothing",
+    "scripts/run_s2_mom_c2.py": "S2-MOM-v1 C2 late analyses (docs/research/s2_mom_v1_c2_analysis_spec.md): read-only, exactly six SHA-256-pinned registered result files (monthly and delta files of both samples, primary and step E result JSONs), all hash-checked before any read; no market data, no holdings, no UNIV-1",
 }
 FORBIDDEN_CALLS = {"load_csv", "read_csv", "load_clean"}
 

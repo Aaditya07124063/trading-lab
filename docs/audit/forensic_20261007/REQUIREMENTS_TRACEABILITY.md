@@ -1,0 +1,53 @@
+# Trading Lab — requirements traceability (2026-10-07)
+
+Requirement → implementation → function → test → artifact → verification method. Documentation alone is never counted as proof.
+
+Status counts: CONTRADICTED 2 · MISSING 3 · PARTIAL 17 · PASS 20 · UNVERIFIED 1. Total 43.
+
+| # | Requirement | Implementation | Function | Test | Artifact | Verification | Status |
+|---|---|---|---|---|---|---|---|
+| 1 | Frozen protocol cannot change unnoticed | src/stage3/protocol.py | verify_protocol | test_h_runner_refuses_a_changed_protocol_or_registry_record; test_protocol_file_matches_the_frozen_hash_and_constants | docs/research/phase3a_momentum_protocol.md | hash recomputed in audit; mutation killed | PASS |
+| 2 | Nothing after 2026-09-30 is read by research code | src/access.py; src/stage3/data.py; src/stage2/* | _cut, load_ret, build (x4), parse, fetch | test_g_cutoffs_*; test_post_cutoff_row_refused; test_cutoff_enforced; access-boundary AST scan | - | mutations killed (cutoff guard off x3) | PASS |
+| 3 | Point-in-time universe (63-session liquidity ending t) | src/stage2/universe.py | build | test_decision_on_t_identical_with_full_or_truncated_data; test_future_high_volume_* | univ1_pit_universe.parquet 2abf457a | hash; mutation: future-shift killed, 63->64 and mean-vs-median survive | PARTIAL |
+| 4 | Point-in-time identity (links effective <= t) | src/stage2/universe.py | _components | test_future_symbol_not_used_before_its_effective_date | UNIV-1 | mutation 'identity links from the future' SURVIVES; real data pinned by hash | PARTIAL |
+| 5 | Delisted companies stay in the universe | src/stage2/universe.py; src/stage3/ladder.py | build; universes | test_future_delisting_does_not_remove_prior_membership; test_e_* | UNIV-1 | tests; hash | PASS |
+| 6 | Survivor pool P = ACTIVE_AT_CUTOFF (steps A, B) | src/stage3/data.py | identity | test_identity_refuses_a_grouping_mismatch; ladder world tests | research/identity.csv | mutation killed | PASS |
+| 7 | Step A list fixed at T* | src/stage3/ladder.py | universes | test_steps_a_b_c_universe_definitions | primary/universes.csv | mutation killed; build assert | PASS |
+| 8 | Formation = (m12, m1], 12-1 with one skipped month | src/stage3/ladder.py; protocol.py | calendar; run_ladder | test_formation_is_12_1_*; test_calendar_* | *_monthly.csv | independent recomputation; mutations killed | PASS |
+| 9 | Trade one session after selection; hold (s+, s++] | src/stage3/ladder.py | calendar; _hold | test_calendar_dates_and_delayed_entry | *_monthly.csv | independent recomputation; naive rule killed; research-grade exit-session mutation SURVIVES | PARTIAL |
+| 10 | Breakpoints k = floor(0.30 n + 0.5), ties by entity id | src/stage3/ladder.py | sort_portfolios; ranking | test_breakpoint_rule; test_ties_break_by_entity_ascending | *_holdings.csv | mutations killed | PASS |
+| 11 | Equal weights; benchmark = all rankable | src/stage3/ladder.py | run_ladder | placebo test; holdings test | *_holdings.csv | independent recomputation; median mutation killed | PASS |
+| 12 | WML = W - L; delta = WML_A - WML_D in percent | src/stage3/ladder.py | run_ladder; paired_delta | test_paired_delta_* | *_delta.csv | independent recomputation; delta mutations killed; 'WML = W + L' SURVIVES | PARTIAL |
+| 13 | Step D uses research-grade returns only; span days excluded | src/stage3/ladder.py | wide; _hold | test_step_d_* | *_monthly.csv | independent recomputation; 'raw on every row' mutation SURVIVES | PARTIAL |
+| 14 | Neutral fill for a flagged holding day (section 20b) | src/stage3/ladder.py | _hold | test_step_d_neutral_fill_* | *_events.csv | mutation killed | PASS |
+| 15 | Delisting rule section 22 (0 % / -30 %; gap return booked once) | src/stage3/ladder.py; data.py | _hold; identity | test_delisting_rule_*; test_section_22_* | *_events.csv | mutations killed; independent recomputation | PASS |
+| 16 | Missing price stops the run (B1.2) | src/stage3/ladder.py | wide | none | - | mutation SURVIVES; registered data has no such row | PARTIAL |
+| 17 | Input values are finite, unique and classified | src/stage3/ladder.py | wide | none | research/panel.parquet | audit check on registered data only (F-07) | MISSING |
+| 18 | Stage 3 inputs are the hashed ones | src/stage3/data.py | load_inputs; load_ret; load_univ | none (0 % coverage) | manifest.json | three hash-check mutations SURVIVE; manifest unanchored (F-02) | PARTIAL |
+| 19 | Newey-West test, Bartlett kernel, lag floor(4(T/100)^(2/9)), normal reference | src/stage3/stats.py; protocol.py | newey_west_lrv; mean_test | test_newey_west_matches_statsmodels; test_primary_p_value_* | *_results.json | recomputed with statsmodels in audit; mutations killed | PASS |
+| 20 | Stationary bootstrap, 10,000 resamples, null-centred, two-sided, fixed seed | src/stage3/stats.py; src/intraday/inference.py | bootstrap_test | test_bootstrap_is_seeded_two_sided_and_null_centred | primary_results.json | centring killed; one-sided count SURVIVES | PARTIAL |
+| 21 | Section 27 decision labels | src/stage3/experiment.py | analyse | none that distinguishes the labels | primary_results.json | mutation SURVIVES | PARTIAL |
+| 22 | Blinded precision step shows no location | src/stage3/stats.py; experiment.py | blinded_precision; blinded | test_blinded_precision_reveals_no_location; test_blinded_step_outputs_* | blinded_precision.json | tests; delta hash equals registered delta | PASS |
+| 23 | Primary before confirmation, same code hash | scripts/run_s2_mom.py | main | gate-order test covers the earlier gates only | registry provenance | code hashes equal in registry; mutation SURVIVES | PARTIAL |
+| 24 | Each mode runs once; nothing is overwritten | scripts/run_s2_mom.py; run_s2_mom_step_e.py; run_s2_mom_c2.py | _write; run | step E and C2: tested. Main runner: none | results/ | main-runner mutation SURVIVES; step E mutation killed | PARTIAL |
+| 25 | Pre-run leakage checks pass on real data before any result | src/stage3/experiment.py; run_s2_mom.py | pre_run_checks; _passed | test_pre_run_checks_* | checks/pre_run_checks_*.json | files unanchored (F-12); narrower than B2 (F-13) | PARTIAL |
+| 26 | Stage 2 rebuild passes 150 of 150 before the study | scripts/build_stage2.py; run_s2_mom.py | main | gate tested on the integer only | stage2_rebuild_20261005.log | hand-registered (F-12); not rerun in audit | PARTIAL |
+| 27 | Costs: dated rates in force on the trade date | src/stage3/step_e.py | period; order_cost; cost_ledger | tests/test_s2mom_step_e*.py; test_s2mom_cost_schedule.py | *_step_e_ledger.csv | independent recomputation; boundary mutation killed; 'rate at exit date' SURVIVES | PARTIAL |
+| 28 | Cost components, tax base, brokerage cap, depository charge | src/stage3/step_e.py | order_cost | hand-calculation tests | ledger | mutations killed; independent recomputation | PASS |
+| 29 | Slippage scenarios and bands | src/stage3/step_e.py; protocol.py | band; cost_ledger | scenario tests | ledger | mutations killed | PASS |
+| 30 | Notional Rs 1 crore at every rebalance, no compounding | src/stage3/step_e.py | cost_ledger | test_notional_is_never_compounded | ledger | test | PASS |
+| 31 | No cost is ever set to zero | src/stage3/step_e.py | net_returns | none for a missing month | *_step_e_monthly.csv | fillna(0) present (F-17); non-occurrence verified | CONTRADICTED |
+| 32 | H4 only if H3 supported; S0; one-sided | src/stage3/step_e.py | summarise; one_sided_test | test_h4_and_break_even_* | step_e_results.json | recomputed; mutation killed | PASS |
+| 33 | Holm and Benjamini-Hochberg adjustments | scripts/run_s2_mom_c2.py | holm; bh | test_holm_and_bh_known_values | c2_results.json | mutations killed | PASS |
+| 34 | Registered artifacts cannot change unnoticed | registry; tests; research_view | files_sha256 | test_registered_*; test_research_view_flags_a_changed_file | results/* | all hashes recomputed in audit | PASS |
+| 35 | Registered artifacts cannot be lost | git | - | none | - | untracked (F-01) | MISSING |
+| 36 | Registry is append-only with valid state transitions | src/registry/experiments.py | amend; current | none | registry/experiments.jsonl | attack script (F-03) | CONTRADICTED |
+| 37 | Every run is in the trial log | src/registry/experiments.py; runners | log_trial | none | registry/trials.jsonl | env switch and crash window (F-08, F-11) | PARTIAL |
+| 38 | ORB holdout rows need a committed authorization | src/access.py; src/intraday/data.py | holdout_authorized; load_intraday | tests/test_access_boundary.py (23 tests) | - | tests; mutation killed | PASS |
+| 39 | ORB frozen methodology unchanged | tests/test_access_boundary.py | FROZEN_SHA256 | test_frozen_orb_methodology_unchanged (15 files) | - | hash | PASS |
+| 40 | Runs are deterministic | all | - | test_deterministic; test_deterministic_and_independent_of_row_order | - | audit recomputation bit-level on this machine; cross-machine UNVERIFIED | PARTIAL |
+| 41 | Environment of each run is recorded | src/registry/experiments.py | environment | none | registry | scipy/pyarrow missing (F-06) | PARTIAL |
+| 42 | Reproduction from a clean environment is documented | REPRODUCIBILITY.md | - | - | - | no Stage 3 procedure (F-28) | MISSING |
+| 43 | Manuscript numbers come only from registered files | docs/manuscript/s2_mom_v1/build_manuscript.py | val; checks | its own 699 checks | manuscript.* | not re-audited | UNVERIFIED |
+
+PARTIAL means: implemented and correct on the registered data (independent recomputation), but a deliberate break of the rule is not caught by the suite, or the evidence chain has a gap. See `TEST_GAP_MATRIX.md` and `BUG_FINDINGS.md`.

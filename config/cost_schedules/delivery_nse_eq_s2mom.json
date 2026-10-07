@@ -1,0 +1,70 @@
+{
+ "schedule_id": "delivery_nse_eq_s2mom",
+ "protocol": "S2-MOM-v1 \u00a713 class 1",
+ "as_of": "2026-10-05",
+ "note": "Fractions of traded value unless stated. Every component needs: rate, evidence_archived=true and a basis. basis HISTORICAL_EVIDENCE = archived evidence covers 2012-07-02..2026-09-01. basis CURRENT_RATE_ASSUMPTION = frozen protocol \u00a713 fallback (current rate applied to the whole sample, labelled an assumption); it also needs assumed_for_period and why_history_unavailable. Anything else blocks every cost calculation (src/stage3/costs.py); nothing is ever treated as zero.",
+ "components": {
+  "stt_buy": {
+   "rate": null,
+   "evidence_archived": false,
+   "expected": "0.100% (protocol \u00a713, to verify)",
+   "needed": "official STT rate for delivery purchases, with history from 2012-07-01",
+   "basis": null
+  },
+  "stt_sell": {
+   "rate": null,
+   "evidence_archived": false,
+   "expected": "0.100% (protocol \u00a713, to verify)",
+   "needed": "official STT rate for delivery sales, with history from 2012-07-01",
+   "basis": null
+  },
+  "exchange_txn": {
+   "rate": 3.07e-05,
+   "evidence_archived": true,
+   "evidence": "docs/evidence/cost_sources.md ; docs/evidence/NSE_FA73061_2026-02-27_transaction_charges.pdf",
+   "applies_to_delivery": "NSE capital-market transaction charge + IPFT; not specific to intraday",
+   "basis": "CURRENT_RATE_ASSUMPTION",
+   "assumed_for_period": "2012-07-02..2026-09-01",
+   "why_history_unavailable": "Only the current schedule is archived (docs/evidence/cost_sources.md). Earlier NSE charges were slab-based; no dated rate history has been archived. No external search has been made yet."
+  },
+  "sebi_fee": {
+   "rate": 1e-06,
+   "evidence_archived": true,
+   "evidence": "docs/evidence/cost_sources.md",
+   "applies_to_delivery": "turnover fee on all trades",
+   "basis": "CURRENT_RATE_ASSUMPTION",
+   "assumed_for_period": "2012-07-02..2026-09-01",
+   "why_history_unavailable": "Only the current schedule is archived (docs/evidence/cost_sources.md). Earlier NSE charges were slab-based; no dated rate history has been archived. No external search has been made yet."
+  },
+  "stamp_duty_buy": {
+   "rate": null,
+   "evidence_archived": false,
+   "expected": "0.015% (protocol \u00a713, to verify)",
+   "needed": "official stamp-duty rate for delivery purchases",
+   "basis": null
+  },
+  "gst_rate": {
+   "rate": 0.18,
+   "evidence_archived": true,
+   "evidence": "docs/evidence/cost_sources.md",
+   "applies_to_delivery": "18% on brokerage + exchange + SEBI charges",
+   "basis": "CURRENT_RATE_ASSUMPTION",
+   "assumed_for_period": "2012-07-02..2026-09-01",
+   "why_history_unavailable": "Only the current schedule is archived (docs/evidence/cost_sources.md). Earlier NSE charges were slab-based; no dated rate history has been archived. No external search has been made yet."
+  },
+  "brokerage": {
+   "rate": null,
+   "evidence_archived": false,
+   "expected": "0 (protocol \u00a713, discount-broker delivery; to verify)",
+   "needed": "broker schedule page for delivery brokerage",
+   "basis": null
+  },
+  "dp_charge_rs_per_scrip_sold": {
+   "rate": null,
+   "evidence_archived": false,
+   "expected": "flat fee per stock sold (protocol \u00a713)",
+   "needed": "depository/broker schedule; rupees per scrip per sell day",
+   "basis": null
+  }
+ }
+}

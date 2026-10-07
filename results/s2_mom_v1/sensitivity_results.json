@@ -1,0 +1,204 @@
+{
+ "sample": "PRIMARY",
+ "sensitivity": {
+  "R_SPAN": {
+   "treatment": {
+    "span_raw": true
+   },
+   "paired_months": 114,
+   "unpaired_months": 0,
+   "rows_treated": 10495,
+   "H1": {
+    "n": 114,
+    "mean": 0.04576270431310536,
+    "se_nw": 0.19876790981070674,
+    "t": 0.23023185360598045,
+    "p_two_sided": 0.8179116110141823,
+    "lag": 4,
+    "ci90": [
+     -0.2811814130605987,
+     0.3727068216868094
+    ],
+    "distribution": "NORMAL"
+   },
+   "H1_sign_changed": true,
+   "H1_significance_changed": false,
+   "H3_sign_changed": false,
+   "H3_significance_changed": false,
+   "H4": "COST-EVIDENCE-PENDING"
+  },
+  "R_GAP": {
+   "treatment": {
+    "gap_raw": true
+   },
+   "paired_months": 114,
+   "unpaired_months": 0,
+   "rows_treated": 1130,
+   "H1": {
+    "n": 114,
+    "mean": -0.0070163706134618075,
+    "se_nw": 0.21673710455804807,
+    "t": -0.03237272467844855,
+    "p_two_sided": 0.9741748136371033,
+    "lag": 4,
+    "ci90": [
+     -0.3635171831407276,
+     0.34948444191380396
+    ],
+    "distribution": "NORMAL"
+   },
+   "H1_sign_changed": false,
+   "H1_significance_changed": false,
+   "H3_sign_changed": false,
+   "H3_significance_changed": false,
+   "H4": "COST-EVIDENCE-PENDING"
+  },
+  "R_MISS_RAW": {
+   "treatment": {
+    "miss": "RAW"
+   },
+   "paired_months": 114,
+   "unpaired_months": 0,
+   "rows_treated": null,
+   "H1": {
+    "n": 114,
+    "mean": -0.0594059493697199,
+    "se_nw": 0.21841779554562119,
+    "t": -0.27198310110822316,
+    "p_two_sided": 0.7856350130757181,
+    "lag": 4,
+    "ci90": [
+     -0.41867125256367993,
+     0.29985935382424017
+    ],
+    "distribution": "NORMAL"
+   },
+   "H1_sign_changed": false,
+   "H1_significance_changed": false,
+   "H3_sign_changed": false,
+   "H3_significance_changed": false,
+   "H4": "COST-EVIDENCE-PENDING"
+  },
+  "R_MISS_ZERO": {
+   "treatment": {
+    "miss": "ZERO"
+   },
+   "paired_months": 114,
+   "unpaired_months": 0,
+   "rows_treated": null,
+   "H1": {
+    "n": 114,
+    "mean": -0.05681041627174225,
+    "se_nw": 0.2112929215306259,
+    "t": -0.2688704186595662,
+    "p_two_sided": 0.7880294014808804,
+    "lag": 4,
+    "ci90": [
+     -0.404356344600565,
+     0.2907355120570805
+    ],
+    "distribution": "NORMAL"
+   },
+   "H1_sign_changed": false,
+   "H1_significance_changed": false,
+   "H3_sign_changed": false,
+   "H3_significance_changed": false,
+   "H4": "COST-EVIDENCE-PENDING"
+  },
+  "R_DELIST_ZERO": {
+   "treatment": {
+    "delist": "ZERO"
+   },
+   "paired_months": 114,
+   "unpaired_months": 0,
+   "rows_treated": null,
+   "H1": {
+    "n": 114,
+    "mean": -0.07603927469030801,
+    "se_nw": 0.21051657176050625,
+    "t": -0.3612032727609394,
+    "p_two_sided": 0.7179474957539982,
+    "lag": 4,
+    "ci90": [
+     -0.42230822128396656,
+     0.2702296719033505
+    ],
+    "distribution": "NORMAL"
+   },
+   "H1_sign_changed": false,
+   "H1_significance_changed": false,
+   "H3_sign_changed": false,
+   "H3_significance_changed": false,
+   "H4": "COST-EVIDENCE-PENDING"
+  },
+  "R_DELIST_MINUS100": {
+   "treatment": {
+    "delist": "MINUS100"
+   },
+   "paired_months": 114,
+   "unpaired_months": 0,
+   "rows_treated": null,
+   "H1": {
+    "n": 114,
+    "mean": -0.018312865415835742,
+    "se_nw": 0.21652515168429792,
+    "t": -0.0845761578892073,
+    "p_two_sided": 0.9325983543861489,
+    "lag": 4,
+    "ci90": [
+     -0.3744650464899708,
+     0.3378393156582993
+    ],
+    "distribution": "NORMAL"
+   },
+   "H1_sign_changed": false,
+   "H1_significance_changed": false,
+   "H3_sign_changed": false,
+   "H3_significance_changed": false,
+   "H4": "COST-EVIDENCE-PENDING"
+  }
+ },
+ "reliability": {
+  "rankable_below_minimum": false,
+  "filled_share_above_5pct": false,
+  "changes_under_sensitivity": true,
+  "rankable_min": 180,
+  "rankable_mean": 187.76315789473685,
+  "filled_share_of_W_stock_days": 0.0001666691919574539,
+  "filled_share_of_L_stock_days": 0.0002954590221063956,
+  "sensitivity_treatments_that_change_H1_or_H3": [
+   "R_SPAN"
+  ],
+  "H4_under_sensitivity": "COST-EVIDENCE-PENDING",
+  "not_reliable": true,
+  "status": "COMPLETE except H4 (cost evidence)"
+ },
+ "reverse_ladder": {
+  "R_POOL": {
+   "n": 114,
+   "mean": 0.06260948690314344,
+   "se_nw": 0.12514345308474495,
+   "t": 0.5003017366057927,
+   "p_two_sided": 0.6168626314878513,
+   "lag": 4,
+   "ci90": [
+    -0.14323317579253067,
+    0.2684521495988176
+   ],
+   "distribution": "NORMAL"
+  },
+  "R_RETURNS": {
+   "n": 114,
+   "mean": -0.1239887836332319,
+   "se_nw": 0.10009034416794128,
+   "t": -1.238768681074685,
+   "p_two_sided": 0.21543117544511858,
+   "lag": 4,
+   "ci90": [
+    -0.2886227492606912,
+    0.040645181994227425
+   ],
+   "distribution": "NORMAL"
+  }
+ }
+}

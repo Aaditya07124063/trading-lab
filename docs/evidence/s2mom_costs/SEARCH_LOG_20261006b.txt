@@ -1,0 +1,107 @@
+# search log, second pass, 2026-10-06 11:37-12:40 +0530 - every attempt, including failures
+# continues SEARCH_LOG_20261006.txt. The Internet Archive index was reachable in this pass (three single queries answered 'Temporarily Offline' and are marked).
+
+## A. downloads attempted (file | address | http-status bytes type). 200 = received; 000 = no response; 404 = not found
+WAYBACK_zerodha_chargelist_20120504125926.xls | https://web.archive.org/web/20120504125926id_/http://www.zerodha.com/download/ZerodhaChargeList.xls | 200 33792 application/vnd.ms-excel
+WAYBACK_zerodha_chargelist_20121225060108.xls | https://web.archive.org/web/20121225060108id_/http://www.zerodha.com/download/ZerodhaChargeList.xls | 200 36352 application/vnd.ms-excel
+WAYBACK_zerodha_brokerage_calculator_20120504130041.xls | https://web.archive.org/web/20120504130041id_/http://www.zerodha.com/download/Brokerage%20Calculator.xls | 200 76800 application/vnd.ms-excel
+WAYBACK_zerodha_brk_clc_js_20120428161459.js | https://web.archive.org/web/20120428161459id_/http://www.zerodha.com/main/calculator/brk_clc.js | 200 6321 application/javascript
+WAYBACK_zerodha_charge-list_20140504002448.html | https://web.archive.org/web/20140504002448id_/http://zerodha.com/charge-list | 200 25585 text/html
+WAYBACK_zerodha_demat_form_20120504125220.pdf | https://web.archive.org/web/20120504125220id_/http://www.zerodha.com/download/Demat%20Account/ZerodhaDematFull.pdf | 200 1658461 application/pdf
+WAYBACK_zerodha_form_annexure_v3.1_20140820073132.pdf | https://web.archive.org/web/20140820073132id_/http://zerodha.com/download/Demat%20Account/ZerodhaFormAnnexureV3.1.pdf | 200 250930 application/pdf
+WAYBACK_zerodha_tdform_v3_20121225062441.pdf | https://web.archive.org/web/20121225062441id_/http://www.zerodha.com/download/Demat%20Account/ZeordhaTDFormV3.pdf | 200 4937214 application/pdf
+WAYBACK_zerodha_ilfsdemat_20140703122832.pdf | https://web.archive.org/web/20140703122832id_/http://zerodha.com/download/ilfsdemat.pdf | 200 3486003 application/pdf
+WAYBACK_zerodha_brokerage_edge_20121214182600.html | https://web.archive.org/web/20121214182600id_/http://zerodha.com/connect/blog/2012/09/brokerage-edge | 200 34334 text/html
+WAYBACK_zerodha_blog_account_opening_charges_20121221043112.html | https://web.archive.org/web/20121221043112id_/http://www.zerodha.com/z-connect/blog/2012/10/account-opening-documentation-charges | 200 26116 text/html
+WAYBACK_zerodha_blog_poa_demat_20121221201612.html | https://web.archive.org/web/20121221201612id_/http://www.zerodha.com/z-connect/blog/2012/11/poa-power-of-attorney-for-your-demat-account | 200 24645 text/html
+WAYBACK_zerodha_ilfs_demat_form_20121225052153.pdf | https://web.archive.org/web/20121225052153id_/http://www.zerodha.com/download/Change%20of%20Information%20Documents/ILFSZeordhaOnlyDematForm.pdf | 200 4520463 application/pdf
+WAYBACK_zerodha_blog_poa_demat_20150620.html | https://web.archive.org/web/20150620174202id_/http://zerodha.com/z-connect/queries/stock-and-fo-queries/poa-power-of-attorney-for-your-demat-account | 200 207070 text/html; charset=UTF-8
+WAYBACK_zerodha_bulletin_txn_charges_20130920.html | https://web.archive.org/web/20130920020004id_/http://www.zerodha.com/z-connect/blog/2013/09/bulletin-60-day-challenge-yearbook-and-reduction-in-transaction-charges | 200 75068 text/html
+CBIC_GST_notfn11_2017_central_tax_rate.pdf | https://cbic-gst.gov.in/hindi/pdf/central-tax-rate/Notification11-CGST.pdf | 200 408638 application/pdf
+CBIC_GST_notfn11_2017_central_tax_rate_b.pdf | https://cbic-gst.gov.in/pdf/central-tax-rate/Notification11-CGST.pdf | 404 242 text/html; charset=iso-8859-1
+CBIC_GST_notfn8_2017_integrated_tax_rate.pdf | https://cbic-gst.gov.in/pdf/integrated-tax-rate/Notification8-IGST.pdf | 404 244 text/html; charset=iso-8859-1
+GSTCOUNCIL_node4432.html | https://gstcouncil.gov.in/node/4432 | 200 34478 text/html; charset=UTF-8
+INDIACODE_FinanceAct2012.pdf | https://www.indiacode.nic.in/bitstream/123456789/2113/1/A2012-23.pdf | 000 0 
+LEGISLATIVE_FinanceAct2012.pdf | https://legislative.gov.in/sites/default/files/A2012-23.pdf | 404 3205 text/html; charset=utf-8
+LDDASHBOARD_FinanceAct2012.pdf | https://lddashboard.legislative.gov.in/sites/default/files/A2012-23.pdf | 000 0 
+WB_legislative_FinanceAct2012.pdf | https://web.archive.org/web/2020id_/https://legislative.gov.in/sites/default/files/A2012-23.pdf | 404 4657 text/html
+WB_indiacode_FinanceAct2012.pdf | https://web.archive.org/web/2022id_/https://www.indiacode.nic.in/bitstream/123456789/2113/1/A2012-23.pdf | 404 4684 text/html
+SEBI_1488970004632.pdf | https://www.sebi.gov.in/sebi_data/attachdocs/1488970004632.pdf | 200 325398 application/pdf
+CBIC_GST_notfn8_2017_integrated_tax_rate.pdf | https://cbic-gst.gov.in/hindi/pdf/integrated-tax-rate/Notification8-IGST.pdf | 200 411547 application/pdf
+CBIC_GST_notfn8_2017_integrated_tax_rate_c.pdf | https://cbic-gst.gov.in/pdf/integrated-tax-rate/Notification8-IGST.pdf | 404 244 text/html; charset=iso-8859-1
+WB_cbec_FinanceAct2012_st.pdf | https://web.archive.org/web/2014id_/http://www.cbec.gov.in/resources//htdocs-cbec/fin-act2012.pdf | 404 4668 text/html
+WB_indiabudget_fa2012.pdf | https://web.archive.org/web/2013id_/http://indiabudget.nic.in/ub2012-13/fb/bill1.pdf | 200 46403 application/pdf
+EGAZ_search.html | https://egazette.gov.in/ | 000 0 
+WB_st21_2015.pdf | https://web.archive.org/web/2017id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st21-2015.pdf | 404 4801 text/html
+WB_st22_2015.pdf | https://web.archive.org/web/2017id_/http://www.cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/st22-2015.pdf | 404 4801 text/html
+WB_st21_2015b.pdf | https://web.archive.org/web/2016id_/http://www.cbec.gov.in/resources/htdocs-servicetax/st-notifications/st-notifications-2015/st21-2015.pdf | 404 4798 text/html
+SEBI_PR_payment_of_fees_amendment_2014.html | https://www.sebi.gov.in/media/press-releases/may-2014/notification-of-sebi-payment-of-fees-amendment-regulation-2014_26958.html | 200 9469 text/html; charset=UTF-8
+SEBI_1412152811369.pdf | https://www.sebi.gov.in/sebi_data/attachdocs/1412152811369.pdf | 200 815325 application/pdf
+SEBI_1487245299512.pdf | https://www.sebi.gov.in/sebi_data/attachdocs/1487245299512.pdf | 200 229799 application/pdf
+SEBI_reg_26957.html | https://www.sebi.gov.in/legal/regulations/may-2014/sebi-payment-of-fees-amendment-regulations-2014_26957.html | 404 5200 text/html; charset=UTF-8
+SEBI_reg_26956.html | https://www.sebi.gov.in/legal/regulations/may-2014/sebi-payment-of-fees-amendment-regulations-2014_26956.html | 404 5200 text/html; charset=UTF-8
+SEBI_reg_26959.html | https://www.sebi.gov.in/legal/regulations/may-2014/sebi-payment-of-fees-amendment-regulations-2014_26959.html | 404 5200 text/html; charset=UTF-8
+SEBI_reg_26955.html | https://www.sebi.gov.in/legal/regulations/may-2014/sebi-payment-of-fees-amendment-regulations-2014_26955.html | 404 5200 text/html; charset=UTF-8
+SEBI_reg_26960.html | https://www.sebi.gov.in/legal/regulations/may-2014/sebi-payment-of-fees-amendment-regulations-2014_26960.html | 404 5200 text/html; charset=UTF-8
+SEBI_payment_of_fees_amendment_regs_2014.pdf | https://www.sebi.gov.in/sebi_data/attachdocs/1400841851911.pdf | 200 82977 application/pdf
+WB_CBEC_finact2015_20150528.pdf | https://web.archive.org/web/20150528143059id_/http://www.cbec.gov.in:80/finact2015.pdf | 200 616306 application/pdf
+WB_CBEC_st-finact-062016_20161023.pdf | https://web.archive.org/web/20161023005929id_/http://www.cbec.gov.in:80/Cbec_Revamp_new/resources//htdocs-servicetax/st-finact-062016.pdf | 200 458184 application/pdf
+WB_CBEC_st-act-ason-01apr2017_20170611.pdf | https://web.archive.org/web/20170611224719id_/http://www.cbec.gov.in:80/Cbec_Revamp_new/resources//htdocs-servicetax/st-act-ason-01apr2017.pdf | 200 815619 application/pdf
+WB_CBEC_st21-2015_20151123.pdf | https://web.archive.org/web/20151123id_/http://www.cbec.gov.in:80/resources/htdocs-servicetax/st-notifications/st-notifications-2015/st21-2015.pdf | 404 4798 text/html
+WB_CBEC_st22-2015_20151123.pdf | https://web.archive.org/web/20151123id_/http://www.cbec.gov.in:80/resources/htdocs-servicetax/st-notifications/st-notifications-2015/st22-2015.pdf | 404 4798 text/html
+WB_CBEC_chap6-finact2013_20150827.html | https://web.archive.org/web/20150827114332id_/http://www.cbec.gov.in:80/htdocs-servicetax/chap6-finact2013 | 200 47886 text/html;charset=UTF-8
+WB_CBEC_st-act-ason24oct2013_20150829.pdf | https://web.archive.org/web/20150829184008id_/http://www.cbec.gov.in:80/resources//htdocs-servicetax/st-act-ason24oct2013.pdf | 200 601482 application/pdf
+WB_CBEC_st21h-2015_20151123.pdf | https://web.archive.org/web/20151123002441id_/http://www.cbec.gov.in:80/resources/htdocs-servicetax/st-notifications/st-notifications-2015/st21h-2015.pdf | 200 214099 application/pdf
+WB_CBEC_st22h-2015_20151123.pdf | https://web.archive.org/web/20151123003114id_/http://www.cbec.gov.in:80/resources/htdocs-servicetax/st-notifications/st-notifications-2015/st22h-2015.pdf | 200 218472 application/pdf
+CBDT_circular_3_2012_explanatory_notes_FA2012.html | https://www.incometaxindia.gov.in/w/03/2012-circular-no.-3/2012-dated-12-6-2012 | 200 222289 text/html;charset=UTF-8
+NSE_static_ipft_page.html | https://www.nseindia.com/static/complaints/investor-protection-fund-trust | 200 40919 text/html; charset=utf-8
+WB_CBEC_faq-sbc_20161022.pdf | https://web.archive.org/web/20161022060607id_/http://www.cbec.gov.in:80/Cbec_Revamp_new/resources//htdocs-cbec/press-release/faq-sbc.pdf | 200 292409 application/pdf
+WB_NSDL_policy_2011-0076_settlement_fee_20131028.pdf | https://web.archive.org/web/20131028162247id_/https://nsdl.co.in/downloadables/pdf/2011-0076--Policy-Settlement-fee-depository-system_SIGNED.pdf | 200 56294 application/pdf
+WB_NSDL_policy_2010-0029_settlement_fee_20131028.pdf | https://web.archive.org/web/20131028175334id_/https://nsdl.co.in/downloadables/pdf/2010-0029-Policy-Amendments-to-Business-Rules-Settlement-Fee.pdf | 200 107270 application/pdf
+WB_NSDL_fee_payable_by_participants_20130818.html | https://web.archive.org/web/20130818005532id_/https://nsdl.co.in/joining/fee-payable-by-depository-participants.php | 200 28534 text/html
+WB_NSDL_fees_and_charges_to_DPs_20170708.pdf | https://web.archive.org/web/20170708200529id_/https://nsdl.co.in/downloadables/charges/Fees%20and%20Charges%20to%20DPs.pdf | 200 198258 application/pdf
+
+## B. Internet Archive index (CDX) queries -> result
+CDX url=zerodha.com/download/ilfsdemat.pdf&fl=timestamp,statuscode,digest&collapse=digest -> OFFLINE
+CDX url=zerodha.com/download/Change%20of%20Information%20Documents/ilfszeordhaonlydematform.pdf&fl=timestamp,statuscode,digest&collapse=digest ->        4 rows
+CDX url=zerodha.com/z-connect&matchType=prefix&from=2012&to=20161008&filter=statuscode:200&filter=urlkey:.*(dp-charge|dp_charge|demat|charges|cdsl|depositor).*&collapse=urlkey&fl=urlkey,timestamp&limit=60 ->       60 rows
+CDX url=zerodha.com/charges&from=2015&to=20161231&fl=timestamp,statuscode,digest&collapse=digest&limit=20 ->        2 rows
+CDX url=zerodha.com/pricing&from=20120927&to=20161231&fl=timestamp,statuscode,digest&collapse=digest&limit=60 -> OFFLINE
+CDX url=cbec.gov.in/resources//htdocs-servicetax/st-notifications/st-notifications-2015/&matchType=prefix&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=80&filter=urlkey:.*st(2[0-4]|1[4-6]).* ->       45 rows
+CDX url=cbec.gov.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=40&filter=urlkey:.*(fin-act|finance-act|finact|fa20(12|15|16)|st-act).* ->       40 rows
+CDX url=cbec.gov.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=40&from=2012&to=2015&filter=urlkey:.*(finact2012|fin-act2012|finance.?act.?2012|chap5-finact|st-act|finact1994|fa2012|ub1213|budget.*2012).* ->       40 rows
+CDX url=cbec.gov.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=30&filter=urlkey:.*(finact2016|fin-act2016|finance-act-2016|fa-2016|finact2012|finbill2016|fb2016|sbc|swachh|kkc|krishi).* ->       30 rows
+CDX url=nseindia.com/membership/&matchType=prefix&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=40&filter=urlkey:.*(charge|fee|levy|levies|ipf).* ->        2 rows
+CDX url=nseindia.com&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=40&from=2010&to=2022&filter=urlkey:.*(trans.?charg|transaction.?charg|ipft|investor.?protection.?fund).* ->        7 rows
+CDX url=indiacode.nic.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=12&filter=urlkey:.*a2012-23.* ->        0 rows
+CDX url=legislative.gov.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=12&filter=urlkey:.*(a2012-23|finance.?act.*2012).* ->        0 rows
+CDX url=egazette.nic.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=8&filter=urlkey:.*2012.*finance.* ->        0 rows
+CDX url=cbec.gov.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&limit=12&from=2016&to=2017&filter=urlkey:.*(st-circulars-2016/st-circ-19|faq.*cess|kk-cess|kkcess|faq-kkc|st-notifications-2016/st3[01]).* ->        0 rows
+CDX url=nsdl.co.in/downloadables/charges/&matchType=prefix&filter=statuscode:200&fl=timestamp,original,digest&collapse=digest&limit=30 ->       25 rows
+CDX url=nsdl.co.in&matchType=domain&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&from=2010&to=2016&limit=20&filter=urlkey:.*(fee|charges|tariff).* ->       20 rows
+CDX url=zerodha.com/pricing&from=2010&to=20120926&limit=20 -> 0 rows (index online: no capture of /pricing before 27 Sep 2012)
+CDX url=zerodha.com/pricing*&from=2010&to=20120926&limit=30&collapse=urlkey -> 0 rows
+CDX url=zerodha.com&from=2010&to=20120926&limit=40&filter=statuscode:200 -> 40 rows (home page only)
+CDX url=zerodha.com/charges*&from=2012&to=20161008&limit=30 -> 0 rows (first capture of /charges is 2016-10-09)
+CDX url=zerodha.com&from=20120627&to=20120926 (home page) -> OFFLINE (single query; not needed after the charge lists were found)
+CDX url=zerodha.com&matchType=domain&from=20120101&to=20120926 collapse=urlkey limit=300 -> 300 rows; led to download/ZerodhaChargeList.xls and the account forms
+CDX url=zerodha.com&matchType=domain&from=20121001&to=20161008 filter charge|pricing|brokerage|demat|dp-|depositor|tariff -> 300 rows; led to charge-list, ilfsdemat.pdf and the blog pages
+
+## C. web searches (search engine) and what they led to
+1. SEBI stock brokers amendment 2014 'twenty rupees per crore' -> pointed to the 2014 fee amendment
+2. SEBI (Payment of Fees) (Amendment) Regulations 2014, LAD-NRO/GN/2014-15/03/1089 (sebi.gov.in only) -> press release PR 49/2014 -> regulation PDF (archived)
+3. Notification 11/2017-Central Tax (Rate) -> cbic-gst.gov.in PDF (archived); integrated-tax notification 8/2017 found at the parallel address (archived)
+4. Finance Act 2012, No. 23 of 2012 (official domains) -> only unofficial copies (indiankanoon, tax blogs); NOT archived
+5. NSE circular on STT revision June 2012 -> none found; only the 2024 circular already archived
+6. PIB / official source for Krishi Kalyan Cess 0.5% -> only unofficial pages; NOT archived
+7. NSE IPFT contribution 'per crore' before 2023 (three searches, one limited to NSE domains) -> only NSE/FA/46730, 56129, 73061 (already archived) and unofficial pages. One unofficial page (a tribunal judgment summary) mentions an older rate of 0.000005 per cent; not official, not dated, NOT used
+8. NSDL settlement fee Rs 4.50 -> led to the NSDL fee pages; the dated circular was then found through the archive index (archived)
+
+## D. examined and NOT archived (no relevant content)
+Zerodha brokerage calculator xls and js (Apr-May 2012); form annexure v3.1 (2014); trading form v3 (Dec 2012, duplicates the May 2012 tariff sheet); blog 'brokerage edge' and 'account opening charges' and POA page as captured Dec 2012 (no charge amounts); bulletin Sep 2013; GST Council page; Finance Bill 2012 title page; CBDT circular 3/2012 (covers only STT on unlisted shares in an IPO, not delivery STT); SEBI master circular Oct 2014 and SEBI mutual-fund amendment Feb 2017 (wrong documents); SEBI 1488970004632.pdf (byte-identical to the already archived 2017 fees gazette); NSE IPFT page (no contribution rate); NSDL circular 2011/0076 (mutual-fund units only)
+
+## E. outcomes
+FOUND: delivery brokerage on both sides of 2 Jul-26 Sep 2012; depository-charge schedules 2012, 2013, 2014 and the depository's own fee 2010-2016; SEBI Rs 20 instrument and date; service tax 12% and 14% and the Swachh Bharat Cess from official files; GST 18% official.
+NOT FOUND after a completed search: enacted Finance Act 2012 (9 addresses over two days; 3 archive-index queries returned 0 rows; official sites indiacode.nic.in timed out, egazette.gov.in and cbic.gov.in failed certificate checks from this machine); Finance Act 2016 / any official statement of the Krishi Kalyan Cess rate (archive index queries returned 0 rows); any NSE document stating the IPFT contribution amount for a date before the circular of 24 Mar 2023; English text of notifications 21 and 22/2015-ST (Hindi texts archived).
+NOT ATTEMPTED (optional items): the 2020 stamp-duty rate notification; the SEBI 2020-21 fee-halving instrument.
+LIMIT: NSE's own circular search tool needs an interactive browser session and was not queried.

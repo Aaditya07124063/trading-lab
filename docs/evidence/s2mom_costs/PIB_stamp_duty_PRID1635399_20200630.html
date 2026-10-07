@@ -1,0 +1,1142 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=6" type="text/css" />
+      <script type="text/javascript">
+        /* Stamps the saved theme on <html> before the page paints. The
+           switcher in js/accessibility.js settles the rest, but on inner
+           pages it does not run until the end of the body and inside the
+           release frame it is a separate download - either way the reader
+           would otherwise watch a light page turn dark in front of them. */
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+      </script>
+
+
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+      <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+      <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  // Get the IDs from the current page's URL
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+
+            });
+      </script>
+      <style type="text/css">
+            .table-responsive {
+                  width: 100%;
+                  overflow-x: auto;
+            }
+
+            .banner {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  background-color: #000;
+                  color: #fff;
+                  padding: 20px;
+            }
+
+            full-width {
+                  width: 100%;
+            }
+
+            .logo-left, .logo-center, .countdown {
+                  display: flex;
+                  align-items: center;
+            }
+
+                  .logo-left img, .logo-center img {
+                        height: 70px;
+                  }
+
+            .countdown {
+                  text-align: center;
+                  background-color: #444;
+                  border-radius: 10px;
+                  padding: 10px;
+                  border: 2px solid grey;
+            }
+
+            .firstnumber {
+                  color: #000000;
+                  position: absolute;
+                  top: 50px;
+                  right: 90px;
+                  font-size: 30px;
+            }
+
+            .secondnumber {
+                  position: absolute;
+                  color: #000000;
+                  right: 45px;
+                  top: 50px;
+                  font-size: 30px;
+            }
+
+            .countdown .days {
+                  font-size: 35px;
+                  color: gold;
+            }
+
+            .countdown p {
+                  margin: 0;
+            }
+
+            .countdown .text {
+                  font-size: 16px;
+            }
+
+            a {
+                  word-break: break-all;
+            }
+
+            iframe, img {
+                  max-width: 100%;
+            }
+
+            @media(max-width:1199px) {
+                  .firstnumber {
+                        top: 40px;
+                        right: 72px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 35px;
+                        top: 40px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:990px) {
+                  .firstnumber {
+                        top: 25px;
+                        right: 54px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 25px;
+                        top: 25px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:768px) {
+                  .countdown, .days {
+                        font-size: 12px !important;
+                  }
+
+
+                  .firstnumber {
+                        top: 25%;
+                        right: 8%;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 4.5%;
+                        top: 25%;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:475px) {
+                  .countdown, .days {
+                        font-size: 10px !important;
+                        top: 20%;
+                  }
+
+                  .bannerimgdiv {
+                        padding: 0 !important;
+                  }
+
+                  .bannerimg {
+                        width: 108% !important;
+                  }
+            }
+      </style>
+      <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+      </script>
+
+      
+
+      <link id="pibConsentCss" href="/css/consent.css?v=7" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=48" rel="stylesheet" type="text/css" /><meta property="og:title" content="Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=1635399" /><meta property="og:description" content="The Amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereun" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="2lkafbixh5kku2wd2edq-f-85422a73d-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":151,"ak.ipv":4,"ak.proto":"h2","ak.rid":"94faf53","ak.r":16078,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":15968,"ak.gh":"23.65.124.14","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"","ak.t":"1791217927","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==H7UUcS6RXKMDJHADT/V6CtQvCc3hEpWtTPvLLKJs8SZOriwu4o7utbyfpxAxeGYD8WQ80Mlc2coCSM4m1VuEkZoCEKBowsgQEuqDhHr+zt0oVJF48A2IJbtx0kqfiYEUm07X0+Zcs1WNj1D67SaFdVJS1n5/KEASBp/Re7Mbpimx8bI8s6+uUHqxwecuAhx8c9YzLL/Bo7ayPGHshvRHm0fGwgiOOQTZAsk5A3Gyr5GH74A7EW255KnQXfnKYZv3oU8l2gJDu8rvaFEzM5+7btg/DKQ220kXGHHS0Rsi4fS0YHhQCzOcXHQ+upeZUXGko4HC5Kd3+lKfuQeLZepg68XTF9uMFVdxHiTPuMQxnbGfJiLvv1fokvwYdFBsUWEsLZlEb0Nf74dUXPktMbhbZRcYMs/f7cW9voJfhd/Cp9A=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+      <form method="post" action="./PressReleasePage.aspx?PRID=1635399&amp;reg=48&amp;lang=2" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639246315009809930" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="RyXSv6vwBsXvc8YE+er57YMrgEt6w8P2UWAuLNF19edgt1FWmGqEUZUsR51yZuhyuIB0pkEUetQlUJX2S5MG1JsFGJ7qzdKtmQTThLohjEsmoZ09IWyI14UQaZ3KXSrG+fTPUi2c92EfEZOVBez6vgmUKH0u6Okl+VG1J7poEWosUFyZLGC+QNAGYywmAyPUiSI3mHOEkOczc6vxLZFLPNyByKbbdHGMBUuTs6X/cyQlvrnujUcMSOtQ6fuXYcY3ftC7GRRlWOhMz+2alZlcU1lEewY=" />
+</div>
+                              
+            <div id="templateCss"></div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+            <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+            <div class="container" style='margin-bottom: 50px;'>
+                  <div id="accessories">
+
+                        
+                        <div class="pull-right" style="display: flex">
+                              <div id="voll"></div>
+                              <div id="vollDT"></div>
+                              
+                              
+<div class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</div>
+                        </div>
+                  </div>
+                  <input type="hidden" name="hydpermid" id="hydpermid" value="1635399" />
+                  
+
+
+
+                  <div class="innner-page-main-about-us-content-right-part" dir="ltr">
+
+                        <div id="MinistryName" class="MinistryNameSubhead text-center">
+                              Ministry of Finance
+                        </div>
+                        
+                        <div id="lg_g">
+                        </div>
+
+
+
+
+
+                        <div class="text-center event-heading-background">
+                              
+                              <h1 id="Titleh2">
+                                    Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments
+                              </h1>
+                              <h3 id="Subtitleh3">
+                                    <span id="ltrSubtitle"></span>
+                              </h3>
+                        </div>
+
+                        <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                              Posted On:
+                30 JUN 2020 6:42PM by PIB Delhi
+                        </div>
+                        
+                        <div class='pt20'>
+                        </div>
+                        <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                        
+                        <p style="margin-left:4.55pt; margin-right:0in; text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The Amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereunder will come into effect from tomorrow, i.e. 1<sup>st</sup> July, 2020 vide notifications dated 30<sup>th</sup> March, 2020. </span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In order to facilitate ease of doing business and to bring in uniformity of the stamp duty on securities across States and thereby build a pan-India securities market, the Central Government, after due deliberations and consultations with the States, through requisite amendments in the Indian Stamp Act, 1899 and Rules made thereunder, has created the legal and institutional mechanism to enable states to collect stamp duty on securities market instruments at one place by one agency (through Stock Exchange or Clearing Corporation authorized by it or by the Depository) on one Instrument. A mechanism for appropriately sharing the stamp duty with relevant State Governments has also been developed which is based on the state of domicile of the buyer.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The present system of collection of stamp duty on securities market transactions led to multiple rates for the same instrument, resulting in jurisdictional disputes and multiple incidences of duty, thereby raising the transaction costs in the securities market and hurting capital formation. </span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The relevant provisions of the Finance Act, 2019 amending the Indian Stamp Act, 1899 and the Indian Stamp (Collection of Stamp-Duty through Stock Exchanges, Clearing Corporations and Depositories) Rules, 2019 were notified simultaneously on 10<sup>th</sup> December, 2019 and these were to come into force from 9<sup>th</sup> January, 2020, which was later extended to 1<sup>st</sup> April, 2020 vide notifications dated 8<sup>th</sup> January, 2020. Further, considering the requests received from stakeholders, country-wide lockdown situation due to Covid-19 and in line with the relaxations given on statutory and regulatory compliance in other sectors, the date for implementation of amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereunder was further extended to 1<sup>st</sup> July, 2020 vide notifications dated 30<sup>th</sup> March, 2020. </span></span></p>
+
+<p style="margin-left:0in; margin-right:0in; text-align:justify"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Potential Impact</span></span></strong></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">This rationalized and harmonized system through centralized collection mechanism is expected to ensure minimize cost of collection and enhance revenue productivity. Further, this system will help develop equity markets and equity culture across the length and breadth of the country, ushering in balanced regional development.</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Salient Features </span></span></strong></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">To achieve the rationalization of stamp duty structures, the amendments, inter-alia, provide for the following structural reforms; &mdash;</span></span></p>
+
+<ol style="list-style-type:lower-roman">
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The stamp-duty on sale, transfer and issue of securities shall be collected on behalf of the State Government by the collecting agents who then shall transfer the collected stamp-duty in the account of the concerned State Government. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In order to prevent multiple incidences of taxation, no stamp duty shall be collected by the States on any secondary record of transaction associated with a transaction on which the depository / stock exchange has been authorised to collect the stamp duty.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In the extant scenario, stamp duty was payable by both seller and buyer whereas in the new system it is levied only on one side (payable either by the buyer or by the seller but not by both, except in case of certain instrument of exchange where the stamp duty shall be borne by both parties in equal proportion).</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agents shall be the Stock Exchanges or authorized Clearing Corporations and the Depositories. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">For all exchange based secondary market transactions in securities, Stock Exchanges shall collect the stamp duty; and for off-market transactions (which are made for a consideration as disclosed by trading parties) and initial issue of securities happening in demat form, Depositories shall collect the stamp duty. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The Central Government has also notified the Clearing Corporation of India Limited (CCIL) under the jurisdiction of RBI and the Registrars to an Issue and/or Share Transfer Agents (RTI/STAs) to act as a collecting agent. The objective is to<span style="color:#333333"> bring OTC derivative transactions reported to CCIL and physical space (non-demat) transactions in mutual funds handled through RTI/STAs under the ambit of stamp duty regime so as to avoid any tax arbitrage. </span></span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agents shall within three weeks of the end of each month transfer the stamp-duty collected to the State Government where the residence of the buyer is located and in case the buyer is located outside India, to the State Government having the registered office of the trading member or broker of such buyer and in case where there is no such trading member of the buyer, to the State Government having the registered office of the participant. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agent shall transfer the collected stamp-duty in the account of concerned State Government with the Reserve Bank of India or any scheduled commercial bank, as informed to the collecting agent by the Reserve Bank of India or the concerned State Government.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agent may deduct 0.2 per cent of the stamp-duty collected on behalf of the State Government towards facilitation charges before transferring the same to such State Government.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">For many segments, there is reduction in duty. For example, the rate prescribed is lower for issue of equity/debentures and for transfer of debentures (including re-issue) to aid capital formation and to promote corporate bond market. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">For equity cash segment trading (both delivery and non-delivery-based transactions) and options, since rates are to be charged only on one side in line with the new scheme, it can be stated that there is an overall reduction in tax burden. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Secondary market transfer of instruments which are traded with differences in a few basis points, like interest rate / currency derivatives or corporate bonds are being charged at a very lower rate from the existing rates. For the newly introduced &lsquo;repo on corporate bonds&rsquo;, a far lower rate is specified, since similarly positioned repo on Government Securities is not subject to duty.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#231f20">No stamp duty shall be chargeable in respect of the Instruments of transaction in stock exchanges and depositories established in any International Financial Services Centre set up under section 18 of the Special Economic Zones Act, 2005. </span></span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">Tax arbitrage is avoided by providing the same rate of stamp duty for issue or re-issue or sale or transfer of securities happening outside stock exchanges and depositories. </span></span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#222222">Mutual funds, being delivery-based transactions in securities, were supposed to have been paying the duty as per various State Acts. </span></span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">All mutual fund transactions are thus liable for stamp duty and the new system has only standardized the charges across states and the manner of collection of stamp duty. </span></span></span></li>
+</ol>
+
+<p style="margin-left:0in; margin-right:0in; text-align:justify"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Readiness for Implementation </span></span></strong></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#333333">Even during the strict lockdown phases in view of pandemic situation, all efforts were made to ensure market continuity because Stock Markets are critical for the economy. </span></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The amendments to the Stamp Act and the rates have been in public domain since February 2019 (when Finance Act, 2019 was notified) and market had enough time to prepare for this. <span style="color:#333333">The operational systems of Stock Exchanges, Clearing Corporations, Depositories, CCIL and RTI/ STAs are all set / prepared to roll out the relevant provisions of amended Indian Stamp Act 1899 and rules made thereunder from 1<sup>st</sup> July, 2020.</span></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The Regulators (RBI &amp; SEBI) have been authorized by the Central Government under the Indian Stamp Act, 1899 to issue clarificatory circulars/ operational guidelines on specific issues so as to ensure smooth implementation from 1<sup>st</sup> July, 2020.</span></span></p>
+
+<p style="text-align:center"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">****</span></span></p>
+
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">RM/KMN</span></span></p>
+
+
+                        
+                        <div id="reel_pic">
+                        </div>
+
+
+
+                        
+                        <br />
+                        <span id="ReleaseId">(Release ID: 1635399)</span>
+                        <span id="lblViews">Visitor Counter : 24208</span>
+                        <div>
+                              
+                        </div>
+                        
+
+                        <span id="lblRefPhoto"></span>
+
+                        <div class="BackgroundRelease">
+                              
+                        </div>
+                        <div>
+                              
+                        </div>
+                        <div class="ReleaseLang">Read this release in: 
+                        
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=1635523' target="_blank">
+                                          Punjabi </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=1635734' target="_blank">
+                                          Urdu </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=1635487' target="_blank">
+                                          Marathi </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=1635563' target="_blank">
+                                          हिन्दी </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=1635456' target="_blank">
+                                          Tamil </a>
+                              
+                        </div>
+
+                        <div class="RelTag">
+                              <ul>
+                                    
+                              </ul>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div id="RelLink" class="RelLink">
+                              <ul>
+                                    
+                                    
+                              </ul>
+                        </div>
+                        <center>
+                              
+                        </center>
+                  </div>
+
+                  <div id="update12">
+	
+                              
+                              <input type="hidden" name="Hidden" id="Hidden" />
+                              <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                                    <div>
+                                          <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                                    </div>
+                                    <div id="description">
+                                    </div>
+                                    <div class="text-center">
+                                          <h2>
+                                                
+                                                <br>
+                                                
+                                          </h2>
+                                    </div>
+                                    <br />
+                                    <div class="clear">
+                                    </div>
+                                    
+                              
+	</div>
+                        
+</div>
+            </div>
+            
+            <div id="PdfDiv" style="display: none;">
+                  <table width="100%">
+                        <tr>
+                              <td style="font-weight: 200; text-align: center">
+                                    Ministry of Finance
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="text-align: center; font-size: 14px;">
+                                          Posted On:
+                        30 JUN 2020 6:42PM by PIB Delhi
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                                          <p style="margin-left:4.55pt; margin-right:0in; text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The Amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereunder will come into effect from tomorrow, i.e. 1<sup>st</sup> July, 2020 vide notifications dated 30<sup>th</sup> March, 2020. </span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In order to facilitate ease of doing business and to bring in uniformity of the stamp duty on securities across States and thereby build a pan-India securities market, the Central Government, after due deliberations and consultations with the States, through requisite amendments in the Indian Stamp Act, 1899 and Rules made thereunder, has created the legal and institutional mechanism to enable states to collect stamp duty on securities market instruments at one place by one agency (through Stock Exchange or Clearing Corporation authorized by it or by the Depository) on one Instrument. A mechanism for appropriately sharing the stamp duty with relevant State Governments has also been developed which is based on the state of domicile of the buyer.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The present system of collection of stamp duty on securities market transactions led to multiple rates for the same instrument, resulting in jurisdictional disputes and multiple incidences of duty, thereby raising the transaction costs in the securities market and hurting capital formation. </span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The relevant provisions of the Finance Act, 2019 amending the Indian Stamp Act, 1899 and the Indian Stamp (Collection of Stamp-Duty through Stock Exchanges, Clearing Corporations and Depositories) Rules, 2019 were notified simultaneously on 10<sup>th</sup> December, 2019 and these were to come into force from 9<sup>th</sup> January, 2020, which was later extended to 1<sup>st</sup> April, 2020 vide notifications dated 8<sup>th</sup> January, 2020. Further, considering the requests received from stakeholders, country-wide lockdown situation due to Covid-19 and in line with the relaxations given on statutory and regulatory compliance in other sectors, the date for implementation of amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereunder was further extended to 1<sup>st</sup> July, 2020 vide notifications dated 30<sup>th</sup> March, 2020. </span></span></p>
+
+<p style="margin-left:0in; margin-right:0in; text-align:justify"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Potential Impact</span></span></strong></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">This rationalized and harmonized system through centralized collection mechanism is expected to ensure minimize cost of collection and enhance revenue productivity. Further, this system will help develop equity markets and equity culture across the length and breadth of the country, ushering in balanced regional development.</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Salient Features </span></span></strong></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">To achieve the rationalization of stamp duty structures, the amendments, inter-alia, provide for the following structural reforms; &mdash;</span></span></p>
+
+<ol style="list-style-type:lower-roman">
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The stamp-duty on sale, transfer and issue of securities shall be collected on behalf of the State Government by the collecting agents who then shall transfer the collected stamp-duty in the account of the concerned State Government. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In order to prevent multiple incidences of taxation, no stamp duty shall be collected by the States on any secondary record of transaction associated with a transaction on which the depository / stock exchange has been authorised to collect the stamp duty.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In the extant scenario, stamp duty was payable by both seller and buyer whereas in the new system it is levied only on one side (payable either by the buyer or by the seller but not by both, except in case of certain instrument of exchange where the stamp duty shall be borne by both parties in equal proportion).</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agents shall be the Stock Exchanges or authorized Clearing Corporations and the Depositories. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">For all exchange based secondary market transactions in securities, Stock Exchanges shall collect the stamp duty; and for off-market transactions (which are made for a consideration as disclosed by trading parties) and initial issue of securities happening in demat form, Depositories shall collect the stamp duty. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The Central Government has also notified the Clearing Corporation of India Limited (CCIL) under the jurisdiction of RBI and the Registrars to an Issue and/or Share Transfer Agents (RTI/STAs) to act as a collecting agent. The objective is to<span style="color:#333333"> bring OTC derivative transactions reported to CCIL and physical space (non-demat) transactions in mutual funds handled through RTI/STAs under the ambit of stamp duty regime so as to avoid any tax arbitrage. </span></span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agents shall within three weeks of the end of each month transfer the stamp-duty collected to the State Government where the residence of the buyer is located and in case the buyer is located outside India, to the State Government having the registered office of the trading member or broker of such buyer and in case where there is no such trading member of the buyer, to the State Government having the registered office of the participant. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agent shall transfer the collected stamp-duty in the account of concerned State Government with the Reserve Bank of India or any scheduled commercial bank, as informed to the collecting agent by the Reserve Bank of India or the concerned State Government.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The collecting agent may deduct 0.2 per cent of the stamp-duty collected on behalf of the State Government towards facilitation charges before transferring the same to such State Government.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">For many segments, there is reduction in duty. For example, the rate prescribed is lower for issue of equity/debentures and for transfer of debentures (including re-issue) to aid capital formation and to promote corporate bond market. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">For equity cash segment trading (both delivery and non-delivery-based transactions) and options, since rates are to be charged only on one side in line with the new scheme, it can be stated that there is an overall reduction in tax burden. </span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Secondary market transfer of instruments which are traded with differences in a few basis points, like interest rate / currency derivatives or corporate bonds are being charged at a very lower rate from the existing rates. For the newly introduced &lsquo;repo on corporate bonds&rsquo;, a far lower rate is specified, since similarly positioned repo on Government Securities is not subject to duty.</span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#231f20">No stamp duty shall be chargeable in respect of the Instruments of transaction in stock exchanges and depositories established in any International Financial Services Centre set up under section 18 of the Special Economic Zones Act, 2005. </span></span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">Tax arbitrage is avoided by providing the same rate of stamp duty for issue or re-issue or sale or transfer of securities happening outside stock exchanges and depositories. </span></span></span></li>
+	<li style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#222222">Mutual funds, being delivery-based transactions in securities, were supposed to have been paying the duty as per various State Acts. </span></span></span><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">All mutual fund transactions are thus liable for stamp duty and the new system has only standardized the charges across states and the manner of collection of stamp duty. </span></span></span></li>
+</ol>
+
+<p style="margin-left:0in; margin-right:0in; text-align:justify"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Readiness for Implementation </span></span></strong></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#333333">Even during the strict lockdown phases in view of pandemic situation, all efforts were made to ensure market continuity because Stock Markets are critical for the economy. </span></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The amendments to the Stamp Act and the rates have been in public domain since February 2019 (when Finance Act, 2019 was notified) and market had enough time to prepare for this. <span style="color:#333333">The operational systems of Stock Exchanges, Clearing Corporations, Depositories, CCIL and RTI/ STAs are all set / prepared to roll out the relevant provisions of amended Indian Stamp Act 1899 and rules made thereunder from 1<sup>st</sup> July, 2020.</span></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The Regulators (RBI &amp; SEBI) have been authorized by the Central Government under the Indian Stamp Act, 1899 to issue clarificatory circulars/ operational guidelines on specific issues so as to ensure smooth implementation from 1<sup>st</sup> July, 2020.</span></span></p>
+
+<p style="text-align:center"><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">****</span></span></p>
+
+<p><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">RM/KMN</span></span></p>
+
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                                          (Release ID: 1635399)
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                              </td>
+                        </tr>
+                        <tr>
+                              <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                        </tr>
+                  </table>
+            </div>
+            <div class="clearfix">
+            </div>
+
+            
+
+            <div class="section1">
+                  <div id="frst_t">
+                        <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399' target='_blank'><li class='fb_b'   ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/facebook.jpg' alt='Share on facebook'  width='40' /></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399&text=Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments' target='_blank'><li class='twitter_r'  ><img  src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2023/aug/ph2023818240601.jpg' alt='Share on twitter' width='40' /> </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399' target='_blank'><li class='whatsapp_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/whatsapp1.png' alt='Share on whatsapp' width='40' /></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments&body=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/email1.png' alt='Share on email'  width='40' /></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399&title=Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/linkedin.png' alt='Share on linkedin' width='40' /></li></a></ul></div></div>
+                  </div>
+                  <div id="second_t">
+                        <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399' target='_blank'><li class='fb_b'   ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/facebook.jpg' alt='Share on facebook'  width='35' /></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399&text=Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments' target='_blank'><li class='twitter_r'  ><img  src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2023/aug/ph2023818240601.jpg' alt='Share on twitter' width='35' /> </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399' target='_blank'><li class='whatsapp_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/whatsapp1.png' alt='Share on whatsapp' width='35' /></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments&body=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/email1.png' alt='Share on email'  width='35' /></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=1635399&title=Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/linkedin.png' alt='Share on linkedin' width='35' /></li></a></ul></div></div>
+                  </div>
+            </div>
+            <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="Implementation of Amendments in the Indian Stamp Act, 1899 and Rules made from 1st July, 2020 for Rationalized Collection Mechanism of Stamp Duty across India with respect to Securities Market Instruments" />
+            <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+            <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;margin-left:4.55pt; margin-right:0in; text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The Amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereunder will come into effect from tomorrow, i.e. 1st July, 2020 vide notifications dated 30th March, 2020. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>In order to facilitate ease of doing business and to bring in uniformity of the stamp duty on securities across States and thereby build a pan-India securities market, the Central Government, after due deliberations and consultations with the States, through requisite amendments in the Indian Stamp Act, 1899 and Rules made thereunder, has created the legal and institutional mechanism to enable states to collect stamp duty on securities market instruments at one place by one agency (through Stock Exchange or Clearing Corporation authorized by it or by the Depository) on one Instrument. A mechanism for appropriately sharing the stamp duty with relevant State Governments has also been developed which is based on the state of domicile of the buyer.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The present system of collection of stamp duty on securities market transactions led to multiple rates for the same instrument, resulting in jurisdictional disputes and multiple incidences of duty, thereby raising the transaction costs in the securities market and hurting capital formation. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The relevant provisions of the Finance Act, 2019 amending the Indian Stamp Act, 1899 and the Indian Stamp (Collection of Stamp-Duty through Stock Exchanges, Clearing Corporations and Depositories) Rules, 2019 were notified simultaneously on 10th December, 2019 and these were to come into force from 9th January, 2020, which was later extended to 1st April, 2020 vide notifications dated 8th January, 2020. Further, considering the requests received from stakeholders, country-wide lockdown situation due to Covid-19 and in line with the relaxations given on statutory and regulatory compliance in other sectors, the date for implementation of amendments in the Indian Stamp Act, 1899 brought through Finance Act 2019 and Rules made thereunder was further extended to 1st July, 2020 vide notifications dated 30th March, 2020. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0in; margin-right:0in; text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>Potential Impact&lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>This rationalized and harmonized system through centralized collection mechanism is expected to ensure minimize cost of collection and enhance revenue productivity. Further, this system will help develop equity markets and equity culture across the length and breadth of the country, ushering in balanced regional development.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>Salient Features &lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>To achieve the rationalization of stamp duty structures, the amendments, inter-alia, provide for the following structural reforms; &amp;mdash;&lt;/span>&lt;/span>&lt;/p>
+
+
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The stamp-duty on sale, transfer and issue of securities shall be collected on behalf of the State Government by the collecting agents who then shall transfer the collected stamp-duty in the account of the concerned State Government. &lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>In order to prevent multiple incidences of taxation, no stamp duty shall be collected by the States on any secondary record of transaction associated with a transaction on which the depository / stock exchange has been authorised to collect the stamp duty.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>In the extant scenario, stamp duty was payable by both seller and buyer whereas in the new system it is levied only on one side (payable either by the buyer or by the seller but not by both, except in case of certain instrument of exchange where the stamp duty shall be borne by both parties in equal proportion).&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The collecting agents shall be the Stock Exchanges or authorized Clearing Corporations and the Depositories. &lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>For all exchange based secondary market transactions in securities, Stock Exchanges shall collect the stamp duty; and for off-market transactions (which are made for a consideration as disclosed by trading parties) and initial issue of securities happening in demat form, Depositories shall collect the stamp duty. &lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The Central Government has also notified the Clearing Corporation of India Limited (CCIL) under the jurisdiction of RBI and the Registrars to an Issue and/or Share Transfer Agents (RTI/STAs) to act as a collecting agent. The objective is to&lt;span style=&quot;color:#333333&quot;> bring OTC derivative transactions reported to CCIL and physical space (non-demat) transactions in mutual funds handled through RTI/STAs under the ambit of stamp duty regime so as to avoid any tax arbitrage. &lt;/span>&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The collecting agents shall within three weeks of the end of each month transfer the stamp-duty collected to the State Government where the residence of the buyer is located and in case the buyer is located outside India, to the State Government having the registered office of the trading member or broker of such buyer and in case where there is no such trading member of the buyer, to the State Government having the registered office of the participant. &lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The collecting agent shall transfer the collected stamp-duty in the account of concerned State Government with the Reserve Bank of India or any scheduled commercial bank, as informed to the collecting agent by the Reserve Bank of India or the concerned State Government.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The collecting agent may deduct 0.2 per cent of the stamp-duty collected on behalf of the State Government towards facilitation charges before transferring the same to such State Government.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>For many segments, there is reduction in duty. For example, the rate prescribed is lower for issue of equity/debentures and for transfer of debentures (including re-issue) to aid capital formation and to promote corporate bond market. &lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>For equity cash segment trading (both delivery and non-delivery-based transactions) and options, since rates are to be charged only on one side in line with the new scheme, it can be stated that there is an overall reduction in tax burden. &lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>Secondary market transfer of instruments which are traded with differences in a few basis points, like interest rate / currency derivatives or corporate bonds are being charged at a very lower rate from the existing rates. For the newly introduced &amp;lsquo;repo on corporate bonds&amp;rsquo;, a far lower rate is specified, since similarly positioned repo on Government Securities is not subject to duty.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>&lt;span style=&quot;color:#231f20&quot;>No stamp duty shall be chargeable in respect of the Instruments of transaction in stock exchanges and depositories established in any International Financial Services Centre set up under section 18 of the Special Economic Zones Act, 2005. &lt;/span>&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>&lt;span style=&quot;color:black&quot;>Tax arbitrage is avoided by providing the same rate of stamp duty for issue or re-issue or sale or transfer of securities happening outside stock exchanges and depositories. &lt;/span>&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>&lt;span style=&quot;color:#222222&quot;>Mutual funds, being delivery-based transactions in securities, were supposed to have been paying the duty as per various State Acts. &lt;/span>&lt;/span>&lt;/span>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>&lt;span style=&quot;color:black&quot;>All mutual fund transactions are thus liable for stamp duty and the new system has only standardized the charges across states and the manner of collection of stamp duty. &lt;/span>&lt;/span>&lt;/span>&lt;/li>
+
+
+&lt;p style=&quot;margin-left:0in; margin-right:0in; text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>Readiness for Implementation &lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>&lt;span style=&quot;color:#333333&quot;>Even during the strict lockdown phases in view of pandemic situation, all efforts were made to ensure market continuity because Stock Markets are critical for the economy. &lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The amendments to the Stamp Act and the rates have been in public domain since February 2019 (when Finance Act, 2019 was notified) and market had enough time to prepare for this. &lt;span style=&quot;color:#333333&quot;>The operational systems of Stock Exchanges, Clearing Corporations, Depositories, CCIL and RTI/ STAs are all set / prepared to roll out the relevant provisions of amended Indian Stamp Act 1899 and rules made thereunder from 1st July, 2020.&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>The Regulators (RBI &amp;amp; SEBI) have been authorized by the Central Government under the Indian Stamp Act, 1899 to issue clarificatory circulars/ operational guidelines on specific issues so as to ensure smooth implementation from 1st July, 2020.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p>&lt;span style=&quot;font-size:12.0pt&quot;>&lt;span style=&quot;font-family:&amp;quot;Times New Roman&amp;quot;,&amp;quot;serif&amp;quot;&quot;>RM/KMN&lt;/span>&lt;/span>&lt;/p>
+" />
+            <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+                  //function HandleAudio() {
+                  //    if (isPlaying == true) {
+                  //        //Playing already Pause it
+                  //        pauseAudio();
+                  //    } else {
+                  //        //Play the music
+                  //        playAudio();
+                  //    }
+                  //}
+            </script>
+            <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+            
+                  function CleanHtml(html) {
+
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+            </script>
+            <script type="text/javascript">
+                  $(document).ready(function () {
+                        //for responsive tables
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+
+                              // Extra Small Device
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                              // Small Device
+
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Medium Device
+
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Large Device
+
+                        }
+                  });
+            </script>
+            <script type="text/javascript">
+                  $(document).ready(function () {
+                        var width = $(window).width();
+                        if (width < 768) {
+
+                              // Extra Small Device
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                              // Small Device
+
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Medium Device
+
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Large Device
+
+                        }
+                  });
+            </script>
+            
+            <style type="text/css">
+                  @media print {
+                        .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                              display: none !important;
+                        }
+                  }
+
+                  .f_vl {
+                        padding-right: 30px;
+                        font-size: 17px;
+                        cursor: pointer;
+                  }
+
+                  .log_oo {
+                        // width: 20%;
+                        display: flex;
+                        justify-content: space-between;
+                  }
+
+                        .log_oo img {
+                              width: 150px;
+                              /*width: 100%;
+                    height: auto;*/
+                        }
+
+                  .sticky-social_mb {
+                        position: fixed;
+                        bottom: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                        width: 100%;
+                  }
+
+                  .social_mb {
+                        list-style: none;
+                        display: flex;
+                        width: 100%;
+                        margin-bottom: -8px;
+                  }
+
+                        .social_mb a {
+                              padding: 8px 0px;
+                              font-size: 30px;
+                              transition: all 0.8s ease-in-out;
+                              width: 20% !important;
+                              text-align: center;
+                        }
+            </style>
+            <style type="text/css">
+                  .section1 {
+                        position: relative;
+                        padding: 10px 0px;
+                        width: 100%;
+                  }
+
+
+
+                  .sticky-social {
+                        position: fixed;
+                        top: 20px;
+                        left: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                  }
+
+                  .social {
+                        list-style: none;
+                  }
+
+                        .social a li {
+                              padding: 8px 12px;
+                              font-size: 25px;
+                              transition: all 0.8s ease-in-out;
+                        }
+
+                              .social a li:hover {
+                                    margin-right: -30px;
+                                    box-shadow: 2px 5px 10px grey;
+                              }
+
+                                    .social a li:hover .fa {
+                                          margin-left: 20px;
+                                    }
+
+                  .fb_b {
+                        /* background-color: rgb(59, 89, 152);*/
+                        background-color: rgba(65,103,178,255);
+                  }
+
+                  .twitter_r {
+                        /* background-color: rgb(29, 161, 242);*/
+                        background-color: #000000;
+                  }
+
+                  .whatsapp_r {
+                        /* background-color: rgb(77, 194, 71);*/
+                        background-color: rgba(13,191,67,255);
+                  }
+
+                  .fa-envelope_r {
+                        /* background-color: rgb(219, 68, 55);*/
+                        background-color: #e2123d;
+                  }
+
+                  .fa-linkedin_r {
+                        background-color: rgb(0, 119, 181);
+                  }
+            </style>
+            <style type="text/css">
+                  @media only screen and (max-device-width: 767px) {
+                        p span img {
+                              max-width: 90% !important;
+                              height: auto !important;
+                        }
+
+                        p img {
+                              max-width: 90% !important;
+                              height: auto !important;
+                        }
+
+                        h2 {
+                              font-size: var(--dbim-h2, 20px);   /* was 20px !important - the !important blocked A+/A- */
+                              font-weight: 600 !important;
+                        }
+
+                        h3 {
+                              font-size: var(--dbim-h3, 16px);   /* was 16px !important */
+                              font-weight: 600 !important;
+                        }
+                  }
+            </style>
+            <style type="text/css">
+                  /* === Film Roll Badge Styling(IFFI2025 countdown) === */
+                  .film-roll-badge {
+                        position: absolute;
+                        top:82%;
+                        right: 20px;
+                        width: 230px;
+                        height: 70px;
+                        background: repeating-linear-gradient( to right, #9a2375 0px, #9a2375 18px, #6e2b8b 18px, #6e2b8b 36px );
+                        border-top: 8px solid #9a2375;
+                        border-bottom: 8px solid #9a2375;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                        animation: moveFilm 8s linear infinite;
+                        z-index: 10;
+                  }
+
+                        /* film sprocket holes */
+                        .film-roll-badge::before,
+                        .film-roll-badge::after {
+                              content: "";
+                              position: absolute;
+                              width: 100%;
+                              height: 10px;
+                              background: repeating-linear-gradient( to right, #9a2375 0px, #9a2375 10px, #fff 10px, #fff 20px );
+                              left: 0;
+                              z-index: 2;
+                        }
+
+                        .film-roll-badge::before {
+                              top: -4px;
+                        }
+
+                        .film-roll-badge::after {
+                              bottom: -4px;
+                        }
+
+                  .film-roll-inner {
+                        position: relative;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: flicker 2s infinite ease-in-out;
+                  }
+
+                  .countdown-text {
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        color: #fff;
+                        text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                        white-space: nowrap;
+                  }
+
+                  /* === Animations === */
+                  @keyframes moveFilm {
+                        0% {
+                              background-position: 0 0;
+                        }
+
+                        100% {
+                              background-position: 120px 0;
+                        }
+                  }
+
+                  @keyframes flicker {
+                        0%, 100% {
+                              opacity: 1;
+                        }
+
+                        50% {
+                              opacity: 0.9;
+                        }
+
+                        25% {
+                              opacity: 0.95;
+                        }
+
+                        75% {
+                              opacity: 0.85;
+                        }
+                  }
+
+                  /* === Responsive Adjustments === */
+                  @media (max-width: 1500px) {
+                        .film-roll-badge {
+                              top: 68%;
+                              right: 18px;
+                              /* width: 220px; */
+                              height: 65px;
+                              font-size: 0.85rem;
+                        }
+
+                        .press-section {
+                              margin-top: 35px;
+                        }
+                  }
+
+                  @media (max-width: 992px) {
+                        .film-roll-badge {
+                              top: 52%;
+                              right: 10px;
+                               width: 200px; 
+                              height: 60px;
+                        }
+                  }
+
+                  @media (max-width: 768px) {
+                        .film-roll-badge {
+                              top: 56%;
+                              right: 10px;
+                               width: 124px; 
+                              height: 55px;
+                        }
+
+                        .countdown-text {
+                              font-size: 0.9rem;
+                        }
+                  }
+
+                  @media (max-width: 576px) {
+                        .film-roll-badge {
+                              top: 59%;
+                              right: 5px;
+                              /* width: 160px; */
+                              height: 50px;
+                        }
+
+                        .countdown-text {
+                              font-size: 0.85rem;
+                        }
+                  }
+            </style>
+          <script type="text/javascript">
+                const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+
+                const countdownElement = document.getElementById("countdown");
+
+                const interval = setInterval(() => {
+                      const now = new Date().getTime();
+
+                      // BEFORE FESTIVAL — show days + hours left
+                      if (now < festivalStart) {
+                            const diff = festivalStart - now;
+                            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                            countdownElement.innerHTML = `
+              ${days} Day${days !== 1 ? 's' : ''} 
+              ${hours} Hour${hours !== 1 ? 's' : ''} to go
+          `;
+
+                      }
+
+                      // DURING FESTIVAL — show 56th IFFI - Day X
+                      else if (now >= festivalStart && now <= festivalEnd) {
+                            const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                            countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                      }
+
+                      // AFTER FESTIVAL — new message
+                      else {
+                            countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+
+                            // Width change logic
+                            const elements = document.querySelectorAll('.film-roll-badge');
+                            elements.forEach(el => el.style.width = "350px");
+
+                            clearInterval(interval);
+                      }
+
+                }, 1000);
+          </script>
+ <script type="text/javascript">
+
+               const miffStart = new Date("2026-06-15T00:00:00").getTime();
+               const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+
+               const miffElement = document.getElementById("miff");
+
+               if (miffElement) {
+
+                   const miffInterval = setInterval(() => {
+
+                       const now = new Date().getTime();
+
+                       // Before MIFF
+                       if (now < miffStart) {
+
+                           const diff = miffStart - now;
+                           const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                           const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        
+
+                   /*  miffElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to MIFF`;*/
+                           miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+
+
+                     }
+
+                       // During MIFF
+                       else if (now >= miffStart && now <= miffEnd) {
+
+                           const dayNumber =
+                               Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+
+                           miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                       }
+
+                       // After MIFF
+                       else {
+
+                           miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+
+                           document.querySelectorAll('.film-roll-badge')
+                               .forEach(el => el.style.width = "350px");
+
+                           clearInterval(miffInterval);
+                       }
+
+                   }, 1000);
+               }
+
+</script>
+
+      
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="AvUGzQdPSLS2SGMdC_dirUDlSDFwDW9A1IPQ9EZkaK6quseVuOSulLvfEu3xRj8NaEEiQaGLWeuuO_94lKftx3UkNtJwKReX8ugjrn4gBLhqnJGitafi0g=="/></form>
+      
+      
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+</body>
+</html>
+

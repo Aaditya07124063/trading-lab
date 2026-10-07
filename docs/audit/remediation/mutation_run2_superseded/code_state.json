@@ -1,0 +1,22 @@
+{
+ "scripts/release_archive.py": "e060d5de8e8001a149bda6e898adc586572d83bdae8f2d4b5d0290c80ebe0335",
+ "scripts/reproduce_s2_mom_v1.py": "a6476ef4024ae703957f043653946b0fcf5e2069f297bdcd9c89eb3fbef3cb47",
+ "scripts/run_s2_mom.py": "de806c3b8bbbeadca5ae55c9eca6cf3e788165020f0d9b171d4f1210ef6edcfa",
+ "scripts/run_s2_mom_c2.py": "505b2e4ed9d4e1f34dc2e441f2ff73e8399998e4744a6f0b4b7d62e59668b3fa",
+ "scripts/run_s2_mom_step_e.py": "997d25ba88111eea113b0f52a8cc16f2948bc59cad689c085dd3e07d0508ae6d",
+ "src/access.py": "ddf08ccffb159ee9d290c158d0aee792acc2ff48253f38f1e1519f8c043bf3df",
+ "src/intraday/inference.py": "002c0745ab6aa62f6401dab758f51512c104a16b66142dc479a6993d9e751852",
+ "src/registry/experiments.py": "17a9f2e3777bec67a092c3975063a1f3cb577b037cd0b296a6ec2604c984426e",
+ "src/registry/integrity.py": "6fd9f98766576b523f19e6b58714e02cabab30d7515821f3fc587f29ea333fda",
+ "src/stage2/corporate_actions.py": "e9ef2e9c281d18cdc7c8cd631fe46654229e14ab458bba443cdf52314b1ad8f3",
+ "src/stage2/returns.py": "2bcf561f77ff6516ec02dcdb661c17d5fabff59f23f8a0e37dcf73d1f9d4f99c",
+ "src/stage2/universe.py": "f76989d9c78ed35c010fd5215e1dc9ff54f255f9e0cdee08aefefc4a8c80abce",
+ "src/stage3/costs.py": "851ec208dbdd1e2ceaf8ad7d811ce244aa50af457021e8bbae36ba1eeabceb6f",
+ "src/stage3/data.py": "a88b754a59521d8f634ee8a4c2df2dc431d42ade485ced0623e9e0e1a38c5f5d",
+ "src/stage3/experiment.py": "947c9de12d8257696439f62a15971ccc4011df578097a38c381843e3daa0b7a9",
+ "src/stage3/ladder.py": "4f3f447a1378b1367a6e0cb05fd19220778da3384c0539f5b6e656c68767705b",
+ "src/stage3/protocol.py": "fc42ce58e28d0df5d122019f5ce727ee9bc194b409d5056313377ef6c581ceb5",
+ "src/stage3/stats.py": "846b128d67dac4c07744703a29bd054416f0cef5332c1353f76c9dcd3100b558",
+ "src/stage3/step_e.py": "17e1908270bf544878164ed6b0704af5ba74a7a440055684f78b0cc56c397554",
+ "tests/ (all test files, one hash)": "75e58cc47489a5cac7bdf6dcbd80046e57afd1dde2baef7739ad31631ef61711"
+}

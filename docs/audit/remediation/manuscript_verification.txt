@@ -1,0 +1,65 @@
+PASS  [1 sensitivity / C2 artifacts] results/s2_mom_v1/sensitivity_results.json equals its registered SHA-256
+PASS  [1 sensitivity / C2 artifacts] results/s2_mom_v1_c2/c2_results.json equals its registered SHA-256
+PASS  [1 sensitivity / C2 artifacts] C2 file names the registered specification hash
+PASS  [1 sensitivity / C2 artifacts] C2 inputs recorded in the file == inputs recorded in the registry
+PASS  [1 sensitivity / C2 artifacts] every C2 input still has that hash and is a registered result file
+PASS  [1 sensitivity / C2 artifacts] C2 file carries the 'not blind and not confirmatory' statement
+PASS  [1 sensitivity / C2 artifacts] C2 registry metadata: command, code hash, environment with scipy and platform
+PASS  [1 sensitivity / C2 artifacts] C2 Holm family m = 4 and Benjamini-Hochberg family m = 6, H5 omission stated
+PASS  [1 sensitivity / C2 artifacts] sensitivity file has the six frozen treatments and the two reverse-ladder variants
+PASS  [1 sensitivity / C2 artifacts] sensitivity file: NOT RELIABLE arises through R_SPAN only
+PASS  [1 sensitivity / C2 artifacts] sensitivity run registered with the same code hash as the primary run
+PASS  [2 numerical claims] all 565 audited numbers come from files that are registered and unchanged
+PASS  [2 numerical claims] each audited raw value equals the field of the registered file today
+PASS  [2 numerical claims] each number shown is the registered value correctly rounded
+PASS  [2 numerical claims] each audited number appears in manuscript.md
+INFO  [2 numerical claims] decimal numbers in the text that are neither audited results nor listed design constants  -> 18: 1.1, 10.1, 10.2, 10.3, 10.4, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2603.19380, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6
+PASS  [2 numerical claims] rounded statement 'about 0.58% per month' present and supported by its artifact
+PASS  [2 numerical claims] rounded statement 'about 1.22% per month' present and supported by its artifact
+PASS  [2 numerical claims] rounded statement '0.591% per month' present and supported by its artifact
+PASS  [2 numerical claims] rounded statement '114 months' present and supported by its artifact
+PASS  [2 numerical claims] rounded statement '10,000 resamples' present and supported by its artifact
+PASS  [2 numerical claims] rounded statement '56 months' present and supported by its artifact
+PASS  [2 numerical claims] rounded statement '157' present and supported by its artifact
+PASS  [3 hashes and protocol references] Table A5: all 26 printed hashes equal the files on disk
+PASS  [3 hashes and protocol references] Table A5: every printed hash equals the registry value for that file
+INFO  [3 hashes and protocol references] Table A5 files whose hash is not held by the registry itself (verified against disk only)  -> scripts/run_s2_mom_c2.py, scripts/run_s2_mom_step_e.py, src/stage3/step_e.py
+PASS  [3 hashes and protocol references] result hash of primary_results.json is printed in the manuscript
+PASS  [3 hashes and protocol references] result hash of sensitivity_results.json is printed in the manuscript
+PASS  [3 hashes and protocol references] result hash of confirmation_results.json is printed in the manuscript
+PASS  [3 hashes and protocol references] result hash of step_e_results.json is printed in the manuscript
+PASS  [3 hashes and protocol references] result hash of c2_results.json is printed in the manuscript
+PASS  [3 hashes and protocol references] result hash of blinded_precision.json is printed in the manuscript
+PASS  [3 hashes and protocol references] no SHA-256 in the manuscript is unknown to the registry or to Table A5
+PASS  [3 hashes and protocol references] gross-run code hash printed == registered primary/confirmation code hash
+PASS  [3 hashes and protocol references] protocol file, revision and freeze commit as registered
+PASS  [3 hashes and protocol references] Addendum 1, Supplements 1-4 and the C2 specification are referenced
+FLAG  [3 hashes and protocol references] Table A5 lists the hash of every registered addendum and supplement  -> not listed: phase3a_momentum_protocol_addendum1_supplement2.md, phase3a_momentum_protocol_addendum1_supplement3.md
+PASS  [4 wording] H1 primary is reported as INCONCLUSIVE and NOT RELIABLE, as registered
+PASS  [4 wording] H1 is stated as two-sided at 5%
+PASS  [4 wording] H1 confirmation is reported as NOT CONFIRMED with the opposite sign (registered means have opposite signs)
+PASS  [4 wording] no sentence says H1 is supported, confirmed or significant
+PASS  [4 wording] the code-level label MATERIAL of the confirmation file is not presented as a protocol decision
+PASS  [4 wording] H2d: status CONFIRMED is the registered C2 value and is reported with the late-execution caveat
+PASS  [4 wording] H2d is described as secondary; H1 remains the headline test
+PASS  [4 wording] H2d: one-sided test, Holm-rejected, stated as supplementary and non-confirmatory
+PASS  [4 wording] confirmation sample is described as chronological; H3 not supported there; H4 not run there
+PASS  [4 wording] cost timing: cost rules specified after the gross results and before any cost was computed
+PASS  [4 wording] cost results for L and net WML are labelled hypothetical
+PASS  [4 wording] DEV-1 and DEV-2 are disclosed by name
+PASS  [4 wording] every unexecuted analysis of DEV-2 (19 items) is named in the manuscript
+PASS  [4 wording] late-executed analysis 'H2d' is disclosed as late
+PASS  [4 wording] late-executed analysis 'Holm' is disclosed as late
+PASS  [4 wording] late-executed analysis 'Benjamini–Hochberg' is disclosed as late
+PASS  [4 wording] late-executed analysis 'halves' is disclosed as late
+PASS  [4 wording] late-executed analysis 'pooled' is disclosed as late
+PASS  [4 wording] late-executed analysis 'skewness' is disclosed as late
+PASS  [4 wording] late-executed analysis 'worst month' is disclosed as late
+PASS  [4 wording] statement that no result was computed or seen for unexecuted analyses
+PASS  [5 other formats] manuscript.html: every audited number is present
+PASS  [5 other formats] manuscript.html: the six result hashes are present
+PASS  [5 other formats] manuscript.docx: every audited number is present
+PASS  [5 other formats] manuscript.docx: the six result hashes are present
+INFO  [5 other formats] manuscript.pdf  -> binary layout; not compared number by number in this check
+
+59 PASS, 1 FLAG, 3 INFO

@@ -1,0 +1,96 @@
+{
+ "content": {
+  "protocol_id": "S2-MOM-v1",
+  "protocol_sha256": "f1abd954f698307f7aafe234c5d5c9f1681ccc5aadb9cb21e9f8e34d47abd838",
+  "cutoff": "2026-09-30",
+  "versions": {
+   "returns": "RET-1.1",
+   "universe": "UNIV-1",
+   "identity": "ID-1"
+  },
+  "inputs_sha256": {
+   "univ1": "2abf457a06abf0e8a0b96c0b0ca0f75ccc07729c0166b1812d7af4646cba9c42",
+   "ret1_1_manifest": "e1915b73a32157df57913d41ea06efd3677da4bc2ad39fcfc000ed085aa8e779",
+   "ret1_1_datasets": {
+    "data/stage2/datasets/ret1_1/ret1_1_2011.parquet": "14aca07e8d5b922c8dbb236ca084870ac76d4d0d511d84f14115629e699edeaf",
+    "data/stage2/datasets/ret1_1/ret1_1_2012.parquet": "0a4aab286564363958ebade8240c96b6a145aaa4a5530110b7327b67d4a9faba",
+    "data/stage2/datasets/ret1_1/ret1_1_2013.parquet": "2b24a4e83378675f97ca935627aa99e826418e269ce9d6d80ce15f1326880a1d",
+    "data/stage2/datasets/ret1_1/ret1_1_2014.parquet": "26b6c17a075f779150122ed778b964a1268a9651991fbd09948c1a47a3026136",
+    "data/stage2/datasets/ret1_1/ret1_1_2015.parquet": "d1a86756b742f0d5eb422a341fd7734e90206774297483332e6a8cb0d74a89dd",
+    "data/stage2/datasets/ret1_1/ret1_1_2016.parquet": "d4c2e874e6af8acaa5d756820141967b3cf6227e6c8e879a9e6063dc9b2d7441",
+    "data/stage2/datasets/ret1_1/ret1_1_2017.parquet": "82b2484fa7c031160eaf6807d2403a2ed19b0ef4afb6d997f16354309b755f0d",
+    "data/stage2/datasets/ret1_1/ret1_1_2018.parquet": "1974aac8ff9b688c41042cd5e17d1c9b9d8d9f6cfc9bb5baffcd5489896ac568",
+    "data/stage2/datasets/ret1_1/ret1_1_2019.parquet": "9b84b3eaafb02db8301b268865d447398d719917008d34a1009d462c1a8f6bed",
+    "data/stage2/datasets/ret1_1/ret1_1_2020.parquet": "3fee0b74b3bcca9a80690ec38c1f82e1325edecda6c1206b2296f7988547badd",
+    "data/stage2/datasets/ret1_1/ret1_1_2021.parquet": "a680e53b7d95563c1b92bc77111742fc4e0cf8a09a4077f2f74c5d477e50bb58",
+    "data/stage2/datasets/ret1_1/ret1_1_2022.parquet": "9f5e97d0faa0250a13cff733464f2e22d8e1dc9893ed06917e6e94e2d4989ae2",
+    "data/stage2/datasets/ret1_1/ret1_1_2023.parquet": "0e7915adcf0c34a55342bf302d03d6a89fb74f6117e5adfbf451cc8d355faf43",
+    "data/stage2/datasets/ret1_1/ret1_1_2024.parquet": "bc5b6a7277cca08f6c025db052fc49bf21279a7dca586e98ffb969cfba6274cf",
+    "data/stage2/datasets/ret1_1/ret1_1_2025.parquet": "00724c623606b4b1456303385cb233e5d08513e82a059c1720e75cd2058e7743",
+    "data/stage2/datasets/ret1_1/ret1_1_2026.parquet": "0f4a735ce4beb569f63edd7dd57799087cf8fb80cd24879792030d4e1b4176a4"
+   },
+   "id1_segments": "5c4b43fcd8727718b637449372cab50e9195fc6d06cc5485ddfcd0baa32369fd",
+   "id1_entities": "0d6c3f94661ae4a337783829c298516e096694a75638d816cbdd8426552db671"
+  },
+  "outputs_sha256": {
+   "research/panel.parquet": "311e8dd3bd0828ee75126329058a23d2c024be3c490b0eac648c88ea29ff58eb",
+   "research/sessions.csv": "a0181d024c85073060ce382213bc26ad7cb44de621390b65eb72e1cd949938fe",
+   "research/identity.csv": "c7356c4efab339338fc3aa3563299221d007cb3c740ba98fa901806736f56f5a",
+   "research/gap_rows.csv": "748343967a76ff69df2ff21a6f9928ca9a94a83232ff458df6d52390873247ae",
+   "primary/calendar.csv": "91cccb5468e7b070779e9ab28c66a98b5eac60ce1b7b146187f0967900f39789",
+   "primary/universes.csv": "d42d9aea09a38b90a517feb0270791ece48744c27fb84a09d226621c296650aa",
+   "oos/calendar.csv": "55d159200cfec3c71eee9d3f6808a990adbdd3520fef1c9d661ba5d25f2ad74d",
+   "oos/universes.csv": "632827b41cb9a6c431c8528da01c9f73247c4c1c45b9cd2213f617f57c299712"
+  },
+  "samples": {
+   "PRIMARY": {
+    "months": 114,
+    "first_t": "2012-06-29",
+    "last_t": "2021-11-30",
+    "protocol_exit_session": "2022-01-03"
+   },
+   "OOS": {
+    "months": 56,
+    "first_t": "2021-12-31",
+    "last_t": "2026-07-31",
+    "protocol_exit_session": "2026-09-01"
+   }
+  },
+  "structural_counts": {
+   "sessions": 3768,
+   "entities_in_any_universe": 735,
+   "survivor_pool_entities_in_any_universe": 619,
+   "panel_rows": 2115961,
+   "panel_rows_by_class": {
+    "OK": 2103320,
+    "SPAN": 10495,
+    "BAD": 1411,
+    "FIRST": 735
+   },
+   "gap_rows": 1192,
+   "gap_rows_without_event": 1130,
+   "step_c_member_months_without_exit_price": 70,
+   "step_c_non_research_grade_stock_days_in_holding": 137
+  },
+  "code_sha256": {
+   "src/stage3/ladder.py": "4f3f447a1378b1367a6e0cb05fd19220778da3384c0539f5b6e656c68767705b",
+   "src/stage3/data.py": "a88b754a59521d8f634ee8a4c2df2dc431d42ade485ced0623e9e0e1a38c5f5d",
+   "src/stage3/protocol.py": "fc42ce58e28d0df5d122019f5ce727ee9bc194b409d5056313377ef6c581ceb5"
+  }
+ },
+ "build": {
+  "built_at": "2026-10-05T19:48:49",
+  "environment": {
+   "git_commit": "7d4cb6d977ee1fbe40351fc6b6049c49af7638b2",
+   "git_dirty": true,
+   "python": "3.13.5",
+   "packages": {
+    "pandas": "2.2.3",
+    "numpy": "2.1.3",
+    "scikit-learn": "1.6.1",
+    "yfinance": "1.5.1",
+    "fastapi": "0.139.2"
+   }
+  }
+ }
+}

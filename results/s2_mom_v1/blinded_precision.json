@@ -1,0 +1,46 @@
+{
+ "sample": "PRIMARY",
+ "months_in_calendar": 114,
+ "paired_months": 114,
+ "unpaired_months": {},
+ "rankable_min_by_step": {
+  "A": 124,
+  "B": 190,
+  "C": 190,
+  "D": 180
+ },
+ "data_quality_counts": {
+  "W_span_stock_days": 564,
+  "L_span_stock_days": 565,
+  "BM_span_stock_days": 1877,
+  "W_exit_gap_booked": 34,
+  "W_exit_gap_booked_on_flagged_row": 10,
+  "L_exit_gap_booked": 8,
+  "L_exit_gap_booked_on_flagged_row": 6,
+  "BM_exit_gap_booked": 48,
+  "BM_exit_gap_booked_on_flagged_row": 17,
+  "W_filled_stock_days": 22,
+  "W_fill_without_other_stocks": 0,
+  "BM_filled_stock_days": 93,
+  "BM_fill_without_other_stocks": 0,
+  "L_filled_stock_days": 39,
+  "L_fill_without_other_stocks": 0,
+  "W_delisting_return_applied": 20,
+  "BM_delisting_return_applied": 42,
+  "L_delisting_return_applied": 9
+ },
+ "delta_series_sha256": "e1fceaf4336b35f365381807496559d337279195c7d940d9dd11f7387b48857c",
+ "n": 114,
+ "sd": 2.3592640532590563,
+ "long_run_sd_nw": 2.2510198075747354,
+ "lag": 4,
+ "autocorrelation": [
+  -0.0075592077546402375,
+  -0.006545122473766201,
+  0.04184508636920816,
+  -0.2378176329949327
+ ],
+ "detectable_effect_80pct_two_sided_5pct": 0.5906507070303696,
+ "equivalence_power_at_true_zero": 0.0,
+ "reference_threshold": 0.1
+}

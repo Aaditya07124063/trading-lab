@@ -1,0 +1,1091 @@
+{
+ "schedule_id": "delivery_nse_eq_s2mom_v1_dated",
+ "protocol": "S2-MOM-v1 frozen §13 class 1, as specified by Addendum 1 and Supplement 1",
+ "parents": {
+  "protocol_sha256": "f1abd954f698307f7aafe234c5d5c9f1681ccc5aadb9cb21e9f8e34d47abd838",
+  "addendum1_sha256": "d12ccaa6fa23143f808b429d75c757a57a853afa42e961a94157d3b772dffefe",
+  "supplement1_sha256": "ab28fd1750db3e222819013ef70ff69c4b48d5d5757d51ec5c77e9b6232253b3"
+ },
+ "created": "2026-10-06",
+ "timing": "Specified after the gross primary, sensitivity and confirmation results were known and before any cost, turnover or net return was computed. It changes no part of steps A-D.",
+ "sample": {
+  "from": "2012-07-02",
+  "to": "2026-09-01"
+ },
+ "account": "Zerodha, retail individual account (Addendum rule 1, Supplement ruling 1)",
+ "date_rule": "Each rate applies to trade dates from `from` to `to`, both inclusive. A stated effective date is used where an archived document gives one; between two differing dated captures the higher-cost value applies (Supplement ruling 2). No interpolation.",
+ "basis_key": {
+  "ARCHIVED_EVIDENCE": "archived evidence for the period",
+  "ARCHIVED_EVIDENCE_WITH_APPROVED_READING": "official evidence for the main rate plus broker evidence for a part of it; approved 2026-10-06; flagged as an assumption",
+  "EVIDENCE_BRACKET_ASSUMPTION": "official start date plus a dated broker capture, applied by ruling 2; approved 2026-10-06; an assumption, not direct official-rate evidence",
+  "FALLBACK_CURRENT_RATE": "frozen §13 fallback after a documented failed search: the current rate, labelled an assumption"
+ },
+ "conventions": {
+  "notional_rs_per_portfolio": 10000000,
+  "notional_reset_every_rebalance": true,
+  "compounding": false,
+  "orders_per_stock_per_rebalance": 1,
+  "order_value": "abs(target weight - drifted weight) x notional_rs_per_portfolio",
+  "sale_definition": "target weight below drifted weight; any reduction counts",
+  "sell_side_charge": "dp_charge billed_rs once per stock sold per rebalance, whatever the size of the reduction; tax already included; never taxed again",
+  "brokerage": "per order: min(rate x order value, cap_rs_per_order)",
+  "ad_valorem_sides": {
+   "stt_buy": "buy",
+   "stt_sell": "sell",
+   "stamp_duty_buy": "buy",
+   "exchange_txn": "both",
+   "ipft": "both",
+   "sebi_fee": "both",
+   "brokerage": "both"
+  },
+  "indirect_tax_base": [
+   "brokerage",
+   "exchange_txn",
+   "ipft",
+   "sebi_fee"
+  ],
+  "indirect_tax_base_note": "Frozen §13: tax on (brokerage + exchange + SEBI), where the frozen 'exchange' line is 'Exchange transaction charge + IPFT' and Addendum rule 2 adds the contribution to the charge. STT, stamp duty and the depository charge are outside the base.",
+  "slippage": "class 2 scenarios S0-S4 of frozen §13; not part of this file"
+ },
+ "components": {
+  "stt_buy": [
+   {
+    "from": "2012-07-02",
+    "to": "2026-09-01",
+    "rate": 0.001,
+    "stated": 0.1,
+    "stated_unit": "percent",
+    "basis": "FALLBACK_CURRENT_RATE",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FATAX73524.pdf",
+      "sha256": "f4cbd1f917f88dcb9d59b95e0e9ef8bbb98017edbbdd16669a3d40776416a9f6"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FATAX63809.pdf",
+      "sha256": "e72218a4aaffccfc5ea485c714bf83d019c2bb0a5ebb4724029552b0cd7fc31f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_static_sebi_fees_stt_page.html",
+      "sha256": "a9c261eed75c44f8f0bccc129bcc5f2da091c9b71f7d6f2114ae2474a4b6ad82"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006.txt",
+      "sha256": "e2bc86c0e11296745b5ac9a9149e682ee769e252e3b6cba58d58c298b49e8772"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006b.txt",
+      "sha256": "1647f7fb4e8bd50e459d5922e84799f3b906df58ab5e0e3e4540331858afb85d"
+     }
+    ],
+    "note": "Enacted Finance Act 2012 not obtained: nine addresses over two passes and three archive-index queries (SEARCH_LOG_20261006.txt, SEARCH_LOG_20261006b.txt). Frozen §13 fallback: current rate for the whole sample. Supporting only, not relied on: Finance Bill 2012 memorandum and broker lists show 0.1% from 1 Jul 2012."
+   }
+  ],
+  "stt_sell": [
+   {
+    "from": "2012-07-02",
+    "to": "2026-09-01",
+    "rate": 0.001,
+    "stated": 0.1,
+    "stated_unit": "percent",
+    "basis": "FALLBACK_CURRENT_RATE",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FATAX73524.pdf",
+      "sha256": "f4cbd1f917f88dcb9d59b95e0e9ef8bbb98017edbbdd16669a3d40776416a9f6"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FATAX63809.pdf",
+      "sha256": "e72218a4aaffccfc5ea485c714bf83d019c2bb0a5ebb4724029552b0cd7fc31f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_static_sebi_fees_stt_page.html",
+      "sha256": "a9c261eed75c44f8f0bccc129bcc5f2da091c9b71f7d6f2114ae2474a4b6ad82"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006.txt",
+      "sha256": "e2bc86c0e11296745b5ac9a9149e682ee769e252e3b6cba58d58c298b49e8772"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006b.txt",
+      "sha256": "1647f7fb4e8bd50e459d5922e84799f3b906df58ab5e0e3e4540331858afb85d"
+     }
+    ],
+    "note": "Enacted Finance Act 2012 not obtained: nine addresses over two passes and three archive-index queries (SEARCH_LOG_20261006.txt, SEARCH_LOG_20261006b.txt). Frozen §13 fallback: current rate for the whole sample. Supporting only, not relied on: Finance Bill 2012 memorandum and broker lists show 0.1% from 1 Jul 2012."
+   }
+  ],
+  "exchange_txn": [
+   {
+    "from": "2012-07-02",
+    "to": "2020-12-31",
+    "rate": 3.25e-05,
+    "stated": 3.25,
+    "stated_unit": "rs_per_lakh",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FAAC13028_20090907.pdf",
+      "sha256": "5c018e6a880fccbb9d9c818a7829357a3e2e4d7a4ddbb8928de96cec92b001e4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA46730.pdf",
+      "sha256": "a9ff85ab4deec82e02bb1e3fc213a2bbc02a72e9edb7b36cdf1568aeb792febf"
+     }
+    ],
+    "note": "Lowest monthly-turnover slab = highest rate (Addendum rule 2). Transaction charge only; IPFT is the separate component `ipft`. Set from 1 Oct 2009; given as 'existing' in Dec 2020. The 1 Aug 2020 - 31 Mar 2021 scheme for stocks outside NIFTY 50 / Next 50 is NOT applied (Supplement ruling 3)."
+   },
+   {
+    "from": "2021-01-01",
+    "to": "2023-03-31",
+    "rate": 3.45e-05,
+    "stated": 3.45,
+    "stated_unit": "rs_per_lakh",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA46730.pdf",
+      "sha256": "a9ff85ab4deec82e02bb1e3fc213a2bbc02a72e9edb7b36cdf1568aeb792febf"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA56129.pdf",
+      "sha256": "ec260386adbcf3a0c3326d7d8b3b45b15ba693c55081fdc78fb05b83a5ee93e0"
+     }
+    ],
+    "note": "Lowest monthly-turnover slab = highest rate (Addendum rule 2). Transaction charge only; IPFT is the separate component `ipft`. The January 2021 increase was made to the transaction charge itself; it is recorded here once and is NOT an IPFT amount (Supplement ruling 6)."
+   },
+   {
+    "from": "2023-04-01",
+    "to": "2024-03-31",
+    "rate": 3.25e-05,
+    "stated": 3.25,
+    "stated_unit": "rs_per_lakh",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA56129.pdf",
+      "sha256": "ec260386adbcf3a0c3326d7d8b3b45b15ba693c55081fdc78fb05b83a5ee93e0"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA61137.pdf",
+      "sha256": "e01c5b6c76d29d559bc7f559758c99cb289ec44a88e3f89d5e46b8c2c360e0ac"
+     }
+    ],
+    "note": "Lowest monthly-turnover slab = highest rate (Addendum rule 2). Transaction charge only; IPFT is the separate component `ipft`. January 2021 increase rolled back from 1 Apr 2023."
+   },
+   {
+    "from": "2024-04-01",
+    "to": "2024-09-30",
+    "rate": 3.22e-05,
+    "stated": 3.22,
+    "stated_unit": "rs_per_lakh",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA61137.pdf",
+      "sha256": "e01c5b6c76d29d559bc7f559758c99cb289ec44a88e3f89d5e46b8c2c360e0ac"
+     }
+    ],
+    "note": "Lowest monthly-turnover slab = highest rate (Addendum rule 2). Transaction charge only; IPFT is the separate component `ipft`."
+   },
+   {
+    "from": "2024-10-01",
+    "to": "2026-02-28",
+    "rate": 2.97e-05,
+    "stated": 2.97,
+    "stated_unit": "rs_per_lakh",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA64232.pdf",
+      "sha256": "85b816208f33bdd1c6c0d827b1ba996aba1fe08fe883a6d31c6a2c0ad55304a4"
+     },
+     {
+      "file": "docs/evidence/NSE_FA73061_2026-02-27_transaction_charges.pdf",
+      "sha256": "6085601a26177ed61e37e5347960b936d71464ab625d6a0d9fe72b2ec838ac09"
+     }
+    ],
+    "note": "Uniform rate from 1 Oct 2024 (Rs 297 per crore). Transaction charge only."
+   },
+   {
+    "from": "2026-03-01",
+    "to": "2026-09-01",
+    "rate": 3.0699e-05,
+    "stated": 3.0699,
+    "stated_unit": "rs_per_lakh",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/NSE_FA73061_2026-02-27_transaction_charges.pdf",
+      "sha256": "6085601a26177ed61e37e5347960b936d71464ab625d6a0d9fe72b2ec838ac09"
+     }
+    ],
+    "note": "Uniform rate Rs 306.99 per crore. Transaction charge only."
+   }
+  ],
+  "ipft": [
+   {
+    "from": "2012-07-02",
+    "to": "2023-03-31",
+    "rate": 1e-09,
+    "stated": 0.01,
+    "stated_unit": "rs_per_crore",
+    "basis": "FALLBACK_CURRENT_RATE",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/NSE_FA73061_2026-02-27_transaction_charges.pdf",
+      "sha256": "6085601a26177ed61e37e5347960b936d71464ab625d6a0d9fe72b2ec838ac09"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA56129.pdf",
+      "sha256": "ec260386adbcf3a0c3326d7d8b3b45b15ba693c55081fdc78fb05b83a5ee93e0"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA46730.pdf",
+      "sha256": "a9ff85ab4deec82e02bb1e3fc213a2bbc02a72e9edb7b36cdf1568aeb792febf"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006b.txt",
+      "sha256": "1647f7fb4e8bd50e459d5922e84799f3b906df58ab5e0e3e4540331858afb85d"
+     }
+    ],
+    "note": "No NSE document states the contribution for any date before the circular of 24 Mar 2023 (documented failed search). Supplement ruling 6: §13 fallback = current amount. The 'existing' amount named in March 2023 is not used as evidence for earlier dates. The January 2021 transaction-charge increase is NOT added here."
+   },
+   {
+    "from": "2023-04-01",
+    "to": "2026-02-28",
+    "rate": 1e-06,
+    "stated": 10,
+    "stated_unit": "rs_per_crore",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_FA56129.pdf",
+      "sha256": "ec260386adbcf3a0c3326d7d8b3b45b15ba693c55081fdc78fb05b83a5ee93e0"
+     },
+     {
+      "file": "docs/evidence/NSE_FA73061_2026-02-27_transaction_charges.pdf",
+      "sha256": "6085601a26177ed61e37e5347960b936d71464ab625d6a0d9fe72b2ec838ac09"
+     }
+    ],
+    "note": "Stated separately from the transaction charge: Rs 10 per crore (297 + 10 = 307 in the 2026 circular)."
+   },
+   {
+    "from": "2026-03-01",
+    "to": "2026-09-01",
+    "rate": 1e-09,
+    "stated": 0.01,
+    "stated_unit": "rs_per_crore",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/NSE_FA73061_2026-02-27_transaction_charges.pdf",
+      "sha256": "6085601a26177ed61e37e5347960b936d71464ab625d6a0d9fe72b2ec838ac09"
+     }
+    ],
+    "note": "Stated separately: Rs 0.01 per crore (306.99 + 0.01 = 307)."
+   }
+  ],
+  "sebi_fee": [
+   {
+    "from": "2012-07-02",
+    "to": "2014-05-22",
+    "rate": 1e-06,
+    "stated": 10,
+    "stated_unit": "rs_per_crore",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/SEBI_PR_payment_of_fees_amendment_2014.html",
+      "sha256": "7608634ec8a6b17c6c2840d460d9079c9b988951191bfe68d92a38bcda6156b2"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20120504125926.xls",
+      "sha256": "b4bccc8b057432b866734d5fa5b5f6235126420601cfe6bff3c9ffdeeec2fe6f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20121225060108.xls",
+      "sha256": "ae240f3dd100d116f97cb98e1a3205dbf312fc3d2c88121e448204219b4225e1"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charge-list_20140504002448.html",
+      "sha256": "166b556a2c73ddd1f47bec0455c16a4574448484eb5f401a8bd8799c147f3da2"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEBI_stock_brokers_amendment_regs_commondocs.pdf",
+      "sha256": "6b48fde69507635593650fe63749e2e7d9d700f7f36b0afd301257c44459e27a"
+     }
+    ],
+    "note": "SEBI press release: fee raised 'from Rs. 10'. Broker lists of May 2012, Dec 2012, May 2014 agree."
+   },
+   {
+    "from": "2014-05-23",
+    "to": "2017-03-31",
+    "rate": 2e-06,
+    "stated": 20,
+    "stated_unit": "rs_per_crore",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/SEBI_payment_of_fees_amendment_regs_2014.pdf",
+      "sha256": "4a78abbe563f18f40fc719858b37c757decf525954d5b14b396e6efb2c759a3c"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEBI_PR_payment_of_fees_amendment_2014.html",
+      "sha256": "7608634ec8a6b17c6c2840d460d9079c9b988951191bfe68d92a38bcda6156b2"
+     }
+    ],
+    "note": "Gazette 23 May 2014, in force on publication."
+   },
+   {
+    "from": "2017-04-01",
+    "to": "2019-03-31",
+    "rate": 1.5e-06,
+    "stated": 15,
+    "stated_unit": "rs_per_crore",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/SEBI_gazette_fees_amendment_2017.pdf",
+      "sha256": "4b826aaa618929490f196d385f0b5d8d7c291b266d3ac0ac8d8de585e4302459"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/THC_SEBI_stock_brokers_regulations_1992_consolidated.pdf",
+      "sha256": "f18f452b08c71cbac3f0e7249ca64e5b475ccbefa7967d9aa6d7a1697a656236"
+     }
+    ],
+    "note": "Gazette 6 Mar 2017, in force 1 Apr 2017."
+   },
+   {
+    "from": "2019-04-01",
+    "to": "2026-09-01",
+    "rate": 1e-06,
+    "stated": 10,
+    "stated_unit": "rs_per_crore",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/CSE_notice_SEBI_turnover_fees_2019.htm",
+      "sha256": "99ebdca9a5ce4ceeccfece0e68bf80b341862a2dbacec5b509a5fcdc5838cccc"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_static_sebi_fees_stt_page.html",
+      "sha256": "a9c261eed75c44f8f0bccc129bcc5f2da091c9b71f7d6f2114ae2474a4b6ad82"
+     }
+    ],
+    "note": "SEBI notification of 22 Mar 2019, in force 1 Apr 2019. The June 2020 - March 2021 halving is NOT applied: no SEBI instrument fixing its dates is archived (Supplement ruling 5). This is the higher-cost reading."
+   }
+  ],
+  "stamp_duty_buy": [
+   {
+    "from": "2012-07-02",
+    "to": "2020-06-30",
+    "rate": 0.00015,
+    "stated": 0.015,
+    "stated_unit": "percent",
+    "basis": "FALLBACK_CURRENT_RATE",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_static_stamp_duty_page.html",
+      "sha256": "670216ea1d4fa74d6b4c5391a99900cb3451451a8f48582a0f73bf7267600ef4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/ZERODHA_bulletin_uniform_stamp_duty_20200701.html",
+      "sha256": "871057fc1efcfb721f10ca6a17b99c33d130a77075f86e4df4cc49adf26465bf"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/PIB_stamp_duty_PRID1635399_20200630.html",
+      "sha256": "a94e6043b555ae2a101de0dbdb93d28025f8910e308b52f41794ba5f3272e936"
+     }
+    ],
+    "note": "An official release states no single rate existed before 1 Jul 2020 (state rates, both sides). Supplement ruling 7: §13 fallback as written = current rate, buyer only. DISCLOSURE: it omits the seller's side that applied then; may favour the strategy. No state rate is used."
+   },
+   {
+    "from": "2020-07-01",
+    "to": "2026-09-01",
+    "rate": 0.00015,
+    "stated": 0.015,
+    "stated_unit": "percent",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/NSE_static_stamp_duty_page.html",
+      "sha256": "670216ea1d4fa74d6b4c5391a99900cb3451451a8f48582a0f73bf7267600ef4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/ZERODHA_bulletin_uniform_stamp_duty_20200701.html",
+      "sha256": "871057fc1efcfb721f10ca6a17b99c33d130a77075f86e4df4cc49adf26465bf"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/PIB_stamp_duty_PRID1635399_20200630.html",
+      "sha256": "a94e6043b555ae2a101de0dbdb93d28025f8910e308b52f41794ba5f3272e936"
+     }
+    ],
+    "note": "Uniform scheme from 1 Jul 2020; 0.015% on the buyer, delivery."
+   }
+  ],
+  "indirect_tax": [
+   {
+    "from": "2012-07-02",
+    "to": "2015-05-31",
+    "rate": 0.1236,
+    "stated": 12.36,
+    "stated_unit": "percent",
+    "kind": "service tax + education cesses",
+    "parts": {
+     "service_tax_official": 12.0,
+     "education_cess_pct_of_tax_broker_evidence": 2.0,
+     "higher_education_cess_pct_of_tax_broker_evidence": 1.0
+    },
+    "basis": "ARCHIVED_EVIDENCE_WITH_APPROVED_READING",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st-act-ason24oct2013_20150829.pdf",
+      "sha256": "ef4f4b35418cd6d442071b66ce4cb9a95f22b0ff857994cb8f2b74d83c131f0b"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_finact2015_20150528.pdf",
+      "sha256": "33e73c90d8c3502d1793b03594814fae385ccc0627321714b0d4c64085f7ca99"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20120504125926.xls",
+      "sha256": "b4bccc8b057432b866734d5fa5b5f6235126420601cfe6bff3c9ffdeeec2fe6f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20121225060108.xls",
+      "sha256": "ae240f3dd100d116f97cb98e1a3205dbf312fc3d2c88121e448204219b4225e1"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charge-list_20140504002448.html",
+      "sha256": "166b556a2c73ddd1f47bec0455c16a4574448484eb5f401a8bd8799c147f3da2"
+     }
+    ],
+    "note": "Service tax 12% is OFFICIAL (section 66B). The education cess (2% of the tax) and higher education cess (1% of the tax) rates are NOT from an official file: they rest on three agreeing dated Zerodha charge lists (approved reading, 2026-10-06). Official files prove only that the cesses existed until removed by the Finance Act 2015. 12 x 1.03 = 12.36."
+   },
+   {
+    "from": "2015-06-01",
+    "to": "2015-11-14",
+    "rate": 0.14,
+    "stated": 14.0,
+    "stated_unit": "percent",
+    "kind": "service tax",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_finact2015_20150528.pdf",
+      "sha256": "33e73c90d8c3502d1793b03594814fae385ccc0627321714b0d4c64085f7ca99"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st14-2015.pdf",
+      "sha256": "6c9ab52e02bf08e69b9be6fef3179773adf7fc2773cb76db61bd9c1b667d9a30"
+     }
+    ],
+    "note": "Finance Act 2015 s.108 (14%), s.153 and s.159 (education cesses removed); in force 1 Jun 2015 by Notification 14/2015-ST."
+   },
+   {
+    "from": "2015-11-15",
+    "to": "2016-05-31",
+    "rate": 0.145,
+    "stated": 14.5,
+    "stated_unit": "percent",
+    "kind": "service tax + Swachh Bharat Cess",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st21h-2015_20151123.pdf",
+      "sha256": "41fcf099114c43ecd611a872bcbfd72a115986cd2c9d36428b6f4ca1fbd36d18"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st22h-2015_20151123.pdf",
+      "sha256": "d14727f3754134cddcb784380a26353098e0241a5d425b21ee2e493bad6880e4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_faq-sbc_20161022.pdf",
+      "sha256": "09c94bafb6037d48d9a5808fab15ced0f7733380ae3eb6f09744a91337d055ae"
+     }
+    ],
+    "note": "14% + Swachh Bharat Cess 0.5% from 15 Nov 2015."
+   },
+   {
+    "from": "2016-06-01",
+    "to": "2016-10-08",
+    "rate": 0.15,
+    "stated": 15.0,
+    "stated_unit": "percent",
+    "kind": "service tax + Swachh Bharat Cess + Krishi Kalyan Cess",
+    "basis": "EVIDENCE_BRACKET_ASSUMPTION",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st27-2016.pdf",
+      "sha256": "278b5d3a0b91a03b9a0a5172a5e472ee015b5ff0c058ef1ffc23075b7236f30e"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st28-2016.pdf",
+      "sha256": "caaf64be41ce1a347dc7f9d6cb6b210c8e736c3a13aadfc9da7d235611c3495f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_faq-sbc_20161022.pdf",
+      "sha256": "09c94bafb6037d48d9a5808fab15ced0f7733380ae3eb6f09744a91337d055ae"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006b.txt",
+      "sha256": "1647f7fb4e8bd50e459d5922e84799f3b906df58ab5e0e3e4540331858afb85d"
+     }
+    ],
+    "note": "EVIDENCE-BASED BRACKET ASSUMPTION, not direct official-rate evidence (approved reading, 2026-10-06). The Krishi Kalyan Cess start date, 1 Jun 2016, is official. Its 0.5% rate is not in any archived official file. The 15% total is taken from the Zerodha capture of 9 Oct 2016 and applied from the official start date under Supplement ruling 2 (higher of 14.5% and 15%)."
+   },
+   {
+    "from": "2016-10-09",
+    "to": "2017-06-30",
+    "rate": 0.15,
+    "stated": 15.0,
+    "stated_unit": "percent",
+    "kind": "service tax + Swachh Bharat Cess + Krishi Kalyan Cess",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20170317010757.html",
+      "sha256": "7da660e591254536f8e012b10826a6796cd64286d60afa6ebd9ead3d97f911ed"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st-act-ason-01apr2017_20170611.pdf",
+      "sha256": "f170777f5ede1237bb8b3f3d96370ee99beed4a451687b775092c087377fb0a2"
+     }
+    ],
+    "note": "15% shown in the broker captures of 9 Oct 2016 and 17 Mar 2017 (broker primary); basic rate 14% official at 1 Apr 2017. Service tax ended 30 Jun 2017."
+   },
+   {
+    "from": "2017-07-01",
+    "to": "2026-09-01",
+    "rate": 0.18,
+    "stated": 18.0,
+    "stated_unit": "percent",
+    "kind": "GST",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn8_2017_integrated_tax_rate.pdf",
+      "sha256": "1f2d7ff6b92290164420906f86325052b4a710fd7b545f2f9896ded7e7713f5d"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn11_2017_central_tax_rate.pdf",
+      "sha256": "a8051c8882b8a7e3e2d8b2ad10e3c18b9c85c755fbbfe324dce43b4c6b44d934"
+     }
+    ],
+    "note": "GST 18% on financial and related services from 1 Jul 2017."
+   }
+  ],
+  "brokerage": [
+   {
+    "from": "2012-07-02",
+    "to": "2015-11-30",
+    "rate": 0.001,
+    "stated": 0.1,
+    "stated_unit": "percent",
+    "cap_rs_per_order": 20.0,
+    "rule": "min(rate x order value, cap_rs_per_order)",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20120504125926.xls",
+      "sha256": "b4bccc8b057432b866734d5fa5b5f6235126420601cfe6bff3c9ffdeeec2fe6f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_demat_form_20120504125220.pdf",
+      "sha256": "f7bbf2eb4cc71210c5d352be4888056dee8724eaf246bfad75ee38d1d19534b9"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_pricing_20120927020225.html",
+      "sha256": "62f6e36dfe94e7d36e4dcacedc4e3fe9778dd178cafcdb25738d49ad4ab445fe"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20121225060108.xls",
+      "sha256": "ae240f3dd100d116f97cb98e1a3205dbf312fc3d2c88121e448204219b4225e1"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_pricing_20130104171836.html",
+      "sha256": "8d63ea94b1f07ccb3f8482af12afbb49e4f04823da256c70c768d468a99395d5"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_pricing_20140109010453.html",
+      "sha256": "1cf820285461e8e1f142f9108305ea91f59e22896cd7e758b6a0d21193f2be3c"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charge-list_20140504002448.html",
+      "sha256": "166b556a2c73ddd1f47bec0455c16a4574448484eb5f401a8bd8799c147f3da2"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_pricing_20150206043100.html",
+      "sha256": "5b723a9c86c77930bb5b76332a370d180ea3574d2cd5a1548489fba3326a4f87"
+     }
+    ],
+    "note": "Lower of 0.1% of order value or Rs 20 per executed order. Captures of 4 May 2012 and 27 Sep 2012 agree, so the rate holds between them (covers 2 Jul - 26 Sep 2012). Some captures say 'per trade'; the tariff sheet says 'per executed order'; the Addendum fixes one order per stock."
+   },
+   {
+    "from": "2015-12-01",
+    "to": "2026-09-01",
+    "rate": 0.0,
+    "stated": 0.0,
+    "stated_unit": "percent",
+    "cap_rs_per_order": 0.0,
+    "rule": "min(rate x order value, cap_rs_per_order)",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/ZERODHA_zconnect_zero_brokerage_20151130.html",
+      "sha256": "0a72bc0fe7a1f76fb754835c25af7cd3ac8d635868b7119212d1496640cdd5b7"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/ZERODHA_charges_page.html",
+      "sha256": "aae15a3dd992339b1efafa608817ae0378c25e939d4300acce1375e56ca80e98"
+     }
+    ],
+    "note": "Zero for equity delivery from 1 Dec 2015, the date stated in the broker's announcement. Applies to retail individual accounts only (Supplement ruling 1). DISCLOSURE: ruling 1 may favour the strategy; other account types kept paying."
+   }
+  ],
+  "dp_charge": [
+   {
+    "from": "2012-07-02",
+    "to": "2012-12-24",
+    "billed_rs": 21.9102,
+    "pretax_rs": 19.5,
+    "tax_rate_included": 0.1236,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE_WITH_APPROVED_READING",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_demat_form_20120504125220.pdf",
+      "sha256": "f7bbf2eb4cc71210c5d352be4888056dee8724eaf246bfad75ee38d1d19534b9"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfs_demat_form_20121225052153.pdf",
+      "sha256": "6f03dee81cb2acfbdb34266ca0e4e3a7f46de2b6c54c2b56a5cec2708d9524c4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_policy_2010-0029_settlement_fee_20131028.pdf",
+      "sha256": "932a1f380984c5311ad03e0e2a7385ae4d4f41f54aec3bbb5421dc8b1e53dc43"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st-act-ason24oct2013_20150829.pdf",
+      "sha256": "ef4f4b35418cd6d442071b66ce4cb9a95f22b0ff857994cb8f2b74d83c131f0b"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_finact2015_20150528.pdf",
+      "sha256": "33e73c90d8c3502d1793b03594814fae385ccc0627321714b0d4c64085f7ca99"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20120504125926.xls",
+      "sha256": "b4bccc8b057432b866734d5fa5b5f6235126420601cfe6bff3c9ffdeeec2fe6f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20121225060108.xls",
+      "sha256": "ae240f3dd100d116f97cb98e1a3205dbf312fc3d2c88121e448204219b4225e1"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charge-list_20140504002448.html",
+      "sha256": "166b556a2c73ddd1f47bec0455c16a4574448484eb5f401a8bd8799c147f3da2"
+     }
+    ],
+    "note": "Rs 15 broker + Rs 4.50 NSDL. Capture of 4 May 2012 (Rs 15 + depository fee) and capture of 25 Dec 2012 (Rs 8 + depository fee) differ: ruling 2 applies the higher to every date between. CAVEAT: this may overstate the charge for part of the period. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2012-12-25",
+    "to": "2014-07-03",
+    "billed_rs": 14.045,
+    "pretax_rs": 12.5,
+    "tax_rate_included": 0.1236,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE_WITH_APPROVED_READING",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfs_demat_form_20121225052153.pdf",
+      "sha256": "6f03dee81cb2acfbdb34266ca0e4e3a7f46de2b6c54c2b56a5cec2708d9524c4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_blog_poa_demat_20150620.html",
+      "sha256": "1f0e7d7c7de01afea2e8d84145e83057774b709ccfd663bf0f6e0fc5509cafc5"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfsdemat_20140703122832.pdf",
+      "sha256": "1969f54936ab5f39ab252782e2342cd3a158ab06bfcec5e1afb17d13d844d836"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_policy_2010-0029_settlement_fee_20131028.pdf",
+      "sha256": "932a1f380984c5311ad03e0e2a7385ae4d4f41f54aec3bbb5421dc8b1e53dc43"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_fee_payable_by_participants_20130818.html",
+      "sha256": "6825fa90f405ea11e7e4d0bd770b566f1bf66538d7c9720440fccc36b01180a6"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st-act-ason24oct2013_20150829.pdf",
+      "sha256": "ef4f4b35418cd6d442071b66ce4cb9a95f22b0ff857994cb8f2b74d83c131f0b"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_finact2015_20150528.pdf",
+      "sha256": "33e73c90d8c3502d1793b03594814fae385ccc0627321714b0d4c64085f7ca99"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20120504125926.xls",
+      "sha256": "b4bccc8b057432b866734d5fa5b5f6235126420601cfe6bff3c9ffdeeec2fe6f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20121225060108.xls",
+      "sha256": "ae240f3dd100d116f97cb98e1a3205dbf312fc3d2c88121e448204219b4225e1"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charge-list_20140504002448.html",
+      "sha256": "166b556a2c73ddd1f47bec0455c16a4574448484eb5f401a8bd8799c147f3da2"
+     }
+    ],
+    "note": "Rs 8 broker + Rs 4.50 NSDL. Captures of 25 Dec 2012 and 3 Jul 2014 agree; broker statement of 19 Mar 2013 gives Rs 12.5. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2014-07-04",
+    "to": "2015-05-31",
+    "billed_rs": 15.1686,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.1236,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE_WITH_APPROVED_READING",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfsdemat_20140703122832.pdf",
+      "sha256": "1969f54936ab5f39ab252782e2342cd3a158ab06bfcec5e1afb17d13d844d836"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_fees_and_charges_to_DPs_20170708.pdf",
+      "sha256": "bc45eddb4e0d62af0a0d2b3fa4297975d21e3b1c67764aed2434765641a07255"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st-act-ason24oct2013_20150829.pdf",
+      "sha256": "ef4f4b35418cd6d442071b66ce4cb9a95f22b0ff857994cb8f2b74d83c131f0b"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_finact2015_20150528.pdf",
+      "sha256": "33e73c90d8c3502d1793b03594814fae385ccc0627321714b0d4c64085f7ca99"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20120504125926.xls",
+      "sha256": "b4bccc8b057432b866734d5fa5b5f6235126420601cfe6bff3c9ffdeeec2fe6f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_chargelist_20121225060108.xls",
+      "sha256": "ae240f3dd100d116f97cb98e1a3205dbf312fc3d2c88121e448204219b4225e1"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charge-list_20140504002448.html",
+      "sha256": "166b556a2c73ddd1f47bec0455c16a4574448484eb5f401a8bd8799c147f3da2"
+     }
+    ],
+    "note": "Captures of 3 Jul 2014 (Rs 12.5) and 9 Oct 2016 (Rs 13.5) differ: ruling 2 applies the higher to every date between. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2015-06-01",
+    "to": "2015-11-14",
+    "billed_rs": 15.39,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.14,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfsdemat_20140703122832.pdf",
+      "sha256": "1969f54936ab5f39ab252782e2342cd3a158ab06bfcec5e1afb17d13d844d836"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_fees_and_charges_to_DPs_20170708.pdf",
+      "sha256": "bc45eddb4e0d62af0a0d2b3fa4297975d21e3b1c67764aed2434765641a07255"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_finact2015_20150528.pdf",
+      "sha256": "33e73c90d8c3502d1793b03594814fae385ccc0627321714b0d4c64085f7ca99"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st14-2015.pdf",
+      "sha256": "6c9ab52e02bf08e69b9be6fef3179773adf7fc2773cb76db61bd9c1b667d9a30"
+     }
+    ],
+    "note": "Captures of 3 Jul 2014 (Rs 12.5) and 9 Oct 2016 (Rs 13.5) differ: ruling 2 applies the higher to every date between. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2015-11-15",
+    "to": "2016-05-31",
+    "billed_rs": 15.4575,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.145,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfsdemat_20140703122832.pdf",
+      "sha256": "1969f54936ab5f39ab252782e2342cd3a158ab06bfcec5e1afb17d13d844d836"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_fees_and_charges_to_DPs_20170708.pdf",
+      "sha256": "bc45eddb4e0d62af0a0d2b3fa4297975d21e3b1c67764aed2434765641a07255"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st21h-2015_20151123.pdf",
+      "sha256": "41fcf099114c43ecd611a872bcbfd72a115986cd2c9d36428b6f4ca1fbd36d18"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st22h-2015_20151123.pdf",
+      "sha256": "d14727f3754134cddcb784380a26353098e0241a5d425b21ee2e493bad6880e4"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_faq-sbc_20161022.pdf",
+      "sha256": "09c94bafb6037d48d9a5808fab15ced0f7733380ae3eb6f09744a91337d055ae"
+     }
+    ],
+    "note": "Captures of 3 Jul 2014 (Rs 12.5) and 9 Oct 2016 (Rs 13.5) differ: ruling 2 applies the higher to every date between. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2016-06-01",
+    "to": "2016-10-08",
+    "billed_rs": 15.525,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.15,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "EVIDENCE_BRACKET_ASSUMPTION",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_ilfsdemat_20140703122832.pdf",
+      "sha256": "1969f54936ab5f39ab252782e2342cd3a158ab06bfcec5e1afb17d13d844d836"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_NSDL_fees_and_charges_to_DPs_20170708.pdf",
+      "sha256": "bc45eddb4e0d62af0a0d2b3fa4297975d21e3b1c67764aed2434765641a07255"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st27-2016.pdf",
+      "sha256": "278b5d3a0b91a03b9a0a5172a5e472ee015b5ff0c058ef1ffc23075b7236f30e"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st28-2016.pdf",
+      "sha256": "caaf64be41ce1a347dc7f9d6cb6b210c8e736c3a13aadfc9da7d235611c3495f"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_faq-sbc_20161022.pdf",
+      "sha256": "09c94bafb6037d48d9a5808fab15ced0f7733380ae3eb6f09744a91337d055ae"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/SEARCH_LOG_20261006b.txt",
+      "sha256": "1647f7fb4e8bd50e459d5922e84799f3b906df58ab5e0e3e4540331858afb85d"
+     }
+    ],
+    "note": "Captures of 3 Jul 2014 (Rs 12.5) and 9 Oct 2016 (Rs 13.5) differ: ruling 2 applies the higher to every date between. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2016-10-09",
+    "to": "2017-06-30",
+    "billed_rs": 15.525,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.15,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20170317010757.html",
+      "sha256": "7da660e591254536f8e012b10826a6796cd64286d60afa6ebd9ead3d97f911ed"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20180822091806.html",
+      "sha256": "9bdbe5edb345d217bc48b0623ca5f8a8f6e01f65e07c9be5f9e8261025800577"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20190506071501.html",
+      "sha256": "0331ea42e3741704d5ead9278775c1fa61fa656df1872fffe89cad296f7a0908"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20200217130322.html",
+      "sha256": "c2ff785fb4aeb646472f6354e4bd72f2b1aed5853732e412fd4cf75149e7a7ca"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WB_CBEC_st-act-ason-01apr2017_20170611.pdf",
+      "sha256": "f170777f5ede1237bb8b3f3d96370ee99beed4a451687b775092c087377fb0a2"
+     }
+    ],
+    "note": "RULING 4 ASSUMPTION: captures of 9 Oct 2016 to 6 May 2019 show Rs 13.5 per scrip without mentioning tax; Supplement ruling 4 treats it as before tax and adds the tax in force (higher-cost reading). The next capture, 17 Feb 2020, says Rs 13.5 + GST. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2017-07-01",
+    "to": "2020-02-16",
+    "billed_rs": 15.93,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.18,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": true,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20161009084026.html",
+      "sha256": "cd66fee700c77ab9520c0e0854b19b03a54dfba440117c2f4a6e8e78611981ab"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20170317010757.html",
+      "sha256": "7da660e591254536f8e012b10826a6796cd64286d60afa6ebd9ead3d97f911ed"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20180822091806.html",
+      "sha256": "9bdbe5edb345d217bc48b0623ca5f8a8f6e01f65e07c9be5f9e8261025800577"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20190506071501.html",
+      "sha256": "0331ea42e3741704d5ead9278775c1fa61fa656df1872fffe89cad296f7a0908"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20200217130322.html",
+      "sha256": "c2ff785fb4aeb646472f6354e4bd72f2b1aed5853732e412fd4cf75149e7a7ca"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn8_2017_integrated_tax_rate.pdf",
+      "sha256": "1f2d7ff6b92290164420906f86325052b4a710fd7b545f2f9896ded7e7713f5d"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn11_2017_central_tax_rate.pdf",
+      "sha256": "a8051c8882b8a7e3e2d8b2ad10e3c18b9c85c755fbbfe324dce43b4c6b44d934"
+     }
+    ],
+    "note": "RULING 4 ASSUMPTION: captures of 9 Oct 2016 to 6 May 2019 show Rs 13.5 per scrip without mentioning tax; Supplement ruling 4 treats it as before tax and adds the tax in force (higher-cost reading). The next capture, 17 Feb 2020, says Rs 13.5 + GST. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2020-02-17",
+    "to": "2024-09-16",
+    "billed_rs": 15.93,
+    "pretax_rs": 13.5,
+    "tax_rate_included": 0.18,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20200217130322.html",
+      "sha256": "c2ff785fb4aeb646472f6354e4bd72f2b1aed5853732e412fd4cf75149e7a7ca"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20220117095119.html",
+      "sha256": "964292b4e465a56a2099fafc9d17bb31b41ee78cb2407ce09de428adea351020"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20240301020050.html",
+      "sha256": "cd4467daab8220ffdd2c109f03d55885197d79f5183ca7a77d8595b2ef1f0021"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20240917083204.html",
+      "sha256": "256680064b7365b27b7e2d42534ce34a3e925624c7f8effabd630025f5fb36ae"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn8_2017_integrated_tax_rate.pdf",
+      "sha256": "1f2d7ff6b92290164420906f86325052b4a710fd7b545f2f9896ded7e7713f5d"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn11_2017_central_tax_rate.pdf",
+      "sha256": "a8051c8882b8a7e3e2d8b2ad10e3c18b9c85c755fbbfe324dce43b4c6b44d934"
+     }
+    ],
+    "note": "Rs 13.5 + GST in the captures of 17 Feb 2020 to 1 Mar 2024. Capture of 17 Sep 2024 shows Rs 13 + GST: ruling 2 keeps the higher Rs 13.5 up to 16 Sep 2024. Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   },
+   {
+    "from": "2024-09-17",
+    "to": "2026-09-01",
+    "billed_rs": 15.34,
+    "pretax_rs": 13.0,
+    "tax_rate_included": 0.18,
+    "unit": "rs_per_stock_per_sell_day_tax_included",
+    "basis": "ARCHIVED_EVIDENCE",
+    "assumption": false,
+    "evidence": [
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20240917083204.html",
+      "sha256": "256680064b7365b27b7e2d42534ce34a3e925624c7f8effabd630025f5fb36ae"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20241008053010.html",
+      "sha256": "2095c01bc98490bfd2f5ec57173e9f30239decf7240e5f11fb8da1bd13443f60"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/WAYBACK_zerodha_charges_20241102213954.html",
+      "sha256": "0aea1fc026404c1d4d6a5908cccbe139addab176b6e1f5520ca6b25e7d2f0a74"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/ZERODHA_charges_page.html",
+      "sha256": "aae15a3dd992339b1efafa608817ae0378c25e939d4300acce1375e56ca80e98"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn8_2017_integrated_tax_rate.pdf",
+      "sha256": "1f2d7ff6b92290164420906f86325052b4a710fd7b545f2f9896ded7e7713f5d"
+     },
+     {
+      "file": "docs/evidence/s2mom_costs/CBIC_GST_notfn11_2017_central_tax_rate.pdf",
+      "sha256": "a8051c8882b8a7e3e2d8b2ad10e3c18b9c85c755fbbfe324dce43b4c6b44d934"
+     }
+    ],
+    "note": "Rs 13 + GST (capture 17 Sep 2024) = Rs 15.34 as billed (Rs 3.5 CDSL + Rs 9.5 Zerodha + Rs 2.34 GST; captures from 8 Oct 2024 and the page today). Tax included as billed: the indirect tax in force in this period; no further tax is added."
+   }
+  ]
+ }
+}

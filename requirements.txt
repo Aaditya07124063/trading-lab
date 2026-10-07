@@ -1,3 +1,5 @@
+# Loose list for the local app and the legacy tools (pip). NOT the research environment of S2-MOM-v1:
+# that one is Conda, see release/s2_mom_v1/environment.yml and REPRODUCIBILITY.md.
 pandas
 yfinance
 scikit-learn

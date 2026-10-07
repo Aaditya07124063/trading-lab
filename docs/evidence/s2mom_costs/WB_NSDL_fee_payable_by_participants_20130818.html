@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<noscript>
+	<meta http-equiv="Refresh" content="0; url=no-scripts-found.php">
+</noscript>
+<title>NSDL</title>
+<link href="https://nsdl.co.in/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" href="https://nsdl.co.in/include/css/nsdl.css" type="text/css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42135782-1', 'nsdl.co.in');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/javascript" src="https://nsdl.co.in/include/js/script.js"></script>
+
+<script type="text/javascript" src="https://nsdl.co.in/include/js/jquery.min.js"></script>
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+eval(targ+".location=\'"+selObj.options[selObj.selectedIndex].value+"\'");
+if (restore) selObj.selectedIndex=0;}
+</script>
+<script language="JavaScript" type="text/JavaScript">
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);}
+</script>
+<script language="javascript" src="js/jquery.dimensions.js"></script>
+<script language="javascript">
+var name = "#floatMenu";
+var menuYloc = null;
+$(document).ready(function(){
+	
+	menuYloc = parseInt($(name).offset().top); 			
+	var window_height 	= 	$(document).height();//$('#main-full-content > div:first').outerHeight();
+	var menuheight		= 	$('#floatMenu > div:first').innerHeight();
+	var scroll_top		=	$(document).scrollTop();
+	
+	$(window).scroll(function ()
+	{
+		floatmenupos();
+	});
+	function floatmenupos()
+	{
+		offsetval		= $(document).scrollTop();
+		//alert(offsetval+'<br/>');	
+						
+		if((offsetval + menuheight) < (window_height))
+		{
+			var offset = offsetval+'px';
+			if(offsetval > menuYloc)
+			{						
+				$(name).animate({top:offset},{duration:400,queue:false});
+			}
+			else
+			{
+				offsetval = 0;
+				offset 		= "125px";//(menuYloc)+"px";
+				$(name).animate({top:offset},{duration:400,queue:false});
+			}
+		}
+	}
+});
+</script>
+<script language='javascript'>
+function validateRO()
+{
+	var frm=document.getElementById("frmRO");
+
+	if (frm.cir_year.value == '0')
+	{
+		alert('Please Select the Year');
+		frm.cir_year.focus();
+		return false;
+	}
+	
+	//frm.submit();
+	var filenameRO = "../downloadables/html/RO-"+frm.cir_year.value+".html";
+	document.open(filenameRO,"NSDLRO","scrollbars=1,width=700");
+	return false;
+}
+
+function validateAA()
+{
+	var frm=document.getElementById("frmAA");
+
+	if (frm.cir_year1.value == '0')
+	{
+		alert('Please Select the Year');
+		frm.cir_year1.focus();
+		return false;
+	}
+	
+	if(frm.cir_year1.value == '2010')
+	{
+		alert('No records to display!');
+		frm.cir_year1.focus();
+		return false;
+	}
+	if(frm.cir_year1.value == '2011')
+	{
+		alert('No records to display!');
+		frm.cir_year1.focus();
+		return false;
+	}
+	//frm.submit();
+	var filenameAA = "../downloadables/html/AA-"+frm.cir_year1.value+".html";
+	document.open(filenameAA,"NSDLAA","scrollbars=1,width=700");
+	return false;
+}
+
+function showDiv(x){
+
+	if(document.getElementById(x).style.display == 'none')
+	{document.getElementById(x).style.display = 'block';}
+	else
+	{document.getElementById(x).style.display = 'none';}
+
+	return false;
+}
+</script>
+</head>
+<script type="text/javascript">
+function lettersOnly(evt)
+{
+   evt = (evt) ? evt : event;
+   var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+   ((evt.which) ? evt.which : 0));
+   if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+   (charCode < 97 || charCode > 122) && (charCode < 48 || charCode > 57))
+   {
+     alert("Enter letters and Numbers only.");
+      return false;
+   }
+   return true;
+}
+function numbersOnly(evt)
+{
+   evt = (evt) ? evt : event;
+   var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+   ((evt.which) ? evt.which : 0));
+   if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+   {
+     alert("Enter Numbers only.");
+      return false;
+   }
+   return true;
+}
+function whichButton(event)
+{
+   if (event.button==2)//RIGHT CLICK
+   {
+	 alert("Not Allow Right Click!");
+   }
+}
+function noCTRL(e)
+{
+	var code = (document.all) ? event.keyCode:e.which;
+	var msg = "Sorry, this functionality is disabled.";
+	if (parseInt(code)==17) //CTRL
+	{
+	  alert(msg);
+	  window.event.returnValue = false;
+    }
+} 
+</script>
+<body>
+<div id="main">
+	<div class="main-container"> 
+		<div class="top-bg"><img src="https://nsdl.co.in/images/spacer.gif"  alt="" /></div>
+		<div class="mid-bg">
+			<div class="home-bg-in">
+				<div class="header">
+					<div class="logo"><a href="https://nsdl.co.in/index.php"><img src="https://nsdl.co.in/images/logo.jpg" alt="" /></a></div>
+					<div class="top-right">
+						<div class="row1">
+							<div class="nsdl">National Securities Depository Limited</div>
+							<div class="home-icon"><a href="https://nsdl.co.in/index.php">Home</a></div>
+							<div class="rss"><a href="https://nsdl.co.in/rss/subscribe-rss.php">Subscribe to RSS</a></div>
+							<div class="font-resize"><div id="sizer">Font Size  :<a class="decrease" href="#" title="Decrease text size"><img src="https://nsdl.co.in/images/a-minus.gif" alt="" /></a><a class="reset" href="#" title="Restore default font-sizes"><img src="https://nsdl.co.in/images/a-nor.gif" alt="" /></a><a class="increase" href="#" title="Increase text size"><img src="https://nsdl.co.in/images/a-plus.gif" alt="" /></a></div></div>
+						</div>
+						<div class="row2">
+							<div class="quick-link">Quick Links 
+								<select name="menu1" onchange="MM_jumpMenu('parent',this,0)">
+									<option selected="selected">Select</option>
+									<option value="https://nsdl.co.in/goodpractices.php">DP Business - Good Practices</option>
+									<option value="https://nsdl.co.in/business/bptraining.php">Business Partner Training</option>
+									<option value="https://nsdl.co.in/downloadables/list-debt.php">List of Debt Instruments, Commercial Papers and Certificate of Deposit</option>
+									<option value="https://nsdl.co.in/downloadables/list-comp1.php">Companies with Overdue Demat Requests</option>
+									<option value="https://nsdl.co.in/downloadables/list-comp2.php">Companies with Long Pending Demat Requests</option>
+									<option value="https://nsdl.co.in/list-comchange.php">Companies Change in Names</option>
+									<option value="https://nsdl.co.in/about/charges.php">Charges</option>
+									<option value="https://nsdl.co.in/debtinst/index.php">Debt Instruments at NSDL</option>
+									<option value="https://nsdl.co.in/guidedtour/investor8.php">Do &amp; Don'ts (Precautions)</option>
+									<option value="https://nsdl.co.in/grievance.php">Investor Relationship Cell</option>
+									<option value="https://nsdl.co.in/pressrelease/index.php">Press Releases</option>
+							    </select>
+							</div>
+							<!--<div class="search"><input type="text" value="Search" name="name" /><img src="/images/go-btn.gif" alt="" /></div>-->
+							
+							<div class="search">
+							<form name="frm" method="post" action="https://nsdl.co.in/sitesearch.php">
+							<input type="text" value="Search" name="find_str" onfocus="if(this.value=='Search') this.value='' ; " onblur="if(this.value=='') this.value='Search';" onkeypress="return lettersOnly(event)" />
+							<input type="hidden" name="token" value= >
+							<input type="image" class="go" src="https://nsdl.co.in/images/go-btn.gif" alt="go" onclick="return jump_to();">
+							<!--<img src="images/go-btn.gif" alt="" />-->
+							</form>	
+							
+							</div>
+							
+						</div>
+					</div>
+				</div>
+<ul class="menu" id="menu">
+	<li><a href="https://nsdl.co.in/about/index.php" class="menulink">About Us</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/about/index.php">Introduction</a></li>
+			<li><a href="https://nsdl.co.in/about/shareholder.php">Promoters</a></li>
+			<li><a href="https://nsdl.co.in/about/boardofdirectors.php">Board of Directors</a></li>
+			<li><a href="https://nsdl.co.in/about/structure.php">Management</a></li>
+			<li><a href="https://nsdl.co.in/about/milestone.php">Milestones</a></li>
+			<li><a href="https://nsdl.co.in/about/legal.php">Legal Framework</a></li>
+			<li><a href="https://nsdl.co.in/about/business.php">Business Partners</a></li>
+			<li><a href="https://nsdl.co.in/about/why.php">Why NSDL</a></li>
+			<li><a href="https://nsdl.co.in/about/charges.php">Charges</a></li>
+			<li><a href="https://nsdl.co.in/about/facts-figs.php">NSDL Facts &amp; Figures</a></li>
+			<li><a href="https://nsdl.co.in/pressrelease/index.php">Press Releases</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/joining/index.php" class="menulink">Joining NSDL</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/joining/index.php">Introduction</a></li>
+			<li><a href="https://nsdl.co.in/joining/dep.php">As a DP</a></li>
+			<li><a href="https://nsdl.co.in/joining/issuer.php">As an Issuer</a></li>
+			<li><a href="https://nsdl.co.in/joining/reg.php">As a R&amp;T agent</a></li>
+			<li><a href="https://nsdl.co.in/joining/clear.php">As a CC/CH</a></li>
+			<li><a href="https://nsdl.co.in/joining/invest.php">As an Investor</a></li>
+			<li><a href="https://nsdl.co.in/joining/broker.php">As a Broker</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/services/index.php" class="menulink">Services</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/services/index.php">Basic Services</a></li>
+			<li><a href="https://nsdl.co.in/value/index.php">Value Added Services</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/certification/index.php" class="menulink">Certifications</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/certification/index.php">NCFM</a></li>
+			<li><a href=" http://www.nism.ac.in/" target="_blank">NISM</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/value/spde.php" class="menulink">e-Services</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/value/spde.php">SPEED-e</a></li>
+			<li><a href="https://nsdl.co.in/value/ideas.php">IDeAS</a></li>
+			<li><a href="https://nsdl.co.in/value/steady.php">STeADY</a></li>
+			<!-- li><a href="https://nsdl.co.in/value/smile.php">SMILE</a></li -->
+			<li><a href="https://nsdl.co.in/value/DAN.php">DAN</a></li>
+			<li><a href="https://nsdl.co.in/value/spice.php">SPICE</a></li>
+			<li><a href="https://nsdl.co.in/value/simple.php">SIMPLE</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/e-newsletter.php" class="menulink">Downloads</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/e-newsletter.php">e-Newsletter</a></li>
+			<li><a href="https://nsdl.co.in/publications/english.php">Investors Guide (Eng)</a></li>
+			<li><a href="https://nsdl.co.in/publications/hindi.php">Investors Guide (Hin)</a></li>
+			<li><a href="https://nsdl.co.in/publications/compliance.php">Compliance Manual - DPs</a></li>
+			<li><a href="https://nsdl.co.in/publications/mastercircular.php">Operating Manuals</a></li>
+			<li><a href="https://nsdl.co.in/business/form.php">Forms</a></li>
+			<li><a href="https://nsdl.co.in/publications/depact.php">Legal</a></li>
+			<li><a href="https://nsdl.co.in/publications/nest.php">NSDL Updates</a></li>
+			<li><a href="https://nsdl.co.in/publications/financials.php">Financials</a></li>
+			<li><a href="https://nsdl.co.in/publications/shareholding-pattern.php">Shareholding Pattern </a></li>
+			<li><a href="https://nsdl.co.in/publications/cmguide.php">Others</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/faqs/faq.php" class="menulink">FAQ</a>
+		<ul>
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/faqs/faq.php">General</a></li>
+			<li><a href="https://nsdl.co.in/faqs/faqonnris_1.php">NRIs</a></li>
+			<li><a href="https://nsdl.co.in/faqs/faqsonspeede_1.php">SPEED-e</a></li>
+			<li><a href="https://nsdl.co.in/faqs/pledge_1.php">Pledge</a></li>
+			<li><a href="https://nsdl.co.in/debtinst/faqsondebt.php">Debt Instruments</a></li>
+			<li><a href="https://nsdl.co.in/debtinst/faq_issuer.php">CP - Issuers</a></li>
+			<li><a href="https://nsdl.co.in/debtinst/faq_inv.php">CP - Investors</a></li>
+			<li><a href="https://nsdl.co.in/debtinst/certdep-faq.php">Certificate of Deposit</a></li>
+			<li><a href="https://nsdl.co.in/downloadables/pdf/FAQs-by-Investors-Holding-of-Mutual-Fund-Units.pdf" target="blank">Mutual fund</a></li>
+			<li><a href="https://nsdl.co.in/downloadables/pdf/FAQ-RGESS.pdf" target="blank">RGESS</a></li>
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+	<li><a href="https://nsdl.co.in/photo-gallery.php" class="menulink">Photo Gallery</a></li>
+	<li><a href="#" class="menulink">Circulars</a>
+		<ul class="guide">
+			<li class="top"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+			<li><a href="https://nsdl.co.in/business/circular.php">DP</a></li>
+			<li><a href="https://nsdl.co.in/business/issuers_rts.php">Issuers &amp; RTAs</a></li>
+			<!-- <li><a href="https://nsdl.co.in/SEBI/index.php">SEBI</a></li> -->
+			<li class="bot"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></li>
+		</ul>
+	</li>
+</ul>				<div class="inside-content">
+					<div class="inside-content1">
+						<div class="left-panel">
+							<table cellspacing="0" cellpadding="0" border="0"><tr><td height="670" valign="top">
+<div id="floatMenu">
+<div class="left-menu">
+	<div class="left-menu1">
+		<ul>
+			<li><a href="https://nsdl.co.in/joining/index.php" class="joint-intro">Introduction</a></li>
+			<li><a href="https://nsdl.co.in/joining/dep.php" class="as-dp">As a DP</a>
+				<ul class="as-dp" style="display:none;">
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/dep.php" class="dp-intro">Introduction</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/depelig.php" class="dp-Eligibal">Eligibility</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/depprocd.php" class="dp-procedure">Procedure</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/depdpsys.php" class="as-dp-system">System Specification &amp; Investments</a></li>
+						<!--ul class="as-dp-system">
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/dephard.php" class="dp-hardware">Hardware Set-up</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/depsoft_New_test.php" class="dp-software">Software Set-up</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/deptele_New_test.php" class="dp-tele">Telecommunications Set-up</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/depsizing_system_config.php" class="dp-size">Sizing guidelines for an appropriate system configuration</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/depphardware_New_test.php" class="dp-points">Points to be Followed for Hardware installation &amp; connectivity with NSDL</a></li>
+						</ul-->
+					
+					<!--li style="display:none;"><a href="https://nsdl.co.in/joining/depinvandexp.php" class="dp-investment">Investments &amp; Expenses</a></li-->
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/fee-payable-by-depository-participants.php" class="dp-fee">Fee Payable by Depository Participants</a></li>
+				</ul>
+			</li>
+			<li><a href="https://nsdl.co.in/joining/issuer.php" class="issuer">As an Issuer</a>
+				<ul class="issuer" style="display:none;">
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/fee-payable-by-issuers.php" class="issuer-fee">Fee Payable by Issuers.</a></li>
+				</ul>
+			</li>
+			<li><a href="https://nsdl.co.in/joining/reg.php" class="rt-agent">As a R&amp;T agent</a>
+				<ul class="rt-agent" style="display:none;">
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/reg.php" class="rt-imtro">Introduction</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/regegil.php" class="rt-Eligibal">Eligibility</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/regpro.php" class="rt-procedure">Procedure</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/depdpsys_RT.php" class="rt-agent-system">System Specification</a>
+						<ul class="rt-agent-system">
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/dephard_RT.php" class="rt-hardware">Hardware Set-up</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/depsoft_RT_New_test.php" class="rt-software">Software Set-up</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/deptele_RT_New_test.php" class="rt-tele">Telecommunications Set-up</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/depsizing_RT_New_test.php" class="rt-size">Sizing guidelines for an appropriate system configuration</a></li>
+							<li style="display:none;"><a href="https://nsdl.co.in/joining/depphardware_RT_New_test.php" class="rt-points">Points to be Followed for Hardware installation &amp; connectivity with NSDL</a></li>
+						</ul>
+					</li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/reginvest.php" class="rt-investment">Investments &amp; Expenses</a></li>
+				</ul>
+			</li>
+			<li><a href="https://nsdl.co.in/joining/clear.php" class="ccch">As a CC/CH</a></li>
+			<li><a href="https://nsdl.co.in/joining/invest.php" class="as-investor">As an Investor</a>
+				<ul class="as-investor" style="display:none;">
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/invest.php" class="inv-inro">Introduction</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/investac.php" class="inv-account">Account Opening</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/investsrv.php" class="inv-services">Services</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/joincharges.php" class="inv-charges">Charges</a></li>
+				</ul>
+			</li>
+			<li><a href="https://nsdl.co.in/joining/broker.php" class="as-broker">As a Broker</a>
+				<ul class="as-broker" style="display:none;">
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/broker.php" class="as-broker-intro">Introduction</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/procedure.php" class="as-broker-open">Procedure for opening CM A/c</a></li>
+					<li style="display:none;"><a href="https://nsdl.co.in/joining/prod_shtg.php" class="as-broker-shift">Procedure for shifting CM A/c</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="stats-in">
+	<div class="stats1-in">
+		<script type="text/javascript" src="https://nsdl.co.in/include/js/swfobject.js"></script>
+		<script type="text/javascript">
+			var flashvars = {};
+			flashvars.xmlPath = "https://nsdl.co.in/StatisticsMini.xml";
+			var params = {};
+			params.wmode = "transparent";
+			var attributes = {};
+			swfobject.embedSWF("https://nsdl.co.in/StatisticsMini.swf", "stats", "235", "152", "7.0.0", "https://nsdl.co.in/expressInstall.swf", flashvars, params, attributes);
+		</script>
+		<div id="stats"></div>
+	</div>
+</div>
+</div>
+</td></tr></table>
+
+
+
+<div class="stats-in">
+	<div class="stats1-in">
+		<script type="text/javascript" src="https://nsdl.co.in/include/js/swfobject.js"></script>
+		<script type="text/javascript">
+			var flashvars = {};
+			flashvars.xmlPath = "https://nsdl.co.in/StatisticsMini.xml";
+			var params = {};
+			params.wmode = "transparent";
+			var attributes = {};
+			swfobject.embedSWF("https://nsdl.co.in/StatisticsMini.swf", "stats", "235", "152", "7.0.0", "https://nsdl.co.in/expressInstall.swf", flashvars, params, attributes);
+		</script>
+		<div id="stats"></div>
+	</div>
+</div>
+<!-- div class="demate-in"><a href="https://nsdl.co.in/guidedtour/investor4.php"><img src="https://nsdl.co.in/images/open-demate-in.jpg" alt="Open a Demate Account" title="Open a Demate Account" /></a></div>
+<div class="left-links">
+	<a href="https://nsdl.co.in/e-newsletter.php"><img src="https://nsdl.co.in/images/newsletter.gif" alt="Subscribe Newsletter" title="Subscribe Newsletter" /></a><br/>
+	<img src="https://nsdl.co.in/images/post.gif" alt="" /><br/>
+	<img src="https://nsdl.co.in/images/certified.gif" alt="" />
+</div -->
+
+
+<script type="text/Javascript">
+	$(document).ready(function(){
+				$('ul.as-dp').css('display', '');
+		$('ul.as-dp').children().css('display', '');
+				
+		 
+				$('a.as-dp').css('color', '#FFFFFF'); 
+				$('a.as-dp').css('background', 'url("../images/l-menu-bullet-o.gif") no-repeat 18px 10px #9D231E'); 
+				$('a.as-dp').css('padding', '6px 0 6px 34px'); 
+				$('a.as-dp').css('width', '207px'); 
+				
+				
+				
+		$('ul li a.dp-fee').css('font-weight', 'bold');
+		
+	});
+</script>						</div>
+						<div class="right-panel">
+							<h1><a href="../index.php">Home</a> &nbsp;:&nbsp; <a href="../joining/index.php">Joining NSDL</a> &nbsp;:&nbsp; <span class="table-bold"> <a href="../joining/dep.php">As a DP</a></span></h1>
+<h2>Fee Payable by Depository Participants</h2>
+<div class="technology6"><a href="general">Entry Fees</a></div>
+<div class="language6">
+<div class="expandcollapsehead3">
+<p>Each Participant shall pay at the time of submitting its application to the Depository, a non-refundable Entry Fee of Rs. 25,000.</p>
+<h4>Transaction Related Fees</h4>
+<p>The following transaction related fees shall be payable by the Participants to the Depository</p>
+<h4>Settlement fee</h4>
+<ul class="bullet">
+	<li>A settlement fee at the rate of Rs.4.50 per debit instruction in a Client's account shall be charged to the Participant of the Client.</li>
+	<li>A settlement fee at the rate of Re.1.00 per instruction in respect of securities received from the Clearing Corporation into the Pool account of each Clearing Member maintained with the Participant subject to a minimum of Rs. 1,000 and a maximum of Rs. 5,000 per quarter per CM Account shall be charged to the Participant.</li>
+	<li>A settlement fee at the rate of Rs.4.50 per debit instruction for transfer of securities by way of inter-settlement transfers in the CM Account(s) shall be charged to the Participant.</li>
+	<li class="last">A settlement fee at the rate of Rs.4.50 per debit instruction for transfer of securities from the CM account of a Clearing Member to the CM account of another Clearing Member shall be charged to the Participant of the delivering Clearing Member.</li>
+</ul>
+<p class="text-bold">Provided further that no settlement fee shall be charged</p>
+<ul class="bullet">
+	<li>in respect of commercial papers and short term debt instruments such as certificate of deposits, MIBOR linked papers etc.; and</li>
+	<li class="last">in case of
+		<ul>
+			<li>transfers necessitated by transmission on death of the Client; and</li>
+			<li class="last">transfer of the accounts of Clients from one Participant to another as a consequence of expulsion or suspension of such Participant. </li>
+		</ul>
+	</li>
+</ul>
+<h4>Pledge Fee</h4>
+<p>A fee at the rate of Rs.25 per instruction for creation of pledge / hypothecation shall be charged to the Participant of the pledgor/ hypothecator. No fee shall be charged when a pledge / hypothecation is closed or invoked.</p>						
+</div>
+</div>
+<div class="faq-bot1"><img src="../images/spacer.gif" alt="" /></div>
+<div class="technology6"><a href="general">Custody Fees</a></div>
+<div class="language6">
+<div class="expandcollapsehead3">
+<p>Nil</p>
+</div>
+</div>
+<div class="faq-bot1"><img src="../images/spacer.gif" alt="" /></div>
+<div class="technology6"><a href="general">Fee For Dematerialisation &amp; Rematerialisation</a></div>
+<div class="language6">
+<div class="expandcollapsehead3">
+<p>No fee shall be charged by the depository for dematerialisation of securities. Participant shall be charged the following fee for rematerialisation of securities</p>
+<ul class="bullet">
+	<li>a fee of Rs.10 for every hundred securities or part thereof ; or</li>
+	<li class="last">a flat fee of Rs.10 per certificate, whichever is higher.</li>
+</ul>
+<p>No rematerialisation fee shall be charged for Government Securities.</p>							
+</div>
+</div>
+<div class="faq-bot1"><img src="../images/spacer.gif" alt="" /></div>
+
+					
+<div class="technology6"><a href="general">Minimum Fee</a></div>
+<div class="language6">
+<div class="expandcollapsehead3">
+<p>In case the total fee billed to the Participants in a financial year is less than the minimum fee of Rs.1,00,000 then the Participant shall be charged the difference thereof.</p>						
+</div>
+</div>
+<div class="faq-bot1"><img src="../images/spacer.gif" alt="" /></div>
+<div class="technology6"><a href="general">Security Deposit</a></div>
+<div class="language6">
+<div class="expandcollapsehead3">
+<p>Every Participant shall pay to the Depository Rs.10 lakh by way of interest free refundable security deposit. However, a Clearing Corporation or a Clearing House of a Stock Exchange will be exempt from payment of security deposit.</p>						
+</div>
+</div>
+<div class="faq-bot1"><img src="../images/spacer.gif" alt="" /></div>
+
+						</div>
+</div>
+</div>
+<div class="footer"><a href="https://nsdl.co.in/index.php">Home</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/contactus.php">Contact Us</a>  &nbsp;:&nbsp;   <a href="https://nsdl.co.in/careers.php">Careers</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/sitemap.php">Site Map</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/related/deprt.php">Related Links</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/nsdlnews/investors.php">Investors</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/guidedtour/investor.php">Guided Tours</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/about/privacy-policy.php">Privacy Policy</a>  &nbsp;:&nbsp;  <a href="https://nsdl.co.in/disclaimer.php">Disclaimer</a></div>
+				<div class="copyright">© Copyright 2012, National Securities Depository Ltd. (NSDL)</div>
+			</div>
+		</div>
+		<div class="bot-bg"><img src="https://nsdl.co.in/images/spacer.gif" alt="" /></div>
+	</div>
+</div>
+<script type="text/javascript">
+	var menu=new menu.dd("menu");
+	menu.init("menu","menuhover");
+</script>
+<script type="text/javascript" src="https://nsdl.co.in/include/js/jquery.anchor.js"></script>
+<script type="text/javascript" src="https://nsdl.co.in/include/js/dw_event.js" ></script>
+<script type="text/javascript" src="https://nsdl.co.in/include/js/font.js"></script>
+<script type="text/javascript" src="https://nsdl.co.in/include/js/jscript.js"></script>
+<script type="text/javascript" src="https://nsdl.co.in/include/js/expandcollapse.js"></script>
+<script type="text/javascript" src="https://nsdl.co.in/include/js/accordion.js"></script>
+</body>
+</html>

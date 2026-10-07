@@ -1,0 +1,691 @@
+{
+ "experiment": "S2-MOM-v1",
+ "root": "/Users/aadityaadhikari/Projects/trading-lab",
+ "steps": [
+  {
+   "step": 3,
+   "name": "registry",
+   "result": "PASS",
+   "detail": "60 lines valid (history pinned, chain intact); state FINAL; 5 registered runs, each logged once; same-code confirmation"
+  },
+  {
+   "step": 1,
+   "name": "environment",
+   "result": "PASS",
+   "detail": "identical to the tested environment"
+  },
+  {
+   "step": 2,
+   "name": "protocol",
+   "result": "PASS",
+   "detail": "protocol, UNIV-1, cost schedule, C2 specification and 5 addenda/supplements match"
+  },
+  {
+   "step": 4,
+   "name": "manifest",
+   "result": "PASS",
+   "detail": "registry anchor -> manifest -> 8 Stage 3 inputs, 4 Stage 2 inputs, 16 RET-1.1 files, 3 code files, 3 check files"
+  },
+  {
+   "step": 5,
+   "name": "registered outputs",
+   "result": "PASS",
+   "detail": "18 registered result files, 3 registered code hashes, pre-run checks and the archive manifest match the registry"
+  },
+  {
+   "step": 5,
+   "name": "input validation",
+   "result": "PASS",
+   "detail": "panel 2,115,961 rows, 3768 sessions, 170 months, 510 universes of 200; no NaN/inf/duplicate; delisting wording ['Compulsory Delisting', 'Delisting - Liquidation', 'Voluntary Delisting']"
+  },
+  {
+   "step": 6,
+   "name": "independent recomputation",
+   "result": "PASS",
+   "detail": "117 quantities, 8,257 numbers recomputed independently"
+  },
+  {
+   "step": 7,
+   "name": "numerical comparison",
+   "result": "PASS",
+   "detail": "largest absolute difference 6.71e-14 (tolerance 1e-09)"
+  },
+  {
+   "step": 8,
+   "name": "repository unchanged",
+   "result": "PASS",
+   "detail": "6,391 files identical before and after; nothing registered, nothing written"
+  }
+ ],
+ "environment": {
+  "python": "3.13.5",
+  "implementation": "CPython",
+  "os": "Darwin",
+  "os_release": "27.0.0",
+  "architecture": "arm64",
+  "optimized": false,
+  "executable": "/private/tmp/claude-501/-Users-aadityaadhikari/f8198df2-b598-40e6-9fc3-364061e9302f/scratchpad/condaenv/bin/python3",
+  "packages": {
+   "numpy": "2.1.3",
+   "pandas": "2.2.3",
+   "scipy": "1.15.3",
+   "pyarrow": "19.0.0",
+   "python-dateutil": "2.9.0.post0",
+   "pytz": "2024.1",
+   "tzdata": "2025.2",
+   "six": "1.17.0"
+  },
+  "missing": [],
+  "broken": {},
+  "mismatch": {},
+  "tested_environment": "registered environment (observed after the fact on 2026-10-07 on the machine that produced every registered S2-MOM-v1 run)",
+  "identical_to_tested": true
+ },
+ "H1_recomputed": {
+  "primary": {
+   "n": 114,
+   "mean": -0.05872135190796358,
+   "se": 0.21082732133638474,
+   "t": -0.27852818854663974,
+   "p_two": 0.7806069294554449,
+   "p_one": 0.6096965352722776
+  },
+  "confirmation": {
+   "n": 56,
+   "mean": 0.6750315578077136,
+   "se": 0.27417463136306375,
+   "t": 2.4620496595610724,
+   "p_two": 0.013814553783100928,
+   "p_one": 0.006907276891550464
+  }
+ },
+ "comparison": [
+  {
+   "quantity": "primary ladder A-D monthly W",
+   "values": 456,
+   "max_abs_diff": 5.412337245047638e-16
+  },
+  {
+   "quantity": "primary ladder A-D monthly L",
+   "values": 456,
+   "max_abs_diff": 5.273559366969494e-16
+  },
+  {
+   "quantity": "primary ladder A-D monthly BM",
+   "values": 456,
+   "max_abs_diff": 4.969982758673552e-16
+  },
+  {
+   "quantity": "primary ladder A-D monthly WML",
+   "values": 456,
+   "max_abs_diff": 6.800116025829084e-16
+  },
+  {
+   "quantity": "primary n_rankable and k, every step-month",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary portfolio membership (W, L, BM of every step-month)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary delta = (WML_A - WML_D) x 100",
+   "values": 114,
+   "max_abs_diff": 5.551115123125783e-14
+  },
+  {
+   "quantity": "primary Newey-West lag = floor(4 (n/100)^(2/9))",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary H1 mean, NW se, t, two-sided p",
+   "values": 4,
+   "max_abs_diff": 1.199040866595169e-14
+  },
+  {
+   "quantity": "primary H1 90% interval",
+   "values": 2,
+   "max_abs_diff": 3.3861802251067274e-15
+  },
+  {
+   "quantity": "primary H1 label (protocol \u00a727 table)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary step difference A-B mean, t, p",
+   "values": 3,
+   "max_abs_diff": 1.5543122344752192e-15
+  },
+  {
+   "quantity": "primary step difference B-C mean, t, p",
+   "values": 3,
+   "max_abs_diff": 1.6719264861464467e-14
+  },
+  {
+   "quantity": "primary step difference C-D mean, t, p",
+   "values": 3,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "primary ladder table A/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.6645352591003757e-15
+  },
+  {
+   "quantity": "primary ladder table A/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.9984014443252818e-15
+  },
+  {
+   "quantity": "primary ladder table A/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 5.773159728050814e-15
+  },
+  {
+   "quantity": "primary ladder table A/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "primary ladder table B/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.220446049250313e-15
+  },
+  {
+   "quantity": "primary ladder table B/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 3.552713678800501e-15
+  },
+  {
+   "quantity": "primary ladder table B/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 4.884981308350689e-15
+  },
+  {
+   "quantity": "primary ladder table B/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "primary ladder table C/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "primary ladder table C/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "primary ladder table C/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 8.881784197001252e-16
+  },
+  {
+   "quantity": "primary ladder table C/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "primary ladder table D/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 8.881784197001252e-16
+  },
+  {
+   "quantity": "primary ladder table D/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary ladder table D/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.7755575615628914e-17
+  },
+  {
+   "quantity": "primary ladder table D/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.7755575615628914e-17
+  },
+  {
+   "quantity": "primary bootstrap configuration (seed 20261005, B 10000)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary bootstrap p-value and block length (registered routine, independent delta)",
+   "values": 2,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation ladder A-D monthly W",
+   "values": 224,
+   "max_abs_diff": 4.3021142204224816e-16
+  },
+  {
+   "quantity": "confirmation ladder A-D monthly L",
+   "values": 224,
+   "max_abs_diff": 3.191891195797325e-16
+  },
+  {
+   "quantity": "confirmation ladder A-D monthly BM",
+   "values": 224,
+   "max_abs_diff": 4.579669976578771e-16
+  },
+  {
+   "quantity": "confirmation ladder A-D monthly WML",
+   "values": 224,
+   "max_abs_diff": 5.412337245047638e-16
+  },
+  {
+   "quantity": "confirmation n_rankable and k, every step-month",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation portfolio membership (W, L, BM of every step-month)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation delta = (WML_A - WML_D) x 100",
+   "values": 56,
+   "max_abs_diff": 4.440892098500626e-14
+  },
+  {
+   "quantity": "confirmation Newey-West lag = floor(4 (n/100)^(2/9))",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation H1 mean, NW se, t, two-sided p",
+   "values": 4,
+   "max_abs_diff": 1.5987211554602254e-14
+  },
+  {
+   "quantity": "confirmation H1 90% interval",
+   "values": 2,
+   "max_abs_diff": 3.885780586188048e-15
+  },
+  {
+   "quantity": "confirmation H1 label (protocol \u00a727 table)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation step difference A-B mean, t, p",
+   "values": 3,
+   "max_abs_diff": 2.531308496145357e-14
+  },
+  {
+   "quantity": "confirmation step difference B-C mean, t, p",
+   "values": 3,
+   "max_abs_diff": 6.705747068735946e-14
+  },
+  {
+   "quantity": "confirmation step difference C-D mean, t, p",
+   "values": 3,
+   "max_abs_diff": 2.5091040356528538e-14
+  },
+  {
+   "quantity": "confirmation ladder table A/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.220446049250313e-15
+  },
+  {
+   "quantity": "confirmation ladder table A/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 8.881784197001252e-16
+  },
+  {
+   "quantity": "confirmation ladder table A/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 4.440892098500626e-15
+  },
+  {
+   "quantity": "confirmation ladder table A/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 8.881784197001252e-16
+  },
+  {
+   "quantity": "confirmation ladder table B/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 3.552713678800501e-15
+  },
+  {
+   "quantity": "confirmation ladder table B/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 3.3306690738754696e-15
+  },
+  {
+   "quantity": "confirmation ladder table B/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 3.9968028886505635e-15
+  },
+  {
+   "quantity": "confirmation ladder table B/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "confirmation ladder table C/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.6645352591003757e-15
+  },
+  {
+   "quantity": "confirmation ladder table C/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.220446049250313e-15
+  },
+  {
+   "quantity": "confirmation ladder table C/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 6.994405055138486e-15
+  },
+  {
+   "quantity": "confirmation ladder table C/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "confirmation ladder table D/W mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 5.551115123125783e-17
+  },
+  {
+   "quantity": "confirmation ladder table D/L mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 8.881784197001252e-16
+  },
+  {
+   "quantity": "confirmation ladder table D/WML mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 1.1102230246251565e-16
+  },
+  {
+   "quantity": "confirmation ladder table D/BM mean%, sd%, t, p",
+   "values": 4,
+   "max_abs_diff": 2.7755575615628914e-17
+  },
+  {
+   "quantity": "confirmation bootstrap configuration (seed 20261005, B 10000)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation bootstrap p-value and block length (registered routine, independent delta)",
+   "values": 2,
+   "max_abs_diff": 9.325873406851315e-15
+  },
+  {
+   "quantity": "primary step E monthly cost of W, S0-S4",
+   "values": 570,
+   "max_abs_diff": 1.0234868508263162e-16
+  },
+  {
+   "quantity": "primary step E monthly cost of L, S0-S4",
+   "values": 570,
+   "max_abs_diff": 1.0018028073766061e-16
+  },
+  {
+   "quantity": "primary step E monthly cost of BM, S0-S4",
+   "values": 570,
+   "max_abs_diff": 9.974659986866641e-17
+  },
+  {
+   "quantity": "primary step E net W, net BM, hypothetical net WML under S0",
+   "values": 342,
+   "max_abs_diff": 1.942890293094024e-16
+  },
+  {
+   "quantity": "primary step E net W, net BM, hypothetical net WML under S1",
+   "values": 342,
+   "max_abs_diff": 1.942890293094024e-16
+  },
+  {
+   "quantity": "primary step E net W, net BM, hypothetical net WML under S2",
+   "values": 342,
+   "max_abs_diff": 1.8041124150158794e-16
+  },
+  {
+   "quantity": "primary step E net W, net BM, hypothetical net WML under S3",
+   "values": 342,
+   "max_abs_diff": 1.8735013540549517e-16
+  },
+  {
+   "quantity": "primary step E net W, net BM, hypothetical net WML under S4",
+   "values": 342,
+   "max_abs_diff": 1.8388068845354155e-16
+  },
+  {
+   "quantity": "primary H3 mean%, t, one-sided p",
+   "values": 3,
+   "max_abs_diff": 9.992007221626409e-16
+  },
+  {
+   "quantity": "primary H3 supported (mean > 0 and one-sided p < 0.05)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "primary step E scenario S0 means",
+   "values": 4,
+   "max_abs_diff": 8.673617379884035e-19
+  },
+  {
+   "quantity": "primary step E scenario S1 means",
+   "values": 4,
+   "max_abs_diff": 8.673617379884035e-19
+  },
+  {
+   "quantity": "primary step E scenario S2 means",
+   "values": 4,
+   "max_abs_diff": 2.168404344971009e-19
+  },
+  {
+   "quantity": "primary step E scenario S3 means",
+   "values": 4,
+   "max_abs_diff": 8.673617379884035e-19
+  },
+  {
+   "quantity": "primary step E scenario S4 means",
+   "values": 4,
+   "max_abs_diff": 6.505213034913027e-19
+  },
+  {
+   "quantity": "primary H4 mean%, t, one-sided p",
+   "values": 3,
+   "max_abs_diff": 1.7763568394002505e-15
+  },
+  {
+   "quantity": "confirmation step E monthly cost of W, S0-S4",
+   "values": 280,
+   "max_abs_diff": 1.0018028073766061e-16
+  },
+  {
+   "quantity": "confirmation step E monthly cost of L, S0-S4",
+   "values": 280,
+   "max_abs_diff": 9.974659986866641e-17
+  },
+  {
+   "quantity": "confirmation step E monthly cost of BM, S0-S4",
+   "values": 280,
+   "max_abs_diff": 1.0755285551056204e-16
+  },
+  {
+   "quantity": "confirmation step E net W, net BM, hypothetical net WML under S0",
+   "values": 168,
+   "max_abs_diff": 1.942890293094024e-16
+  },
+  {
+   "quantity": "confirmation step E net W, net BM, hypothetical net WML under S1",
+   "values": 168,
+   "max_abs_diff": 1.942890293094024e-16
+  },
+  {
+   "quantity": "confirmation step E net W, net BM, hypothetical net WML under S2",
+   "values": 168,
+   "max_abs_diff": 1.8821749714348357e-16
+  },
+  {
+   "quantity": "confirmation step E net W, net BM, hypothetical net WML under S3",
+   "values": 168,
+   "max_abs_diff": 1.942890293094024e-16
+  },
+  {
+   "quantity": "confirmation step E net W, net BM, hypothetical net WML under S4",
+   "values": 168,
+   "max_abs_diff": 1.8735013540549517e-16
+  },
+  {
+   "quantity": "confirmation H3 mean%, t, one-sided p",
+   "values": 3,
+   "max_abs_diff": 1.1102230246251565e-15
+  },
+  {
+   "quantity": "confirmation H3 supported (mean > 0 and one-sided p < 0.05)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "confirmation step E scenario S0 means",
+   "values": 4,
+   "max_abs_diff": 6.505213034913027e-19
+  },
+  {
+   "quantity": "confirmation step E scenario S1 means",
+   "values": 4,
+   "max_abs_diff": 1.0842021724855044e-18
+  },
+  {
+   "quantity": "confirmation step E scenario S2 means",
+   "values": 4,
+   "max_abs_diff": 2.168404344971009e-19
+  },
+  {
+   "quantity": "confirmation step E scenario S3 means",
+   "values": 4,
+   "max_abs_diff": 7.589415207398531e-19
+  },
+  {
+   "quantity": "confirmation step E scenario S4 means",
+   "values": 4,
+   "max_abs_diff": 9.910285482875314e-19
+  },
+  {
+   "quantity": "C2 H2d (primary) mean, t, one-sided p",
+   "values": 3,
+   "max_abs_diff": 8.881784197001252e-16
+  },
+  {
+   "quantity": "C2 H2d (confirmation) mean, t, one-sided p",
+   "values": 3,
+   "max_abs_diff": 1.7763568394002505e-14
+  },
+  {
+   "quantity": "C2 H2d confirmation status (frozen B3 rule)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 Holm-adjusted p (H2a-H2d)",
+   "values": 4,
+   "max_abs_diff": 2.220446049250313e-15
+  },
+  {
+   "quantity": "C2 Holm rejections at 5%",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 Benjamini-Hochberg q (six tests)",
+   "values": 6,
+   "max_abs_diff": 1.3322676295501878e-14
+  },
+  {
+   "quantity": "C2 block primary: months and lag",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 block primary: delta mean, t, p",
+   "values": 3,
+   "max_abs_diff": 1.4377388168895777e-14
+  },
+  {
+   "quantity": "C2 block confirmation: months and lag",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 block confirmation: delta mean, t, p",
+   "values": 3,
+   "max_abs_diff": 9.769962616701378e-15
+  },
+  {
+   "quantity": "C2 block primary_half_1: months and lag",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 block primary_half_1: delta mean, t, p",
+   "values": 3,
+   "max_abs_diff": 1.6153745008296028e-14
+  },
+  {
+   "quantity": "C2 block primary_half_2: months and lag",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 block primary_half_2: delta mean, t, p",
+   "values": 3,
+   "max_abs_diff": 2.3314683517128287e-15
+  },
+  {
+   "quantity": "C2 block pooled: months and lag",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "C2 block pooled: delta mean, t, p",
+   "values": 3,
+   "max_abs_diff": 1.1102230246251565e-14
+  },
+  {
+   "quantity": "sensitivity R_SPAN: saved p-value follows from its saved mean and se (not recomputed)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "sensitivity R_GAP: saved p-value follows from its saved mean and se (not recomputed)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "sensitivity R_MISS_RAW: saved p-value follows from its saved mean and se (not recomputed)",
+   "values": 1,
+   "max_abs_diff": 1.1102230246251565e-16
+  },
+  {
+   "quantity": "sensitivity R_MISS_ZERO: saved p-value follows from its saved mean and se (not recomputed)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "sensitivity R_DELIST_ZERO: saved p-value follows from its saved mean and se (not recomputed)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  },
+  {
+   "quantity": "sensitivity R_DELIST_MINUS100: saved p-value follows from its saved mean and se (not recomputed)",
+   "values": 1,
+   "max_abs_diff": 0.0
+  }
+ ],
+ "verdict": "PASS",
+ "scope": "full reproduction"
+}

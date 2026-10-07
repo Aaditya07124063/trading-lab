@@ -48,3 +48,11 @@ data/raw/nse_index/
 data/raw/nse_archive/
 # Stage 2 generated datasets (rebuildable; manifests committed in data/stage2/manifests)
 data/stage2/datasets/
+# Stage 3 daily study panel (rebuildable by scripts/build_stage3.py; hashes in data/stage3/s2_mom_v1/manifest.json)
+data/stage3/*/research/panel.parquet
+
+# research evidence is never ignored: the Stage 2 rebuild log is cited by the registry (overrides *.log above)
+!data/stage3/s2_mom_v1/checks/*.log
+# large research data kept OUTSIDE git is not "just ignored": every file under data/raw/nse_archive,
+# data/stage2/datasets and the Stage 3 panel is listed with its SHA-256 in release/s2_mom_v1/ARCHIVE_MANIFEST.json
+# (scripts/release_archive.py verify | pack | materialize; guarded by tests/test_version_control.py)

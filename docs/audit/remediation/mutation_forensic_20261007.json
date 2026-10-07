@@ -1,0 +1,1066 @@
+[
+ {
+  "mutation": "breakpoint 0.30->0.31",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_breakpoint_rule[200-60]"
+  ]
+ },
+ {
+  "mutation": "alpha .05->.10",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED_BY_HASH_PIN_ONLY",
+  "n_failed": 1,
+  "behavioural": 0,
+  "examples": [
+   "tests/test_stage3_infra.py::test_protocol_file_matches_the_frozen_hash_and_constants"
+  ]
+ },
+ {
+  "mutation": "formation reaches entry session (look-ahead)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_infra.py::test_pre_run_checks_pass_on_a_clean_pipeline_and_disclose_no_momentum_result",
+   "tests/test_stage3_ladder.py::test_formation_is_12_1_and_holding_starts_one_session_late",
+   "tests/test_stage3_ladder.py::test_f_impossible_future_returns_change_no_signal_or_past_membership"
+  ]
+ },
+ {
+  "mutation": "delisting rule also in steps A/B",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_delisting_rule_applies_from_step_c_only_and_never_double_counts"
+  ]
+ },
+ {
+  "mutation": "delta not in percent",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_infra.py::test_analyse_and_reverse_ladder_run_end_to_end_on_synthetic_data",
+   "tests/test_stage3_infra.py::test_sensitivity_block_has_the_four_frozen_treatments_and_the_fixed_labels",
+   "tests/test_stage3_ladder.py::test_paired_delta_keeps_unpaired_months_with_a_reason"
+  ]
+ },
+ {
+  "mutation": "portfolio return = median",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 8,
+  "behavioural": 8,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_formation_is_12_1_and_holding_starts_one_session_late",
+   "tests/test_stage3_ladder.py::test_step_d_neutral_fill_is_the_simple_mean_and_keeps_the_stock",
+   "tests/test_stage3_ladder.py::test_delisting_rule_applies_from_step_c_only_and_never_double_counts"
+  ]
+ },
+ {
+  "mutation": "p one-tailed reported as two-sided",
+  "file": "src/stage3/stats.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_one_sided_test_is_the_registered_newey_west_test",
+   "tests/test_stage3_infra.py::test_newey_west_matches_statsmodels",
+   "tests/test_stage3_infra.py::test_primary_p_value_is_standard_normal_and_deterministic"
+  ]
+ },
+ {
+  "mutation": "economic conclusion uses two-sided p",
+  "file": "src/stage3/experiment.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "dp charge on buys not sells",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 7,
+  "behavioural": 7,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_buy_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_sell_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_stt_both_sides_stamp_duty_buyer_only_dp_seller_only"
+  ]
+ },
+ {
+  "mutation": "break-even inverted",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_h4_and_break_even_only_in_the_primary_sample_with_h3_supported",
+   "tests/test_s2mom_step_e_scenarios.py::test_break_even_and_its_undefined_cases"
+  ]
+ },
+ {
+  "mutation": "rate date = exit not entry",
+  "file": "src/stage3/step_e.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "voluntary class mislabelled",
+  "file": "src/stage3/data.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_identity_refuses_a_grouping_mismatch"
+  ]
+ },
+ {
+  "mutation": "runner provenance gate off",
+  "file": "scripts/run_s2_mom.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_runner_stops_before_reading_any_data_until_every_gate_has_passed"
+  ]
+ },
+ {
+  "mutation": "step E schedule hash check off",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_loads_only_the_approved_schedule"
+  ]
+ },
+ {
+  "mutation": "liquidity window shifted 1 session into the future",
+  "file": "src/stage2/universe.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_universe.py::test_decision_on_t_identical_with_full_or_truncated_data"
+  ]
+ },
+ {
+  "mutation": "fund units admitted",
+  "file": "src/stage2/universe.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_universe.py::test_etf_never_enters_equity_universe"
+  ]
+ },
+ {
+  "mutation": "unvalidated factor applied",
+  "file": "src/stage2/returns.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage2_returns.py::test_unresolved_events_stay_unresolved[closes0-ev0-EVENT_INCONCLUSIVE]",
+   "tests/test_stage2_returns.py::test_unresolved_events_stay_unresolved[closes1-ev1-EVENT_DISCREPANT]"
+  ]
+ },
+ {
+  "mutation": "PW block length forced 1",
+  "file": "src/intraday/inference.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_orb_v1_stats.py::test_block_length_grows_with_dependence",
+   "tests/test_orb_v1_stats.py::test_stationary_bootstrap_se_reflects_autocorrelation"
+  ]
+ },
+ {
+  "mutation": "skip month removed",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 7,
+  "behavioural": 6,
+  "examples": [
+   "tests/test_stage3_infra.py::test_pre_run_checks_pass_on_a_clean_pipeline_and_disclose_no_momentum_result",
+   "tests/test_stage3_ladder.py::test_calendar_dates_and_delayed_entry",
+   "tests/test_stage3_ladder.py::test_calendar_matches_the_frozen_sample_sizes"
+  ]
+ },
+ {
+  "mutation": "slippage S1 5->6",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_frozen_scenario_values_are_used_exactly",
+   "tests/test_s2mom_step_e_scenarios.py::test_exit_order_uses_the_rank_at_the_exit_rebalance[150.0-1-200-False-bps0]",
+   "tests/test_s2mom_step_e_scenarios.py::test_exit_order_uses_the_rank_at_the_exit_rebalance[200.0-1-200-False-bps1]"
+  ]
+ },
+ {
+  "mutation": "formation reaches selection date t (no skip)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_formation_is_12_1_and_holding_starts_one_session_late",
+   "tests/test_stage3_ladder.py::test_f_impossible_future_returns_change_no_signal_or_past_membership"
+  ]
+ },
+ {
+  "mutation": "delisting rule off everywhere",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 5,
+  "behavioural": 5,
+  "examples": [
+   "tests/test_stage3_infra.py::test_analyse_and_reverse_ladder_run_end_to_end_on_synthetic_data",
+   "tests/test_stage3_ladder.py::test_delisting_rule_applies_from_step_c_only_and_never_double_counts",
+   "tests/test_stage3_ladder.py::test_section_22_is_applied_literally_in_step_d_as_in_step_c"
+  ]
+ },
+ {
+  "mutation": "step A pool filter removed",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_top200_pool_rank_and_duplicate_rule",
+   "tests/test_stage3_ladder.py::test_steps_a_b_c_universe_definitions",
+   "tests/test_stage3_ladder.py::test_e_future_delisting_information_cannot_change_pit_membership"
+  ]
+ },
+ {
+  "mutation": "missing-price stop disabled",
+  "file": "src/stage3/ladder.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "ci90 uses 97.5% quantile",
+  "file": "src/stage3/stats.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_primary_p_value_is_standard_normal_and_deterministic"
+  ]
+ },
+ {
+  "mutation": "reliability fill W or L -> and",
+  "file": "src/stage3/experiment.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_stage3_infra.py::test_fill_threshold_is_applied_to_w_and_l_separately[6-4-True]",
+   "tests/test_stage3_infra.py::test_fill_threshold_is_applied_to_w_and_l_separately[4-6-True]",
+   "tests/test_stage3_infra.py::test_fill_threshold_is_applied_to_w_and_l_separately[9-0-True]"
+  ]
+ },
+ {
+  "mutation": "brokerage cap ignored (max)",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_buy_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_sell_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_brokerage"
+  ]
+ },
+ {
+  "mutation": "schedule period boundary exclusive",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 15,
+  "behavioural": 15,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_stt_both_sides_stamp_duty_buyer_only_dp_seller_only",
+   "tests/test_s2mom_step_e.py::test_brokerage",
+   "tests/test_s2mom_step_e.py::test_exchange_charge_and_ipft_are_separate_and_counted_once"
+  ]
+ },
+ {
+  "mutation": "hypothetical net WML ignores L cost",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_hypothetical_net_wml_deducts_the_costs_of_both_legs"
+  ]
+ },
+ {
+  "mutation": "survivor pool = everyone",
+  "file": "src/stage3/data.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_identity_refuses_a_grouping_mismatch"
+  ]
+ },
+ {
+  "mutation": "runner pre-run-check gate off",
+  "file": "scripts/run_s2_mom.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_runner_stops_before_reading_any_data_until_every_gate_has_passed"
+  ]
+ },
+ {
+  "mutation": "C2 input hash check off",
+  "file": "scripts/run_s2_mom_c2.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_c2.py::test_run_checks_hashes_first_and_runs_once"
+  ]
+ },
+ {
+  "mutation": "liquidity window 63->64",
+  "file": "src/stage2/universe.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "universe cutoff guard off",
+  "file": "src/stage2/universe.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_universe.py::test_post_cutoff_row_refused"
+  ]
+ },
+ {
+  "mutation": "returns cutoff guard off",
+  "file": "src/stage2/returns.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_returns.py::test_cutoff_and_verified_start"
+  ]
+ },
+ {
+  "mutation": "bootstrap resampler not circular/blocks iid",
+  "file": "src/intraday/inference.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_orb_v1_stats.py::test_stationary_bootstrap_se_reflects_autocorrelation"
+  ]
+ },
+ {
+  "mutation": "formation 12->11",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_calendar_dates_and_delayed_entry",
+   "tests/test_stage3_ladder.py::test_rankable_needs_a_price_on_m12_and_m1"
+  ]
+ },
+ {
+  "mutation": "entry same session (s > t -> >=)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_stage3_infra.py::test_pre_run_checks_pass_on_a_clean_pipeline_and_disclose_no_momentum_result",
+   "tests/test_stage3_ladder.py::test_calendar_dates_and_delayed_entry",
+   "tests/test_stage3_ladder.py::test_calendar_matches_the_frozen_sample_sizes"
+  ]
+ },
+ {
+  "mutation": "holding includes entry-session return (naive)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 31,
+  "behavioural": 31,
+  "examples": [
+   "tests/test_stage3_infra.py::test_blinded_step_outputs_dispersion_and_counts_only",
+   "tests/test_stage3_infra.py::test_analyse_and_reverse_ladder_run_end_to_end_on_synthetic_data",
+   "tests/test_stage3_infra.py::test_net_of_costs_first_month_buys_everything_then_trades_the_drift"
+  ]
+ },
+ {
+  "mutation": "RG formation ignores flagged rows",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_step_d_excludes_flagged_formation_rows_but_not_span_days",
+   "tests/test_stage3_ladder.py::test_r_gap_uses_the_raw_gap_return_only_when_no_event_is_on_the_row"
+  ]
+ },
+ {
+  "mutation": "top200 takes n+1",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_top200_pool_rank_and_duplicate_rule",
+   "tests/test_stage3_ladder.py::test_steps_a_b_c_universe_definitions"
+  ]
+ },
+ {
+  "mutation": "step D spec uses pool universe",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_section_22_is_applied_literally_in_step_d_as_in_step_c",
+   "tests/test_stage3_ladder.py::test_section_22_stops_if_a_factor_sits_on_the_resumption_row_in_step_d",
+   "tests/test_stage3_ladder.py::test_e_future_delisting_information_cannot_change_pit_membership"
+  ]
+ },
+ {
+  "mutation": "bootstrap not null-centred",
+  "file": "src/stage3/stats.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_bootstrap_is_seeded_two_sided_and_null_centred"
+  ]
+ },
+ {
+  "mutation": "holm multiplier constant",
+  "file": "scripts/run_s2_mom_c2.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_c2.py::test_holm_and_bh_known_values"
+  ]
+ },
+ {
+  "mutation": "net = gross + cost",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_net_returns_copy_gross_and_deduct_the_cost_of_each_scenario",
+   "tests/test_s2mom_step_e_scenarios.py::test_h4_and_break_even_only_in_the_primary_sample_with_h3_supported"
+  ]
+ },
+ {
+  "mutation": "turnover not halved",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_net_returns_copy_gross_and_deduct_the_cost_of_each_scenario"
+  ]
+ },
+ {
+  "mutation": "cutoff guard off",
+  "file": "src/stage3/data.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_g_cutoffs_are_explicit_and_refuse_anything_after_the_research_cutoff"
+  ]
+ },
+ {
+  "mutation": "protocol hash check off",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_h_runner_refuses_a_changed_protocol_or_registry_record"
+  ]
+ },
+ {
+  "mutation": "confirmation without same-code primary",
+  "file": "scripts/run_s2_mom.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "cost evidence gap -> usable",
+  "file": "src/stage3/costs.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_infra.py::test_missing_component_or_rate_is_refused",
+   "tests/test_stage3_infra.py::test_primary_result_is_gross_and_identical_whether_or_not_cost_evidence_exists",
+   "tests/test_stage3_infra.py::test_frozen_section_13_fallback_is_explicit_and_never_silent"
+  ]
+ },
+ {
+  "mutation": "min valid 50->49",
+  "file": "src/stage2/universe.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "jump threshold 1.4->1.5",
+  "file": "src/stage2/returns.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "large residual 10%->50%",
+  "file": "src/stage2/returns.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_returns.py::test_validated_adjustment_with_large_residual_is_flagged_not_research_grade"
+  ]
+ },
+ {
+  "mutation": "top_n 200->201",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED_BY_HASH_PIN_ONLY",
+  "n_failed": 1,
+  "behavioural": 0,
+  "examples": [
+   "tests/test_stage3_infra.py::test_protocol_file_matches_the_frozen_hash_and_constants"
+  ]
+ },
+ {
+  "mutation": "exit one session early (s > nxt -> >=)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_infra.py::test_g_samples_end_at_protocol_exit_sessions_inside_the_research_cutoff",
+   "tests/test_stage3_ladder.py::test_calendar_dates_and_delayed_entry",
+   "tests/test_stage3_ladder.py::test_formation_is_12_1_and_holding_starts_one_session_late"
+  ]
+ },
+ {
+  "mutation": "holding drops exit session (RG)",
+  "file": "src/stage3/ladder.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "gap return counted twice (no consumed)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_delisting_rule_applies_from_step_c_only_and_never_double_counts"
+  ]
+ },
+ {
+  "mutation": "naive factor inverted",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_study_panel_naive_and_research_grade_rules"
+  ]
+ },
+ {
+  "mutation": "step A uses PIT date",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_steps_a_b_c_universe_definitions"
+  ]
+ },
+ {
+  "mutation": "bootstrap one-sided",
+  "file": "src/stage3/stats.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "BH divisor dropped",
+  "file": "scripts/run_s2_mom_c2.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_c2.py::test_holm_and_bh_known_values"
+  ]
+ },
+ {
+  "mutation": "slippage bps as percent",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 7,
+  "behavioural": 7,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_exit_order_uses_the_rank_at_the_exit_rebalance[150.0-1-200-False-bps0]",
+   "tests/test_s2mom_step_e_scenarios.py::test_exit_order_uses_the_rank_at_the_exit_rebalance[200.0-1-200-False-bps1]",
+   "tests/test_s2mom_step_e_scenarios.py::test_exit_order_uses_the_rank_at_the_exit_rebalance[201.0-201-500-False-bps2]"
+  ]
+ },
+ {
+  "mutation": "STT sell uses buy rate key swapped",
+  "file": "src/stage3/step_e.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "stage3 input hash check off",
+  "file": "src/stage3/data.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "registry protocol hash check off",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_h_runner_refuses_a_changed_protocol_or_registry_record"
+  ]
+ },
+ {
+  "mutation": "blinded artifact gate off",
+  "file": "scripts/run_s2_mom.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "registry duplicate id allowed",
+  "file": "src/registry/experiments.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_leaderboard.py::test_registry_rejects_incomplete_and_duplicate_records"
+  ]
+ },
+ {
+  "mutation": "identity links from the future",
+  "file": "src/stage2/universe.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "event attached to row before ex-date",
+  "file": "src/stage2/returns.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "bonus factor inverted",
+  "file": "src/stage2/corporate_actions.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage2_corporate_actions.py::test_parse_adjusting_subjects[Bonus",
+   "tests/test_stage2_corporate_actions.py::test_parse_adjusting_subjects[Bonus",
+   "tests/test_stage2_corporate_actions.py::test_parse_adjusting_subjects[Fv"
+  ]
+ },
+ {
+  "mutation": "delist OTHER -30%->-3%",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED_BY_HASH_PIN_ONLY",
+  "n_failed": 1,
+  "behavioural": 0,
+  "examples": [
+   "tests/test_stage3_infra.py::test_protocol_file_matches_the_frozen_hash_and_constants"
+  ]
+ },
+ {
+  "mutation": "rank ascending (losers as winners)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 10,
+  "behavioural": 10,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_ties_break_by_entity_ascending",
+   "tests/test_stage3_ladder.py::test_formation_is_12_1_and_holding_starts_one_session_late",
+   "tests/test_stage3_ladder.py::test_step_d_excludes_flagged_formation_rows_but_not_span_days"
+  ]
+ },
+ {
+  "mutation": "neutral fill -> zero",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_step_d_neutral_fill_is_the_simple_mean_and_keeps_the_stock",
+   "tests/test_stage3_ladder.py::test_r_miss_treatments_of_a_flagged_holding_day[FILL-1.15]"
+  ]
+ },
+ {
+  "mutation": "WML = W + L",
+  "file": "src/stage3/ladder.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "RG uses non-research-grade rows",
+  "file": "src/stage3/ladder.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "NW Bartlett weight -> 1",
+  "file": "src/stage3/stats.py",
+  "status": "KILLED",
+  "n_failed": 15,
+  "behavioural": 15,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_one_sided_test_is_the_registered_newey_west_test",
+   "tests/test_s2mom_step_e_scenarios.py::test_h4_and_break_even_only_in_the_primary_sample_with_h3_supported",
+   "tests/test_s2mom_step_e_scenarios.py::test_runner_end_to_end_on_synthetic_files"
+  ]
+ },
+ {
+  "mutation": "SE without sqrt(n)",
+  "file": "src/stage3/stats.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_stage3_infra.py::test_newey_west_matches_statsmodels",
+   "tests/test_stage3_infra.py::test_primary_p_value_is_standard_normal_and_deterministic"
+  ]
+ },
+ {
+  "mutation": "C2 confirmation rule sign ignored",
+  "file": "scripts/run_s2_mom_c2.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_c2.py::test_confirmation_status_rule"
+  ]
+ },
+ {
+  "mutation": "band boundary rank<200",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_exit_order_uses_the_rank_at_the_exit_rebalance[200.0-1-200-False-bps1]",
+   "tests/test_s2mom_step_e_scenarios.py::test_monthly_costs_count_the_low_band_and_the_fallback",
+   "tests/test_s2mom_step_e_scenarios.py::test_first_month_is_a_full_purchase_from_cash_with_slippage"
+  ]
+ },
+ {
+  "mutation": "indirect tax also on STT",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_buy_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_sell_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_exchange_charge_and_ipft_are_separate_and_counted_once"
+  ]
+ },
+ {
+  "mutation": "RET-1.1 hash check off",
+  "file": "src/stage3/data.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "pending decisions ignored",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_infra.py::test_runner_stops_before_reading_any_data_until_every_gate_has_passed"
+  ]
+ },
+ {
+  "mutation": "step E input hash check off",
+  "file": "scripts/run_s2_mom_step_e.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_runner_refuses_an_input_whose_hash_differs_before_any_read"
+  ]
+ },
+ {
+  "mutation": "registry unknown status allowed",
+  "file": "src/registry/experiments.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "liquidity mean instead of median",
+  "file": "src/stage2/universe.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "ex-date boundary prev_date <= ex",
+  "file": "src/stage2/returns.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "validation band 1.25->2.0",
+  "file": "src/stage2/corporate_actions.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "NW lag primary 4->5",
+  "file": "src/stage3/protocol.py",
+  "status": "KILLED",
+  "n_failed": 10,
+  "behavioural": 10,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_one_sided_test_is_the_registered_newey_west_test",
+   "tests/test_s2mom_step_e_scenarios.py::test_h4_and_break_even_only_in_the_primary_sample_with_h3_supported",
+   "tests/test_s2mom_step_e_scenarios.py::test_h3_that_differs_from_the_registered_decision_is_refused"
+  ]
+ },
+ {
+  "mutation": "tie-break reversed",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_ties_break_by_entity_ascending"
+  ]
+ },
+ {
+  "mutation": "delisting return sign",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_delisting_rule_applies_from_step_c_only_and_never_double_counts"
+  ]
+ },
+ {
+  "mutation": "delta sign flipped (D - A)",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_infra.py::test_analyse_and_reverse_ladder_run_end_to_end_on_synthetic_data",
+   "tests/test_stage3_infra.py::test_sensitivity_block_has_the_four_frozen_treatments_and_the_fixed_labels",
+   "tests/test_stage3_ladder.py::test_paired_delta_keeps_unpaired_months_with_a_reason"
+  ]
+ },
+ {
+  "mutation": "rankable needs only m1 price",
+  "file": "src/stage3/ladder.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage3_ladder.py::test_rankable_needs_a_price_on_m12_and_m1"
+  ]
+ },
+ {
+  "mutation": "NW variance / (n-1)",
+  "file": "src/stage3/stats.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_stage3_infra.py::test_newey_west_matches_statsmodels",
+   "tests/test_stage3_infra.py::test_primary_p_value_is_standard_normal_and_deterministic",
+   "tests/test_stage3_infra.py::test_newey_west_lag_zero_is_the_plain_variance"
+  ]
+ },
+ {
+  "mutation": "H1 decision threshold flipped",
+  "file": "src/stage3/experiment.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "stamp duty on sells too",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_sell_order_by_hand",
+   "tests/test_s2mom_step_e.py::test_stt_both_sides_stamp_duty_buyer_only_dp_seller_only"
+  ]
+ },
+ {
+  "mutation": "H4 p tail reversed",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 8,
+  "behavioural": 8,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_one_sided_test_is_the_registered_newey_west_test",
+   "tests/test_s2mom_step_e_scenarios.py::test_h4_and_break_even_only_in_the_primary_sample_with_h3_supported",
+   "tests/test_s2mom_step_e_scenarios.py::test_h3_that_differs_from_the_registered_decision_is_refused"
+  ]
+ },
+ {
+  "mutation": "drift ignored (full rebuy each month)",
+  "file": "src/stage3/step_e.py",
+  "status": "KILLED",
+  "n_failed": 19,
+  "behavioural": 19,
+  "examples": [
+   "tests/test_s2mom_step_e.py::test_ledger_orders_weights_and_notional",
+   "tests/test_s2mom_step_e.py::test_every_cost_is_traceable",
+   "tests/test_s2mom_step_e.py::test_zero_weight_change_makes_no_order"
+  ]
+ },
+ {
+  "mutation": "UNIV-1 hash check off",
+  "file": "src/stage3/data.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "runner overwrite guard off",
+  "file": "scripts/run_s2_mom.py",
+  "status": "SURVIVED",
+  "n_failed": 0,
+  "behavioural": 0,
+  "examples": []
+ },
+ {
+  "mutation": "step E overwrite guard off",
+  "file": "scripts/run_s2_mom_step_e.py",
+  "status": "KILLED",
+  "n_failed": 2,
+  "behavioural": 2,
+  "examples": [
+   "tests/test_s2mom_step_e_scenarios.py::test_runner_never_overwrites_existing_output",
+   "tests/test_s2mom_step_e_scenarios.py::test_a_run_that_fails_while_writing_leaves_no_final_directory_and_is_not_rerun"
+  ]
+ },
+ {
+  "mutation": "research_frame includes holdout day",
+  "file": "src/access.py",
+  "status": "KILLED",
+  "n_failed": 3,
+  "behavioural": 3,
+  "examples": [
+   "tests/test_access_boundary.py::test_watchlist_never_shows_october",
+   "tests/test_access_boundary.py::test_backtest_never_uses_october",
+   "tests/test_access_boundary.py::test_research_loaders_cut_at_cutoff"
+  ]
+ },
+ {
+  "mutation": "liquidity rank ascending",
+  "file": "src/stage2/universe.py",
+  "status": "KILLED",
+  "n_failed": 4,
+  "behavioural": 4,
+  "examples": [
+   "tests/test_stage2_universe.py::test_future_delisting_does_not_remove_prior_membership",
+   "tests/test_stage2_universe.py::test_insufficient_history_then_eligible",
+   "tests/test_stage2_universe.py::test_suspension_missing_value_and_not_traded_on_date"
+  ]
+ },
+ {
+  "mutation": "gap rows research-grade",
+  "file": "src/stage2/returns.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_returns.py::test_delisting_and_relisting_gap"
+  ]
+ },
+ {
+  "mutation": "post-cutoff corporate actions kept",
+  "file": "src/stage2/corporate_actions.py",
+  "status": "KILLED",
+  "n_failed": 1,
+  "behavioural": 1,
+  "examples": [
+   "tests/test_stage2_corporate_actions.py::test_load_events_drops_post_cutoff_and_non_eq"
+  ]
+ }
+]

@@ -1,0 +1,714 @@
+[
+ {
+  "layer": "files",
+  "attack": "corrupt one input",
+  "action": "flip one character of primary/calendar.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/primary/calendar.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "corrupt one input (append a byte)",
+  "action": "append a newline to research/identity.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/research/identity.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "corrupt one manifest entry",
+  "action": "change one hash inside the manifest",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: Stage 3 manifest does not match the SHA-256 anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "rewrite the manifest",
+  "action": "edit an input and make the manifest agree with it",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: Stage 3 manifest does not match the SHA-256 anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "delete one input",
+  "action": "delete research/gap_rows.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: missing input (or a symlink): data/stage3/s2_mom_v1/research/gap_rows.csv"
+ },
+ {
+  "layer": "files",
+  "attack": "delete the manifest",
+  "action": "delete manifest.json",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: Stage 3 manifest is missing"
+ },
+ {
+  "layer": "files",
+  "attack": "duplicate one input",
+  "action": "copy oos/calendar.csv to a second file",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: unexpected file(s) in the Stage 3 input folder: ['oos/calendar (1).csv']"
+ },
+ {
+  "layer": "files",
+  "attack": "add an unexpected file (inputs)",
+  "action": "drop a new csv into the input folder",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: unexpected file(s) in the Stage 3 input folder: ['research/extra.csv']"
+ },
+ {
+  "layer": "files",
+  "attack": "add an unexpected file (results)",
+  "action": "drop a second results file beside the registered ones",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: unregistered file(s) in results/s2_mom_v1: ['primary_results_v2.json']"
+ },
+ {
+  "layer": "files",
+  "attack": "modify one result",
+  "action": "change one digit of primary_monthly.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/primary_monthly.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "modify the protocol",
+  "action": "edit one character of the frozen protocol",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: docs/research/phase3a_momentum_protocol.md does not have its pinned SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "modify a supplement",
+  "action": "edit Supplement 2",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: docs/research/phase3a_momentum_protocol_addendum1_supplement2.md does not match the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "modify protocol hash (registry)",
+  "action": "append an amendment that replaces protocol_sha256",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: S2-MOM-v1 is FINAL: protected field 'protocol_sha256' is immutable (only status and new anchors may be appended) | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "modify code hash (ladder)",
+  "action": "add a comment to src/stage3/ladder.py",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: the code behind primary_run differs from its registered code hash"
+ },
+ {
+  "layer": "files",
+  "attack": "modify code hash (C2 runner)",
+  "action": "add a comment to scripts/run_s2_mom_c2.py",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: the code behind c2_run differs from its registered code hash"
+ },
+ {
+  "layer": "files",
+  "attack": "modify code hash (registry)",
+  "action": "append an amendment that replaces the registered code hash",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: S2-MOM-v1 is FINAL: protected field 'provenance' is immutable (only status and new anchors may be appended) | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "modify registry state",
+  "action": "append FINAL -> PLANNED with a valid hash chain",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: illegal transition FINAL -> PLANNED for S2-MOM-v1 (allowed: ['INVALID', 'REQUIRES REVALIDATION', 'SUPERSEDED']) | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "modify registry state (in place)",
+  "action": "rewrite the historical PLANNED -> FINAL line",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: the first 58 registry lines (registered history) are missing or were rewritten | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "duplicate registry record",
+  "action": "append a copy of the S2-MOM-v1 record",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: registry line 62 duplicates an earlier record | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "duplicate registry amendment",
+  "action": "append a copy of the last amendment",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: registry line 62 duplicates an earlier record | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "delete a registry amendment",
+  "action": "remove the last line (the newest anchor)",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: release/s2_mom_v1/ENVIRONMENT.json: environment specification does not match the registry anchor"
+ },
+ {
+  "layer": "files",
+  "attack": "delete all remediation amendments",
+  "action": "remove every line after the pinned history (all anchors)",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: the environment specification is not anchored in the registry | Fail: the cost schedule is not anchored in the registry with its pinned SHA-256 | ProvenanceError: the registry record carries no Stage 3 manifest SHA-256 - the manifest is unanchored | Fail: the external archive manifest is missi"
+ },
+ {
+  "layer": "files",
+  "attack": "alter confirmation status (result file)",
+  "action": "change the saved confirmation label",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/confirmation_results.json does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter confirmation status (C2 file)",
+  "action": "change H2d NOT CONFIRMED/CONFIRMED text",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1_c2/c2_results.json does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter confirmation status (registry)",
+  "action": "append an amendment that rewrites the results headline",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: S2-MOM-v1 is FINAL: protected field 'results' is immutable (only status and new anchors may be appended) | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "alter environment metadata (specification)",
+  "action": "change a pinned version in ENVIRONMENT.json",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: release/s2_mom_v1/ENVIRONMENT.json: environment specification does not match the registry anchor"
+ },
+ {
+  "layer": "files",
+  "attack": "alter environment metadata (registry)",
+  "action": "append an amendment that replaces the recorded environment",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: S2-MOM-v1 is FINAL: protected field 'environment' is immutable (only status and new anchors may be appended) | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "alter environment metadata (manifest build block)",
+  "action": "edit the environment recorded in the Stage 3 manifest",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: Stage 3 manifest does not match the SHA-256 anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "insert NaN (result file)",
+  "action": "write NaN into a monthly return",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/confirmation_monthly.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "insert +inf (step E file)",
+  "action": "write inf into a cost",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1_step_e/primary_step_e_monthly.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "insert -inf (input)",
+  "action": "write -inf into a universe rank",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/primary/universes.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "duplicate monthly row",
+  "action": "repeat one row of primary_delta.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/primary_delta.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "reorder rows",
+  "action": "swap two rows of oos/calendar.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/oos/calendar.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter a date",
+  "action": "move one exit session by a day",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/primary/calendar.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter entity id",
+  "action": "rename one stock in a universe",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/oos/universes.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter return value",
+  "action": "change one digit of a registered monthly delta",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/confirmation_delta.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter cost (schedule)",
+  "action": "change one STT rate in the approved schedule",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: config/cost_schedules/delivery_nse_eq_s2mom_v1_dated.json does not have its pinned SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "alter cost (step E output)",
+  "action": "change one registered cost",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1_step_e/confirmation_step_e_monthly.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "remove a required column",
+  "action": "drop the last column of research/identity.csv",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/research/identity.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "change column type",
+  "action": "quote every rank as text",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: data/stage3/s2_mom_v1/oos/universes.csv does not match its recorded SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "truncate an output",
+  "action": "cut primary_results.json in half",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/primary_results.json does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "truncate an output (holdings)",
+  "action": "drop the last 1000 bytes of the holdings file",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: results/s2_mom_v1/confirmation_holdings.csv does not match its registered SHA-256"
+ },
+ {
+  "layer": "files",
+  "attack": "interrupted registry write",
+  "action": "leave a half-written last line",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "RegistryError: registry ends in a truncated line (interrupted write?) - refusing to read it | Fail: the environment specification is not anchored in the registry"
+ },
+ {
+  "layer": "files",
+  "attack": "unregistered rerun",
+  "action": "log a second primary run in the trial log",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "Fail: trial log: expected exactly one run of each of ['primary', 'sensitivity', 'confirmation', 'step_e', 'c2'], found ['primary', 'sensitivity', 'confirmation', 'step_e', 'c2', 'primary'] (an unregistered or repeated run?)"
+ },
+ {
+  "layer": "files",
+  "attack": "delete a registered output",
+  "action": "delete sensitivity_results.json",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/0b/stgbdkfs7ss1p8c_108yzf440000gn/T/tmpyzja44j4/a44/results/s2_mom_v1/sensitivity_results.json'"
+ },
+ {
+  "layer": "files",
+  "attack": "symlink an input",
+  "action": "replace sessions.csv by a link to identical bytes elsewhere",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "ProvenanceError: missing input (or a symlink): data/stage3/s2_mom_v1/research/sessions.csv"
+ },
+ {
+  "layer": "values",
+  "attack": "insert NaN (naive return)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: missing naive return on a row that is not a first observation"
+ },
+ {
+  "layer": "values",
+  "attack": "insert NaN (research return of an OK row)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: research-grade row without a research return"
+ },
+ {
+  "layer": "values",
+  "attack": "insert +inf",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel.r_naive: infinite value"
+ },
+ {
+  "layer": "values",
+  "attack": "insert -inf",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel.r_raw: infinite value"
+ },
+ {
+  "layer": "values",
+  "attack": "return of -100%",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel.r_naive: return of -100% or less"
+ },
+ {
+  "layer": "values",
+  "attack": "return below -100%",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel.r_rg: return of -100% or less"
+ },
+ {
+  "layer": "values",
+  "attack": "unknown row class",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: unknown class ['WEIRD']"
+ },
+ {
+  "layer": "values",
+  "attack": "research return on a flagged row",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: research return on a row that is not research-grade"
+ },
+ {
+  "layer": "values",
+  "attack": "duplicate panel row",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: duplicate (date, entity) row"
+ },
+ {
+  "layer": "values",
+  "attack": "panel row on a non-session date",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: row on a date that is not a market session"
+ },
+ {
+  "layer": "values",
+  "attack": "panel row after the cutoff",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: row on a date that is not a market session"
+ },
+ {
+  "layer": "values",
+  "attack": "alter entity id (panel)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: entity that is not in the identity table"
+ },
+ {
+  "layer": "values",
+  "attack": "second FIRST row",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: a FIRST row is not the entity's first row"
+ },
+ {
+  "layer": "values",
+  "attack": "change column type (returns as text)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel.r_naive: not a float column (object)"
+ },
+ {
+  "layer": "values",
+  "attack": "change column type (date as text)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel.date: not a date column (object)"
+ },
+ {
+  "layer": "values",
+  "attack": "remove a required column (panel)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: columns ['date', 'entity', 'r_naive', 'r_rg', 'cls', 'raw_ok'] != ['date', 'entity', 'r_naive', 'r_rg', 'r_raw', 'cls', 'raw_ok']"
+ },
+ {
+  "layer": "values",
+  "attack": "extra column (panel)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "panel: columns ['date', 'entity', 'r_naive', 'r_rg', 'r_raw', 'cls', 'raw_ok', 'note'] != ['date', 'entity', 'r_naive', 'r_rg', 'r_raw', 'cls', 'raw_ok']"
+ },
+ {
+  "layer": "values",
+  "attack": "remove a required column (calendar)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/calendar: columns ['t', 'm12', 'm1', 's_plus', 'holding_month', 'sample'] != ['t', 'm12', 'm1', 's_plus', 's_pp', 'holding_month', 'sample']"
+ },
+ {
+  "layer": "values",
+  "attack": "duplicate session",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "sessions: duplicate or unsorted dates"
+ },
+ {
+  "layer": "values",
+  "attack": "last session is not T*",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "sessions: last session 2026-09-29 is not T* 2026-09-30"
+ },
+ {
+  "layer": "values",
+  "attack": "reorder calendar rows",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/calendar: duplicate or unsorted month"
+ },
+ {
+  "layer": "values",
+  "attack": "duplicate monthly calendar row",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/calendar: 115 months, protocol B3 says 114"
+ },
+ {
+  "layer": "values",
+  "attack": "113 primary months",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/calendar: 113 months, protocol B3 says 114"
+ },
+ {
+  "layer": "values",
+  "attack": "alter a date (exit before entry)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/calendar: m12 < m1 < t < s_plus < s_pp violated"
+ },
+ {
+  "layer": "values",
+  "attack": "alter a date (holiday)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/calendar: a date that is not a market session"
+ },
+ {
+  "layer": "values",
+  "attack": "alter a date (unparseable)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/calendar.t: not a date column (time data \"31/12/2021\" doesn't match format \"%Y-%m-%d\", at position 0. You might want to try:\n    - passing `format` if your strings have a consistent format;\n    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same f"
+ },
+ {
+  "layer": "values",
+  "attack": "missing date",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/calendar.s_pp: missing date"
+ },
+ {
+  "layer": "values",
+  "attack": "wrong sample label",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/calendar: wrong sample label"
+ },
+ {
+  "layer": "values",
+  "attack": "wrong holding month",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/calendar: holding month is not the month after t"
+ },
+ {
+  "layer": "values",
+  "attack": "alter entity id (universe)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/universes: entity that is not in the identity table"
+ },
+ {
+  "layer": "values",
+  "attack": "duplicate universe member",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/universes: duplicate (t, key, entity)"
+ },
+ {
+  "layer": "values",
+  "attack": "199-stock universe",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/universes: a universe does not have exactly 200 stocks"
+ },
+ {
+  "layer": "values",
+  "attack": "change column type (rank as text)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/universes.rank: not a numeric column (object)"
+ },
+ {
+  "layer": "values",
+  "attack": "insert NaN (rank)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/universes.rank: NaN or infinite value"
+ },
+ {
+  "layer": "values",
+  "attack": "insert inf (rank)",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/universes.rank: NaN or infinite value"
+ },
+ {
+  "layer": "values",
+  "attack": "rank below 1",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/universes: rank below 1"
+ },
+ {
+  "layer": "values",
+  "attack": "step A stock outside the survivor pool",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/universes: step A/B stock outside the survivor pool"
+ },
+ {
+  "layer": "values",
+  "attack": "step A list changes over time",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "oos/universes: step A universe is not the same list at 2026-07-31"
+ },
+ {
+  "layer": "values",
+  "attack": "unknown universe key",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "primary/universes: keys are not exactly A, B, C"
+ },
+ {
+  "layer": "values",
+  "attack": "unknown delisting class",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "identity: unknown delisting class"
+ },
+ {
+  "layer": "values",
+  "attack": "duplicate identity row",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "identity: missing or duplicate entity_id"
+ },
+ {
+  "layer": "values",
+  "attack": "survivor pool flag inconsistent",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "identity: survivor pool != ACTIVE_AT_CUTOFF"
+ },
+ {
+  "layer": "values",
+  "attack": "gap row that is not a flagged row",
+  "action": "hash-valid frame with this defect",
+  "outcome": "REJECTED",
+  "expected_reason_seen": true,
+  "message": "gap_rows: a gap row is not a flagged panel row"
+ }
+]

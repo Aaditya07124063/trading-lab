@@ -1,0 +1,22 @@
+# Official environment of S2-MOM-v1 (the reproducibility contract). Conda, platform osx-arm64.
+# The four numerical packages and Python are pinned to the exact builds of the registered runs.
+#   conda env create -n s2mom -f release/s2_mom_v1/environment.yml
+# For a byte-exact package set (every transitive package, URL and MD5) use conda-osx-arm64.lock instead:
+#   conda create -n s2mom --file release/s2_mom_v1/conda-osx-arm64.lock
+name: s2mom
+channels:
+  - defaults
+dependencies:
+  - python=3.13.5=h2eb94d5_100_cp313
+  - numpy=2.1.3=py313h7c57ca2_0
+  - numpy-base=2.1.3=py313hb98e858_0
+  - pandas=2.2.3=py313hcf29cfe_0
+  - scipy=1.15.3=py313hd7edaaf_0
+  - pyarrow=19.0.0=py313h313beb8_1
+  - arrow-cpp=19.0.0=h0b7d223_2
+  - libopenblas=0.3.29=hea593b9_0
+  - blas=1.0=openblas
+  - python-dateutil=2.9.0post0=py313hca03da5_2
+  - pytz=2024.1=py313hca03da5_0
+  - python-tzdata=2025.2=pyhd3eb1b0_0
+  - six=1.17.0=py313hca03da5_0

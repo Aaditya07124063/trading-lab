@@ -1,0 +1,22 @@
+component,happy_path,empty_input,missing_input,malformed_input,boundary,adversarial_input,failure,recovery,determinism,security,regression_test
+stage2.archive.fetch,yes,no,partial,no,yes,no,yes,partial,no,partial,no
+stage2.panel.parse/qa,yes,no,no,partial,yes,partial,yes,no,partial,yes,no
+stage2.corporate_actions,yes,partial,no,yes,yes,yes,yes,no,partial,yes,no
+stage2.identity,yes,no,no,partial,yes,yes,partial,no,partial,yes,no
+stage2.universe.build,yes,no,no,no,partial,yes,yes,no,yes,yes,no
+stage2.returns.build,yes,no,no,partial,partial,yes,yes,no,partial,yes,no
+scripts/build_stage2.py,no,no,no,no,no,no,no,no,no,no,no
+stage3.data.build/load_inputs,no,no,no,no,no,no,no,no,no,partial,no
+stage3.ladder (A-D),yes,partial,yes,no,yes,yes,partial,no,yes,yes,partial
+stage3.stats,yes,no,no,no,partial,no,partial,no,yes,no,partial
+stage3.experiment.analyse,yes,no,no,no,no,yes,no,no,yes,no,no
+stage3.step_e + runner,yes,partial,yes,yes,yes,yes,yes,yes,yes,yes,yes
+scripts/run_s2_mom.py,no,no,partial,no,no,no,partial,no,no,partial,no
+scripts/run_s2_mom_c2.py,yes,no,partial,yes,partial,no,yes,partial,no,yes,yes
+registry.experiments,partial,no,no,no,no,no,no,no,no,no,no
+"access (cutoff, holdout gate)",yes,partial,yes,yes,yes,yes,yes,no,no,yes,yes
+evaluate_orb_v1.py,no,no,no,no,no,partial,partial,no,no,partial,no
+intraday engine / inference,yes,partial,partial,partial,yes,yes,partial,no,yes,no,yes
+server.py,yes,no,partial,no,partial,no,partial,no,no,partial,no
+update_intraday / pipeline,yes,partial,no,yes,yes,partial,yes,partial,no,no,no
+research_view,yes,no,partial,no,no,partial,yes,no,no,yes,no

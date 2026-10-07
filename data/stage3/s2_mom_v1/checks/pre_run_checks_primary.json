@@ -1,0 +1,58 @@
+{
+ "sample": "PRIMARY",
+ "months_in_calendar": 114,
+ "pairing": {
+  "paired_months": 114,
+  "unpaired": {},
+  "pass": true
+ },
+ "boundary": {
+  "last_session_in_matrices": "2026-09-30",
+  "research_cutoff": "2026-09-30",
+  "last_exit_session": "2022-01-03",
+  "pass": true
+ },
+ "perturbation": {
+  "dates": [
+   "2013-12-31",
+   "2015-07-31",
+   "2017-02-28",
+   "2018-09-28",
+   "2020-04-30"
+  ],
+  "pass": true
+ },
+ "truncation": {
+  "dates": [
+   "2013-12-31",
+   "2015-07-31",
+   "2017-02-28",
+   "2018-09-28",
+   "2020-04-30"
+  ],
+  "pass": true
+ },
+ "placebo": {
+  "seed": 20261005,
+  "months": 114,
+  "p_two_sided_of_random_wml": 0.4725,
+  "months_ranked_differently_from_momentum": 114,
+  "same_rankable_stocks": true,
+  "pass": true
+ },
+ "data_quality_counts": {
+  "rankable_min": 180,
+  "rankable_mean": 187.76315789473685,
+  "events_by_kind_and_step": {
+   "C:DELISTING_RETURN": 37,
+   "C:EXIT_GAP_BOOKED": 30,
+   "C:EXIT_GAP_BOOKED_FLAGGED_ROW": 17,
+   "D:DELISTING_RETURN": 34,
+   "D:EXIT_GAP_BOOKED": 27,
+   "D:EXIT_GAP_BOOKED_FLAGGED_ROW": 16,
+   "D:NEUTRAL_FILL": 154
+  }
+ },
+ "all_passed": true,
+ "code_sha256": "f57c9321fa8a32172a6c0cd9b2e066bcf07144790836fd79a956a407219fa1d1"
+}

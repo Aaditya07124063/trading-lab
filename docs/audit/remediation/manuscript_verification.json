@@ -1,0 +1,380 @@
+[
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "results/s2_mom_v1/sensitivity_results.json equals its registered SHA-256",
+  "status": "PASS",
+  "detail": "7d6081d8c4a099f7"
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "results/s2_mom_v1_c2/c2_results.json equals its registered SHA-256",
+  "status": "PASS",
+  "detail": "cf977e8a5efce7ba"
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "C2 file names the registered specification hash",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "C2 inputs recorded in the file == inputs recorded in the registry",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "every C2 input still has that hash and is a registered result file",
+  "status": "PASS",
+  "detail": "6 inputs"
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "C2 file carries the 'not blind and not confirmatory' statement",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "C2 registry metadata: command, code hash, environment with scipy and platform",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "C2 Holm family m = 4 and Benjamini-Hochberg family m = 6, H5 omission stated",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "sensitivity file has the six frozen treatments and the two reverse-ladder variants",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "sensitivity file: NOT RELIABLE arises through R_SPAN only",
+  "status": "PASS",
+  "detail": "['R_SPAN']"
+ },
+ {
+  "group": "1 sensitivity / C2 artifacts",
+  "check": "sensitivity run registered with the same code hash as the primary run",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "all 565 audited numbers come from files that are registered and unchanged",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "each audited raw value equals the field of the registered file today",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "each number shown is the registered value correctly rounded",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "each audited number appears in manuscript.md",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "decimal numbers in the text that are neither audited results nor listed design constants",
+  "status": "INFO",
+  "detail": "18: 1.1, 10.1, 10.2, 10.3, 10.4, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2603.19380, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6"
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement 'about 0.58% per month' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement 'about 1.22% per month' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement '0.591% per month' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement '114 months' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement '10,000 resamples' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement '56 months' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "2 numerical claims",
+  "check": "rounded statement '157' present and supported by its artifact",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "Table A5: all 26 printed hashes equal the files on disk",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "Table A5: every printed hash equals the registry value for that file",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "Table A5 files whose hash is not held by the registry itself (verified against disk only)",
+  "status": "INFO",
+  "detail": "scripts/run_s2_mom_c2.py, scripts/run_s2_mom_step_e.py, src/stage3/step_e.py"
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "result hash of primary_results.json is printed in the manuscript",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "result hash of sensitivity_results.json is printed in the manuscript",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "result hash of confirmation_results.json is printed in the manuscript",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "result hash of step_e_results.json is printed in the manuscript",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "result hash of c2_results.json is printed in the manuscript",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "result hash of blinded_precision.json is printed in the manuscript",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "no SHA-256 in the manuscript is unknown to the registry or to Table A5",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "gross-run code hash printed == registered primary/confirmation code hash",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "protocol file, revision and freeze commit as registered",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "Addendum 1, Supplements 1-4 and the C2 specification are referenced",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "3 hashes and protocol references",
+  "check": "Table A5 lists the hash of every registered addendum and supplement",
+  "status": "FLAG",
+  "detail": "not listed: phase3a_momentum_protocol_addendum1_supplement2.md, phase3a_momentum_protocol_addendum1_supplement3.md"
+ },
+ {
+  "group": "4 wording",
+  "check": "H1 primary is reported as INCONCLUSIVE and NOT RELIABLE, as registered",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "H1 is stated as two-sided at 5%",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "H1 confirmation is reported as NOT CONFIRMED with the opposite sign (registered means have opposite signs)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "no sentence says H1 is supported, confirmed or significant",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "the code-level label MATERIAL of the confirmation file is not presented as a protocol decision",
+  "status": "PASS",
+  "detail": "confirmation_results.json H1.decision = MATERIAL"
+ },
+ {
+  "group": "4 wording",
+  "check": "H2d: status CONFIRMED is the registered C2 value and is reported with the late-execution caveat",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "H2d is described as secondary; H1 remains the headline test",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "H2d: one-sided test, Holm-rejected, stated as supplementary and non-confirmatory",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "confirmation sample is described as chronological; H3 not supported there; H4 not run there",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "cost timing: cost rules specified after the gross results and before any cost was computed",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "cost results for L and net WML are labelled hypothetical",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "DEV-1 and DEV-2 are disclosed by name",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "every unexecuted analysis of DEV-2 (19 items) is named in the manuscript",
+  "status": "PASS",
+  "detail": "missing: "
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'H2d' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'Holm' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'Benjamini\u2013Hochberg' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'halves' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'pooled' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'skewness' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "late-executed analysis 'worst month' is disclosed as late",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "4 wording",
+  "check": "statement that no result was computed or seen for unexecuted analyses",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "5 other formats",
+  "check": "manuscript.html: every audited number is present",
+  "status": "PASS",
+  "detail": "0 missing: "
+ },
+ {
+  "group": "5 other formats",
+  "check": "manuscript.html: the six result hashes are present",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "5 other formats",
+  "check": "manuscript.docx: every audited number is present",
+  "status": "PASS",
+  "detail": "0 missing: "
+ },
+ {
+  "group": "5 other formats",
+  "check": "manuscript.docx: the six result hashes are present",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "group": "5 other formats",
+  "check": "manuscript.pdf",
+  "status": "INFO",
+  "detail": "binary layout; not compared number by number in this check"
+ }
+]
