@@ -9,6 +9,10 @@ Research documentation: [METHODOLOGY](METHODOLOGY.md) · [DATA_REGISTRY](DATA_RE
 [REPRODUCIBILITY](REPRODUCIBILITY.md) · [CHANGELOG](CHANGELOG.md) ·
 [master specification](Trading_Lab_Research_Master_Specification.md)
 
+Registered study **S2-MOM-v1** (momentum bias ladder, NSE): how to verify and reproduce it is in
+[REPRODUCIBILITY](REPRODUCIBILITY.md#s2-mom-v1-the-registered-momentum-bias-ladder-study); the release state is in
+[docs/audit/FINAL_RELEASE_GATE.md](docs/audit/FINAL_RELEASE_GATE.md). One command: `python3 scripts/reproduce_s2_mom_v1.py`.
+
 ## Architecture
 
     data/ (36 CSVs: NIFTY, SENSEX, stocks, gold; 5 timeframes)
@@ -18,7 +22,8 @@ Research documentation: [METHODOLOGY](METHODOLOGY.md) · [DATA_REGISTRY](DATA_RE
       -> backtest.py      day-by-day replay, next-open fills, costs, stops
       -> metrics.py       drawdown, win rate, benchmark, 3-level verdict
       -> results/         leaderboard.csv - every experiment ever run
-    server.py + web/      FastAPI backend + hand-written Kite-style web UI
+    server.py + web/      FastAPI backend + research-terminal web UI (web/index.html, no build step;
+                          demo data is labelled; the earlier Kite-style UI is kept at web/classic.html)
     paper_bot.py          daily paper-trading bot (state + diary)
     run_ml.py             RandomForest walk-forward experiment
     run_momentum.py       cross-sectional momentum portfolio experiment

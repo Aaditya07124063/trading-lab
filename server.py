@@ -12,6 +12,7 @@ from src import leaderboard
 from src.config import DATA_DIR, CAPITAL
 from src.access import RESEARCH_CUTOFF, research_load_csv
 from src.research import run_daily
+from src import research_view
 from src.registry.experiments import log_trial
 from src.intraday.costs import CostModel
 from src.intraday.data import load_intraday, timeframe_of
@@ -192,6 +193,27 @@ def intraday_run(file: str, range_minutes: int = 30, cutoff: str = "14:30",
                    "drawdown": [round(float(v), 2) for v in dd]}
     st["trade_list"] = [] if t.empty else t.round(2).tail(60).to_dict(orient="records")
     return st
+
+
+@app.get("/api/prices")
+def prices(file: str, n: int = 400):
+    """Real daily OHLCV of one data file, nothing after the research cutoff. Read-only."""
+    if "/" in file or "\\" in file or ".." in file:
+        raise HTTPException(400, "bad file name")
+    try:
+        df = research_load_csv(file).tail(max(2, min(n, 6000)))
+    except (ValueError, FileNotFoundError) as e:
+        raise HTTPException(400, str(e))
+    vol = next((c for c in ("tick_volume", "volume") if c in df.columns), None)
+    return {"file": file, "cutoff": RESEARCH_CUTOFF, "dates": [d.strftime("%Y-%m-%d") for d in df["date"]],
+            **{c: [round(float(v), 2) for v in df[c]] for c in ("open", "high", "low", "close")},
+            "volume": [int(v) for v in df[vol].fillna(0)] if vol else None}
+
+
+@app.get("/api/research")
+def research():
+    """Registered experiments, saved results and hash verification. Read-only; computes nothing new."""
+    return research_view.snapshot()
 
 
 app.mount("/", StaticFiles(directory=Path(__file__).parent / "web", html=True), name="web")
