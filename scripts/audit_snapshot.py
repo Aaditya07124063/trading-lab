@@ -26,7 +26,10 @@ SKIP_FILES = {".DS_Store", ".coverage"}
 ALLOWED = ["src/registry/experiments.py", "requirements.txt", "README.md", "REPRODUCIBILITY.md", "CHANGELOG.md",
            "RESEARCH_LOG.md", ".gitignore", "pytest.ini", "EXPERIMENT_REGISTRY.md", "tests/conftest.py",
            "scripts/audit_snapshot.py",
-           "tests/test_access_boundary.py",       # only its allow-list gains the two new read-only verification tools
+           "tests/test_access_boundary.py",
+           # N-06: one presentation sentence, proved by tests/test_manuscript_n06.py to be the only change
+           "docs/manuscript/s2_mom_v1/manuscript.md", "docs/manuscript/s2_mom_v1/manuscript.template.md",
+           "docs/manuscript/s2_mom_v1/manuscript.html", "docs/manuscript/s2_mom_v1/manuscript.docx",       # only its allow-list gains the two new read-only verification tools
            # regenerated final reports; the originals are preserved byte-identical in docs/audit/forensic_20261007/
            "docs/audit/*.md", "docs/audit/*.csv", "docs/audit/*.json"]
 APPEND_ONLY = ["registry/experiments.jsonl", "registry/trials.jsonl"]

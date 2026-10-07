@@ -110,7 +110,7 @@ Rows of the table rejected for the expected reason: 89 of 89.
 | 42 | truncate an output (holdings) | drop the last 1000 bytes of the holdings file | REJECTED | Fail: results/s2_mom_v1/confirmation_holdings.csv does not match its registered SHA-256 |
 | 43 | interrupted registry write | leave a half-written last line | REJECTED | RegistryError: registry ends in a truncated line (interrupted write?) - refusing to read it / Fail: the environment specification is not anchored in t |
 | 44 | unregistered rerun | log a second primary run in the trial log | REJECTED | Fail: trial log: expected exactly one run of each of ['primary', 'sensitivity', 'confirmation', 'step_e', 'c2'], found ['primary', 'sensitivity', 'con |
-| 45 | delete a registered output | delete sensitivity_results.json | REJECTED | FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/0b/stgbdkfs7ss1p8c_108yzf440000gn/T/tmpyzja44j4/a44/results/s2_mom_v1/sensitivit |
+| 45 | delete a registered output | delete sensitivity_results.json | REJECTED | FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/0b/stgbdkfs7ss1p8c_108yzf440000gn/T/tmphnj97jzy/a44/results/s2_mom_v1/sensitivit |
 | 46 | symlink an input | replace sessions.csv by a link to identical bytes elsewhere | REJECTED | ProvenanceError: missing input (or a symlink): data/stage3/s2_mom_v1/research/sessions.csv |
 
 ### 4.2 Value layer

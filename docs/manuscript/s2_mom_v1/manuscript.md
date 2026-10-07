@@ -458,7 +458,7 @@ python3 docs/manuscript/s2_mom_v1/build_manuscript.py export   # this manuscript
 
 **Environment.** Python 3.13.5, pandas 2.2.3, NumPy 2.1.3, SciPy 1.15.3, on macOS (arm64), as recorded in the registry at the late-analysis run. Figures were drawn with Matplotlib 3.10.0. The bootstrap seed is 20261005.
 
-**Repository state.** The protocol freeze is commit `7d4cb6d`. At the time of writing, the experiment code, the addenda, the cost schedule, the result files and this manuscript exist in the working tree and are not yet committed; the registry records the tree as dirty at every run. The current working tree is therefore not the final reproducibility snapshot. A tagged commit containing all of these files, with the hashes in Table A5 unchanged, should be created and cited before the paper is circulated.
+**Repository state.** The protocol freeze is commit `7d4cb6d`. The experiment code, the addenda, the cost schedule and the result files were committed, unchanged from the registered runs, in commit `f5bfed8` (tag `s2-mom-v1-release-1`); the registry records the tree as dirty at every run because the runs were made before that commit. The hashes in Table A5 are unchanged.
 
 **Data availability.** The inputs are public NSE daily files and official circulars archived with hashes in the repository's data registry. The raw archive is not redistributed with the manuscript.
 

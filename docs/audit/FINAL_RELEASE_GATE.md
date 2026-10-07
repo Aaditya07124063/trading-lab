@@ -2,16 +2,18 @@
 
 The forensic gate of 2026-10-07 is kept unchanged in `docs/audit/forensic_20261007/FINAL_RELEASE_GATE.md`.
 
-## Verdict: NOT PASS — one P1 (F-01) is open, and only the researcher can close it
+## Verdict: PASS
 
-State on 2026-10-08 after the pre-release review (`PRE_RELEASE_CHECKLIST.md`): nothing committed, nothing pushed, 258 files staged (commit 1 of the plan: 256; 2 move to the UI commit). The exact commit contents are in `EXACT_COMMIT_CONTENTS.md`; the steps that close F-01 are in `F01_CLOSURE_PLAN.md`. This gate becomes PASS only when the checks of section 5 of that plan have run on the copies and passed.
+F-01 was closed on 2026-10-08 and every one of its conditions was verified (section 2a). P0 = 0. Every P1 is fixed and regression-protected. The remaining P2 and P3 items are listed with their status in section 3; none of them blocks the release of the registered S2-MOM-v1 results.
 
 | | |
 |---|---|
-| P0 | 0 |
-| P1 | 6 before → **5 fixed and regression-protected, 1 open (F-01)** |
-| Why F-01 is open | The experiment's code, results and data still exist as one copy on one laptop. Everything is staged, hashed and guarded, but the commit, the push and the off-laptop copy of the data archive have not happened. Those three actions were explicitly reserved for the researcher. |
-| What turns the gate to PASS | `F01_CLOSURE_PLAN.md`: two commits (experiment + remediation; then UI), a tag, a push to the existing remote `origin`, the data archive packed onto an external disk, and verification of both copies by a fresh clone, `release_archive.py materialize` and `reproduce_s2_mom_v1.py`. No code change is needed. Alternatively the researcher may classify the single-copy state as an accepted risk in writing; this audit does not do that on the researcher's behalf. |
+| Release commit (commit 1) | `f5bfed89bc7b1bd258dbe81ff9da2be8f44acbdc` — "S2-MOM-v1 research release 1" |
+| UI commit (commit 2) | `29c15129143ea071816a5aca53376d26f8b997bd` |
+| Release tag | `s2-mom-v1-release-1`, annotated, tag object `0db0b0854bf62a44ee36d24bd3b1bcab4402e2cd`, target commit 1 |
+| Remote | `origin` = `github.com/Aaditya07124063/trading-lab`, **private** (unauthenticated API and web page: 404); remote `main` and tag verified equal to local |
+| External data archive | `/Volumes/DON'T OPEN/trading-lab-release/s2-mom-v1-data-baa0b47040101031.tar`, 1,552,240,640 bytes, SHA-256 `bb4b9659da4d991bb99c32a5fa5ee4765ab0bde9bf5d498a70e1c4fded681ac2` |
+| Closure commit (commit 3) | holds this file, the closure record and the N-06 correction; its id is in `git log`, not in this file |
 
 This file does not say the system is free of defects. It says what was shown, how, and what was not.
 
@@ -27,12 +29,27 @@ Evidence labels: **PROVEN BY TEST** (an automated test or a recorded run demonst
 | 4 | Registry state cannot be silently downgraded | **met**; limit: lines removed from the end of the file that nothing depends on (N-03) | `REGISTRY_SECURITY_REPORT.md`: 235 tests, 12 attacks on a copy of the real registry | PROVEN BY TEST · limit VERIFIED BY INSPECTION |
 | 5 | Corrupted inputs fail closed | **met** for the attacks tried | `FAILURE_INJECTION_REPORT.md`: 113 attacks, 112 rejected, 1 shown harmless, 0 silently accepted | PROVEN BY TEST |
 | 6 | Confirmation cannot bypass primary-run requirements | **met** in the runner (gate tests, mutation killed) and in the registry (equal code hashes checked). Direct import of the frozen modules remains possible (F-30, accepted risk) | `tests/test_s2mom_mutation_kills.py` part 4 | PROVEN BY TEST · bypass VERIFIED BY INSPECTION |
-| 7 | Reproduction works from a clean environment | **met on one machine**: clean process, and a clean Conda environment built from the specification | `REPRODUCTION_REPORT.md` runs B and D | PROVEN BY TEST (B: in the suite; D: one recorded manual run) |
+| 7 | Reproduction works from a clean environment | **met on one machine**: clean process; clean Conda environment; and a fresh clone of the pushed tag with the data restored from the external archive | `REPRODUCTION_REPORT.md` runs B and D; `F01_CLOSURE_PLAN.md` Closure record | PROVEN BY TEST · UNVERIFIED (other machines) |
 | 8 | Dependencies are reproducible | **met for the official contract** (Conda, osx-arm64, exact builds, explicit lock). pip is not supported and is documented as such. Second machine not tried (N-01) | `DEPENDENCY_FINAL_REPORT.md` | PROVEN BY TEST (Conda rebuild) · UNVERIFIED (other machines) |
 | 9 | Frozen research artifacts remain byte-identical | **met** | 6,299 of 6,299 frozen files equal the pre-remediation snapshot; 37 frozen code files and 85 artifacts pinned by `tests/test_frozen_code.py` | SUPPORTED BY HASH |
-| 10 | Every P1 is fixed or explicitly justified | **not met**: F-01 open | section 2 | — |
+| 10 | Every P1 is fixed or explicitly justified | **met**: all six P1 fixed and regression-protected; F-01 closed on 2026-10-08 | section 2a | PROVEN BY TEST · SUPPORTED BY HASH |
 | 11 | P2 / P3 risks are documented | **met** | section 2; `findings.json`; `THREAT_MODEL.md` | DOCUMENTATION ONLY |
 | 12 | No silent failure path remains for research-critical data | **met on the verification path** (reproduction, validators). **Not** inside the frozen runner path (F-07, F-08, F-10, F-17 are report-only): that path cannot run again for v1, and its outputs are checked from outside | section 2 | PROVEN BY TEST (outside guards) · VERIFIED BY INSPECTION (frozen gaps) |
+
+## 2a. F-01 closure (2026-10-08)
+
+| Condition | Result | Label |
+|---|---|---|
+| Research release committed | commit 1 `f5bfed8`, 256 files, equal hash for hash to `EXACT_COMMIT_CONTENTS.md` | SUPPORTED BY HASH |
+| Pushed to a private second location | `git ls-remote origin`: `refs/heads/main` = `29c1512`, tag peels to `f5bfed8`; repository not publicly visible | VERIFIED BY INSPECTION |
+| Release tag exists and targets commit 1 | `s2-mom-v1-release-1^{}` = `f5bfed89…acbdc` locally, remotely and in the fresh clone | VERIFIED BY INSPECTION |
+| Data archive outside the laptop | USB tar: SHA-256 equal to the registry anchor when written, and again on an independent re-read; 5,637 members = manifest; no cache, temporary, hidden or unrelated file | SUPPORTED BY HASH |
+| Fresh clone succeeds | cloned from the private remote into a new directory, checked out at the tag, clean working tree | VERIFIED BY INSPECTION |
+| Data restores from the archive | `release_archive.py materialize` from the USB tar: 5,637 files restored and verified | PROVEN BY TEST |
+| Executable reproduction succeeds | clean Conda environment (Python 3.13.5, numpy 2.1.3, pandas 2.2.3, scipy 1.15.3, pyarrow 19.0.0, exact builds, empty process environment): PASS, exit 0; 117 quantities, 8,257 numbers, all within tolerance; largest difference 6.7e-14 | PROVEN BY TEST |
+| Registered outputs and hashes match | reproduction steps 2–5 in the clone: protocol, 5 addenda/supplements, UNIV-1, cost schedule, 18 result files, 3 code hashes, manifest chain | SUPPORTED BY HASH |
+| Full tests pass | fresh clone at the tag: 960 passed, 0 failed, 0 skipped; at `main`: 964 passed | PROVEN BY TEST |
+| No frozen research artifact changed | 6,295 of 6,295 frozen files byte-identical; the 4 manuscript files corrected for N-06 differ only by one sentence (`tests/test_manuscript_n06.py`) | SUPPORTED BY HASH · PROVEN BY TEST |
 
 ## 2. Final-audit checklist (run on the final state, 2026-10-07 23:21 to 2026-10-08)
 
@@ -44,12 +61,12 @@ Evidence labels: **PROVEN BY TEST** (an automated test or a recorded run demonst
 | 4 | Registry attacks | 235 tests pass; 12 scratch-copy attacks rejected | PROVEN BY TEST |
 | 5 | Provenance attacks | 24 tests pass; 19 scratch-copy attacks rejected | PROVEN BY TEST |
 | 6 | Clean-environment reproduction | PASS (clean process; clean Conda environment); pip environment fails closed | PROVEN BY TEST |
-| 7 | All frozen artifact hashes | 6,299 of 6,299 identical | SUPPORTED BY HASH |
+| 7 | All frozen artifact hashes | 6,299 of 6,299 identical before N-06; 6,295 of 6,295 after it (the 4 corrected manuscript text files are pinned by the reversal test instead) | SUPPORTED BY HASH · PROVEN BY TEST |
 | 8 | All registered result hashes | 18 of 18 files equal the registry; six headline hashes equal the pins in the reproduction script | SUPPORTED BY HASH |
 | 9 | No registered research result changed | same as 7 and 8 | SUPPORTED BY HASH |
 | 10 | No protocol file changed | protocol `f1abd954…d838`, Addendum 1, Supplements 1–4: file = registry = pin | SUPPORTED BY HASH |
 | 11 | No unauthorized experiment rerun | trial log byte-identical to the snapshot (10 lines, five `s2_mom_v1` runs); results folders hold only registered files | SUPPORTED BY HASH · PROVEN BY TEST (`test_registry_and_trial_log_only_grew`) |
-| 12 | Working-tree cleanliness | **not clean by design**: nothing is committed. Research-critical paths: 0 untracked files (guard test). Unstaged: `server.py`, `web/`, `README.md` (UI work), collector data. The staged set minus `src/research_view.py` and `tests/test_ui_api.py`, exported to a scratch git repository: 960 passed, 0 failed, 0 skipped; reproduction PASS | VERIFIED BY INSPECTION · PROVEN BY TEST |
+| 12 | Working-tree cleanliness | **clean for every research path** after commits 1–3; still uncommitted and outside the release by decision: the collector's files (`data/india/*`, `data/raw/collection_log.jsonl`, `data/raw/manifest.jsonl`). Before the commits: Research-critical paths: 0 untracked files (guard test). Unstaged: `server.py`, `web/`, `README.md` (UI work), collector data. The staged set minus `src/research_view.py` and `tests/test_ui_api.py`, exported to a scratch git repository: 960 passed, 0 failed, 0 skipped; reproduction PASS | VERIFIED BY INSPECTION · PROVEN BY TEST |
 | 13 | Every P1 / P2 / P3 finding inspected | 35 findings: 30 forensic + 5 found during remediation | section 3 |
 
 ## 3. Findings
@@ -60,13 +77,13 @@ Statuses used: FIXED · FIXED + REGRESSION PROTECTED · ACCEPTED RISK · REPORT-
 | Severity | Before | Found during remediation | Fixed | Fixed + regression protected | Accepted risk | Report-only frozen | Open |
 |---|---|---|---|---|---|---|---|
 | P0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| P1 | 6 | 0 | 0 | 5 | 0 | 0 | 1 |
+| P1 | 6 | 0 | 0 | 6 | 0 | 0 | 0 |
 | P2 | 14 | 1 | 0 | 3 | 2 | 6 | 4 |
 | P3 | 10 | 5 | 1 | 1 | 5 | 6 | 2 |
 
 | ID | Sev | Previous finding | Remediation | Regression test | Adversarial test | Evidence | Final status |
 |---|---|---|---|---|---|---|---|
-| F-01 | P1 | The whole S2-MOM-v1 experiment is outside version control: src/stage3/, scripts/run_s2_mom*.py, scripts/build_stage3.py, seven test files, the delivery cost schedules, addendum 1 and supplements 1-4, the deviation log, data/stage3/, results/s2_mom_v1*/, the ma… | All research-critical files staged for one commit (index only; commit deferred by the researcher's instruction). Large data outside Git: content-addressed archive manifest (5,637 files, SHA-256 each), deterministic tar hash, manifest and tar hash anchored in the registry, verify/pack/materialize tool. Guard test fails on any untracked or merely ignored research file. | tests/test_version_control.py (3); tests/test_release_archive.py (11) | tests/test_release_archive.py: changed, missing, extra file; rewritten manifest; wrong tar; path traversal; symlink; no overwrite | PROVENANCE_VERIFICATION_REPORT.md section 5. OPEN because the commit, the push and an off-laptop copy of the archive are actions of the researcher and have not happened: there is still one copy on one laptop. | **OPEN** |
+| F-01 | P1 | The whole S2-MOM-v1 experiment is outside version control: src/stage3/, scripts/run_s2_mom*.py, scripts/build_stage3.py, seven test files, the delivery cost schedules, addendum 1 and supplements 1-4, the deviation log, data/stage3/, results/s2_mom_v1*/, the ma… | CLOSED 2026-10-08. Research release committed (f5bfed89bc7b1bd258dbe81ff9da2be8f44acbdc), tagged s2-mom-v1-release-1, pushed to the private origin; data archive packed to an external USB drive and verified; a fresh clone of the tag with the data restored from that drive passed the suite and the reproduction (F01_CLOSURE_PLAN.md, Closure record). Before that: all research-critical files staged for one commit. Large data outside Git: content-addressed archive manifest (5,637 files, SHA-256 each), deterministic tar hash, manifest and tar hash anchored in the registry, verify/pack/materialize tool. Guard test fails on any untracked or merely ignored research file. | tests/test_version_control.py (3); tests/test_release_archive.py (11) | tests/test_release_archive.py: changed, missing, extra file; rewritten manifest; wrong tar; path traversal; symlink; no overwrite | F01_CLOSURE_PLAN.md Closure record: remote ref and tag verified, USB tar SHA-256 bb4b9659...1ac2 re-read, fresh clone 960 passed (tag) / 964 passed (main), reproduction PASS in a clean Conda environment. | **FIXED + REGRESSION PROTECTED** |
 | F-02 | P1 | data/stage3/s2_mom_v1/manifest.json is the only integrity anchor for the Stage 3 inputs (calendar, universes, identity, sessions, gap rows, panel). The manifest itself is anchored nowhere: its hash is not in the registry (provenance.data_manifest is a path), n… | Registry anchor (line 59) of the Stage 3 manifest SHA-256; verifier walks registry -> manifest -> files, Stage 2 inputs, code hashes; exact file set; no symlink, traversal or duplicate entry. | tests/test_provenance_chain.py (24) | tests/test_provenance_chain.py; tests/test_failure_injection.py: 18 file attacks on inputs, manifest, code | PROVENANCE_VERIFICATION_REPORT.md; mutation group 'guards and registry' (provenance mutations) | **FIXED + REGRESSION PROTECTED** |
 | F-03 | P1 | The registry is not a state machine. amend() accepts any field: status FINAL -> PLANNED, a new protocol_sha256, a provenance block that replaces (not merges) the registered run hashes, an empty reason. current() lets a second line with the same experiment_id d… | src/registry/experiments.py rewritten: state machine, protected fields, explicit revalidation, full amendment metadata, hash chain, pinned history, fail-closed reader, lock + fsync. | tests/test_registry_state_machine.py (235) | tests/test_registry_state_machine.py: 156 state pairs, forged amendments with a valid chain, parser attacks, history rewrites; tests/test_failure_injection.py: 11 registry attacks on a copy of the real registry | REGISTRY_SECURITY_REPORT.md; the 58 historical lines fold to the pre-remediation view (hash pinned in a test) | **FIXED + REGRESSION PROTECTED** |
 | F-04 | P1 | 24 of 104 deliberate mutations of critical logic pass the whole 451-test suite. Among them: WML = W + L; step D drops the exit-session return; step D uses raw returns on every row; the H1 decision threshold reversed; a one-sided bootstrap count; the Stage 3, R… | Tests written against the surviving mutations: hand-computed golden ladder world, hand Newey-West, both bootstrap tails, 12-row decision table, runner gates, loader hash checks, Stage 2 rules, step E rates; mutation campaign tool with recorded batches. | tests/test_s2mom_mutation_kills.py (68) | scripts/mutation_campaign.py on scratch clones | MUTATION_FINAL_REPORT.md | **FIXED + REGRESSION PROTECTED** |
@@ -101,19 +118,20 @@ Statuses used: FIXED · FIXED + REGRESSION PROTECTED · ACCEPTED RISK · REPORT-
 | N-03 | P3 | (found during remediation) Removing lines from the END of the registry leaves a valid shorter history. It is detected only where something depends on those lines (the reproduction requires the anchors and state FINAL) and by Git. | Push the repository; optionally pin the registry head hash in each release note. | — | — | REGISTRY_SECURITY_REPORT.md section 5 | **ACCEPTED RISK** |
 | N-04 | P3 | (found during remediation) The six sensitivity treatments and the reverse-order ladder are not recomputed by the independent implementation; they are verified by hash, by code hash and by internal arithmetic only. The bootstrap p-value is recomputed with the registered resampler, not a second one. | Extend the independent implementation, if the researcher wants that evidence. | — | — | REPRODUCTION_REPORT.md section 2 | **ACCEPTED RISK** |
 | N-05 | P2 | (found during remediation) The laptop holding the only copy has about 3 GB of free disk and several GB of swap in use. During remediation a parallel test run filled the disk once (on scratch clones only; the repository was verified intact afterwards). | Free disk space (about 2 GB of stale scratch copies from the forensic audit session are under /private/tmp/claude-501/); then pack the archive to external storage. | — | — | REMEDIATION_REPORT.md section 12 | **OPEN** |
-| N-06 | P3 | (found during remediation) The manuscript says that the experiment code, addenda, cost schedule, result files and manuscript 'are not yet committed' and that a tagged commit will follow. That is true today and becomes stale as soon as F-01 is closed. | In the next manuscript revision, replace the paragraph with the commit id and tag of the F-01 commit. | — | — | VERIFIED BY INSPECTION (manuscript.md line 461); PRE_RELEASE_CHECKLIST.md section 3 | **ACCEPTED RISK** |
+| N-06 | P3 | (found during remediation) The manuscript said the code, results and manuscript were 'not yet committed'. Corrected on 2026-10-08 after the release commit, as one presentation sentence, in manuscript.template.md, manuscript.md, manuscript.html and manuscript.docx; tests/test_manuscript_n06.py proves that undoing that sentence restores the registered bytes. manuscript.pdf was NOT rebuilt (rebuild excluded by the researcher) and still carries the old sentence. | Regenerate the PDF at the next manuscript export. | — | — | tests/test_manuscript_n06.py (PROVEN BY TEST); manuscript checks 59 PASS, 1 FLAG (N-02) | **ACCEPTED RISK** |
 
 ## 4. Open items, by who can close them
 
 | ID | Sev | Needs | Who |
 |---|---|---|---|
-| F-01 | P1 | commit, push, off-laptop copy of the archive | researcher |
 | F-14 | P2 | fix `/api/add` (POST, symbol pattern, no overwrite) — UI code, out of scope of this phase | researcher's approval, then code |
 | F-15 | P2 | review the rejected BEL / CIPLA bars; the collector exited 1 again on 2026-10-07 | researcher |
 | F-18 | P2 | end-to-end tests of the ORB evaluator | separate task (not S2-MOM) |
 | F-21 | P3 | decide: report the information ratio or record a deviation | researcher (research decision) |
 | N-01 | P3 | one reproduction on a second Apple-silicon Mac; work in the dedicated Conda environment | researcher |
 | N-05 | P2 | free disk space on the laptop | researcher |
+
+Research-affecting changes after the frozen experiment: **NONE.** No experiment was rerun (trial log: 10 lines, 5 S2-MOM runs, byte-identical to the pre-remediation snapshot, also in the fresh clone).
 
 Research decisions that are not software and were not touched: F-13, F-21, F-22, F-27, and R-1 … R-8 of the forensic `RESEARCH_INTEGRITY_AUDIT.md`.
 
@@ -145,6 +163,7 @@ New in remediation:
 
 ## 6. What this gate does not cover
 
+0. Every check above ran on one machine (macOS 27, Apple silicon). A second machine, OS or CPU is UNVERIFIED (N-01).
 1. Whether the science is right: the research decisions listed above, the literature, the interpretation.
 2. A second machine, another operating system or CPU.
 3. A deliberate, coordinated rewrite by the repository owner of the registry, the pinned constants and the verifier together. Local code cannot prevent that; pushed Git history and distributed hashes can expose it.

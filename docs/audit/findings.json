@@ -29,10 +29,10 @@
    "before": 6,
    "found_during_remediation": 0,
    "FIXED": 0,
-   "FIXED + REGRESSION PROTECTED": 5,
+   "FIXED + REGRESSION PROTECTED": 6,
    "ACCEPTED RISK": 0,
    "REPORT-ONLY FROZEN": 0,
-   "OPEN": 1
+   "OPEN": 0
   },
   "P2": {
    "before": 14,
@@ -70,12 +70,12 @@
    "evidence": "VERIFIED BY INSPECTION (git status, git ls-files)",
    "requires_frozen_code_change": false,
    "changes_registered_result": false,
-   "status": "OPEN",
+   "status": "FIXED + REGRESSION PROTECTED",
    "status_forensic_20261007": "OPEN",
-   "remediation": "All research-critical files staged for one commit (index only; commit deferred by the researcher's instruction). Large data outside Git: content-addressed archive manifest (5,637 files, SHA-256 each), deterministic tar hash, manifest and tar hash anchored in the registry, verify/pack/materialize tool. Guard test fails on any untracked or merely ignored research file.",
+   "remediation": "CLOSED 2026-10-08. Research release committed (f5bfed89bc7b1bd258dbe81ff9da2be8f44acbdc), tagged s2-mom-v1-release-1, pushed to the private origin; data archive packed to an external USB drive and verified; a fresh clone of the tag with the data restored from that drive passed the suite and the reproduction (F01_CLOSURE_PLAN.md, Closure record). Before that: all research-critical files staged for one commit. Large data outside Git: content-addressed archive manifest (5,637 files, SHA-256 each), deterministic tar hash, manifest and tar hash anchored in the registry, verify/pack/materialize tool. Guard test fails on any untracked or merely ignored research file.",
    "regression_test_after": "tests/test_version_control.py (3); tests/test_release_archive.py (11)",
    "adversarial_test": "tests/test_release_archive.py: changed, missing, extra file; rewritten manifest; wrong tar; path traversal; symlink; no overwrite",
-   "evidence_after": "PROVENANCE_VERIFICATION_REPORT.md section 5. OPEN because the commit, the push and an off-laptop copy of the archive are actions of the researcher and have not happened: there is still one copy on one laptop."
+   "evidence_after": "F01_CLOSURE_PLAN.md Closure record: remote ref and tag verified, USB tar SHA-256 bb4b9659...1ac2 re-read, fresh clone 960 passed (tag) / 964 passed (main), reproduction PASS in a clean Conda environment."
   },
   {
    "id": "F-02",
@@ -802,12 +802,12 @@
   {
    "id": "N-06",
    "severity": "P3",
-   "file": "docs/manuscript/s2_mom_v1/manuscript.md (section 15, 'Repository state')",
-   "description": "The manuscript says that the experiment code, addenda, cost schedule, result files and manuscript 'are not yet committed' and that a tagged commit will follow. That is true today and becomes stale as soon as F-01 is closed.",
-   "why_it_matters": "Documentation drift after the commit; no result is affected.",
-   "proposed_fix": "In the next manuscript revision, replace the paragraph with the commit id and tag of the F-01 commit.",
+   "file": "docs/manuscript/s2_mom_v1/ (section 15, 'Repository state')",
+   "description": "The manuscript said the code, results and manuscript were 'not yet committed'. Corrected on 2026-10-08 after the release commit, as one presentation sentence, in manuscript.template.md, manuscript.md, manuscript.html and manuscript.docx; tests/test_manuscript_n06.py proves that undoing that sentence restores the registered bytes. manuscript.pdf was NOT rebuilt (rebuild excluded by the researcher) and still carries the old sentence.",
+   "why_it_matters": "The PDF export is stale in one paragraph; no number or conclusion is affected.",
+   "proposed_fix": "Regenerate the PDF at the next manuscript export.",
    "status": "ACCEPTED RISK",
-   "evidence": "VERIFIED BY INSPECTION (manuscript.md line 461); PRE_RELEASE_CHECKLIST.md section 3",
+   "evidence": "tests/test_manuscript_n06.py (PROVEN BY TEST); manuscript checks 59 PASS, 1 FLAG (N-02)",
    "found_during": "remediation 2026-10-07"
   }
  ]

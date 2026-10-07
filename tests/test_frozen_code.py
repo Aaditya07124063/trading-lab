@@ -19,7 +19,10 @@ FROZEN_CODE = [f for f in SNAPSHOT if f.endswith(".py") and (
     f.startswith(("src/stage2/", "src/stage3/", "src/intraday/")) or f in (
         "src/access.py", "src/config.py", "scripts/run_s2_mom.py", "scripts/run_s2_mom_step_e.py", "scripts/run_s2_mom_c2.py",
         "scripts/build_stage2.py", "scripts/build_stage3.py", "evaluate_orb_v1.py", "docs/manuscript/s2_mom_v1/build_manuscript.py"))]
-FROZEN_ARTIFACTS = [f for f in SNAPSHOT if f.startswith(("docs/research/", "results/s2_mom_v1", "config/cost_schedules/", "data/stage3/",
+# N-06 (2026-10-08): one presentation sentence was corrected in these four files after the release commit.
+# They are pinned instead by tests/test_manuscript_n06.py, which proves that undoing that sentence restores the registered bytes.
+N06_EDITED = {"docs/manuscript/s2_mom_v1/" + n for n in ("manuscript.md", "manuscript.template.md", "manuscript.html", "manuscript.docx")}
+FROZEN_ARTIFACTS = [f for f in SNAPSHOT if f not in N06_EDITED and f.startswith(("docs/research/", "results/s2_mom_v1", "config/cost_schedules/", "data/stage3/",
                                                          "docs/manuscript/s2_mom_v1/"))
                     or (f.startswith("data/stage2/") and "/datasets/" not in f)]
 
