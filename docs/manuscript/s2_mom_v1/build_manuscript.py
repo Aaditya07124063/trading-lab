@@ -41,6 +41,8 @@ REGISTERED = {
     "docs/research/phase3a_momentum_protocol.md": "f1abd954f698307f7aafe234c5d5c9f1681ccc5aadb9cb21e9f8e34d47abd838",
     "docs/research/phase3a_momentum_protocol_addendum1_costs.md": "d12ccaa6fa23143f808b429d75c757a57a853afa42e961a94157d3b772dffefe",
     "docs/research/phase3a_momentum_protocol_addendum1_supplement1.md": "ab28fd1750db3e222819013ef70ff69c4b48d5d5757d51ec5c77e9b6232253b3",
+    "docs/research/phase3a_momentum_protocol_addendum1_supplement2.md": "6c373c5ff0db321cb753fff7a08db078ff29ca2c3f2f0cfbe8c0fb1431e6a888",
+    "docs/research/phase3a_momentum_protocol_addendum1_supplement3.md": "682191de462bac3b5d2901995be8d20d355bb4d6146fd87a3f02ed8c6c2580ce",
     "docs/research/phase3a_momentum_protocol_addendum1_supplement4.md": "e4617ccb6fa8713ea5a1f82843e5ee1d5fceda84432675c3ce081047b7508b87",
     "docs/research/s2_mom_v1_c2_analysis_spec.md": "78864a4f6fddad86a7b3273e8d8c1e7ab818ed318deb0fdb75cc99e2c5a0c0aa",
     "config/cost_schedules/delivery_nse_eq_s2mom_v1_dated.json": "47a9bad407b87b781c3584986b76b23216c2af33eb2b2f9986d23f710098a10f",
@@ -558,7 +560,7 @@ def word_count(md):
 # ------------------------------------------------------------------ export
 
 CSS = """
-@page { size: A4; margin: 22mm 20mm; }
+@page { size: A4; margin: 22mm 20mm; @bottom-center { content: counter(page) " / " counter(pages); font-family: Georgia, serif; font-size: 8.5pt; color: #555; } }
 body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt; line-height: 1.42; color: #111; max-width: 170mm; margin: auto; }
 h1 { font-size: 17pt; line-height: 1.25; margin-bottom: 4pt; } h2 { font-size: 13pt; margin-top: 20pt; } h3 { font-size: 11pt; }
 table { border-collapse: collapse; width: 100%; font-size: 8pt; margin: 8pt 0 12pt; font-family: Helvetica, Arial, sans-serif; }
@@ -567,6 +569,7 @@ td { border-bottom: 0.3pt solid #bbb; padding: 2.5pt 4pt; vertical-align: top; }
 code { font-size: 7.6pt; word-break: break-all; } pre { background: #f5f5f3; padding: 6pt; font-size: 8pt; white-space: pre-wrap; }
 img { max-width: 100%; display: block; margin: 10pt auto 4pt; } blockquote { margin-left: 12pt; color: #333; }
 h2, h3 { page-break-after: avoid; }
+table { break-inside: avoid; } p:has(+ table) { break-after: avoid; break-inside: avoid; } p:has(> img) { break-inside: avoid; break-after: avoid; }
 """
 
 

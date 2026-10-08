@@ -47,8 +47,8 @@
    "before": 10,
    "found_during_remediation": 5,
    "FIXED": 1,
-   "FIXED + REGRESSION PROTECTED": 1,
-   "ACCEPTED RISK": 5,
+   "FIXED + REGRESSION PROTECTED": 3,
+   "ACCEPTED RISK": 3,
    "REPORT-ONLY FROZEN": 6,
    "OPEN": 2
   }
@@ -758,12 +758,12 @@
   {
    "id": "N-02",
    "severity": "P3",
-   "file": "docs/manuscript/s2_mom_v1/manuscript.md",
-   "description": "Table A5 prints the hashes of the protocol, Addendum 1, Supplement 1 and Supplement 4, but not of Supplements 2 and 3, although the text cites Supplements 1-4 and says 'Hashes are in Appendix Table A5'.",
-   "why_it_matters": "Incomplete disclosure table in a draft manuscript. No result is affected: both supplements are registered in the registry record (addenda) with their SHA-256, the files match, the reproduction verifies them, and no specification requires Table A5 to be complete (the builder's list is a curated selection; no protocol, supplement, results guide or C2 specification defines the table).",
-   "proposed_fix": "Add the two rows in the next manuscript revision (two lines in REGISTERED of build_manuscript.py, then rebuild). Not done now: the rebuild rewrites manuscript.md/.html/.docx/.pdf and number_audit.csv, which are frozen in this pre-release phase.",
-   "status": "ACCEPTED RISK",
-   "evidence": "MANUSCRIPT_VERIFICATION_REPORT.md; PRE_RELEASE_CHECKLIST.md section 3. Classified DOCUMENTATION ONLY, not a release requirement.",
+   "file": "docs/manuscript/s2_mom_v1/",
+   "description": "Table A5 printed the hashes of the protocol, Addendum 1 and Supplements 1 and 4, but not of Supplements 2 and 3. Fixed 2026-10-08: both added to the builder's hash list (each recomputed and matched at build time); manuscript rebuilt, presentation only.",
+   "why_it_matters": "Disclosure table now complete; no result affected.",
+   "proposed_fix": "-",
+   "status": "FIXED + REGRESSION PROTECTED",
+   "evidence": "tests/test_manuscript_release.py::test_table_a5_lists_every_registered_addendum_and_supplement; verify_manuscript.py 60 PASS, 0 FLAG",
    "found_during": "remediation 2026-10-07"
   },
   {
@@ -802,12 +802,12 @@
   {
    "id": "N-06",
    "severity": "P3",
-   "file": "docs/manuscript/s2_mom_v1/ (section 15, 'Repository state')",
-   "description": "The manuscript said the code, results and manuscript were 'not yet committed'. Corrected on 2026-10-08 after the release commit, as one presentation sentence, in manuscript.template.md, manuscript.md, manuscript.html and manuscript.docx; tests/test_manuscript_n06.py proves that undoing that sentence restores the registered bytes. manuscript.pdf was NOT rebuilt (rebuild excluded by the researcher) and still carries the old sentence.",
-   "why_it_matters": "The PDF export is stale in one paragraph; no number or conclusion is affected.",
-   "proposed_fix": "Regenerate the PDF at the next manuscript export.",
-   "status": "ACCEPTED RISK",
-   "evidence": "tests/test_manuscript_n06.py (PROVEN BY TEST); manuscript checks 59 PASS, 1 FLAG (N-02)",
+   "file": "docs/manuscript/s2_mom_v1/ (section 15)",
+   "description": "The manuscript said the code and results were 'not yet committed'. Fixed: section 15 now states the release commit and tag, the fresh-clone verification and its single-machine limit; every format including the PDF was rebuilt from the source on 2026-10-08 (presentation only).",
+   "why_it_matters": "-",
+   "proposed_fix": "-",
+   "status": "FIXED + REGRESSION PROTECTED",
+   "evidence": "tests/test_manuscript_release.py::test_no_format_says_the_release_is_not_yet_committed",
    "found_during": "remediation 2026-10-07"
   }
  ]

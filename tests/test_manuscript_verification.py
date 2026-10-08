@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 # Flags found on 2026-10-07 and reported to the researcher (docs/audit/MANUSCRIPT_VERIFICATION_REPORT.md).
 # The manuscript was deliberately NOT edited. A new flag, or the disappearance of this list's reason, fails the test.
-KNOWN_OPEN_FLAGS = {"Table A5 lists the hash of every registered addendum and supplement"}
+KNOWN_OPEN_FLAGS = set()          # N-02 fixed 2026-10-08: Table A5 now lists Supplements 2 and 3
 
 
 def test_manuscript_is_supported_by_registered_artifacts(capsys):

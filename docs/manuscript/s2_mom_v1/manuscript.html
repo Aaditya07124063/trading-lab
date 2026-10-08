@@ -1,5 +1,5 @@
 <!doctype html><html lang='en'><head><meta charset='utf-8'><title>S2-MOM-v1 manuscript</title><style>
-@page { size: A4; margin: 22mm 20mm; }
+@page { size: A4; margin: 22mm 20mm; @bottom-center { content: counter(page) " / " counter(pages); font-family: Georgia, serif; font-size: 8.5pt; color: #555; } }
 body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt; line-height: 1.42; color: #111; max-width: 170mm; margin: auto; }
 h1 { font-size: 17pt; line-height: 1.25; margin-bottom: 4pt; } h2 { font-size: 13pt; margin-top: 20pt; } h3 { font-size: 11pt; }
 table { border-collapse: collapse; width: 100%; font-size: 8pt; margin: 8pt 0 12pt; font-family: Helvetica, Arial, sans-serif; }
@@ -8,13 +8,14 @@ td { border-bottom: 0.3pt solid #bbb; padding: 2.5pt 4pt; vertical-align: top; }
 code { font-size: 7.6pt; word-break: break-all; } pre { background: #f5f5f3; padding: 6pt; font-size: 8pt; white-space: pre-wrap; }
 img { max-width: 100%; display: block; margin: 10pt auto 4pt; } blockquote { margin-left: 12pt; color: #333; }
 h2, h3 { page-break-after: avoid; }
+table { break-inside: avoid; } p:has(+ table) { break-after: avoid; break-inside: avoid; } p:has(> img) { break-inside: avoid; break-after: avoid; }
 </style></head><body><h1>How Much Do Historical-Data and Backtesting Shortcuts Distort Measured Cross-Sectional Momentum in Indian Equities?</h1>
 <p><strong>Aaditya Adhikari</strong>
 National Institute of Technology Rourkela</p>
 <p>Working paper, October 2026. Pre-registered protocol S2-MOM-v1 (frozen 5 October 2026). Not peer reviewed.</p>
 <h2>Abstract</h2>
 <p>Backtests of equity momentum are often built on convenient data: a list of companies that exist today, liquidity measured with hindsight, and price histories adjusted without checking each corporate action. We measure how much these shortcuts change the result of one fixed momentum design on National Stock Exchange of India (NSE) cash-market stocks. The design is a standard 12-1 strategy with one-month holding, top and bottom 30% breakpoints and equal weights, applied to the 200 most liquid stocks. A four-step ladder moves from a shortcut pipeline (step A) to a point-in-time, survivorship-aware pipeline with validated corporate-action returns (step D); a fifth step (E) deducts itemised trading costs. The protocol was frozen and hashed before any return was computed, and a later period (January 2022 to August 2026) was held back as a chronological confirmation sample.</p>
-<p>In the primary sample (July 2012 to December 2021, 114 months), the shortcut pipeline overstates the gross winner-portfolio return by +0.5769% per month (Newey–West t = 3.959, one-sided p = 0.000038). The same comparison in the confirmation sample gives +1.2233% per month (t = 4.393). This result survives Holm and Benjamini–Hochberg adjustment and meets the frozen confirmation rule, but the test was executed after the main results were known and is reported as supplementary. In contrast, the pre-specified primary estimand, the change in the winner-minus-loser (WML) return between steps A and D, is −0.0587% per month in the primary sample (p = 0.7806) and +0.6750% in the confirmation sample (p = 0.0138), with opposite signs. It is inconclusive and, under the protocol's own criteria, not reliable. Corrected momentum is positive in the primary sample but concentrated in its second half. Several pre-registered robustness analyses were not executed; this is disclosed in full.</p>
+<p>In the primary sample (July 2012 to December 2021, 114 months), the shortcut pipeline overstates the gross winner-portfolio return by +0.5769% per month (Newey–West t = 3.959, one-sided p = 0.000038). The same comparison in the confirmation sample gives +1.2233% per month (t = 4.393). This result survives Holm and Benjamini–Hochberg adjustment and meets the frozen confirmation rule, but the test was executed after the main results were known and is reported as supplementary. In contrast, the pre-specified primary estimand, the change in the winner-minus-loser (WML) return between steps A and D, is −0.0587% per month in the primary sample (p = 0.7806) and +0.6750% in the confirmation sample (p = 0.0138), with opposite signs, so the confirmation sample does not confirm it. It is inconclusive and, under the protocol's own criteria, not reliable; the primary test could detect only effects of about 0.59% per month. Corrected momentum is positive in the primary sample but concentrated in its second half. Several pre-registered robustness analyses were not executed; this is disclosed in full.</p>
 <p><strong>Keywords:</strong> momentum; survivorship bias; look-ahead bias; point-in-time data; backtesting; transaction costs; pre-registration; Indian equities; National Stock Exchange of India</p>
 <p><strong>JEL classification (suggested):</strong> G11, G12, G14, C58</p>
 <h2>Plain-language summary</h2>
@@ -1047,7 +1048,7 @@ National Institute of Technology Rourkela</p>
 <p>Every reported number comes from a result file that was written once and registered by its SHA-256 hash. A companion audit table (<code>number_audit.csv</code>) maps each number in this manuscript to its file and field. The registered result files are immutable: fields that read "pending" in the earlier files were never filled in afterwards, and a results guide in the repository states which later file holds each value.</p>
 <p><strong>Protocol and specifications.</strong> The frozen protocol is <code>docs/research/phase3a_momentum_protocol.md</code> (revision 4, frozen 5 October 2026, freeze commit <code>7d4cb6d977ee1fbe40351fc6b6049c49af7638b2</code>). The cost rules are in Addendum 1 and Supplements 1–4. The late analyses follow <code>docs/research/s2_mom_v1_c2_analysis_spec.md</code>. Deviations are in <code>docs/research/s2_mom_v1_deviation_log.md</code>. Hashes are in Appendix Table A5.</p>
 <p><strong>Code.</strong> The registered experiment code hash for the gross runs is <code>f57c9321fa8a32172a6c0cd9b2e066bcf07144790836fd79a956a407219fa1d1</code>; the confirmation runner refuses to run if this differs from the hash recorded at the primary run. The combined step E code hash is <code>a6845d30b0cb65101fe6c3ea4623dd6753c2b7734d2ea2471cc4b88f51aacc54</code>.</p>
-<p><strong>Commands, in execution order.</strong> Each runner refuses to overwrite an existing registered output, so reproduction requires a clean checkout with the result directories absent.</p>
+<p><strong>Commands that produced the registered results, in execution order.</strong> Each runner ran once and refuses to overwrite a registered output, so these commands are the record of how the results were produced, not a way to reproduce them.</p>
 <pre><code>python3 scripts/build_stage2.py                   # Stage 2 data rebuild; must pass 150 checks
 python3 scripts/build_stage3.py                   # study inputs and manifest
 python3 scripts/run_s2_mom.py checks              # leakage and pairing checks
@@ -1059,8 +1060,9 @@ python3 scripts/run_s2_mom_step_e.py execute      # cost layer            (run 2
 python3 scripts/run_s2_mom_c2.py execute          # late analyses         (run 2026-10-07)
 python3 docs/manuscript/s2_mom_v1/build_manuscript.py export   # this manuscript
 </code></pre>
-<p><strong>Environment.</strong> Python 3.13.5, pandas 2.2.3, NumPy 2.1.3, SciPy 1.15.3, on macOS (arm64), as recorded in the registry at the late-analysis run. Figures were drawn with Matplotlib 3.10.0. The bootstrap seed is 20261005.</p>
-<p><strong>Repository state.</strong> The protocol freeze is commit <code>7d4cb6d</code>. The experiment code, the addenda, the cost schedule and the result files were committed, unchanged from the registered runs, in commit <code>f5bfed8</code> (tag <code>s2-mom-v1-release-1</code>); the registry records the tree as dirty at every run because the runs were made before that commit. The hashes in Table A5 are unchanged.</p>
+<p><strong>Verification.</strong> <code>python3 scripts/reproduce_s2_mom_v1.py</code> checks the environment, the protocol, the registry, the chain of input hashes and every registered file hash; it then recomputes the A–D ladder, δ, the Newey–West tests, the step E costs and the late-analysis statistics with code written separately from the experiment code, and compares them with the registered files (absolute tolerance 10<sup>−9</sup>, 10<sup>−12</sup> for costs; counts, labels and portfolio membership must agree exactly). It registers nothing and writes nothing. The sensitivity treatments and the bootstrap resampling are checked by hash, not recomputed independently.</p>
+<p><strong>Environment.</strong> Python 3.13.5, pandas 2.2.3, NumPy 2.1.3, SciPy 1.15.3 and PyArrow 19.0.0 (Anaconda builds), on macOS (arm64). The environment is specified as a Conda environment with exact package builds (<code>release/s2_mom_v1/conda-osx-arm64.lock</code>); installation with pip is not supported. Figures were drawn with Matplotlib 3.10.0. The bootstrap seed is 20261005.</p>
+<p><strong>Repository state and release verification.</strong> The protocol freeze is commit <code>7d4cb6d</code>. The experiment code, the addenda, the cost schedule and the result files were committed, unchanged from the registered runs, in commit <code>f5bfed8</code>, tagged <code>s2-mom-v1-release-1</code>; the registry records the tree as dirty at every run because the runs were made before that commit. The input files that are not in the repository (raw NSE files, Stage 2 datasets and the Stage 3 panel) are identified by a data archive whose SHA-256 is recorded in the registry. On 8 October 2026 a fresh clone of the tagged release, with these files restored from an external copy of the archive whose hash was verified and with the specified Conda environment rebuilt, reproduced every compared registered value within the stated tolerance. That verification ran on the machine that produced the results; reproduction on other hardware or operating systems has not been tested. The hashes in Table A5 are unchanged.</p>
 <p><strong>Data availability.</strong> The inputs are public NSE daily files and official circulars archived with hashes in the repository's data registry. The raw archive is not redistributed with the manuscript.</p>
 <h2>16. Conclusion</h2>
 <p>We ran one pre-specified momentum design on liquid NSE stocks through a shortcut data pipeline and through a point-in-time, survivorship-aware pipeline. In this experiment the tested shortcuts inflated the measured gross return of the winner portfolio by about 0.58% per month in the primary sample and by about 1.22% per month in a later confirmation sample. That result survives the pre-specified multiple-testing adjustments and meets the frozen confirmation rule, with the qualification that it was computed after the main results were known.</p>
@@ -1455,6 +1457,14 @@ python3 docs/manuscript/s2_mom_v1/build_manuscript.py export   # this manuscript
 <tr>
 <td><code>docs/research/phase3a_momentum_protocol_addendum1_supplement1.md</code></td>
 <td><code>ab28fd1750db3e222819013ef70ff69c4b48d5d5757d51ec5c77e9b6232253b3</code></td>
+</tr>
+<tr>
+<td><code>docs/research/phase3a_momentum_protocol_addendum1_supplement2.md</code></td>
+<td><code>6c373c5ff0db321cb753fff7a08db078ff29ca2c3f2f0cfbe8c0fb1431e6a888</code></td>
+</tr>
+<tr>
+<td><code>docs/research/phase3a_momentum_protocol_addendum1_supplement3.md</code></td>
+<td><code>682191de462bac3b5d2901995be8d20d355bb4d6146fd87a3f02ed8c6c2580ce</code></td>
 </tr>
 <tr>
 <td><code>docs/research/phase3a_momentum_protocol_addendum1_supplement4.md</code></td>

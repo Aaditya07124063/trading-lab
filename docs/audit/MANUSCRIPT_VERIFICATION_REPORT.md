@@ -84,5 +84,5 @@ Information: three files in Table A5 (`run_s2_mom_c2.py`, `run_s2_mom_step_e.py`
 | Sensitivity hashes, C2 hashes, C2 metadata | verified |
 | Manuscript numerical claims, result hashes, protocol references | verified |
 | DEV-2 disclosure, H1 wording, H2d wording, confirmation wording, cost-timing disclosure | verified |
-| Table A5 omits Supplements 2 and 3 | **ACCEPTED (documentation only), N-02** — not a release requirement; see `PRE_RELEASE_CHECKLIST.md` section 3 |
+| Table A5 omits Supplements 2 and 3 | **FIXED 2026-10-08 (N-02)**: both rows added, manuscript rebuilt (presentation only); now 60 PASS, 0 FLAG |
 | Sensitivity treatments not independently recomputed | **ACCEPTED RISK** (hash and code-hash evidence only) |

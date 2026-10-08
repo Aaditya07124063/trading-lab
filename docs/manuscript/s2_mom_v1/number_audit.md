@@ -67,7 +67,7 @@ These are design constants and counts taken from the frozen protocol and its sup
 2. claim audit: the audited wording is absent, and the required statements are present verbatim (`claim_audit.md`);
 3. cross-references: tables, appendix tables and figures are numbered in order of first appearance, every referenced table, figure and section exists, every figure file exists;
 4. no derived number and no unfilled placeholder;
-5. all 26 registered hashes match the files, and the six result-file hashes are printed in the manuscript;
+5. all 28 registered hashes match the files (Supplements 2 and 3 added to Table A5 on 2026-10-08, finding N-02), and the six result-file hashes are printed in the manuscript;
 6. totals and family sizes; H2d rejected after Holm, BH q below 0.05, confirmation status CONFIRMED; H1 inconclusive, opposite signs, NOT RELIABLE through R-span only; H4 not run in the confirmation sample;
 7. Table 7 row counts and the stated totals;
 8. an independent recomputation of plain means from the registered monthly CSV files (mean of W_A − W_D, mean of δ, all 32 ladder means in each sample, both half-sample step-D WML means), each equal to the registered JSON value to within 1e-9. Means only; no standard error, test or new statistic is computed;

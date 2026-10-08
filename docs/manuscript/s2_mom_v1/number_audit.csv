@@ -8,559 +8,560 @@ n,location,reported,kind,source_file,json_path,raw_value,scale
 7,text,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
 8,text,+0.6750,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/mean,0.6750315578077164,1.0
 9,text,0.0138,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/p_two_sided,0.0138145537831003,1.0
-10,text,0.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
-11,text,1.22,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
-12,text,+0.5769,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
-13,text,+1.2233,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
-14,text,180,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/rankable_min,180,1.0
-15,text,187.8,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/rankable_mean,187.76315789473685,1.0
-16,text,187.3,REGISTERED,results/s2_mom_v1/confirmation_results.json,reliability/rankable_mean,187.33928571428572,1.0
-17,text,0.017,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/filled_share_of_W_stock_days,0.0001666691919574539,100.0
-18,text,0.030,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/filled_share_of_L_stock_days,0.0002954590221063956,100.0
-19,text,0.472,REGISTERED,data/stage3/s2_mom_v1/checks/pre_run_checks_primary.json,placebo/p_two_sided_of_random_wml,0.4725,1.0
-20,text,0.054,REGISTERED,data/stage3/s2_mom_v1/checks/pre_run_checks_oos.json,placebo/p_two_sided_of_random_wml,0.054,1.0
-21,text,2.359,REGISTERED,results/s2_mom_v1/blinded_precision.json,sd,2.3592640532590563,1.0
-22,text,2.251,REGISTERED,results/s2_mom_v1/blinded_precision.json,long_run_sd_nw,2.2510198075747354,1.0
-23,text,0.591,REGISTERED,results/s2_mom_v1/blinded_precision.json,detectable_effect_80pct_two_sided_5pct,0.5906507070303696,1.0
-24,text,0.0,REGISTERED,results/s2_mom_v1/blinded_precision.json,equivalence_power_at_true_zero,0.0,1.0
-25,table LADDER_P,2.315,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/mean_pct,2.3150538887912955,1.0
-26,table LADDER_P,4.35,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/t_nw,4.349315663472426,1.0
-27,table LADDER_P,1.449,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/L/mean_pct,1.4490188626806801,1.0
-28,table LADDER_P,1.81,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/L/t_nw,1.8056877011486714,1.0
-29,table LADDER_P,0.866,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/mean_pct,0.8660350261106153,1.0
-30,table LADDER_P,1.82,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/t_nw,1.8222780335668252,1.0
-31,table LADDER_P,1.754,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/BM/mean_pct,1.7544449495324674,1.0
-32,table LADDER_P,2.89,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/BM/t_nw,2.886031329611161,1.0
-33,table LADDER_P,5.46,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/sd_pct,5.457778953105875,1.0
-34,table LADDER_P,−42.7,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/max_drawdown_pct,-42.67361638862529,1.0
-35,table LADDER_P,1.912,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/W/mean_pct,1.9120160971741957,1.0
-36,table LADDER_P,3.46,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/W/t_nw,3.4579243777790407,1.0
-37,table LADDER_P,1.110,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/L/mean_pct,1.1100448072886049,1.0
-38,table LADDER_P,1.37,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/L/t_nw,1.3696576046769684,1.0
-39,table LADDER_P,0.802,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/mean_pct,0.801971289885591,1.0
-40,table LADDER_P,1.71,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/t_nw,1.7090665835402246,1.0
-41,table LADDER_P,1.359,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/BM/mean_pct,1.3590104417195266,1.0
-42,table LADDER_P,2.25,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/BM/t_nw,2.2528203809760465,1.0
-43,table LADDER_P,5.36,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/sd_pct,5.364203413678307,1.0
-44,table LADDER_P,−40.5,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/max_drawdown_pct,-40.54914705373922,1.0
-45,table LADDER_P,1.648,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/W/mean_pct,1.6476931735787699,1.0
-46,table LADDER_P,3.05,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/W/t_nw,3.0498472614878795,1.0
-47,table LADDER_P,0.847,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/L/mean_pct,0.8469255791934206,1.0
-48,table LADDER_P,0.99,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/L/t_nw,0.9915593754469669,1.0
-49,table LADDER_P,0.801,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/mean_pct,0.8007675943853494,1.0
-50,table LADDER_P,1.57,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/t_nw,1.567912611968071,1.0
-51,table LADDER_P,1.132,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/BM/mean_pct,1.1323573666526678,1.0
-52,table LADDER_P,1.83,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/BM/t_nw,1.8275598098812738,1.0
-53,table LADDER_P,5.58,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/sd_pct,5.575155799742576,1.0
-54,table LADDER_P,−39.9,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/max_drawdown_pct,-39.89418036452738,1.0
-55,table LADDER_P,1.738,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/mean_pct,1.7381830134832033,1.0
-56,table LADDER_P,3.27,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/t_nw,3.267487053950306,1.0
-57,table LADDER_P,0.813,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/L/mean_pct,0.813426635464622,1.0
-58,table LADDER_P,1.00,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/L/t_nw,1.0043497382264965,1.0
-59,table LADDER_P,0.925,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/mean_pct,0.9247563780185812,1.0
-60,table LADDER_P,2.00,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/t_nw,1.9975902382764368,1.0
-61,table LADDER_P,1.178,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/BM/mean_pct,1.1777874870205116,1.0
-62,table LADDER_P,2.00,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/BM/t_nw,1.9990221555632133,1.0
-63,table LADDER_P,5.33,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/sd_pct,5.327111219155796,1.0
-64,table LADDER_P,−38.0,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/max_drawdown_pct,-38.00708643220091,1.0
-65,table TESTS_P,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
-66,table TESTS_P,−0.406,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/0,-0.4055014360685829,1.0
-67,table TESTS_P,+0.288,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/1,0.28805873225265044,1.0
-68,table TESTS_P,−0.0587,REGISTERED,results/s2_mom_v1/primary_results.json,H1/mean,-0.05872135190796623,1.0
-69,table TESTS_P,0.2108,REGISTERED,results/s2_mom_v1/primary_results.json,H1/se_nw,0.2108273213363852,1.0
-70,table TESTS_P,−0.279,REGISTERED,results/s2_mom_v1/primary_results.json,H1/t,-0.27852818854665173,1.0
-71,table TESTS_P,0.7526,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/p_two_sided,0.7526151742882086,1.0
-72,table TESTS_P,−0.270,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/ci90/0,-0.27025679992529805,1.0
-73,table TESTS_P,+0.398,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/ci90/1,0.39838427237534657,1.0
-74,table TESTS_P,+0.0641,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/mean,0.06406373622502429,1.0
-75,table TESTS_P,0.2033,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/se_nw,0.20325245400099407,1.0
-76,table TESTS_P,0.315,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/t,0.3151929286163057,1.0
-77,table TESTS_P,0.9930,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/p_two_sided,0.9930160910336223,1.0
-78,table TESTS_P,−0.225,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/ci90/0,-0.22498965818168076,1.0
-79,table TESTS_P,+0.227,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/ci90/1,0.22739704918216364,1.0
-80,table TESTS_P,+0.0012,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/mean,0.0012036955002414406,1.0
-81,table TESTS_P,0.1375,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/se_nw,0.13751579470395975,1.0
-82,table TESTS_P,0.009,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/t,0.008753143614031561,1.0
-83,table TESTS_P,0.2154,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/p_two_sided,0.21543117544511858,1.0
-84,table TESTS_P,−0.289,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/ci90/0,-0.2886227492606912,1.0
-85,table TESTS_P,+0.041,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/ci90/1,0.040645181994227425,1.0
-86,table TESTS_P,−0.1240,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/mean,-0.1239887836332319,1.0
-87,table TESTS_P,0.1001,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/se_nw,0.10009034416794128,1.0
-88,table TESTS_P,−1.239,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/t,-1.238768681074685,1.0
-89,table TESTS_P,0.000038,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/p_one_sided,3.7668254913335326e-05,1.0
-90,table TESTS_P,+0.337,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/0,0.3371833018791318,1.0
-91,table TESTS_P,+0.817,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/1,0.8165584487370529,1.0
-92,table TESTS_P,+0.5769,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
-93,table TESTS_P,0.1457,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/se_nw,0.14571969779049038,1.0
-94,table TESTS_P,3.959,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/t,3.95877073624935,1.0
-95,table TESTS_P,0.0229,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/p_one_sided,0.022880551213537603,1.0
-96,table TESTS_P,+0.9248,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/mean_pct,0.9247563780185803,1.0
-97,table TESTS_P,0.4629,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/se_nw_pct,0.4629359717018239,1.0
-98,table TESTS_P,1.998,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/t,1.9975902382764372,1.0
-99,table TESTS_P,0.0033,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/p_one_sided,0.0032749397016062593,1.0
-100,table TESTS_P,+0.5326,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/mean_pct,0.5325533500998982,1.0
-101,table TESTS_P,0.1959,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/se_nw_pct,0.19587066236469772,1.0
-102,table TESTS_P,2.719,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/t,2.718903094881665,1.0
-103,text,−0.0587,REGISTERED,results/s2_mom_v1/primary_results.json,H1/mean,-0.05872135190796623,1.0
-104,text,0.2108,REGISTERED,results/s2_mom_v1/primary_results.json,H1/se_nw,0.2108273213363852,1.0
-105,text,−0.279,REGISTERED,results/s2_mom_v1/primary_results.json,H1/t,-0.27852818854665173,1.0
-106,text,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
-107,text,−0.406,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/0,-0.4055014360685829,1.0
-108,text,+0.288,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/1,0.28805873225265044,1.0
-109,text,0.7950,REGISTERED,results/s2_mom_v1/primary_results.json,H1_bootstrap/p_two_sided,0.795020497950205,1.0
-110,text,2.315,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/mean_pct,2.3150538887912955,1.0
-111,text,1.738,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/mean_pct,1.7381830134832033,1.0
-112,text,+0.5769,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
-113,text,0.1457,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/se_nw,0.14571969779049038,1.0
-114,text,3.959,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/t,3.95877073624935,1.0
-115,text,0.000038,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/p_one_sided,3.7668254913335326e-05,1.0
-116,text,+0.337,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/0,0.3371833018791318,1.0
-117,text,+0.817,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/1,0.8165584487370529,1.0
-118,table MULTIPLE,one,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/sided,'one',
-119,table MULTIPLE,0.0000377,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/p,3.7668254913335326e-05,1.0
-120,table MULTIPLE,0.000151,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2d/p_holm,0.0001506730196533413,1.0
-121,table MULTIPLE,0.000226,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/q,0.00022600952948001197,1.0
-122,table MULTIPLE,one,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H4/sided,'one',
-123,table MULTIPLE,0.0033,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H4/p,0.0032749397016062593,1.0
-124,table MULTIPLE,0.0098,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H4/q,0.009824819104818777,1.0
-125,table MULTIPLE,one,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H3/sided,'one',
-126,table MULTIPLE,0.0229,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H3/p,0.022880551213537603,1.0
-127,table MULTIPLE,0.0458,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H3/q,0.045761102427075206,1.0
-128,table MULTIPLE,two,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2c/sided,'two',
-129,table MULTIPLE,0.2154,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2c/p,0.21543117544511858,1.0
-130,table MULTIPLE,0.6463,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2c/p_holm,0.6462935263353558,1.0
-131,table MULTIPLE,0.3231,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2c/q,0.3231467631676779,1.0
-132,table MULTIPLE,two,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2a/sided,'two',
-133,table MULTIPLE,0.7526,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2a/p,0.7526151742882086,1.0
-134,table MULTIPLE,1.0000,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2a/p_holm,1.0,1.0
-135,table MULTIPLE,0.9031,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2a/q,0.9031382091458504,1.0
-136,table MULTIPLE,two,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2b/sided,'two',
-137,table MULTIPLE,0.9930,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2b/p,0.9930160910336223,1.0
-138,table MULTIPLE,1.0000,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2b/p_holm,1.0,1.0
-139,table MULTIPLE,0.9930,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2b/q,0.9930160910336223,1.0
-140,text,0.000151,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2d/p_holm,0.0001506730196533413,1.0
-141,text,0.000226,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/q,0.00022600952948001197,1.0
-142,text,0.925,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/mean_pct,0.9247563780185803,1.0
-143,text,1.998,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/t,1.9975902382764372,1.0
-144,text,0.0229,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/p_one_sided,0.022880551213537603,1.0
-145,text,+0.0458,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/mean,0.04576270431310536,1.0
-146,table COSTS,0.066,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_W,0.0006559844378363767,100
-147,table COSTS,0.038,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_BM,0.000377562674208441,100
-148,table COSTS,1.673,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/net_W,0.016725845696995645,100
-149,table COSTS,1.140,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/net_BM,0.01140031219599666,100
-150,table COSTS,0.533,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/net_excess_W_over_BM,0.005325533500998982,100
-151,table COSTS,0.794,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/hypothetical_net_WML,0.007938450917979555,100
-152,table COSTS,0.096,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/cost_W,0.0009614469086415842,100
-153,table COSTS,0.050,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/cost_BM,0.0005013907472348348,100
-154,table COSTS,1.642,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/net_W,0.016420383226190435,100
-155,table COSTS,1.128,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/net_BM,0.011276484122970267,100
-156,table COSTS,0.514,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/net_excess_W_over_BM,0.005143899103220167,100
-157,table COSTS,0.734,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/hypothetical_net_WML,0.007338764877012824,100
-158,table COSTS,0.127,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/cost_W,0.0012669093794467914,100
-159,table COSTS,0.063,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/cost_BM,0.0006252188202612286,100
-160,table COSTS,1.611,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/net_W,0.016114920755385228,100
-161,table COSTS,1.115,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/net_BM,0.011152656049943878,100
-162,table COSTS,0.496,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/net_excess_W_over_BM,0.004962264705441353,100
-163,table COSTS,0.674,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/hypothetical_net_WML,0.00673907883604609,100
-164,table COSTS,0.218,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/cost_W,0.0021832967918624132,100
-165,table COSTS,0.100,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/cost_BM,0.00099670303934041,100
-166,table COSTS,1.520,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/net_W,0.015198533342969611,100
-167,table COSTS,1.078,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/net_BM,0.010781171830864694,100
-168,table COSTS,0.442,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/net_excess_W_over_BM,0.004417361512104914,100
-169,table COSTS,0.494,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/hypothetical_net_WML,0.004940020713145887,100
-170,table COSTS,0.371,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/cost_W,0.0037106091458884508,100
-171,table COSTS,0.162,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/cost_BM,0.0016158434044723788,100
-172,table COSTS,1.367,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_W,0.013671220988943572,100
-173,table COSTS,1.016,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_BM,0.010162031465732727,100
-174,table COSTS,0.351,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_excess_W_over_BM,0.0035091895232108442,100
-175,table COSTS,0.194,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/hypothetical_net_WML,0.0019415905083122172,100
-176,table COSTS,0.066,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/cost_W,0.0006585336710896679,100
-177,table COSTS,0.036,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/cost_BM,0.00035635063972048873,100
-178,table COSTS,1.447,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_W,0.014467979057034477,100
-179,table COSTS,1.259,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_BM,0.012592819512252709,100
-180,table COSTS,0.188,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_excess_W_over_BM,0.0018751595447817663,100
-181,table COSTS,0.208,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/hypothetical_net_WML,0.002083381549774413,100
-182,table COSTS,0.099,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/cost_W,0.000991542505087874,100
-183,table COSTS,0.050,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/cost_BM,0.0005032823285583941,100
-184,table COSTS,1.413,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/net_W,0.014134970223036267,100
-185,table COSTS,1.245,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/net_BM,0.012445887823414803,100
-186,table COSTS,0.169,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/net_excess_W_over_BM,0.0016890823996214659,100
-187,table COSTS,0.144,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/hypothetical_net_WML,0.0014365795113206444,100
-188,table COSTS,0.132,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/cost_W,0.0013245513390860806,100
-189,table COSTS,0.065,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/cost_BM,0.0006502140173962994,100
-190,table COSTS,1.380,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/net_W,0.013801961389038065,100
-191,table COSTS,1.230,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/net_BM,0.0122989561345769,100
-192,table COSTS,0.150,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/net_excess_W_over_BM,0.0015030052544611654,100
-193,table COSTS,0.079,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/hypothetical_net_WML,0.000789777472866879,100
-194,table COSTS,0.232,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/cost_W,0.0023235778410806993,100
-195,table COSTS,0.109,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/cost_BM,0.0010910090839100159,100
-196,table COSTS,1.280,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/net_W,0.012802934887043446,100
-197,table COSTS,1.186,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/net_BM,0.011858161068063183,100
-198,table COSTS,0.094,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/net_excess_W_over_BM,0.000944773818980263,100
-199,table COSTS,−0.115,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/hypothetical_net_WML,-0.001150628642494423,100
-200,table COSTS,0.399,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/cost_W,0.00398862201107173,100
-201,table COSTS,0.183,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/cost_BM,0.0018256675280995428,100
-202,table COSTS,1.114,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_W,0.011137890717052413,100
-203,table COSTS,1.112,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_BM,0.011123502623873658,100
-204,table COSTS,0.001,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_excess_W_over_BM,1.4388093178757468e-05,100
-205,table COSTS,−0.438,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/hypothetical_net_WML,-0.00438463883476326,100
-206,text,25.3,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/mean_one_way_turnover/W,0.2526936001079573,100.0
-207,text,8.3,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/mean_one_way_turnover/BM,0.08333902892457995,100.0
-208,text,0.066,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_W,0.0006559844378363767,100.0
-209,text,0.038,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_BM,0.000377562674208441,100.0
-210,text,0.5326,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/mean_pct,0.5325533500998982,1.0
-211,text,0.1959,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/se_nw_pct,0.19587066236469772,1.0
-212,text,2.719,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/t,2.718903094881665,1.0
-213,text,0.0033,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/p_one_sided,0.0032749397016062593,1.0
-214,text,157,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/break_even/break_even_one_way_cost_bps,157.2302850695565,1.0
-215,text,0.351,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_excess_W_over_BM,0.0035091895232108442,100.0
-216,text,0.188,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_excess_W_over_BM,0.0018751595447817663,100.0
-217,text,0.001,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_excess_W_over_BM,1.4388093178757468e-05,100.0
-218,table LADDER_C,2.736,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/W/mean_pct,2.7359822559158014,1.0
-219,table LADDER_C,3.25,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/W/t_nw,3.2483763217439168,1.0
-220,table LADDER_C,1.724,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/L/mean_pct,1.7236395465700334,1.0
-221,table LADDER_C,2.55,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/L/t_nw,2.553216562768365,1.0
-222,table LADDER_C,1.012,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/mean_pct,1.012342709345768,1.0
-223,table LADDER_C,2.35,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/t_nw,2.3488823791234252,1.0
-224,table LADDER_C,2.211,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/BM/mean_pct,2.210972806221232,1.0
-225,table LADDER_C,3.15,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/BM/t_nw,3.148981155909983,1.0
-226,table LADDER_C,3.48,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/sd_pct,3.4837693296205985,1.0
-227,table LADDER_C,−18.4,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/max_drawdown_pct,-18.38252843703444,1.0
-228,table LADDER_C,1.564,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/W/mean_pct,1.5639678162484107,1.0
-229,table LADDER_C,1.69,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/W/t_nw,1.688040675897208,1.0
-230,table LADDER_C,1.044,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/L/mean_pct,1.0441716031493287,1.0
-231,table LADDER_C,1.63,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/L/t_nw,1.6343294572198237,1.0
-232,table LADDER_C,0.520,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/mean_pct,0.5197962130990817,1.0
-233,table LADDER_C,1.01,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/t_nw,1.0082316472536337,1.0
-234,table LADDER_C,1.301,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/BM/mean_pct,1.300944976830563,1.0
-235,table LADDER_C,1.83,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/BM/t_nw,1.829776810420703,1.0
-236,table LADDER_C,3.92,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/sd_pct,3.915651645832901,1.0
-237,table LADDER_C,−22.6,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/max_drawdown_pct,-22.593645569506858,1.0
-238,table LADDER_C,1.525,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/W/mean_pct,1.5250648153959516,1.0
-239,table LADDER_C,1.64,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/W/t_nw,1.6449561153623387,1.0
-240,table LADDER_C,1.066,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/L/mean_pct,1.0664423936323395,1.0
-241,table LADDER_C,1.69,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/L/t_nw,1.6875957670204482,1.0
-242,table LADDER_C,0.459,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/mean_pct,0.4586224217636122,1.0
-243,table LADDER_C,0.89,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/t_nw,0.8898078576886111,1.0
-244,table LADDER_C,1.281,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/BM/mean_pct,1.2806639853836432,1.0
-245,table LADDER_C,1.80,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/BM/t_nw,1.8034500872478192,1.0
-246,table LADDER_C,3.93,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/sd_pct,3.9333800669087227,1.0
-247,table LADDER_C,−22.5,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/max_drawdown_pct,-22.52635967783776,1.0
-248,table LADDER_C,1.513,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/W/mean_pct,1.5126512728124157,1.0
-249,table LADDER_C,1.72,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/W/t_nw,1.7171123344903245,1.0
-250,table LADDER_C,1.175,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/L/mean_pct,1.1753401212743642,1.0
-251,table LADDER_C,1.88,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/L/t_nw,1.8775393374716887,1.0
-252,table LADDER_C,0.337,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/mean_pct,0.33731115153805163,1.0
-253,table LADDER_C,0.66,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/t_nw,0.6645521547769422,1.0
-254,table LADDER_C,1.295,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/BM/mean_pct,1.294917015197321,1.0
-255,table LADDER_C,1.88,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/BM/t_nw,1.8810523238969277,1.0
-256,table LADDER_C,3.79,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/sd_pct,3.7865811180892837,1.0
-257,table LADDER_C,−20.8,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/max_drawdown_pct,-20.799673297915188,1.0
-258,table TESTS_C,0.0138,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/p_two_sided,0.0138145537831003,1.0
-259,table TESTS_C,+0.224,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/0,0.22405442099209927,1.0
-260,table TESTS_C,+1.126,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/1,1.1260086946233336,1.0
-261,table TESTS_C,+0.6750,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/mean,0.6750315578077164,1.0
-262,table TESTS_C,0.2742,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/se_nw,0.2741746313630631,1.0
-263,table TESTS_C,2.462,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/t,2.4620496595610883,1.0
-264,table TESTS_C,0.0347,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/p_two_sided,0.034748986740391855,1.0
-265,table TESTS_C,+0.109,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/ci90/0,0.10881237636737756,1.0
-266,table TESTS_C,+0.876,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/ci90/1,0.8762806161259948,1.0
-267,table TESTS_C,+0.4925,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/mean,0.4925464962466862,1.0
-268,table TESTS_C,0.2333,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/se_nw,0.23329377981827557,1.0
-269,table TESTS_C,2.111,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/t,2.111271447658638,1.0
-270,table TESTS_C,0.3089,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/p_two_sided,0.3089113846696486,1.0
-271,table TESTS_C,−0.038,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/ci90/0,-0.037716674629114565,1.0
-272,table TESTS_C,+0.160,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/ci90/1,0.16006425730005386,1.0
-273,table TESTS_C,+0.0612,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/mean,0.06117379133546965,1.0
-274,table TESTS_C,0.0601,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/se_nw,0.06012113439410726,1.0
-275,table TESTS_C,1.018,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/t,1.0175089334552803,1.0
-276,table TESTS_C,0.4166,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/p_two_sided,0.4166333523159689,1.0
-277,table TESTS_C,−0.124,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/ci90/0,-0.12434330327654353,1.0
-278,table TESTS_C,+0.367,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/ci90/1,0.36696584372766455,1.0
-279,table TESTS_C,+0.1213,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/mean,0.12131127022556051,1.0
-280,table TESTS_C,0.1493,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/se_nw,0.14934737625097602,1.0
-281,table TESTS_C,0.812,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/t,0.8122758716678005,1.0
-282,table TESTS_C,CONFIRMED,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation_status,'CONFIRMED',
-283,table TESTS_C,0.0000056,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/p_one_sided,5.583953150940877e-06,1.0
-284,table TESTS_C,+0.765,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/0,0.7653079384796306,1.0
-285,table TESTS_C,+1.681,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/1,1.6813540277271388,1.0
-286,table TESTS_C,+1.2233,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
-287,table TESTS_C,0.2785,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/se_nw,0.27845823915204043,1.0
-288,table TESTS_C,4.393,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/t,4.393229616148783,1.0
-289,table TESTS_C,0.2532,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/p_one_sided,0.25316848997375496,1.0
-290,table TESTS_C,+0.3373,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/mean_pct,0.33731115153805186,1.0
-291,table TESTS_C,0.5076,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/se_nw_pct,0.5075766425755858,1.0
-292,table TESTS_C,0.665,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/t,0.6645521547769432,1.0
-293,text,+0.6750,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/mean,0.6750315578077164,1.0
-294,text,0.2742,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/se_nw,0.2741746313630631,1.0
-295,text,2.462,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/t,2.4620496595610883,1.0
-296,text,0.0138,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/p_two_sided,0.0138145537831003,1.0
-297,text,+0.224,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/0,0.22405442099209927,1.0
-298,text,+1.126,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/1,1.1260086946233336,1.0
-299,text,0.0076,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1_bootstrap/p_two_sided,0.007599240075992401,1.0
-300,text,+1.2233,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
-301,text,0.2785,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/se_nw,0.27845823915204043,1.0
-302,text,4.393,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/t,4.393229616148783,1.0
-303,text,0.0000056,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/p_one_sided,5.583953150940877e-06,1.0
-304,text,+0.765,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/0,0.7653079384796306,1.0
-305,text,+1.681,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/1,1.6813540277271388,1.0
-306,text,0.337,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/mean_pct,0.33731115153805186,1.0
-307,text,0.665,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/t,0.6645521547769432,1.0
-308,text,0.2532,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/p_one_sided,0.25316848997375496,1.0
-309,text,1.012,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/mean_pct,1.012342709345768,1.0
-310,text,0.520,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/mean_pct,0.5197962130990817,1.0
-311,text,+0.493,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/mean,0.4925464962466862,1.0
-312,text,0.0347,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/p_two_sided,0.034748986740391855,1.0
-313,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
-314,table HALVES,2.309,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/mean_pct,2.308512084636527,1.0
-315,table HALVES,3.75,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/t_nw,3.747806621930159,1.0
-316,table HALVES,0.00018,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/p_two_sided,0.00017838769904894447,1.0
-317,table HALVES,−9.15,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/worst_month_pct,-9.14619904272998,1.0
-318,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
-319,table HALVES,1.524,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/mean_pct,1.5237805043367063,1.0
-320,table HALVES,2.17,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/t_nw,2.166434908891426,1.0
-321,table HALVES,0.0303,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/p_two_sided,0.030277968795365564,1.0
-322,table HALVES,−10.70,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/worst_month_pct,-10.69825017350949,1.0
-323,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
-324,table HALVES,0.423,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/mean_pct,0.4231771264420256,1.0
-325,table HALVES,0.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/t_nw,0.5763174210883928,1.0
-326,table HALVES,0.5644,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/p_two_sided,0.5644006496895791,1.0
-327,table HALVES,−16.98,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/worst_month_pct,-16.976551576362418,1.0
-328,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
-329,table HALVES,0.345,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/mean_pct,0.34520015336710647,1.0
-330,table HALVES,0.47,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/t_nw,0.4732029767576666,1.0
-331,table HALVES,0.6361,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/p_two_sided,0.6360683742357044,1.0
-332,table HALVES,−20.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/worst_month_pct,-20.79794433817225,1.0
-333,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
-334,table HALVES,1.141,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/mean_pct,1.1412195804960141,1.0
-335,table HALVES,1.38,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/t_nw,1.3827744443590744,1.0
-336,table HALVES,0.1667,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/p_two_sided,0.1667340372583198,1.0
-337,table HALVES,−11.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/worst_month_pct,-11.58033759158648,1.0
-338,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/n,57,1.0
-339,table HALVES,+0.078,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/mean,0.0779769730749193,1.0
-340,table HALVES,0.27,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/t,0.2665061826240775,1.0
-341,table HALVES,0.7898,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/p_two_sided,0.7898493984911175,1.0
-342,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
-343,table HALVES,2.322,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/mean_pct,2.321595692946062,1.0
-344,table HALVES,2.70,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/t_nw,2.696293309480207,1.0
-345,table HALVES,0.0070,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/p_two_sided,0.007011589664601167,1.0
-346,table HALVES,−27.62,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/worst_month_pct,-27.621569955981002,1.0
-347,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
-348,table HALVES,1.953,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/mean_pct,1.9525855226296982,1.0
-349,table HALVES,2.50,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/t_nw,2.5021786051643424,1.0
-350,table HALVES,0.0123,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/p_two_sided,0.012343163830007357,1.0
-351,table HALVES,−25.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/worst_month_pct,-25.968820199599257,1.0
-352,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
-353,table HALVES,1.309,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/mean_pct,1.3088929257792021,1.0
-354,table HALVES,2.14,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/t_nw,2.1357550477119362,1.0
-355,table HALVES,0.0327,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/p_two_sided,0.0326993849085678,1.0
-356,table HALVES,−12.99,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/worst_month_pct,-12.99077090148843,1.0
-357,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
-358,table HALVES,1.504,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/mean_pct,1.5043126026700546,1.0
-359,table HALVES,2.59,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/t_nw,2.58615743663165,1.0
-360,table HALVES,0.0097,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/p_two_sided,0.009705258930578642,1.0
-361,table HALVES,−10.82,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/worst_month_pct,-10.81916165616438,1.0
-362,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
-363,table HALVES,1.214,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/mean_pct,1.2143553935450064,1.0
-364,table HALVES,1.41,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/t_nw,1.4068017051729984,1.0
-365,table HALVES,0.1595,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/p_two_sided,0.1594861968160296,1.0
-366,table HALVES,−28.31,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/worst_month_pct,-28.31108478386192,1.0
-367,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/n,57,1.0
-368,table HALVES,−0.195,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/mean,-0.1954196768908527,1.0
-369,table HALVES,−0.60,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/t,-0.6027041253980704,1.0
-370,table HALVES,0.5467,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/p_two_sided,0.5467055366613505,1.0
-371,text,0.345,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/mean_pct,0.34520015336710647,1.0
-372,text,0.636,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/p_two_sided,0.6360683742357044,1.0
-373,text,1.504,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/mean_pct,1.5043126026700546,1.0
-374,text,0.010,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/p_two_sided,0.009705258930578642,1.0
-375,text,+0.078,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/mean,0.0779769730749193,1.0
-376,text,−0.195,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/mean,-0.1954196768908527,1.0
-377,text,−0.293,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/step_differences_pct/C-D/mean,-0.29253841335399106,1.0
-378,text,−3.37,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/step_differences_pct/C-D/t,-3.369696698004492,1.0
-379,text,+0.045,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/step_differences_pct/C-D/mean,0.04456084608752748,1.0
-380,text,+0.183,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/mean,0.1829854889395518,1.0
-381,text,0.3026,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/p_two_sided,0.3026020507461079,1.0
-382,text,0.731,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/mean_pct,0.7312450092955828,1.0
-383,text,2.04,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/t_nw,2.037769623620005,1.0
-384,text,−0.81,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/skewness,-0.8111038555990769,1.0
-385,text,−1.24,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/skewness,-1.237712373034387,1.0
-386,text,0.25,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/skewness,0.2457667904932004,1.0
-387,text,2014-05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month,'2014-05',
-388,text,−20.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month_pct,-20.79794433817225,1.0
-389,text,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month,'2020-03',
-390,text,−25.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month_pct,-25.968820199599257,1.0
-391,text,−38.0,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/max_drawdown_pct,-38.00708643220091,1.0
-392,text,2.315,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/mean_pct,2.3150538887912955,1.0
-393,text,1.738,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/mean_pct,1.7381830134832033,1.0
-394,text,1.449,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/L/mean_pct,1.4490188626806801,1.0
-395,text,0.813,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/L/mean_pct,0.813426635464622,1.0
-396,text,1.754,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/BM/mean_pct,1.7544449495324674,1.0
-397,text,1.178,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/BM/mean_pct,1.1777874870205116,1.0
-398,text,2.736,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/W/mean_pct,2.7359822559158014,1.0
-399,text,1.513,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/W/mean_pct,1.5126512728124157,1.0
-400,text,1.724,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/L/mean_pct,1.7236395465700334,1.0
-401,text,1.175,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/L/mean_pct,1.1753401212743642,1.0
-402,text,0.59,REGISTERED,results/s2_mom_v1/blinded_precision.json,detectable_effect_80pct_two_sided_5pct,0.5906507070303696,1.0
-403,text,20261005,REGISTERED,results/s2_mom_v1/primary_results.json,H1_bootstrap/seed,20261005,1.0
-404,text,0.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
-405,text,1.22,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
-406,table SENS,−0.0587,REGISTERED,results/s2_mom_v1/primary_results.json,H1/mean,-0.05872135190796623,1.0
-407,table SENS,0.2108,REGISTERED,results/s2_mom_v1/primary_results.json,H1/se_nw,0.2108273213363852,1.0
-408,table SENS,−0.279,REGISTERED,results/s2_mom_v1/primary_results.json,H1/t,-0.27852818854665173,1.0
-409,table SENS,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
-410,table SENS,+0.0458,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/mean,0.04576270431310536,1.0
-411,table SENS,0.1988,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/se_nw,0.19876790981070674,1.0
-412,table SENS,0.230,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/t,0.23023185360598045,1.0
-413,table SENS,0.8179,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/p_two_sided,0.8179116110141823,1.0
-414,table SENS,−0.0070,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/mean,-0.0070163706134618075,1.0
-415,table SENS,0.2167,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/se_nw,0.21673710455804807,1.0
-416,table SENS,−0.032,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/t,-0.03237272467844855,1.0
-417,table SENS,0.9742,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/p_two_sided,0.9741748136371033,1.0
-418,table SENS,−0.0594,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/mean,-0.0594059493697199,1.0
-419,table SENS,0.2184,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/se_nw,0.21841779554562119,1.0
-420,table SENS,−0.272,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/t,-0.27198310110822316,1.0
-421,table SENS,0.7856,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/p_two_sided,0.7856350130757181,1.0
-422,table SENS,−0.0568,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/mean,-0.05681041627174225,1.0
-423,table SENS,0.2113,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/se_nw,0.2112929215306259,1.0
-424,table SENS,−0.269,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/t,-0.2688704186595662,1.0
-425,table SENS,0.7880,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/p_two_sided,0.7880294014808804,1.0
-426,table SENS,−0.0760,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/mean,-0.07603927469030801,1.0
-427,table SENS,0.2105,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/se_nw,0.21051657176050625,1.0
-428,table SENS,−0.361,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/t,-0.3612032727609394,1.0
-429,table SENS,0.7179,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/p_two_sided,0.7179474957539982,1.0
-430,table SENS,−0.0183,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/mean,-0.018312865415835742,1.0
-431,table SENS,0.2165,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/se_nw,0.21652515168429792,1.0
-432,table SENS,−0.085,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/t,-0.0845761578892073,1.0
-433,table SENS,0.9326,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/p_two_sided,0.9325983543861489,1.0
-434,table REVERSE,+0.0626,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/mean,0.06260948690314344,1.0
-435,table REVERSE,0.1251,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/se_nw,0.12514345308474495,1.0
-436,table REVERSE,0.500,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/t,0.5003017366057927,1.0
-437,table REVERSE,0.6169,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/p_two_sided,0.6168626314878513,1.0
-438,table REVERSE,−0.143,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/ci90/0,-0.14323317579253067,1.0
-439,table REVERSE,+0.268,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/ci90/1,0.2684521495988176,1.0
-440,table REVERSE,−0.1240,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/mean,-0.1239887836332319,1.0
-441,table REVERSE,0.1001,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/se_nw,0.10009034416794128,1.0
-442,table REVERSE,−1.239,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/t,-1.238768681074685,1.0
-443,table REVERSE,0.2154,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/p_two_sided,0.21543117544511858,1.0
-444,table REVERSE,−0.289,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/ci90/0,-0.2886227492606912,1.0
-445,table REVERSE,+0.041,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/ci90/1,0.040645181994227425,1.0
-446,table POOLED,2.454,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/W/mean_pct,2.4537126450205426,1.0
-447,table POOLED,5.36,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/W/t_nw,5.356358574773621,1.0
-448,table POOLED,1.539,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/L/mean_pct,1.5394821467854078,1.0
-449,table POOLED,2.64,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/L/t_nw,2.6420843939086143,1.0
-450,table POOLED,0.914,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/WML/mean_pct,0.9142304982351344,1.0
-451,table POOLED,2.60,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/WML/t_nw,2.6033844790009737,1.0
-452,table POOLED,1.905,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/BM/mean_pct,1.904830596441706,1.0
-453,table POOLED,4.04,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/BM/t_nw,4.03615875541501,1.0
-454,table POOLED,1.797,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/W/mean_pct,1.7973648987515831,1.0
-455,table POOLED,3.69,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/W/t_nw,3.6893464354691425,1.0
-456,table POOLED,1.088,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/L/mean_pct,1.0883453988662553,1.0
-457,table POOLED,1.87,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/L/t_nw,1.8674001738093993,1.0
-458,table POOLED,0.709,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/WML/mean_pct,0.7090194998853276,1.0
-459,table POOLED,1.95,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/WML/t_nw,1.9535903632966902,1.0
-460,table POOLED,1.340,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/BM/mean_pct,1.3398829944619846,1.0
-461,table POOLED,2.85,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/BM/t_nw,2.852478623966522,1.0
-462,table POOLED,1.607,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/W/mean_pct,1.6072979497067816,1.0
-463,table POOLED,3.35,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/W/t_nw,3.346380590233326,1.0
-464,table POOLED,0.919,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/L/mean_pct,0.9192370004203582,1.0
-465,table POOLED,1.51,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/L/t_nw,1.5083139377777748,1.0
-466,table POOLED,0.688,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/WML/mean_pct,0.6880609492864235,1.0
-467,table POOLED,1.78,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/WML/t_nw,1.7768360346125225,1.0
-468,table POOLED,1.181,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/BM/mean_pct,1.1812113116463998,1.0
-469,table POOLED,2.47,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/BM/t_nw,2.4653789076992814,1.0
-470,table POOLED,1.664,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/W/mean_pct,1.6638902047916488,1.0
-471,table POOLED,3.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/W/t_nw,3.576708297629118,1.0
-472,table POOLED,0.933,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/L/mean_pct,0.9326451954960653,1.0
-473,table POOLED,1.60,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/L/t_nw,1.6030755353082924,1.0
-474,table POOLED,0.731,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/mean_pct,0.7312450092955828,1.0
-475,table POOLED,2.04,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/t_nw,2.037769623620005,1.0
-476,table POOLED,1.216,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/BM/mean_pct,1.2163713315964007,1.0
-477,table POOLED,2.66,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/BM/t_nw,2.658576204788115,1.0
-478,table POOLED,+0.1830,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/mean,0.1829854889395518,1.0
-479,table POOLED,0.1775,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/se_nw,0.17750597932628365,1.0
-480,table POOLED,1.031,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/t,1.0308694368159619,1.0
-481,table POOLED,0.3026,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/p_two_sided,0.3026020507461079,1.0
-482,table POOLED,−0.109,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/ci90/0,-0.10898586496085888,1.0
-483,table POOLED,+0.475,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/ci90/1,0.4749568428399625,1.0
-484,table POOLED,170,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/n,170,1.0
-485,table POOLED,4,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/lag,4,1.0
-486,table SHAPE,2.315,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/mean_pct,2.315053888791294,1.0
-487,table SHAPE,5.44,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/sd_pct,5.444627989848283,1.0
-488,table SHAPE,−1.65,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/skewness,-1.651982662285505,1.0
-489,table SHAPE,−27.62,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/worst_month_pct,-27.621569955981002,1.0
-490,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/worst_month,'2020-03',
-491,table SHAPE,1.449,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/mean_pct,1.4490188626806801,1.0
-492,table SHAPE,8.10,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/sd_pct,8.098574512982632,1.0
-493,table SHAPE,0.12,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/skewness,0.11855098436466696,1.0
-494,table SHAPE,−29.94,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/worst_month_pct,-29.93668934522128,1.0
-495,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/worst_month,'2020-03',
-496,table SHAPE,0.866,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/mean_pct,0.8660350261106138,1.0
-497,table SHAPE,5.46,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/sd_pct,5.457778953105873,1.0
-498,table SHAPE,−0.74,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/skewness,-0.7360335067587076,1.0
-499,table SHAPE,−16.98,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/worst_month_pct,-16.976551576362418,1.0
-500,table SHAPE,2014-05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/worst_month,'2014-05',
-501,table SHAPE,1.754,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/mean_pct,1.7544449495324659,1.0
-502,table SHAPE,6.08,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/sd_pct,6.075357104076928,1.0
-503,table SHAPE,−0.81,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/skewness,-0.8124275114651272,1.0
-504,table SHAPE,−27.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/worst_month_pct,-27.968155555697187,1.0
-505,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/worst_month,'2020-03',
-506,table SHAPE,1.738,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/mean_pct,1.738183013483202,1.0
-507,table SHAPE,5.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/sd_pct,5.800408940147757,1.0
-508,table SHAPE,−1.24,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/skewness,-1.237712373034387,1.0
-509,table SHAPE,−25.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month_pct,-25.968820199599257,1.0
-510,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month,'2020-03',
-511,table SHAPE,0.813,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/mean_pct,0.813426635464621,1.0
-512,table SHAPE,8.69,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/sd_pct,8.688941006777153,1.0
-513,table SHAPE,−0.17,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/skewness,-0.17196931806499507,1.0
-514,table SHAPE,−35.15,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/worst_month_pct,-35.146480203783106,1.0
-515,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/worst_month,'2020-03',
-516,table SHAPE,0.925,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/mean_pct,0.9247563780185803,1.0
-517,table SHAPE,5.33,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/sd_pct,5.327111219155792,1.0
-518,table SHAPE,−0.81,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/skewness,-0.8111038555990769,1.0
-519,table SHAPE,−20.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month_pct,-20.79794433817225,1.0
-520,table SHAPE,2014-05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month,'2014-05',
-521,table SHAPE,1.178,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/mean_pct,1.1777874870205103,1.0
-522,table SHAPE,6.40,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/sd_pct,6.402281085182677,1.0
-523,table SHAPE,−0.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/skewness,-0.7992546319303101,1.0
-524,table SHAPE,−28.31,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/worst_month_pct,-28.31108478386192,1.0
-525,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/worst_month,'2020-03',
-526,table SHAPE,2.736,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/mean_pct,2.7359822559157996,1.0
-527,table SHAPE,5.70,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/sd_pct,5.699147945660364,1.0
-528,table SHAPE,−0.65,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/skewness,-0.6491501495792565,1.0
-529,table SHAPE,−14.22,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/worst_month_pct,-14.22272294503188,1.0
-530,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/worst_month,'2025-01',
-531,table SHAPE,1.724,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/mean_pct,1.7236395465700325,1.0
-532,table SHAPE,5.29,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/sd_pct,5.290175506607802,1.0
-533,table SHAPE,0.00,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/skewness,0.003742834183639544,1.0
-534,table SHAPE,−9.26,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/worst_month_pct,-9.261561201531569,1.0
-535,table SHAPE,2022-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/worst_month,'2022-02',
-536,table SHAPE,1.012,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/mean_pct,1.0123427093457662,1.0
-537,table SHAPE,3.48,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/sd_pct,3.4837693296205954,1.0
-538,table SHAPE,−0.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/skewness,-0.7985507261316299,1.0
-539,table SHAPE,−12.94,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/worst_month_pct,-12.935452220560459,1.0
-540,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/worst_month,'2025-01',
-541,table SHAPE,2.211,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/mean_pct,2.2109728062212297,1.0
-542,table SHAPE,5.01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/sd_pct,5.006104939728781,1.0
-543,table SHAPE,−0.20,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/skewness,-0.19558214002309357,1.0
-544,table SHAPE,−8.33,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/worst_month_pct,-8.32671779608981,1.0
-545,table SHAPE,2025-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/worst_month,'2025-02',
-546,table SHAPE,1.513,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/mean_pct,1.5126512728124144,1.0
-547,table SHAPE,6.14,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/sd_pct,6.142273980739065,1.0
-548,table SHAPE,−0.05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/skewness,-0.045284548962288555,1.0
-549,table SHAPE,−11.77,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/worst_month_pct,-11.76783675152046,1.0
-550,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/worst_month,'2025-01',
-551,table SHAPE,1.175,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/mean_pct,1.175340121274363,1.0
-552,table SHAPE,4.98,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/sd_pct,4.979704567234467,1.0
-553,table SHAPE,−0.06,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/skewness,-0.057592758509391356,1.0
-554,table SHAPE,−9.00,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/worst_month_pct,-8.99690654270207,1.0
-555,table SHAPE,2022-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/worst_month,'2022-02',
-556,table SHAPE,0.337,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/mean_pct,0.33731115153805186,1.0
-557,table SHAPE,3.79,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/sd_pct,3.7865811180892806,1.0
-558,table SHAPE,0.25,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/skewness,0.2457667904932004,1.0
-559,table SHAPE,−10.92,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/worst_month_pct,-10.91676063151192,1.0
-560,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/worst_month,'2025-01',
-561,table SHAPE,1.295,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/mean_pct,1.2949170151973202,1.0
-562,table SHAPE,5.07,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/sd_pct,5.071891015587598,1.0
-563,table SHAPE,−0.01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/skewness,-0.0068791758867108085,1.0
-564,table SHAPE,−9.03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/worst_month_pct,-9.03000620792816,1.0
-565,table SHAPE,2025-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/worst_month,'2025-02',
+10,text,0.59,REGISTERED,results/s2_mom_v1/blinded_precision.json,detectable_effect_80pct_two_sided_5pct,0.5906507070303696,1.0
+11,text,0.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
+12,text,1.22,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
+13,text,+0.5769,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
+14,text,+1.2233,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
+15,text,180,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/rankable_min,180,1.0
+16,text,187.8,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/rankable_mean,187.76315789473685,1.0
+17,text,187.3,REGISTERED,results/s2_mom_v1/confirmation_results.json,reliability/rankable_mean,187.33928571428572,1.0
+18,text,0.017,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/filled_share_of_W_stock_days,0.0001666691919574539,100.0
+19,text,0.030,REGISTERED,results/s2_mom_v1/primary_results.json,reliability/filled_share_of_L_stock_days,0.0002954590221063956,100.0
+20,text,0.472,REGISTERED,data/stage3/s2_mom_v1/checks/pre_run_checks_primary.json,placebo/p_two_sided_of_random_wml,0.4725,1.0
+21,text,0.054,REGISTERED,data/stage3/s2_mom_v1/checks/pre_run_checks_oos.json,placebo/p_two_sided_of_random_wml,0.054,1.0
+22,text,2.359,REGISTERED,results/s2_mom_v1/blinded_precision.json,sd,2.3592640532590563,1.0
+23,text,2.251,REGISTERED,results/s2_mom_v1/blinded_precision.json,long_run_sd_nw,2.2510198075747354,1.0
+24,text,0.591,REGISTERED,results/s2_mom_v1/blinded_precision.json,detectable_effect_80pct_two_sided_5pct,0.5906507070303696,1.0
+25,text,0.0,REGISTERED,results/s2_mom_v1/blinded_precision.json,equivalence_power_at_true_zero,0.0,1.0
+26,table LADDER_P,2.315,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/mean_pct,2.3150538887912955,1.0
+27,table LADDER_P,4.35,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/t_nw,4.349315663472426,1.0
+28,table LADDER_P,1.449,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/L/mean_pct,1.4490188626806801,1.0
+29,table LADDER_P,1.81,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/L/t_nw,1.8056877011486714,1.0
+30,table LADDER_P,0.866,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/mean_pct,0.8660350261106153,1.0
+31,table LADDER_P,1.82,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/t_nw,1.8222780335668252,1.0
+32,table LADDER_P,1.754,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/BM/mean_pct,1.7544449495324674,1.0
+33,table LADDER_P,2.89,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/BM/t_nw,2.886031329611161,1.0
+34,table LADDER_P,5.46,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/sd_pct,5.457778953105875,1.0
+35,table LADDER_P,−42.7,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/WML/max_drawdown_pct,-42.67361638862529,1.0
+36,table LADDER_P,1.912,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/W/mean_pct,1.9120160971741957,1.0
+37,table LADDER_P,3.46,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/W/t_nw,3.4579243777790407,1.0
+38,table LADDER_P,1.110,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/L/mean_pct,1.1100448072886049,1.0
+39,table LADDER_P,1.37,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/L/t_nw,1.3696576046769684,1.0
+40,table LADDER_P,0.802,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/mean_pct,0.801971289885591,1.0
+41,table LADDER_P,1.71,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/t_nw,1.7090665835402246,1.0
+42,table LADDER_P,1.359,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/BM/mean_pct,1.3590104417195266,1.0
+43,table LADDER_P,2.25,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/BM/t_nw,2.2528203809760465,1.0
+44,table LADDER_P,5.36,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/sd_pct,5.364203413678307,1.0
+45,table LADDER_P,−40.5,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/B/WML/max_drawdown_pct,-40.54914705373922,1.0
+46,table LADDER_P,1.648,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/W/mean_pct,1.6476931735787699,1.0
+47,table LADDER_P,3.05,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/W/t_nw,3.0498472614878795,1.0
+48,table LADDER_P,0.847,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/L/mean_pct,0.8469255791934206,1.0
+49,table LADDER_P,0.99,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/L/t_nw,0.9915593754469669,1.0
+50,table LADDER_P,0.801,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/mean_pct,0.8007675943853494,1.0
+51,table LADDER_P,1.57,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/t_nw,1.567912611968071,1.0
+52,table LADDER_P,1.132,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/BM/mean_pct,1.1323573666526678,1.0
+53,table LADDER_P,1.83,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/BM/t_nw,1.8275598098812738,1.0
+54,table LADDER_P,5.58,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/sd_pct,5.575155799742576,1.0
+55,table LADDER_P,−39.9,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/C/WML/max_drawdown_pct,-39.89418036452738,1.0
+56,table LADDER_P,1.738,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/mean_pct,1.7381830134832033,1.0
+57,table LADDER_P,3.27,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/t_nw,3.267487053950306,1.0
+58,table LADDER_P,0.813,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/L/mean_pct,0.813426635464622,1.0
+59,table LADDER_P,1.00,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/L/t_nw,1.0043497382264965,1.0
+60,table LADDER_P,0.925,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/mean_pct,0.9247563780185812,1.0
+61,table LADDER_P,2.00,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/t_nw,1.9975902382764368,1.0
+62,table LADDER_P,1.178,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/BM/mean_pct,1.1777874870205116,1.0
+63,table LADDER_P,2.00,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/BM/t_nw,1.9990221555632133,1.0
+64,table LADDER_P,5.33,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/sd_pct,5.327111219155796,1.0
+65,table LADDER_P,−38.0,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/max_drawdown_pct,-38.00708643220091,1.0
+66,table TESTS_P,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
+67,table TESTS_P,−0.406,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/0,-0.4055014360685829,1.0
+68,table TESTS_P,+0.288,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/1,0.28805873225265044,1.0
+69,table TESTS_P,−0.0587,REGISTERED,results/s2_mom_v1/primary_results.json,H1/mean,-0.05872135190796623,1.0
+70,table TESTS_P,0.2108,REGISTERED,results/s2_mom_v1/primary_results.json,H1/se_nw,0.2108273213363852,1.0
+71,table TESTS_P,−0.279,REGISTERED,results/s2_mom_v1/primary_results.json,H1/t,-0.27852818854665173,1.0
+72,table TESTS_P,0.7526,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/p_two_sided,0.7526151742882086,1.0
+73,table TESTS_P,−0.270,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/ci90/0,-0.27025679992529805,1.0
+74,table TESTS_P,+0.398,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/ci90/1,0.39838427237534657,1.0
+75,table TESTS_P,+0.0641,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/mean,0.06406373622502429,1.0
+76,table TESTS_P,0.2033,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/se_nw,0.20325245400099407,1.0
+77,table TESTS_P,0.315,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/A-B/t,0.3151929286163057,1.0
+78,table TESTS_P,0.9930,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/p_two_sided,0.9930160910336223,1.0
+79,table TESTS_P,−0.225,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/ci90/0,-0.22498965818168076,1.0
+80,table TESTS_P,+0.227,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/ci90/1,0.22739704918216364,1.0
+81,table TESTS_P,+0.0012,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/mean,0.0012036955002414406,1.0
+82,table TESTS_P,0.1375,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/se_nw,0.13751579470395975,1.0
+83,table TESTS_P,0.009,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/B-C/t,0.008753143614031561,1.0
+84,table TESTS_P,0.2154,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/p_two_sided,0.21543117544511858,1.0
+85,table TESTS_P,−0.289,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/ci90/0,-0.2886227492606912,1.0
+86,table TESTS_P,+0.041,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/ci90/1,0.040645181994227425,1.0
+87,table TESTS_P,−0.1240,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/mean,-0.1239887836332319,1.0
+88,table TESTS_P,0.1001,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/se_nw,0.10009034416794128,1.0
+89,table TESTS_P,−1.239,REGISTERED,results/s2_mom_v1/primary_results.json,step_differences_pct/C-D/t,-1.238768681074685,1.0
+90,table TESTS_P,0.000038,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/p_one_sided,3.7668254913335326e-05,1.0
+91,table TESTS_P,+0.337,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/0,0.3371833018791318,1.0
+92,table TESTS_P,+0.817,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/1,0.8165584487370529,1.0
+93,table TESTS_P,+0.5769,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
+94,table TESTS_P,0.1457,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/se_nw,0.14571969779049038,1.0
+95,table TESTS_P,3.959,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/t,3.95877073624935,1.0
+96,table TESTS_P,0.0229,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/p_one_sided,0.022880551213537603,1.0
+97,table TESTS_P,+0.9248,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/mean_pct,0.9247563780185803,1.0
+98,table TESTS_P,0.4629,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/se_nw_pct,0.4629359717018239,1.0
+99,table TESTS_P,1.998,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/t,1.9975902382764372,1.0
+100,table TESTS_P,0.0033,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/p_one_sided,0.0032749397016062593,1.0
+101,table TESTS_P,+0.5326,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/mean_pct,0.5325533500998982,1.0
+102,table TESTS_P,0.1959,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/se_nw_pct,0.19587066236469772,1.0
+103,table TESTS_P,2.719,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/t,2.718903094881665,1.0
+104,text,−0.0587,REGISTERED,results/s2_mom_v1/primary_results.json,H1/mean,-0.05872135190796623,1.0
+105,text,0.2108,REGISTERED,results/s2_mom_v1/primary_results.json,H1/se_nw,0.2108273213363852,1.0
+106,text,−0.279,REGISTERED,results/s2_mom_v1/primary_results.json,H1/t,-0.27852818854665173,1.0
+107,text,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
+108,text,−0.406,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/0,-0.4055014360685829,1.0
+109,text,+0.288,REGISTERED,results/s2_mom_v1/primary_results.json,H1/ci90/1,0.28805873225265044,1.0
+110,text,0.7950,REGISTERED,results/s2_mom_v1/primary_results.json,H1_bootstrap/p_two_sided,0.795020497950205,1.0
+111,text,2.315,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/mean_pct,2.3150538887912955,1.0
+112,text,1.738,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/mean_pct,1.7381830134832033,1.0
+113,text,+0.5769,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
+114,text,0.1457,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/se_nw,0.14571969779049038,1.0
+115,text,3.959,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/t,3.95877073624935,1.0
+116,text,0.000038,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/p_one_sided,3.7668254913335326e-05,1.0
+117,text,+0.337,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/0,0.3371833018791318,1.0
+118,text,+0.817,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/ci90/1,0.8165584487370529,1.0
+119,table MULTIPLE,one,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/sided,'one',
+120,table MULTIPLE,0.0000377,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/p,3.7668254913335326e-05,1.0
+121,table MULTIPLE,0.000151,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2d/p_holm,0.0001506730196533413,1.0
+122,table MULTIPLE,0.000226,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/q,0.00022600952948001197,1.0
+123,table MULTIPLE,one,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H4/sided,'one',
+124,table MULTIPLE,0.0033,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H4/p,0.0032749397016062593,1.0
+125,table MULTIPLE,0.0098,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H4/q,0.009824819104818777,1.0
+126,table MULTIPLE,one,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H3/sided,'one',
+127,table MULTIPLE,0.0229,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H3/p,0.022880551213537603,1.0
+128,table MULTIPLE,0.0458,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H3/q,0.045761102427075206,1.0
+129,table MULTIPLE,two,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2c/sided,'two',
+130,table MULTIPLE,0.2154,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2c/p,0.21543117544511858,1.0
+131,table MULTIPLE,0.6463,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2c/p_holm,0.6462935263353558,1.0
+132,table MULTIPLE,0.3231,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2c/q,0.3231467631676779,1.0
+133,table MULTIPLE,two,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2a/sided,'two',
+134,table MULTIPLE,0.7526,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2a/p,0.7526151742882086,1.0
+135,table MULTIPLE,1.0000,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2a/p_holm,1.0,1.0
+136,table MULTIPLE,0.9031,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2a/q,0.9031382091458504,1.0
+137,table MULTIPLE,two,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2b/sided,'two',
+138,table MULTIPLE,0.9930,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2b/p,0.9930160910336223,1.0
+139,table MULTIPLE,1.0000,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2b/p_holm,1.0,1.0
+140,table MULTIPLE,0.9930,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2b/q,0.9930160910336223,1.0
+141,text,0.000151,REGISTERED,results/s2_mom_v1_c2/c2_results.json,holm/H2d/p_holm,0.0001506730196533413,1.0
+142,text,0.000226,REGISTERED,results/s2_mom_v1_c2/c2_results.json,benjamini_hochberg/H2d/q,0.00022600952948001197,1.0
+143,text,0.925,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/mean_pct,0.9247563780185803,1.0
+144,text,1.998,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/t,1.9975902382764372,1.0
+145,text,0.0229,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H3/p_one_sided,0.022880551213537603,1.0
+146,text,+0.0458,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/mean,0.04576270431310536,1.0
+147,table COSTS,0.066,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_W,0.0006559844378363767,100
+148,table COSTS,0.038,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_BM,0.000377562674208441,100
+149,table COSTS,1.673,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/net_W,0.016725845696995645,100
+150,table COSTS,1.140,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/net_BM,0.01140031219599666,100
+151,table COSTS,0.533,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/net_excess_W_over_BM,0.005325533500998982,100
+152,table COSTS,0.794,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/hypothetical_net_WML,0.007938450917979555,100
+153,table COSTS,0.096,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/cost_W,0.0009614469086415842,100
+154,table COSTS,0.050,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/cost_BM,0.0005013907472348348,100
+155,table COSTS,1.642,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/net_W,0.016420383226190435,100
+156,table COSTS,1.128,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/net_BM,0.011276484122970267,100
+157,table COSTS,0.514,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/net_excess_W_over_BM,0.005143899103220167,100
+158,table COSTS,0.734,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S1/hypothetical_net_WML,0.007338764877012824,100
+159,table COSTS,0.127,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/cost_W,0.0012669093794467914,100
+160,table COSTS,0.063,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/cost_BM,0.0006252188202612286,100
+161,table COSTS,1.611,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/net_W,0.016114920755385228,100
+162,table COSTS,1.115,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/net_BM,0.011152656049943878,100
+163,table COSTS,0.496,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/net_excess_W_over_BM,0.004962264705441353,100
+164,table COSTS,0.674,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S2/hypothetical_net_WML,0.00673907883604609,100
+165,table COSTS,0.218,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/cost_W,0.0021832967918624132,100
+166,table COSTS,0.100,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/cost_BM,0.00099670303934041,100
+167,table COSTS,1.520,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/net_W,0.015198533342969611,100
+168,table COSTS,1.078,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/net_BM,0.010781171830864694,100
+169,table COSTS,0.442,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/net_excess_W_over_BM,0.004417361512104914,100
+170,table COSTS,0.494,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S3/hypothetical_net_WML,0.004940020713145887,100
+171,table COSTS,0.371,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/cost_W,0.0037106091458884508,100
+172,table COSTS,0.162,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/cost_BM,0.0016158434044723788,100
+173,table COSTS,1.367,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_W,0.013671220988943572,100
+174,table COSTS,1.016,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_BM,0.010162031465732727,100
+175,table COSTS,0.351,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_excess_W_over_BM,0.0035091895232108442,100
+176,table COSTS,0.194,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/hypothetical_net_WML,0.0019415905083122172,100
+177,table COSTS,0.066,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/cost_W,0.0006585336710896679,100
+178,table COSTS,0.036,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/cost_BM,0.00035635063972048873,100
+179,table COSTS,1.447,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_W,0.014467979057034477,100
+180,table COSTS,1.259,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_BM,0.012592819512252709,100
+181,table COSTS,0.188,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_excess_W_over_BM,0.0018751595447817663,100
+182,table COSTS,0.208,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/hypothetical_net_WML,0.002083381549774413,100
+183,table COSTS,0.099,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/cost_W,0.000991542505087874,100
+184,table COSTS,0.050,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/cost_BM,0.0005032823285583941,100
+185,table COSTS,1.413,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/net_W,0.014134970223036267,100
+186,table COSTS,1.245,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/net_BM,0.012445887823414803,100
+187,table COSTS,0.169,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/net_excess_W_over_BM,0.0016890823996214659,100
+188,table COSTS,0.144,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S1/hypothetical_net_WML,0.0014365795113206444,100
+189,table COSTS,0.132,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/cost_W,0.0013245513390860806,100
+190,table COSTS,0.065,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/cost_BM,0.0006502140173962994,100
+191,table COSTS,1.380,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/net_W,0.013801961389038065,100
+192,table COSTS,1.230,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/net_BM,0.0122989561345769,100
+193,table COSTS,0.150,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/net_excess_W_over_BM,0.0015030052544611654,100
+194,table COSTS,0.079,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S2/hypothetical_net_WML,0.000789777472866879,100
+195,table COSTS,0.232,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/cost_W,0.0023235778410806993,100
+196,table COSTS,0.109,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/cost_BM,0.0010910090839100159,100
+197,table COSTS,1.280,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/net_W,0.012802934887043446,100
+198,table COSTS,1.186,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/net_BM,0.011858161068063183,100
+199,table COSTS,0.094,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/net_excess_W_over_BM,0.000944773818980263,100
+200,table COSTS,−0.115,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S3/hypothetical_net_WML,-0.001150628642494423,100
+201,table COSTS,0.399,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/cost_W,0.00398862201107173,100
+202,table COSTS,0.183,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/cost_BM,0.0018256675280995428,100
+203,table COSTS,1.114,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_W,0.011137890717052413,100
+204,table COSTS,1.112,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_BM,0.011123502623873658,100
+205,table COSTS,0.001,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_excess_W_over_BM,1.4388093178757468e-05,100
+206,table COSTS,−0.438,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/hypothetical_net_WML,-0.00438463883476326,100
+207,text,25.3,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/mean_one_way_turnover/W,0.2526936001079573,100.0
+208,text,8.3,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/mean_one_way_turnover/BM,0.08333902892457995,100.0
+209,text,0.066,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_W,0.0006559844378363767,100.0
+210,text,0.038,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S0/cost_BM,0.000377562674208441,100.0
+211,text,0.5326,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/mean_pct,0.5325533500998982,1.0
+212,text,0.1959,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/se_nw_pct,0.19587066236469772,1.0
+213,text,2.719,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/t,2.718903094881665,1.0
+214,text,0.0033,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/H4/p_one_sided,0.0032749397016062593,1.0
+215,text,157,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/break_even/break_even_one_way_cost_bps,157.2302850695565,1.0
+216,text,0.351,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/primary/scenarios/S4/net_excess_W_over_BM,0.0035091895232108442,100.0
+217,text,0.188,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S0/net_excess_W_over_BM,0.0018751595447817663,100.0
+218,text,0.001,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/scenarios/S4/net_excess_W_over_BM,1.4388093178757468e-05,100.0
+219,table LADDER_C,2.736,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/W/mean_pct,2.7359822559158014,1.0
+220,table LADDER_C,3.25,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/W/t_nw,3.2483763217439168,1.0
+221,table LADDER_C,1.724,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/L/mean_pct,1.7236395465700334,1.0
+222,table LADDER_C,2.55,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/L/t_nw,2.553216562768365,1.0
+223,table LADDER_C,1.012,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/mean_pct,1.012342709345768,1.0
+224,table LADDER_C,2.35,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/t_nw,2.3488823791234252,1.0
+225,table LADDER_C,2.211,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/BM/mean_pct,2.210972806221232,1.0
+226,table LADDER_C,3.15,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/BM/t_nw,3.148981155909983,1.0
+227,table LADDER_C,3.48,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/sd_pct,3.4837693296205985,1.0
+228,table LADDER_C,−18.4,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/max_drawdown_pct,-18.38252843703444,1.0
+229,table LADDER_C,1.564,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/W/mean_pct,1.5639678162484107,1.0
+230,table LADDER_C,1.69,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/W/t_nw,1.688040675897208,1.0
+231,table LADDER_C,1.044,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/L/mean_pct,1.0441716031493287,1.0
+232,table LADDER_C,1.63,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/L/t_nw,1.6343294572198237,1.0
+233,table LADDER_C,0.520,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/mean_pct,0.5197962130990817,1.0
+234,table LADDER_C,1.01,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/t_nw,1.0082316472536337,1.0
+235,table LADDER_C,1.301,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/BM/mean_pct,1.300944976830563,1.0
+236,table LADDER_C,1.83,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/BM/t_nw,1.829776810420703,1.0
+237,table LADDER_C,3.92,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/sd_pct,3.915651645832901,1.0
+238,table LADDER_C,−22.6,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/max_drawdown_pct,-22.593645569506858,1.0
+239,table LADDER_C,1.525,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/W/mean_pct,1.5250648153959516,1.0
+240,table LADDER_C,1.64,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/W/t_nw,1.6449561153623387,1.0
+241,table LADDER_C,1.066,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/L/mean_pct,1.0664423936323395,1.0
+242,table LADDER_C,1.69,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/L/t_nw,1.6875957670204482,1.0
+243,table LADDER_C,0.459,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/mean_pct,0.4586224217636122,1.0
+244,table LADDER_C,0.89,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/t_nw,0.8898078576886111,1.0
+245,table LADDER_C,1.281,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/BM/mean_pct,1.2806639853836432,1.0
+246,table LADDER_C,1.80,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/BM/t_nw,1.8034500872478192,1.0
+247,table LADDER_C,3.93,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/sd_pct,3.9333800669087227,1.0
+248,table LADDER_C,−22.5,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/C/WML/max_drawdown_pct,-22.52635967783776,1.0
+249,table LADDER_C,1.513,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/W/mean_pct,1.5126512728124157,1.0
+250,table LADDER_C,1.72,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/W/t_nw,1.7171123344903245,1.0
+251,table LADDER_C,1.175,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/L/mean_pct,1.1753401212743642,1.0
+252,table LADDER_C,1.88,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/L/t_nw,1.8775393374716887,1.0
+253,table LADDER_C,0.337,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/mean_pct,0.33731115153805163,1.0
+254,table LADDER_C,0.66,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/t_nw,0.6645521547769422,1.0
+255,table LADDER_C,1.295,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/BM/mean_pct,1.294917015197321,1.0
+256,table LADDER_C,1.88,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/BM/t_nw,1.8810523238969277,1.0
+257,table LADDER_C,3.79,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/sd_pct,3.7865811180892837,1.0
+258,table LADDER_C,−20.8,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/WML/max_drawdown_pct,-20.799673297915188,1.0
+259,table TESTS_C,0.0138,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/p_two_sided,0.0138145537831003,1.0
+260,table TESTS_C,+0.224,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/0,0.22405442099209927,1.0
+261,table TESTS_C,+1.126,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/1,1.1260086946233336,1.0
+262,table TESTS_C,+0.6750,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/mean,0.6750315578077164,1.0
+263,table TESTS_C,0.2742,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/se_nw,0.2741746313630631,1.0
+264,table TESTS_C,2.462,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/t,2.4620496595610883,1.0
+265,table TESTS_C,0.0347,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/p_two_sided,0.034748986740391855,1.0
+266,table TESTS_C,+0.109,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/ci90/0,0.10881237636737756,1.0
+267,table TESTS_C,+0.876,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/ci90/1,0.8762806161259948,1.0
+268,table TESTS_C,+0.4925,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/mean,0.4925464962466862,1.0
+269,table TESTS_C,0.2333,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/se_nw,0.23329377981827557,1.0
+270,table TESTS_C,2.111,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/t,2.111271447658638,1.0
+271,table TESTS_C,0.3089,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/p_two_sided,0.3089113846696486,1.0
+272,table TESTS_C,−0.038,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/ci90/0,-0.037716674629114565,1.0
+273,table TESTS_C,+0.160,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/ci90/1,0.16006425730005386,1.0
+274,table TESTS_C,+0.0612,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/mean,0.06117379133546965,1.0
+275,table TESTS_C,0.0601,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/se_nw,0.06012113439410726,1.0
+276,table TESTS_C,1.018,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/B-C/t,1.0175089334552803,1.0
+277,table TESTS_C,0.4166,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/p_two_sided,0.4166333523159689,1.0
+278,table TESTS_C,−0.124,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/ci90/0,-0.12434330327654353,1.0
+279,table TESTS_C,+0.367,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/ci90/1,0.36696584372766455,1.0
+280,table TESTS_C,+0.1213,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/mean,0.12131127022556051,1.0
+281,table TESTS_C,0.1493,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/se_nw,0.14934737625097602,1.0
+282,table TESTS_C,0.812,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/C-D/t,0.8122758716678005,1.0
+283,table TESTS_C,CONFIRMED,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation_status,'CONFIRMED',
+284,table TESTS_C,0.0000056,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/p_one_sided,5.583953150940877e-06,1.0
+285,table TESTS_C,+0.765,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/0,0.7653079384796306,1.0
+286,table TESTS_C,+1.681,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/1,1.6813540277271388,1.0
+287,table TESTS_C,+1.2233,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
+288,table TESTS_C,0.2785,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/se_nw,0.27845823915204043,1.0
+289,table TESTS_C,4.393,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/t,4.393229616148783,1.0
+290,table TESTS_C,0.2532,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/p_one_sided,0.25316848997375496,1.0
+291,table TESTS_C,+0.3373,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/mean_pct,0.33731115153805186,1.0
+292,table TESTS_C,0.5076,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/se_nw_pct,0.5075766425755858,1.0
+293,table TESTS_C,0.665,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/t,0.6645521547769432,1.0
+294,text,+0.6750,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/mean,0.6750315578077164,1.0
+295,text,0.2742,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/se_nw,0.2741746313630631,1.0
+296,text,2.462,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/t,2.4620496595610883,1.0
+297,text,0.0138,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/p_two_sided,0.0138145537831003,1.0
+298,text,+0.224,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/0,0.22405442099209927,1.0
+299,text,+1.126,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1/ci90/1,1.1260086946233336,1.0
+300,text,0.0076,REGISTERED,results/s2_mom_v1/confirmation_results.json,H1_bootstrap/p_two_sided,0.007599240075992401,1.0
+301,text,+1.2233,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
+302,text,0.2785,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/se_nw,0.27845823915204043,1.0
+303,text,4.393,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/t,4.393229616148783,1.0
+304,text,0.0000056,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/p_one_sided,5.583953150940877e-06,1.0
+305,text,+0.765,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/0,0.7653079384796306,1.0
+306,text,+1.681,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/ci90/1,1.6813540277271388,1.0
+307,text,0.337,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/mean_pct,0.33731115153805186,1.0
+308,text,0.665,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/t,0.6645521547769432,1.0
+309,text,0.2532,REGISTERED,results/s2_mom_v1_step_e/step_e_results.json,samples/confirmation/H3/p_one_sided,0.25316848997375496,1.0
+310,text,1.012,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/WML/mean_pct,1.012342709345768,1.0
+311,text,0.520,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/B/WML/mean_pct,0.5197962130990817,1.0
+312,text,+0.493,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/mean,0.4925464962466862,1.0
+313,text,0.0347,REGISTERED,results/s2_mom_v1/confirmation_results.json,step_differences_pct/A-B/p_two_sided,0.034748986740391855,1.0
+314,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
+315,table HALVES,2.309,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/mean_pct,2.308512084636527,1.0
+316,table HALVES,3.75,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/t_nw,3.747806621930159,1.0
+317,table HALVES,0.00018,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/p_two_sided,0.00017838769904894447,1.0
+318,table HALVES,−9.15,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/W/worst_month_pct,-9.14619904272998,1.0
+319,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
+320,table HALVES,1.524,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/mean_pct,1.5237805043367063,1.0
+321,table HALVES,2.17,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/t_nw,2.166434908891426,1.0
+322,table HALVES,0.0303,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/p_two_sided,0.030277968795365564,1.0
+323,table HALVES,−10.70,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/W/worst_month_pct,-10.69825017350949,1.0
+324,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
+325,table HALVES,0.423,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/mean_pct,0.4231771264420256,1.0
+326,table HALVES,0.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/t_nw,0.5763174210883928,1.0
+327,table HALVES,0.5644,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/p_two_sided,0.5644006496895791,1.0
+328,table HALVES,−16.98,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/A/WML/worst_month_pct,-16.976551576362418,1.0
+329,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
+330,table HALVES,0.345,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/mean_pct,0.34520015336710647,1.0
+331,table HALVES,0.47,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/t_nw,0.4732029767576666,1.0
+332,table HALVES,0.6361,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/p_two_sided,0.6360683742357044,1.0
+333,table HALVES,−20.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/worst_month_pct,-20.79794433817225,1.0
+334,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/n,57,1.0
+335,table HALVES,1.141,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/mean_pct,1.1412195804960141,1.0
+336,table HALVES,1.38,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/t_nw,1.3827744443590744,1.0
+337,table HALVES,0.1667,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/p_two_sided,0.1667340372583198,1.0
+338,table HALVES,−11.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/BM/worst_month_pct,-11.58033759158648,1.0
+339,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/n,57,1.0
+340,table HALVES,+0.078,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/mean,0.0779769730749193,1.0
+341,table HALVES,0.27,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/t,0.2665061826240775,1.0
+342,table HALVES,0.7898,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/p_two_sided,0.7898493984911175,1.0
+343,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
+344,table HALVES,2.322,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/mean_pct,2.321595692946062,1.0
+345,table HALVES,2.70,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/t_nw,2.696293309480207,1.0
+346,table HALVES,0.0070,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/p_two_sided,0.007011589664601167,1.0
+347,table HALVES,−27.62,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/W/worst_month_pct,-27.621569955981002,1.0
+348,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
+349,table HALVES,1.953,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/mean_pct,1.9525855226296982,1.0
+350,table HALVES,2.50,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/t_nw,2.5021786051643424,1.0
+351,table HALVES,0.0123,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/p_two_sided,0.012343163830007357,1.0
+352,table HALVES,−25.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/W/worst_month_pct,-25.968820199599257,1.0
+353,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
+354,table HALVES,1.309,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/mean_pct,1.3088929257792021,1.0
+355,table HALVES,2.14,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/t_nw,2.1357550477119362,1.0
+356,table HALVES,0.0327,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/p_two_sided,0.0326993849085678,1.0
+357,table HALVES,−12.99,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/A/WML/worst_month_pct,-12.99077090148843,1.0
+358,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
+359,table HALVES,1.504,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/mean_pct,1.5043126026700546,1.0
+360,table HALVES,2.59,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/t_nw,2.58615743663165,1.0
+361,table HALVES,0.0097,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/p_two_sided,0.009705258930578642,1.0
+362,table HALVES,−10.82,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/worst_month_pct,-10.81916165616438,1.0
+363,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/n,57,1.0
+364,table HALVES,1.214,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/mean_pct,1.2143553935450064,1.0
+365,table HALVES,1.41,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/t_nw,1.4068017051729984,1.0
+366,table HALVES,0.1595,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/p_two_sided,0.1594861968160296,1.0
+367,table HALVES,−28.31,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/BM/worst_month_pct,-28.31108478386192,1.0
+368,table HALVES,57,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/n,57,1.0
+369,table HALVES,−0.195,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/mean,-0.1954196768908527,1.0
+370,table HALVES,−0.60,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/t,-0.6027041253980704,1.0
+371,table HALVES,0.5467,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/p_two_sided,0.5467055366613505,1.0
+372,text,0.345,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/mean_pct,0.34520015336710647,1.0
+373,text,0.636,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/ladder/D/WML/p_two_sided,0.6360683742357044,1.0
+374,text,1.504,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/mean_pct,1.5043126026700546,1.0
+375,text,0.010,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/ladder/D/WML/p_two_sided,0.009705258930578642,1.0
+376,text,+0.078,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/delta/mean,0.0779769730749193,1.0
+377,text,−0.195,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/delta/mean,-0.1954196768908527,1.0
+378,text,−0.293,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/step_differences_pct/C-D/mean,-0.29253841335399106,1.0
+379,text,−3.37,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_1/step_differences_pct/C-D/t,-3.369696698004492,1.0
+380,text,+0.045,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary_half_2/step_differences_pct/C-D/mean,0.04456084608752748,1.0
+381,text,+0.183,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/mean,0.1829854889395518,1.0
+382,text,0.3026,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/p_two_sided,0.3026020507461079,1.0
+383,text,0.731,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/mean_pct,0.7312450092955828,1.0
+384,text,2.04,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/t_nw,2.037769623620005,1.0
+385,text,−0.81,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/skewness,-0.8111038555990769,1.0
+386,text,−1.24,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/skewness,-1.237712373034387,1.0
+387,text,0.25,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/skewness,0.2457667904932004,1.0
+388,text,2014-05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month,'2014-05',
+389,text,−20.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month_pct,-20.79794433817225,1.0
+390,text,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month,'2020-03',
+391,text,−25.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month_pct,-25.968820199599257,1.0
+392,text,−38.0,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/WML/max_drawdown_pct,-38.00708643220091,1.0
+393,text,2.315,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/W/mean_pct,2.3150538887912955,1.0
+394,text,1.738,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/W/mean_pct,1.7381830134832033,1.0
+395,text,1.449,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/L/mean_pct,1.4490188626806801,1.0
+396,text,0.813,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/L/mean_pct,0.813426635464622,1.0
+397,text,1.754,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/A/BM/mean_pct,1.7544449495324674,1.0
+398,text,1.178,REGISTERED,results/s2_mom_v1/primary_results.json,ladder/D/BM/mean_pct,1.1777874870205116,1.0
+399,text,2.736,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/W/mean_pct,2.7359822559158014,1.0
+400,text,1.513,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/W/mean_pct,1.5126512728124157,1.0
+401,text,1.724,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/A/L/mean_pct,1.7236395465700334,1.0
+402,text,1.175,REGISTERED,results/s2_mom_v1/confirmation_results.json,ladder/D/L/mean_pct,1.1753401212743642,1.0
+403,text,0.59,REGISTERED,results/s2_mom_v1/blinded_precision.json,detectable_effect_80pct_two_sided_5pct,0.5906507070303696,1.0
+404,text,20261005,REGISTERED,results/s2_mom_v1/primary_results.json,H1_bootstrap/seed,20261005,1.0
+405,text,0.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/primary/mean,0.5768708753080923,1.0
+406,text,1.22,REGISTERED,results/s2_mom_v1_c2/c2_results.json,H2d/confirmation/mean,1.2233309831033847,1.0
+407,table SENS,−0.0587,REGISTERED,results/s2_mom_v1/primary_results.json,H1/mean,-0.05872135190796623,1.0
+408,table SENS,0.2108,REGISTERED,results/s2_mom_v1/primary_results.json,H1/se_nw,0.2108273213363852,1.0
+409,table SENS,−0.279,REGISTERED,results/s2_mom_v1/primary_results.json,H1/t,-0.27852818854665173,1.0
+410,table SENS,0.7806,REGISTERED,results/s2_mom_v1/primary_results.json,H1/p_two_sided,0.7806069294554356,1.0
+411,table SENS,+0.0458,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/mean,0.04576270431310536,1.0
+412,table SENS,0.1988,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/se_nw,0.19876790981070674,1.0
+413,table SENS,0.230,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/t,0.23023185360598045,1.0
+414,table SENS,0.8179,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_SPAN/H1/p_two_sided,0.8179116110141823,1.0
+415,table SENS,−0.0070,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/mean,-0.0070163706134618075,1.0
+416,table SENS,0.2167,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/se_nw,0.21673710455804807,1.0
+417,table SENS,−0.032,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/t,-0.03237272467844855,1.0
+418,table SENS,0.9742,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_GAP/H1/p_two_sided,0.9741748136371033,1.0
+419,table SENS,−0.0594,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/mean,-0.0594059493697199,1.0
+420,table SENS,0.2184,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/se_nw,0.21841779554562119,1.0
+421,table SENS,−0.272,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/t,-0.27198310110822316,1.0
+422,table SENS,0.7856,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_RAW/H1/p_two_sided,0.7856350130757181,1.0
+423,table SENS,−0.0568,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/mean,-0.05681041627174225,1.0
+424,table SENS,0.2113,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/se_nw,0.2112929215306259,1.0
+425,table SENS,−0.269,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/t,-0.2688704186595662,1.0
+426,table SENS,0.7880,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_MISS_ZERO/H1/p_two_sided,0.7880294014808804,1.0
+427,table SENS,−0.0760,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/mean,-0.07603927469030801,1.0
+428,table SENS,0.2105,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/se_nw,0.21051657176050625,1.0
+429,table SENS,−0.361,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/t,-0.3612032727609394,1.0
+430,table SENS,0.7179,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_ZERO/H1/p_two_sided,0.7179474957539982,1.0
+431,table SENS,−0.0183,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/mean,-0.018312865415835742,1.0
+432,table SENS,0.2165,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/se_nw,0.21652515168429792,1.0
+433,table SENS,−0.085,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/t,-0.0845761578892073,1.0
+434,table SENS,0.9326,REGISTERED,results/s2_mom_v1/sensitivity_results.json,sensitivity/R_DELIST_MINUS100/H1/p_two_sided,0.9325983543861489,1.0
+435,table REVERSE,+0.0626,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/mean,0.06260948690314344,1.0
+436,table REVERSE,0.1251,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/se_nw,0.12514345308474495,1.0
+437,table REVERSE,0.500,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/t,0.5003017366057927,1.0
+438,table REVERSE,0.6169,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/p_two_sided,0.6168626314878513,1.0
+439,table REVERSE,−0.143,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/ci90/0,-0.14323317579253067,1.0
+440,table REVERSE,+0.268,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_POOL/ci90/1,0.2684521495988176,1.0
+441,table REVERSE,−0.1240,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/mean,-0.1239887836332319,1.0
+442,table REVERSE,0.1001,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/se_nw,0.10009034416794128,1.0
+443,table REVERSE,−1.239,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/t,-1.238768681074685,1.0
+444,table REVERSE,0.2154,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/p_two_sided,0.21543117544511858,1.0
+445,table REVERSE,−0.289,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/ci90/0,-0.2886227492606912,1.0
+446,table REVERSE,+0.041,REGISTERED,results/s2_mom_v1/sensitivity_results.json,reverse_ladder/R_RETURNS/ci90/1,0.040645181994227425,1.0
+447,table POOLED,2.454,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/W/mean_pct,2.4537126450205426,1.0
+448,table POOLED,5.36,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/W/t_nw,5.356358574773621,1.0
+449,table POOLED,1.539,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/L/mean_pct,1.5394821467854078,1.0
+450,table POOLED,2.64,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/L/t_nw,2.6420843939086143,1.0
+451,table POOLED,0.914,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/WML/mean_pct,0.9142304982351344,1.0
+452,table POOLED,2.60,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/WML/t_nw,2.6033844790009737,1.0
+453,table POOLED,1.905,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/BM/mean_pct,1.904830596441706,1.0
+454,table POOLED,4.04,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/A/BM/t_nw,4.03615875541501,1.0
+455,table POOLED,1.797,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/W/mean_pct,1.7973648987515831,1.0
+456,table POOLED,3.69,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/W/t_nw,3.6893464354691425,1.0
+457,table POOLED,1.088,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/L/mean_pct,1.0883453988662553,1.0
+458,table POOLED,1.87,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/L/t_nw,1.8674001738093993,1.0
+459,table POOLED,0.709,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/WML/mean_pct,0.7090194998853276,1.0
+460,table POOLED,1.95,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/WML/t_nw,1.9535903632966902,1.0
+461,table POOLED,1.340,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/BM/mean_pct,1.3398829944619846,1.0
+462,table POOLED,2.85,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/B/BM/t_nw,2.852478623966522,1.0
+463,table POOLED,1.607,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/W/mean_pct,1.6072979497067816,1.0
+464,table POOLED,3.35,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/W/t_nw,3.346380590233326,1.0
+465,table POOLED,0.919,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/L/mean_pct,0.9192370004203582,1.0
+466,table POOLED,1.51,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/L/t_nw,1.5083139377777748,1.0
+467,table POOLED,0.688,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/WML/mean_pct,0.6880609492864235,1.0
+468,table POOLED,1.78,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/WML/t_nw,1.7768360346125225,1.0
+469,table POOLED,1.181,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/BM/mean_pct,1.1812113116463998,1.0
+470,table POOLED,2.47,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/C/BM/t_nw,2.4653789076992814,1.0
+471,table POOLED,1.664,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/W/mean_pct,1.6638902047916488,1.0
+472,table POOLED,3.58,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/W/t_nw,3.576708297629118,1.0
+473,table POOLED,0.933,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/L/mean_pct,0.9326451954960653,1.0
+474,table POOLED,1.60,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/L/t_nw,1.6030755353082924,1.0
+475,table POOLED,0.731,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/mean_pct,0.7312450092955828,1.0
+476,table POOLED,2.04,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/WML/t_nw,2.037769623620005,1.0
+477,table POOLED,1.216,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/BM/mean_pct,1.2163713315964007,1.0
+478,table POOLED,2.66,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/ladder/D/BM/t_nw,2.658576204788115,1.0
+479,table POOLED,+0.1830,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/mean,0.1829854889395518,1.0
+480,table POOLED,0.1775,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/se_nw,0.17750597932628365,1.0
+481,table POOLED,1.031,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/t,1.0308694368159619,1.0
+482,table POOLED,0.3026,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/p_two_sided,0.3026020507461079,1.0
+483,table POOLED,−0.109,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/ci90/0,-0.10898586496085888,1.0
+484,table POOLED,+0.475,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/ci90/1,0.4749568428399625,1.0
+485,table POOLED,170,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/delta/n,170,1.0
+486,table POOLED,4,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/pooled/lag,4,1.0
+487,table SHAPE,2.315,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/mean_pct,2.315053888791294,1.0
+488,table SHAPE,5.44,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/sd_pct,5.444627989848283,1.0
+489,table SHAPE,−1.65,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/skewness,-1.651982662285505,1.0
+490,table SHAPE,−27.62,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/worst_month_pct,-27.621569955981002,1.0
+491,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/W/worst_month,'2020-03',
+492,table SHAPE,1.449,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/mean_pct,1.4490188626806801,1.0
+493,table SHAPE,8.10,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/sd_pct,8.098574512982632,1.0
+494,table SHAPE,0.12,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/skewness,0.11855098436466696,1.0
+495,table SHAPE,−29.94,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/worst_month_pct,-29.93668934522128,1.0
+496,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/L/worst_month,'2020-03',
+497,table SHAPE,0.866,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/mean_pct,0.8660350261106138,1.0
+498,table SHAPE,5.46,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/sd_pct,5.457778953105873,1.0
+499,table SHAPE,−0.74,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/skewness,-0.7360335067587076,1.0
+500,table SHAPE,−16.98,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/worst_month_pct,-16.976551576362418,1.0
+501,table SHAPE,2014-05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/WML/worst_month,'2014-05',
+502,table SHAPE,1.754,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/mean_pct,1.7544449495324659,1.0
+503,table SHAPE,6.08,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/sd_pct,6.075357104076928,1.0
+504,table SHAPE,−0.81,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/skewness,-0.8124275114651272,1.0
+505,table SHAPE,−27.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/worst_month_pct,-27.968155555697187,1.0
+506,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/A/BM/worst_month,'2020-03',
+507,table SHAPE,1.738,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/mean_pct,1.738183013483202,1.0
+508,table SHAPE,5.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/sd_pct,5.800408940147757,1.0
+509,table SHAPE,−1.24,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/skewness,-1.237712373034387,1.0
+510,table SHAPE,−25.97,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month_pct,-25.968820199599257,1.0
+511,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/W/worst_month,'2020-03',
+512,table SHAPE,0.813,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/mean_pct,0.813426635464621,1.0
+513,table SHAPE,8.69,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/sd_pct,8.688941006777153,1.0
+514,table SHAPE,−0.17,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/skewness,-0.17196931806499507,1.0
+515,table SHAPE,−35.15,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/worst_month_pct,-35.146480203783106,1.0
+516,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/L/worst_month,'2020-03',
+517,table SHAPE,0.925,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/mean_pct,0.9247563780185803,1.0
+518,table SHAPE,5.33,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/sd_pct,5.327111219155792,1.0
+519,table SHAPE,−0.81,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/skewness,-0.8111038555990769,1.0
+520,table SHAPE,−20.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month_pct,-20.79794433817225,1.0
+521,table SHAPE,2014-05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/WML/worst_month,'2014-05',
+522,table SHAPE,1.178,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/mean_pct,1.1777874870205103,1.0
+523,table SHAPE,6.40,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/sd_pct,6.402281085182677,1.0
+524,table SHAPE,−0.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/skewness,-0.7992546319303101,1.0
+525,table SHAPE,−28.31,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/worst_month_pct,-28.31108478386192,1.0
+526,table SHAPE,2020-03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/primary/ladder/D/BM/worst_month,'2020-03',
+527,table SHAPE,2.736,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/mean_pct,2.7359822559157996,1.0
+528,table SHAPE,5.70,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/sd_pct,5.699147945660364,1.0
+529,table SHAPE,−0.65,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/skewness,-0.6491501495792565,1.0
+530,table SHAPE,−14.22,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/worst_month_pct,-14.22272294503188,1.0
+531,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/W/worst_month,'2025-01',
+532,table SHAPE,1.724,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/mean_pct,1.7236395465700325,1.0
+533,table SHAPE,5.29,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/sd_pct,5.290175506607802,1.0
+534,table SHAPE,0.00,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/skewness,0.003742834183639544,1.0
+535,table SHAPE,−9.26,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/worst_month_pct,-9.261561201531569,1.0
+536,table SHAPE,2022-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/L/worst_month,'2022-02',
+537,table SHAPE,1.012,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/mean_pct,1.0123427093457662,1.0
+538,table SHAPE,3.48,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/sd_pct,3.4837693296205954,1.0
+539,table SHAPE,−0.80,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/skewness,-0.7985507261316299,1.0
+540,table SHAPE,−12.94,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/worst_month_pct,-12.935452220560459,1.0
+541,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/WML/worst_month,'2025-01',
+542,table SHAPE,2.211,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/mean_pct,2.2109728062212297,1.0
+543,table SHAPE,5.01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/sd_pct,5.006104939728781,1.0
+544,table SHAPE,−0.20,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/skewness,-0.19558214002309357,1.0
+545,table SHAPE,−8.33,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/worst_month_pct,-8.32671779608981,1.0
+546,table SHAPE,2025-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/A/BM/worst_month,'2025-02',
+547,table SHAPE,1.513,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/mean_pct,1.5126512728124144,1.0
+548,table SHAPE,6.14,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/sd_pct,6.142273980739065,1.0
+549,table SHAPE,−0.05,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/skewness,-0.045284548962288555,1.0
+550,table SHAPE,−11.77,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/worst_month_pct,-11.76783675152046,1.0
+551,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/W/worst_month,'2025-01',
+552,table SHAPE,1.175,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/mean_pct,1.175340121274363,1.0
+553,table SHAPE,4.98,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/sd_pct,4.979704567234467,1.0
+554,table SHAPE,−0.06,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/skewness,-0.057592758509391356,1.0
+555,table SHAPE,−9.00,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/worst_month_pct,-8.99690654270207,1.0
+556,table SHAPE,2022-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/L/worst_month,'2022-02',
+557,table SHAPE,0.337,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/mean_pct,0.33731115153805186,1.0
+558,table SHAPE,3.79,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/sd_pct,3.7865811180892806,1.0
+559,table SHAPE,0.25,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/skewness,0.2457667904932004,1.0
+560,table SHAPE,−10.92,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/worst_month_pct,-10.91676063151192,1.0
+561,table SHAPE,2025-01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/WML/worst_month,'2025-01',
+562,table SHAPE,1.295,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/mean_pct,1.2949170151973202,1.0
+563,table SHAPE,5.07,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/sd_pct,5.071891015587598,1.0
+564,table SHAPE,−0.01,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/skewness,-0.0068791758867108085,1.0
+565,table SHAPE,−9.03,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/worst_month_pct,-9.03000620792816,1.0
+566,table SHAPE,2025-02,REGISTERED,results/s2_mom_v1_c2/c2_results.json,blocks/confirmation/ladder/D/BM/worst_month,'2025-02',

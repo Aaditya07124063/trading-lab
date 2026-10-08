@@ -44,6 +44,8 @@ PASS  no unfilled placeholder
 PASS  hash matches registered: docs/research/phase3a_momentum_protocol.md
 PASS  hash matches registered: docs/research/phase3a_momentum_protocol_addendum1_costs.md
 PASS  hash matches registered: docs/research/phase3a_momentum_protocol_addendum1_supplement1.md
+PASS  hash matches registered: docs/research/phase3a_momentum_protocol_addendum1_supplement2.md
+PASS  hash matches registered: docs/research/phase3a_momentum_protocol_addendum1_supplement3.md
 PASS  hash matches registered: docs/research/phase3a_momentum_protocol_addendum1_supplement4.md
 PASS  hash matches registered: docs/research/s2_mom_v1_c2_analysis_spec.md
 PASS  hash matches registered: config/cost_schedules/delivery_nse_eq_s2mom_v1_dated.json
@@ -692,10 +694,11 @@ PASS  audited value #562 present
 PASS  audited value #563 present
 PASS  audited value #564 present
 PASS  audited value #565 present
+PASS  audited value #566 present
 PASS  figure referenced: fig1_ladder_gross.png
 PASS  figure referenced: fig2_cost_sensitivity.png
 PASS  figure referenced: fig3_delta_primary_vs_confirmation.png
 PASS  figure referenced: fig4_primary_halves.png
 PASS  figure referenced: fig5_cumulative_differences.png
 
-699 checks passed
+702 checks passed
